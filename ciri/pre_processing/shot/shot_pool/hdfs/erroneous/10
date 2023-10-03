@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.http.policy</name>
+  <value>uiuc</value>
+  <description>Decide if HTTPS(SSL) is supported on HDFS
+    This configures the HTTP endpoint for HDFS daemons:
+      The following values are supported:
+      - HTTP_ONLY : Service is provided only on http
+      - HTTPS_ONLY : Service is provided only on https
+      - HTTP_AND_HTTPS : Service is provided both on http and https
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.backup.http-address</name>
+  <value>0.0.0.0:3000</value>
+  <description>
+    The backup node http server address and port.
+    If the port is 0 then the server will start on a free port.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.fs-limits.max-blocks-per-file</name>
+  <value>10000</value>
+    <description>Maximum number of blocks per file, enforced by the Namenode on
+        write. This prevents the creation of extremely large files which can
+        degrade performance.</description>
+</property>
+
+<property>
+  <name>dfs.namenode.lazypersist.file.scrub.interval.sec</name>
+  <value>600</value>
+  <description>
+    The NameNode periodically scans the namespace for LazyPersist files with
+    missing blocks and unlinks them from the namespace. This configuration key
+    controls the interval between successive scans. If this value is set to 0,
+    the file scrubber is disabled.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.delegation.token.max-lifetime</name>
+  <value>1209600000</value>
+  <description>The maximum lifetime in milliseconds for which a delegation 
+      token is valid.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.mmap.cache.size</name>
+  <value>128</value>
+  <description>
+    When zero-copy reads are used, the DFSClient keeps a cache of recently used
+    memory mapped regions.  This parameter controls the maximum number of
+    entries that we will keep in that cache.
+
+    The larger this number is, the more file descriptors we will potentially
+    use for memory-mapped files.  mmaped files also use virtual address space.
+    You may need to increase your ulimit virtual address space limits before
+    increasing the client mmap cache size.
+
+    Note that you can still do zero-copy reads when this size is set to 0.
+  </description>
+</property>
+
+<property>
+  <name>dfs.quota.by.storage.type.enabled</name>
+  <value>false</value>
+  <description>
+    If true, enables quotas based on storage type.
+  </description>
+</property>
+
+<property>
+  <name>dfs.provided.aliasmap.inmemory.enabled</name>
+  <value>true</value>
+    <description>
+      Don't use the aliasmap by default. Some tests will fail
+      because they try to start the namenode twice with the
+      same parameters if you turn it on.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HDFS version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["dfs.http.policy"],
+    "reason": ["The property 'dfs.http.policy' has the value 'uiuc' which is not within the accepted value {HTTP_ONLY,HTTPS_ONLY,HTTP_AND_HTTPS}."]
+}
+```

@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hbase.master.port</name>
+  <value>3001</value>
+    <description>The port the HBase Master should bind to.</description>
+</property>
+
+<property>
+  <name>hbase.master.info.bindAddress</name>
+  <value>256.0.0.0</value>
+    <description>The bind address for the HBase Master web UI
+    </description>
+</property>
+
+<property>
+  <name>hbase.client.pause.cqtbe</name>
+  <value></value>
+    <description>Whether or not to use a special client pause for
+    CallQueueTooBigException (cqtbe). Set this property to a higher value
+    than hbase.client.pause if you observe frequent CQTBE from the same
+    RegionServer and the call queue there keeps full</description>
+</property>
+
+<property>
+  <name>hbase.server.thread.wakefrequency</name>
+  <value>5000</value>
+    <description>Time to sleep in between searches for work (in milliseconds).
+    Used as sleep interval by service threads such as log roller.</description>
+</property>
+
+<property>
+  <name>hbase.hstore.compaction.min.size</name>
+  <value>67108864</value>
+    <description>A StoreFile (or a selection of StoreFiles, when using ExploringCompactionPolicy)
+      smaller than this size will always be eligible for minor compaction.
+      HFiles this size or larger are evaluated by hbase.hstore.compaction.ratio to determine if
+      they are eligible. Because this limit represents the "automatic include" limit for all
+      StoreFiles smaller than this value, this value may need to be reduced in write-heavy
+      environments where many StoreFiles in the 1-2 MB range are being flushed, because every
+      StoreFile will be targeted for compaction and the resulting StoreFiles may still be under the
+      minimum size and require further compaction. If this parameter is lowered, the ratio check is
+      triggered more quickly. This addressed some issues seen in earlier versions of HBase but
+      changing this parameter is no longer necessary in most situations. Default: 128 MB expressed
+      in bytes.</description>
+</property>
+
+<property>
+  <name>hbase.bucketcache.bucket.sizes</name>
+  <value></value>
+    <description>A comma-separated list of sizes for buckets for the bucketcache.
+    Can be multiple sizes. List block sizes in order from smallest to largest.
+    The sizes you use will depend on your data access patterns.
+    Must be a multiple of 256 else you will run into
+    'java.io.IOException: Invalid HFile block magic' when you go to read from cache.
+    If you specify no values here, then you pick up the default bucketsizes set
+    in code (See BucketAllocator#DEFAULT_BUCKET_SIZES).
+  </description>
+</property>
+
+<property>
+  <name>hbase.auth.token.max.lifetime</name>
+  <value>302400000</value>
+    <description>The maximum lifetime in milliseconds after which an
+    authentication token expires.  Only used when HBase security is enabled.</description>
+</property>
+
+<property>
+  <name>hbase.snapshot.region.timeout</name>
+  <value>150000</value>
+    <description>
+       Timeout for regionservers to keep threads in snapshot request pool waiting.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HBase version 2.2.7? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["hbase.master.info.bindAddress"],
+    "reason": ["The property 'hbase.master.info.bindAddress' has the value '256.0.0.0' which is out of the valid range of an IP address."]
+}
+```

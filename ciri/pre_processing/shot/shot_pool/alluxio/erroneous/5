@@ -1,0 +1,40 @@
+alluxio.job.master.embedded.journal.port=hadoop
+# Description: The port job masters use for embedded journal communications.
+
+alluxio.table.catalog.path=/valid/file2
+# Description: The Alluxio file path for the table catalog metadata.
+
+alluxio.fuse.logging.threshold=20s
+# Description: Logging a FUSE API call when it takes more time than the threshold.
+
+alluxio.master.file.access.time.update.precision=2d
+# Description: The file last access time is precise up to this value. Setting it toa non-positive value will update last access time on every file access operation.Longer precision will help reduce the performance impact of tracking access time by reduce the amount of metadata writes occur while reading the same group of files repetitively.
+
+alluxio.worker.tieredstore.level2.watermark.high.ratio=0.95
+# Description: The high watermark of the space in the third storage tier (a value between 0 and 1).
+
+alluxio.master.journal.folder=/valid/file2
+# Description: The path to store master journal logs. When using the UFS journal this could be a URI like hdfs://namenode:port/alluxio/journal. When using the embedded journal this must be a local path
+
+alluxio.underfs.s3.max.error.retry=
+# Description: The maximum number of retry attempts for failed retryable requests.Setting this property will override the AWS SDK default.
+
+alluxio.job.worker.threadpool.size=20
+# Description: Number of threads in the thread pool for job worker. This may be adjusted to a lower value to alleviate resource saturation on the job worker nodes (CPU + IO).
+
+
+Question: Are there any mistakes in the above configuration file for Alluxio version 2.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["alluxio.job.master.embedded.journal.port"],
+    "reason": ["The property 'alluxio.job.master.embedded.journal.port' has the value 'hadoop' which does not follow the correct port format."]
+}
+```

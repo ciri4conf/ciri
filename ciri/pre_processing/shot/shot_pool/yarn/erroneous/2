@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.bind-host</name>
+  <value></value>
+    <description>
+      The actual address the server will bind to. If this optional address is
+      set, the RPC and webapp servers will bind to this address and the port specified in
+      yarn.resourcemanager.address and yarn.resourcemanager.webapp.address, respectively. This
+      is most useful for making RM listen to all interfaces by setting to 0.0.0.0.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.rm.container-allocation.expiry-interval-ms</name>
+  <value>1200000</value>
+    <description>
+    The expiry interval for a container
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.env-whitelist</name>
+  <value>HADOOP_COMMON_HOME</value>
+    <description>Environment variables that containers may override rather than use NodeManager's default.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.log-container-debug-info.enabled</name>
+  <value>true</value>
+    <description>Generate additional logs about container launches.
+    Currently, this creates a copy of the launch script and lists the
+    directory contents of the container work dir. When listing directory
+    contents, we follow symlinks to a max-depth of 5(including symlinks
+    which point to outside the container work dir) which may lead to a
+    slowness in launching containers.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.pmem-check-enabled</name>
+  <value>false</value>
+    <description>Whether physical memory limits will be enforced for
+    containers.</description>
+</property>
+
+<property>
+  <name>yarn.sharedcache.root-dir</name>
+  <value>/tmp//hadoop-ciri</value>
+    <description>The root directory for the shared cache</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.node-labels.provider</name>
+  <value></value>
+    <description>
+    When node labels "yarn.node-labels.configuration-type" is
+    of type "delegated-centralized", administrators should configure
+    the class for fetching node labels by ResourceManager. Configured
+    class needs to extend
+    org.apache.hadoop.yarn.server.resourcemanager.nodelabels.
+    RMNodeLabelsMappingProvider.
+    </description>
+</property>
+
+<property>
+  <name>yarn.scheduler.configuration.leveldb-store.compaction-interval-secs</name>
+  <value>43200</value>
+    <description>
+      The compaction interval for LevelDB configuration store in secs,
+      when yarn.scheduler.configuration.store.class is configured to be
+      "leveldb". Default is one day.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for YARN version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["yarn.sharedcache.root-dir"],
+    "reason": ["The property 'yarn.sharedcache.root-dir' has the value '/tmp//hadoop-ciri' which does not follow the correct path format."]
+}
+```

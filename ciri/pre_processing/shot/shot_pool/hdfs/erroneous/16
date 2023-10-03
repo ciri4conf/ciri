@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.namenode.replication.interval</name>
+  <value>3</value>
+  <description>The periodicity in seconds with which the namenode computes 
+  replication work for datanodes. </description>
+</property>
+
+<property>
+  <name>dfs.namenode.delegation.token.max-lifetime</name>
+  <value>302400000</value>
+  <description>The maximum lifetime in milliseconds for which a delegation 
+      token is valid.
+  </description>
+</property>
+
+<property>
+  <name>dfs.datanode.kerberos.principal</name>
+  <value></value>
+  <description>
+    The DataNode service principal. This is typically set to
+    dn/_HOST@REALM.TLD. Each DataNode will substitute _HOST with its
+    own fully qualified hostname at startup. The _HOST placeholder
+    allows using the same configuration setting on all DataNodes.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.inotify.max.events.per.rpc</name>
+  <value>2000</value>
+  <description>Maximum number of events that will be sent to an inotify client
+    in a single RPC response. The default value attempts to amortize away
+    the overhead for this RPC while avoiding huge memory requirements for the
+    client and NameNode (1000 events should consume no more than 1 MB.)
+  </description>
+</property>
+
+<property>
+  <name>datanode.https.port</name>
+  <value>50475</value>
+  <description>
+    HTTPS port for DataNode.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.inode.attributes.provider.class</name>
+  <value></value>
+  <description>
+    Name of class to use for delegating HDFS authorization.
+  </description>
+</property>
+
+<property>
+  <name>dfs.use.dfs.network.topology</name>
+  <value>false</value>
+    <description>
+      Enables DFSNetworkTopology to choose nodes for placing replicas.
+      When enabled, NetworkTopology will be instantiated as class defined in
+      property dfs.net.topology.impl, otherwise NetworkTopology will be
+      instantiated as class defined in property net.topology.impl.
+    </description>
+</property>
+
+<property>
+  <name>dfs.qjm.operations.timeout</name>
+  <value>60s</value>
+    <description>
+      Common key to set timeout for related operations in
+      QuorumJournalManager. This setting supports multiple time unit suffixes
+      as described in dfs.heartbeat.interval.
+      If no suffix is specified then milliseconds is assumed.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HDFS version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["dfs.namenode.replication.interval"],
+    "reason": ["The property 'dfs.namenode.replication.interval' was removed in the pervious version and is not used in the current version."]
+}
+```

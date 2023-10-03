@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hadoop.security.group.mapping.ldap.bind.password</name>
+  <value></value>
+  <description>
+    The password of the bind user. this property name is used as an
+    alias to get the password from credential providers. If the password can
+    not be found and hadoop.security.credential.clear-text-fallback is true
+    LDAPGroupsMapping uses the value of this property for password.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.security.group.mapping.ldap.search.filter.group</name>
+  <value>samgroup</value>
+  <description>
+    An additional filter to use when searching for LDAP groups. This should be
+    changed when resolving groups against a non-Active Directory installation.
+
+    See the description of hadoop.security.group.mapping.ldap.search.filter.user
+    to enable posixGroups support.
+  </description>
+</property>
+
+<property>
+  <name>fs.protected.directories</name>
+  <value></value>
+  <description>A comma-separated list of directories which cannot
+    be deleted or renamed even by the superuser unless they are empty. This
+    setting can be used to guard important system directories
+    against accidental deletion due to administrator error.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.assumed.role.sts.endpoint.region</name>
+  <value></value>
+  <description>
+    AWS Security Token Service Endpoint's region;
+    Needed if fs.s3a.assumed.role.sts.endpoint points to an endpoint
+    other than the default one and the v4 signature is used.
+    Used by the AssumedRoleCredentialProvider and in Session and Role delegation
+    tokens.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.select.output.csv.quote.character</name>
+  <value>"</value>
+  <description>
+    In S3 Select queries: the quote character for generated CSV Files.
+  </description>
+</property>
+
+<property>
+  <name>ha.health-monitor.rpc.connect.max.retries</name>
+  <value>0</value>
+  <description>
+    The number of retries on connect error when establishing RPC proxy
+    connection to NameNode, used for monitorHealth() calls.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.registry.system.acls</name>
+  <value>sasl:yarn@, sasl:mapred@, sasl:hdfs@</value>
+    <description>
+      A comma separated list of Zookeeper ACL identifiers with
+      system access to the registry in a secure cluster.
+
+      These are given full access to all entries.
+
+      If there is an "@" at the end of a SASL entry it
+      instructs the registry client to append the default kerberos domain.
+    </description>
+</property>
+
+<property>
+  <name>fs.AbstractFileSystem.adl.impl</name>
+  <value>org.apache.hadoop.fs.adl.Adl</value>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HCommon version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

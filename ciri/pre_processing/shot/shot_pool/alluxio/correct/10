@@ -1,0 +1,40 @@
+alluxio.zookeeper.leader.inquiry.retry=20
+# Description: The number of retries to inquire leader from ZooKeeper.
+
+alluxio.user.network.streaming.netty.channel=EPOLL
+# Description: Type of netty channels used by streaming connections. If EPOLL is not available, this will automatically fall back to NIO.
+
+alluxio.master.journal.type=EMBEDDED
+# Description: The type of journal to use. Valid options are UFS (store journal in UFS), EMBEDDED (use a journal embedded in the masters), and NOOP (do not use a journal)
+
+alluxio.master.mount.table.root.option=
+# Description: Configuration for the UFS of Alluxio root mount point.
+
+alluxio.user.rpc.retry.max.duration=2min
+# Description: Alluxio client RPCs automatically retry for transient errors with an exponential backoff. This property determines the maximum duration to retry for before giving up. Note that, this value is set to 5s for fs and fsadmin CLIs.
+
+alluxio.master.metastore.inode.inherit.owner.and.group=false
+# Description: Whether to inherit the owner/group from the parent when creating a new inode path if empty
+
+alluxio.master.ufs.path.cache.threads=128
+# Description: The maximum size of the thread pool for asynchronously processing paths for the UFS path cache. Greater number of threads will decrease the amount of staleness in the async cache, but may impact performance. If this is set to 0, the cache will be disabled, and `alluxio.user.file.metadata.load.type=ONCE` will behave like `ALWAYS`.
+
+alluxio.worker.principal=
+# Description: Kerberos principal for Alluxio worker.
+
+
+Question: Are there any mistakes in the above configuration file for Alluxio version 2.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

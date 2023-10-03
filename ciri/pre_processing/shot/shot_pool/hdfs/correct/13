@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.namenode.lifeline.handler.count</name>
+  <value></value>
+  <description>
+    Sets an absolute number of RPC server threads the NameNode runs for handling
+    the DataNode Lifeline Protocol and HA health check requests from ZKFC.  If
+    this property is defined, then it overrides the behavior of
+    dfs.namenode.lifeline.handler.ratio.  By default, it is not defined.  This
+    property has no effect if dfs.namenode.lifeline.rpc-address is not defined.
+  </description>
+</property>
+
+<property>
+  <name>dfs.image.compression.codec</name>
+  <value>org.apache.hadoop.io.compress.DefaultCodec</value>
+  <description>If the dfs image is compressed, how should they be compressed?
+               This has to be a codec defined in io.compression.codecs.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.caching.enabled</name>
+  <value>false</value>
+  <description>
+    Set to true to enable block caching.  This flag enables the NameNode to
+    maintain a mapping of cached blocks to DataNodes via processing DataNode
+    cache reports.  Based on these reports and addition and removal of caching
+    directives, the NameNode will schedule caching and uncaching work.
+  </description>
+</property>
+
+<property>
+  <name>dfs.datanode.processcommands.threshold</name>
+  <value>2s</value>
+    <description>The threshold in milliseconds at which we will log a slow
+      command processing in BPServiceActor. By default, this parameter is set
+      to 2 seconds.
+    </description>
+</property>
+
+<property>
+  <name>dfs.block.invalidate.limit</name>
+  <value>500</value>
+  <description>
+    The maximum number of invalidate blocks sent by namenode to a datanode
+    per heartbeat deletion command. This property works with
+    "dfs.namenode.invalidate.work.pct.per.iteration" to throttle block
+    deletions.
+  </description>
+</property>
+
+<property>
+  <name>dfs.mover.keytab.enabled</name>
+  <value>true</value>
+  <description>
+    Set to true to enable login using a keytab for Kerberized Hadoop.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.file.close.num-committed-allowed</name>
+  <value>1</value>
+  <description>
+    Normally a file can only be closed with all its blocks are committed.
+    When this value is set to a positive integer N, a file can be closed
+    when N blocks are committed and the rest complete.
+  </description>
+</property>
+
+<property>
+  <name>dfs.journalnode.edits.dir.perm</name>
+  <value>1400</value>
+    <description>
+      Permissions for the directories on on the local filesystem where
+      the DFS journal node stores the edits. The permissions can either be
+      octal or symbolic.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HDFS version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

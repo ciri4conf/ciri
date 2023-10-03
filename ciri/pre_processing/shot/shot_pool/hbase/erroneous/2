@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hbase.zookeeper.property.dataDir</name>
+  <value>/tmp//hadoop-ciri</value>
+    <description>Property from ZooKeeper's config zoo.cfg.
+    The directory where the snapshot is stored.</description>
+</property>
+
+<property>
+  <name>hbase.client.max.total.tasks</name>
+  <value>50</value>
+    <description>The maximum number of concurrent mutation tasks a single HTable instance will
+    send to the cluster.</description>
+</property>
+
+<property>
+  <name>hbase.rs.cacheblocksonwrite</name>
+  <value>false</value>
+      <description>Whether an HFile block should be added to the block cache when the
+        block is finished.</description>
+</property>
+
+<property>
+  <name>hbase.coprocessor.enabled</name>
+  <value>false</value>
+    <description>Enables or disables coprocessor loading. If 'false'
+    (disabled), any other coprocessor related configuration will be ignored.
+    </description>
+</property>
+
+<property>
+  <name>hbase.rest.threads.min</name>
+  <value>4</value>
+    <description>The minimum number of threads of the REST server thread pool.
+        The thread pool always has at least these number of threads so
+        the REST server is ready to serve incoming requests.</description>
+</property>
+
+<property>
+  <name>dfs.client.read.shortcircuit</name>
+  <value></value>
+    <description>
+      If set to true, this configuration parameter enables short-circuit local
+      reads.
+    </description>
+</property>
+
+<property>
+  <name>hbase.server.scanner.max.result.size</name>
+  <value>209715200</value>
+    <description>Maximum number of bytes returned when calling a scanner's next method.
+    Note that when a single row is larger than this limit the row is still returned completely.
+    The default value is 100MB.
+    This is a safety setting to protect the server from OOM situations.
+    </description>
+</property>
+
+<property>
+  <name>hbase.regionserver.handler.abort.on.error.percent</name>
+  <value>0.5</value>
+    <description>The percent of region server RPC threads failed to abort RS.
+    -1 Disable aborting; 0 Abort if even a single handler has died;
+    0.x Abort only when this percent of handlers have died;
+    1 Abort only all of the handers have died.</description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HBase version 2.2.7? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["hbase.zookeeper.property.dataDir"],
+    "reason": ["The property 'hbase.zookeeper.property.dataDir' has the value '/tmp//hadoop-ciri' which does not follow the correct path format."]
+}
+```

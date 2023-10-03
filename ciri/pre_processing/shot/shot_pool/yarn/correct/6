@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.amlauncher.thread-count</name>
+  <value>100</value>
+    <description>Number of threads used to launch/cleanup AM.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.nodes.include-path</name>
+  <value></value>
+    <description>Path to file with nodes to include.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.fs.state-store.retry-interval-ms</name>
+  <value>1000</value>
+    <description>Retry interval in milliseconds in FileSystemRMStateStore.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.opportunistic.max.container-allocation.per.am.heartbeat</name>
+  <value>-1</value>
+    <description>
+      Maximum number of opportunistic containers to be allocated per
+      Application Master heartbeat.
+    </description>
+</property>
+
+<property>
+  <name>yarn.node-labels.fs-store.impl.class</name>
+  <value>org.apache.hadoop.yarn.nodelabels.FileSystemNodeLabelsStore</value>
+    <description>
+    Choose different implementation of node label's storage
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.webapp.xfs-filter.xframe-options</name>
+  <value>SAMEORIGIN</value>
+    <description>
+      Property specifying the xframe options value.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.resource-plugins.fpga.vendor-plugin.class</name>
+  <value>org.apache.hadoop.yarn.server.nodemanager.containermanager.resourceplugin.fpga.IntelFpgaOpenclPlugin</value>
+    <description>
+      Specify one vendor plugin to handle FPGA devices discovery/IP download/configure.
+      Only IntelFpgaOpenclPlugin is supported by default.
+      We only allow one NM configured with one vendor FPGA plugin now since the end user can put the same
+      vendor's cards in one host. And this also simplify our design.
+    </description>
+</property>
+
+<property>
+  <name>yarn.workflow-id.tag-prefix</name>
+  <value>workflowid:</value>
+    <description>
+      Prefix used to identify the YARN tag which contains workflow ID. If a tag coming in application
+      submission context has this prefix, whatever follows the prefix will be considered as workflow ID
+      associated with the application. This configuration is used by features such as workflow priority
+      for identifying the workflow associated with an application.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for YARN version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

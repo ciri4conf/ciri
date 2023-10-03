@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.datanode.ipc.address</name>
+  <value>0.0.0.0:3001</value>
+  <description>
+    The datanode ipc server address and port.
+  </description>
+</property>
+
+<property>
+  <name>dfs.cluster.administrators</name>
+  <value></value>
+   <description>ACL for the admins, this configuration is used to control
+     who can access the default servlets in the namenode, etc. The value
+     should be a comma separated list of users and groups. The user list
+     comes first and is separated by a space followed by the group list,
+     e.g. "user1,user2 group1,group2". Both users and groups are optional,
+     so "user1", " group1", "", "user1 group1", "user1,user2 group1,group2"
+     are all valid (note the leading space in " group1"). '*' grants access
+     to all users and groups, e.g. '*', '* ' and ' *' are all valid.
+   </description>
+</property>
+
+<property>
+  <name>dfs.namenode.max-corrupt-file-blocks-returned</name>
+  <value>200</value>
+  <description>
+      The maximum number of corrupt file blocks listed by NameNode Web UI,
+      JMX and other client request.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.delegation.key.update-interval</name>
+  <value>172800000</value>
+  <description>The update interval for master key for delegation tokens 
+       in the namenode in milliseconds.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.kerberos.principal</name>
+  <value></value>
+  <description>
+    The NameNode service principal. This is typically set to
+    nn/_HOST@REALM.TLD. Each NameNode will substitute _HOST with its
+    own fully qualified hostname at startup. The _HOST placeholder
+    allows using the same configuration setting on both NameNodes
+    in an HA setup.
+  </description>
+</property>
+
+<property>
+  <name>dfs.balancer.service.retries.on.exception</name>
+  <value>5</value>
+  <description>
+    When the balancer is executed as a long-running service, it will retry upon encountering an exception. This
+    configuration determines how many times it will retry before considering the exception to be fatal and quitting.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.write.max-packets-in-flight</name>
+  <value>40</value>
+  <description>
+    The maximum number of DFSPackets allowed in flight.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.max-num-blocks-to-log</name>
+  <value>1000</value>
+  <description>
+    Puts a limit on the number of blocks printed to the log by the Namenode
+    after a block report.
+  </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HDFS version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

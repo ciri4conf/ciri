@@ -1,0 +1,40 @@
+alluxio.master.format.file.prefix=_format_
+# Description: The file prefix of the file generated in the journal directory when the journal is formatted. The master will search for a file with this prefix when determining if the journal is formatted.
+
+alluxio.worker.network.netty.channel=NIO
+# Description: Netty channel type: NIO or EPOLL. If EPOLL is not available, this will automatically fall back to NIO.
+
+alluxio.security.login.impersonation.username=_HDFS_USER_
+# Description: When alluxio.security.authentication.type is set to SIMPLE or CUSTOM, user application uses this property to indicate the IMPERSONATED user requesting Alluxio service. If it is not set explicitly, or set to _NONE_, impersonation will not be used. A special value of '_HDFS_USER_' can be specified to impersonate the hadoop client user.
+
+alluxio.network.ip.address.used=true
+# Description: If true, when alluxio.<service_name>.hostname and alluxio.<service_name>.bind.host of a service not specified, use IP as the connect host of the service.
+
+alluxio.fuse.logging.threshold=20s
+# Description: Logging a FUSE API call when it takes more time than the threshold.
+
+alluxio.master.ufs.active.sync.max.activities=20
+# Description: Max number of changes in a directory to be considered for active syncing
+
+alluxio.network.netty.heartbeat.timeout=30sec
+# Description: Control the timeout duration for network heartbeats in Alluxio's Netty-based communication.
+
+alluxio.underfs.s3.signer.algorithm=
+# Description: The signature algorithm which should be used to sign requests to the s3 service. This is optional, and if not set, the client will automatically determine it. For interacting with an S3 endpoint which only supports v2 signatures, set this to "S3SignerType".
+
+
+Question: Are there any mistakes in the above configuration file for Alluxio version 2.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["alluxio.network.netty.heartbeat.timeout"],
+    "reason": ["The property 'alluxio.network.netty.heartbeat.timeout' was removed in the pervious version and is not used in the current version."]
+}
+```

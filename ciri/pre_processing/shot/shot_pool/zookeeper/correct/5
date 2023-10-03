@@ -1,0 +1,32 @@
+quorum.auth.learnerRequireSasl=true
+
+quorum.auth.serverRequireSasl=false
+
+syncEnabled=true
+
+peerType=participant
+
+autopurge.snapRetainCount=3
+
+electionAlg=1
+
+clientPort=3001
+
+quorum.auth.enableSasl=false
+
+
+Question: Are there any mistakes in the above configuration file for Zookeeper version 3.7.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

@@ -1,0 +1,40 @@
+alluxio.security.authentication.type=NOSASL
+# Description: The authentication mode. Currently three modes are supported: NOSASL, SIMPLE, CUSTOM. The default value SIMPLE indicates that a simple authentication is enabled. Server trusts whoever the client claims to be.
+
+alluxio.security.login.impersonation.username=_HDFS_USER_
+# Description: When alluxio.security.authentication.type is set to SIMPLE or CUSTOM, user application uses this property to indicate the IMPERSONATED user requesting Alluxio service. If it is not set explicitly, or set to _NONE_, impersonation will not be used. A special value of '_HDFS_USER_' can be specified to impersonate the hadoop client user.
+
+alluxio.master.tieredstore.global.level2.alias=HDD
+# Description: The name of the third highest storage tier in the entire system.
+
+alluxio.master.web.hostname=
+# Description: The hostname of Alluxio Master web UI.
+
+alluxio.worker.management.backoff.strategy=ANY
+# Description: Defines the backoff scope respected by background tasks. Supported values are ANY / DIRECTORY. ANY: Management tasks will backoff from worker when there is any user I/O.This mode will ensure low management task overhead in order to favor immediate user I/O performance. However, making progress on management tasks will require quite periods on the worker.DIRECTORY: Management tasks will backoff from directories with ongoing user I/O.This mode will give better chance of making progress on management tasks.However, immediate user I/O throughput might be reduced due to increased management task activity.
+
+alluxio.worker.free.space.timeout=10sec
+# Description: The duration for which a worker will wait for eviction to make space available for a client write request.
+
+alluxio.user.network.keepalive.timeout=
+# Description: The maximum time for a gRPC client (for block reads and block writes) to wait for a keepalive response before closing the connection.
+
+alluxio.worker.tieredstore.level0.alias=MEM
+# Description: The alias of the top storage tier on this worker. It must match one of the global storage tiers from the master configuration. We disable placing an alias lower in the global hierarchy before an alias with a higher position on the worker hierarchy. So by default, SSD cannot come before MEM on any worker.
+
+
+Question: Are there any mistakes in the above configuration file for Alluxio version 2.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["alluxio.security.authentication.type"],
+    "reason": ["The value of the property 'alluxio.security.authentication.type' should be 'SIMPLE' or 'CUSTOM' to eable the property 'alluxio.security.login.impersonation.username'."]
+}
+```

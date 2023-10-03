@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.amlauncher.thread-count</name>
+  <value>ciri</value>
+    <description>Number of threads used to launch/cleanup AM.</description>
+</property>
+
+<property>
+  <name>yarn.client.failover-retries-on-socket-timeouts</name>
+  <value>-1</value>
+    <description>When HA is enabled, the number of retries per
+      attempt to connect to a ResourceManager on socket timeouts. In other
+      words, it is the ipc.client.connect.max.retries.on.timeouts to be used
+      during failover attempts</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.container-monitor.interval-ms</name>
+  <value></value>
+    <description>How often to monitor containers. If not set, the value for
+    yarn.nodemanager.resource-monitor.interval-ms will be used.
+    If 0 or negative, container monitoring is disabled.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.health-checker.timeout-ms</name>
+  <value>1200000</value>
+    <description>Health check script time out period.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.linux-container-executor.cgroups.strict-resource-usage</name>
+  <value>false</value>
+    <description>This flag determines whether apps should run with strict resource limits
+    or be allowed to consume spare resources if they need them. For example, turning the
+    flag on will restrict apps to use only their share of CPU, even if the node has spare
+    CPU cycles. The default value is false i.e. use available resources. Please note that
+    turning this flag on may reduce job throughput on the cluster. This setting does
+    not apply to other subsystems like memory.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.leveldb-timeline-store.path</name>
+  <value>/valid/file1</value>
+    <description>Store file name for leveldb timeline store.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.entity-group-fs-store.cache-store-class</name>
+  <value>org.apache.hadoop.yarn.server.timeline.MemoryTimelineStore</value>
+    <description>Caching storage timeline server v1.5 is using. </description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.entity-group-fs-store.done-dir</name>
+  <value>/valid/file1</value>
+    <description>HDFS path to store done application’s timeline data</description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for YARN version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["yarn.resourcemanager.amlauncher.thread-count"],
+    "reason": ["The property 'yarn.resourcemanager.amlauncher.thread-count' has the value 'ciri' which is not of the correct type Integer."]
+}
+```

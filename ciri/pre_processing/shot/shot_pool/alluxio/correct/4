@@ -1,0 +1,40 @@
+alluxio.worker.tieredstore.level2.dirs.mediumtype=${alluxio.worker.tieredstore.level2.alias}
+# Description: A list of media types (e.g., "SSD,HDD,HDD") for each storage directory on the third storage tier specified by alluxio.worker.tieredstore.level2.dirs.path.
+
+alluxio.master.metastore=ROCKS
+# Description: The type of metastore to use, either HEAP or ROCKS. The heap metastore keeps all metadata on-heap, while the rocks metastore stores some metadata on heap and some metadata on disk. The rocks metastore has the advantage of being able to support a large namespace (1 billion plus files) without needing a massive heap size.The metadata storage includes inode and block metadata. Users can override the type of metastore using alluxio.master.metastore.inode and alluxio.master.metastore.block. For example if alluxio.master.metastore=ROCKS but alluxio.master.metastore.inode=HEAP, then inodes are stored with HEAP and blocks are stored with ROCKS.
+
+fs.cos.connection.max=2048
+# Description: The maximum number of COS connections.
+
+alluxio.master.tieredstore.global.level0.alias=MEM
+# Description: The name of the highest storage tier in the entire system.
+
+alluxio.master.ufs.active.sync.poll.timeout=20sec
+# Description: Max time to wait before timing out a polling operation
+
+alluxio.worker.data.server.domain.socket.as.uuid=true
+# Description: If true, the property alluxio.worker.data.server.domain.socket.addressis the path to the home directory for the domain socket and a unique identifier is used as the domain socket name. If false, the property is the absolute path to the UNIX domain socket.
+
+alluxio.user.network.reader.buffer.size.messages=
+# Description: When a client reads from a remote worker, the maximum number of messages to buffer by the client. A message can be either a command response, a data chunk, or a gRPC stream event such as complete or error.
+
+alluxio.worker.ufs.instream.cache.max.size=10000
+# Description: The max entries in the UFS instream cache.
+
+
+Question: Are there any mistakes in the above configuration file for Alluxio version 2.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

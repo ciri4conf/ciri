@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hbase.client.max.perregion.tasks</name>
+  <value>1</value>
+    <description>The maximum number of concurrent mutation tasks the client will
+    maintain to a single Region. That is, if there is already
+    hbase.client.max.perregion.tasks writes in progress for this region, new puts
+    won't be sent to this region until some writes finishes.</description>
+</property>
+
+<property>
+  <name>hbase.client.scanner.timeout.period</name>
+  <value>30000</value>
+    <description>Client scanner lease period in milliseconds.</description>
+</property>
+
+<property>
+  <name>hbase.hstore.compaction.throughput.lower.bound</name>
+  <value>52428800</value>
+    <description>The target lower bound on aggregate compaction throughput, in bytes/sec. Allows
+    you to tune the minimum available compaction throughput when the
+    PressureAwareCompactionThroughputController throughput controller is active. (It is active by
+    default.)</description>
+</property>
+
+<property>
+  <name>hbase.snapshot.enabled</name>
+  <value>false</value>
+    <description>Set to true to allow snapshots to be taken / restored / cloned.</description>
+</property>
+
+<property>
+  <name>hbase.column.max.version</name>
+  <value>1</value>
+    <description>New column family descriptors will use this value as the default number of versions
+      to keep.</description>
+</property>
+
+<property>
+  <name>hbase.status.multicast.address.ip</name>
+  <value>127.0.0.1</value>
+    <description>
+      Multicast address to use for the status publication by multicast.
+    </description>
+</property>
+
+<property>
+  <name>hbase.mob.compaction.chore.period</name>
+  <value>1209600</value>
+    <description>
+      The period that MobCompactionChore runs. The unit is second.
+      The default value is one week.
+    </description>
+</property>
+
+<property>
+  <name>hbase.snapshot.master.timeout.millis</name>
+  <value>150000</value>
+    <description>
+       Timeout for master for the snapshot procedure execution.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HBase version 2.2.7? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

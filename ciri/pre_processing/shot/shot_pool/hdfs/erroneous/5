@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.namenode.max.extra.edits.segments.retained</name>
+  <value>10000</value>
+  <description>The maximum number of extra edit log segments which should be retained
+  beyond what is minimally necessary for a NN restart. When used in conjunction with
+  dfs.namenode.num.extra.edits.retained, this configuration property serves to cap
+  the number of extra edits files to a reasonable value.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.use.datanode.hostname</name>
+  <value>false</value>
+  <description>Whether clients should use datanode hostnames when
+    connecting to datanodes.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.kerberos.principal</name>
+  <value></value>
+  <description>
+    The NameNode service principal. This is typically set to
+    nn/_HOST@REALM.TLD. Each NameNode will substitute _HOST with its
+    own fully qualified hostname at startup. The _HOST placeholder
+    allows using the same configuration setting on both NameNodes
+    in an HA setup.
+  </description>
+</property>
+
+<property>
+  <name>dfs.encrypt.data.transfer.cipher.key.bitlength</name>
+  <value>64</value>
+  <description>
+    The key bitlength negotiated by dfsclient and datanode for encryption.
+    This value may be set to either 128, 192 or 256.
+  </description>
+</property>
+
+<property>
+  <name>dfs.journalnode.rpc-bind-host</name>
+  <value>xxx.0.0.0</value>
+  <description>
+    The actual address the RPC server will bind to. If this optional address is
+    set, it overrides only the hostname portion of dfs.journalnode.rpc-address.
+    This is useful for making the JournalNode listen on all interfaces by
+    setting it to 0.0.0.0.
+  </description>
+</property>
+
+<property>
+  <name>dfs.balancer.max-size-to-move</name>
+  <value>21474836480</value>
+  <description>
+    Maximum number of bytes that can be moved by the balancer in a single
+    thread.
+  </description>
+</property>
+
+<property>
+  <name>dfs.balancer.max-no-move-interval</name>
+  <value>30000</value>
+  <description>
+    If this specified amount of time has elapsed and no block has been moved
+    out of a source DataNode, on more effort will be made to move blocks out of
+    this DataNode in the current Balancer iteration.
+  </description>
+</property>
+
+<property>
+  <name>ssl.server.keystore.location</name>
+  <value></value>
+  <description>
+    Keystore location for HTTPS SSL configuration
+  </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HDFS version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["dfs.journalnode.rpc-bind-host"],
+    "reason": ["The property 'dfs.journalnode.rpc-bind-host' has the value 'xxx.0.0.0' which does not follow the correct IP address format."]
+}
+```

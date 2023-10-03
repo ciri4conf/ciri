@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.ipc.client.factory.class</name>
+  <value></value>
+    <description>Factory to create client IPC classes.</description>
+</property>
+
+<property>
+  <name>yarn.dispatcher.drain-events.timeout</name>
+  <value>300000</value>
+    <description>Timeout in milliseconds when YARN dispatcher tries to drain the
+      events. Typically, this happens when service is stopping. e.g. RM drains
+      the ATS events dispatcher when stopping.
+    </description>
+</property>
+
+<property>
+  <name>yarn.scheduler.minimum-allocation-mb</name>
+  <value>8192</value>
+    <description>The minimum allocation for every container request at the RM
+    in MBs. Memory requests lower than this will be set to the value of this
+    property. Additionally, a node manager that is configured to have less memory
+    than this value will be shut down by the resource manager.</description>
+</property>
+
+<property>
+  <name>yarn.scheduler.maximum-allocation-mb</name>
+  <value>1024</value>
+    <description>The maximum allocation for every container request at the RM
+    in MBs. Memory requests higher than this will throw an
+    InvalidResourceRequestException.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.localizer.cache.target-size-mb</name>
+  <value>20480</value>
+    <description>Target size of localizer cache in MB, per nodemanager. It is
+      a target retention size that only includes resources with PUBLIC and 
+      PRIVATE visibility and excludes resources with APPLICATION visibility
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.runc.seccomp-profile</name>
+  <value></value>
+    <description>Path to the seccomp profile to use with runC
+      containers</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.container-retry-minimum-interval-ms</name>
+  <value>500</value>
+    <description>Minimum container restart interval in milliseconds.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.node-attributes.provider.script.path</name>
+  <value></value>
+    <description>
+      The node attribute script NM runs to collect node attributes.
+      Script output Line starting with "NODE_ATTRIBUTE:" will be
+      considered as a record of node attribute, attribute name, type
+      and value should be delimited by comma. Each of such lines
+      will be parsed to a node attribute.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for YARN version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["yarn.scheduler.minimum-allocation-mb"],
+    "reason": ["The value of the property 'yarn.scheduler.minimum-allocation-mb' should be smaller or equal to the value of the property 'yarn.scheduler.maximum-allocation-mb'."]
+}
+```

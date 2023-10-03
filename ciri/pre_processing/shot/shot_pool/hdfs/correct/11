@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.namenode.name.dir.restore</name>
+  <value>true</value>
+  <description>Set to true to enable NameNode to attempt recovering a
+      previously failed dfs.namenode.name.dir. When enabled, a recovery of any
+      failed directory is attempted during checkpoint.</description>
+</property>
+
+<property>
+  <name>dfs.image.parallel.threads</name>
+  <value>1</value>
+  <description>
+        The number of threads to use when dfs.image.parallel.load is
+        enabled. This setting should be less than
+        dfs.image.parallel.target.sections. The optimal number of
+        threads will depend on the hardware and environment.
+  </description>
+</property>
+
+<property>
+  <name>dfs.webhdfs.user.provider.user.pattern</name>
+  <value>^[A-Za-z_][A-Za-z0-9._-]*[$]?$</value>
+  <description>
+    Valid pattern for user and group names for webhdfs, it must be a valid java regex.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.deadnode.detection.probe.connection.timeout.ms</name>
+  <value>10000</value>
+    <description>
+      Connection timeout for probing dead node in milliseconds.
+    </description>
+</property>
+
+<property>
+  <name>dfs.http.client.retry.max.attempts</name>
+  <value>1</value>
+  <description>
+    Specify the max number of retry attempts for WebHDFS client,
+    if the difference between retried attempts and failovered attempts is
+    larger than the max number of retry attempts, there will be no more
+    retries.
+  </description>
+</property>
+
+<property>
+  <name>dfs.balancer.movedWinWidth</name>
+  <value>10800000</value>
+  <description>
+    Window of time in ms for the HDFS balancer tracking blocks and its
+    locations.
+  </description>
+</property>
+
+<property>
+  <name>dfs.mover.keytab.enabled</name>
+  <value>false</value>
+  <description>
+    Set to true to enable login using a keytab for Kerberized Hadoop.
+  </description>
+</property>
+
+<property>
+  <name>dfs.storage.policy.satisfier.address</name>
+  <value>0.0.0.0:0</value>
+  <description>
+    The hostname used for a keytab based Kerberos login. Keytab based login
+    is required when dfs.storage.policy.satisfier.mode is external.
+  </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HDFS version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

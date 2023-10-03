@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hadoop.tmp.dir</name>
+  <value>/tmp//hadoop-ciri</value>
+  <description>A base for other temporary directories.</description>
+</property>
+
+<property>
+  <name>hadoop.security.group.mapping.ldap.url</name>
+  <value></value>
+  <description>
+    The URL of the LDAP server(s) to use for resolving user groups when using
+    the LdapGroupsMapping user to group mapping. Supports configuring multiple
+    LDAP servers via a comma-separated list.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.security.group.mapping.ldap.search.group.hierarchy.levels</name>
+  <value>0</value>
+  <description>
+    The number of levels to go up the group hierarchy when determining
+    which groups a user is part of. 0 Will represent checking just the
+    group that the user belongs to.  Each additional level will raise the
+    time it takes to execute a query by at most
+    hadoop.security.group.mapping.ldap.directory.search.timeout.
+    The default will usually be appropriate for all LDAP systems.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.security.group.mapping.providers</name>
+  <value></value>
+  <description>
+    Comma separated of names of other providers to provide user to group
+    mapping. Used by CompositeGroupsMapping.
+  </description>
+</property>
+
+<property>
+  <name>io.map.index.interval</name>
+  <value>64</value>
+  <description>
+    MapFile consist of two files - data file (tuples) and index file
+    (keys). For every io.map.index.interval records written in the
+    data file, an entry (record-key, data-file-position) is written
+    in the index file. This is to allow for doing binary search later
+    within the index file to look up records by their keys and get their
+    closest positions in the data file.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.endpoint</name>
+  <value></value>
+  <description>AWS S3 endpoint to connect to. An up-to-date list is
+    provided in the AWS Documentation: regions and endpoints. Without this
+    property, the standard region (s3.amazonaws.com) is assumed.
+  </description>
+</property>
+
+<property>
+  <name>io.seqfile.compress.blocksize</name>
+  <value>2000000</value>
+  <description>The minimum block size for compression in block compressed
+          SequenceFiles.
+  </description>
+</property>
+
+<property>
+  <name>ipc.[port_number].cost-provider.impl</name>
+  <value>org.apache.hadoop.ipc.DefaultCostProvider</value>
+  <description>The cost provider mapping user requests to their cost. To
+    enable determination of cost based on processing time, use
+    org.apache.hadoop.ipc.WeightedTimeCostProvider.
+    This property applies to DecayRpcScheduler.
+  </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HCommon version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["hadoop.tmp.dir"],
+    "reason": ["The property 'hadoop.tmp.dir' has the value '/tmp//hadoop-ciri' which does not follow the correct path format."]
+}
+```

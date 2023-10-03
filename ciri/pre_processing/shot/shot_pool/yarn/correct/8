@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.nodes.exclude-path</name>
+  <value></value>
+    <description>Path to file with nodes to exclude.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.work-preserving-recovery.enabled</name>
+  <value>true</value>
+    <description>Enable RM work preserving recovery. This configuration is private
+    to YARN for experimenting the feature.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.admin-env</name>
+  <value>MALLOC_ARENA_MAX=$MALLOC_ARENA_MAX</value>
+    <description>
+      Environment variables that should be forwarded from the NodeManager's
+      environment to the container's, specified as a comma separated list of
+      VARNAME=value pairs.
+
+      To define environment variables individually, you can specify
+      multiple properties of the form yarn.nodemanager.admin-env.VARNAME,
+      where VARNAME is the name of the environment variable. This is the only
+      way to add a variable when its value contains commas.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.localizer.client.thread-count</name>
+  <value>1</value>
+    <description>Number of threads to handle localization requests.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.runc.layer-mounts-to-keep</name>
+  <value>100</value>
+    <description>Target count of layer mounts that we should keep on disk
+      at one time.</description>
+</property>
+
+<property>
+  <name>yarn.client.nodemanager-connect.retry-interval-ms</name>
+  <value>5000</value>
+    <description>Time interval between each attempt to connect to NM</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.webapp.rest-csrf.enabled</name>
+  <value>false</value>
+    <description>
+      Enable the CSRF filter for the RM web app
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.submission-preprocessor.file-refresh-interval-ms</name>
+  <value>30000</value>
+    <description>Submission processor refresh interval</description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for YARN version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

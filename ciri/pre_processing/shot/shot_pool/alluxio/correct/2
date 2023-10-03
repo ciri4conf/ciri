@@ -1,0 +1,40 @@
+alluxio.user.ufs.block.read.location.policy=alluxio.client.block.policy.LocalFirstPolicy
+# Description: When an Alluxio client reads a file from the UFS, it delegates the read to an Alluxio worker. The client uses this policy to choose which worker to read through. Built-in choices: [<a href="https://docs.alluxio.io/os/javadoc/edge/alluxio/client/block/policy/CapacityBasedDeterministicHashPolicy.html">alluxio.client.block.policy.CapacityBasedDeterministicHashPolicy</a>, <a href="https://docs.alluxio.io/os/javadoc/edge/alluxio/client/block/policy/CapacityBaseRandomPolicy.html">alluxio.client.block.policy.CapacityBaseRandomPolicy</a>, <a href="https://docs.alluxio.io/os/javadoc/edge/alluxio/client/block/policy/DeterministicHashPolicy.html">alluxio.client.block.policy.DeterministicHashPolicy</a>, <a href="https://docs.alluxio.io/os/javadoc/edge/alluxio/client/block/policy/LocalFirstAvoidEvictionPolicy.html">alluxio.client.block.policy.LocalFirstAvoidEvictionPolicy</a>, <a href="https://docs.alluxio.io/os/javadoc/edge/alluxio/client/block/policy/LocalFirstPolicy.html">alluxio.client.block.policy.LocalFirstPolicy</a>, <a href="https://docs.alluxio.io/os/javadoc/edge/alluxio/client/block/policy/MostAvailableFirstPolicy.html">alluxio.client.block.policy.MostAvailableFirstPolicy</a>, <a href="https://docs.alluxio.io/os/javadoc/edge/alluxio/client/block/policy/RoundRobinPolicy.html">alluxio.client.block.policy.RoundRobinPolicy</a>, <a href="https://docs.alluxio.io/os/javadoc/edge/alluxio/client/block/policy/SpecificHostPolicy.html">alluxio.client.block.policy.SpecificHostPolicy</a>].
+
+alluxio.master.periodic.block.integrity.check.interval=10hr
+# Description: The period for the block integrity check, disabled if <= 0.
+
+alluxio.worker.allocator.class=alluxio.worker.block.allocator.MaxFreeAllocator
+# Description: The strategy that a worker uses to allocate space among storage directories in certain storage layer. Valid options include: `alluxio.worker.block.allocator.MaxFreeAllocator`, `alluxio.worker.block.allocator.GreedyAllocator`, `alluxio.worker.block.allocator.RoundRobinAllocator`.
+
+alluxio.user.file.persist.on.rename=false
+# Description: Whether or not to asynchronously persist any files which have been renamed. This is helpful when working with compute frameworks which use rename to commit results.
+
+alluxio.worker.tieredstore.level2.dirs.mediumtype=${alluxio.worker.tieredstore.level2.alias}
+# Description: A list of media types (e.g., "SSD,HDD,HDD") for each storage directory on the third storage tier specified by alluxio.worker.tieredstore.level2.dirs.path.
+
+alluxio.master.web.hostname=
+# Description: The hostname of Alluxio Master web UI.
+
+alluxio.underfs.s3.server.side.encryption.enabled=true
+# Description: Whether or not to encrypt data stored in S3.
+
+alluxio.user.conf.sync.interval=2min
+# Description: The time period of client master heartbeat to update the configuration if necessary from meta master.
+
+
+Question: Are there any mistakes in the above configuration file for Alluxio version 2.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

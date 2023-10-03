@@ -1,0 +1,40 @@
+alluxio.proxy.s3.deletetype=uiuc
+# Description: Delete type when deleting buckets and objects through S3 API. Valid options are `ALLUXIO_AND_UFS` (delete both in Alluxio and UFS), `ALLUXIO_ONLY` (delete only the buckets or objects in Alluxio namespace).
+
+alluxio.user.network.reader.chunk.size.bytes=
+# Description: When a client reads from a remote worker, the maximum chunk size.
+
+alluxio.master.persistence.scheduler.interval=2s
+# Description: How often the master schedules persistence jobs for files written using ASYNC_THROUGH
+
+alluxio.user.file.replication.durable=2
+# Description: The target replication level of a file created by ASYNC_THROUGH writesbefore this file is persisted.
+
+alluxio.master.shell.backup.state.lock.sleep.duration=2s
+# Description: The duration that controls how long the lock waiter sleeps within a single grace-cycle.
+
+alluxio.test.deprecated.key=
+# Description: N/A
+
+alluxio.master.principal=
+# Description: Kerberos principal for Alluxio master.
+
+alluxio.master.audit.logging.queue.capacity=20000
+# Description: Capacity of the queue used by audit logging.
+
+
+Question: Are there any mistakes in the above configuration file for Alluxio version 2.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["alluxio.proxy.s3.deletetype"],
+    "reason": ["The property 'alluxio.proxy.s3.deletetype' has the value 'uiuc' which is not within the accepted value {ALLUXIO_AND_UFS,ALLUXIO_ONLY}."]
+}
+```

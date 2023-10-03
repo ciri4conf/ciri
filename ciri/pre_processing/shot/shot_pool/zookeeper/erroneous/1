@@ -1,0 +1,32 @@
+autopurge.snapRetainCount=ciri
+
+secureClientPortAddress=
+
+quorum.auth.kerberos.servicePrincipal=zkquorum/localhost
+
+peerType=participant
+
+quorum.auth.enableSasl=false
+
+quorum.auth.server.saslLoginContext=QuorumServer
+
+initLimit=10
+
+syncEnabled=true
+
+
+Question: Are there any mistakes in the above configuration file for Zookeeper version 3.7.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["autopurge.snapRetainCount"],
+    "reason": ["The property 'autopurge.snapRetainCount' has the value 'ciri' which is not of the correct type Integer."]
+}
+```

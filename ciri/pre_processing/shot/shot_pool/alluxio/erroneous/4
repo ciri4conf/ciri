@@ -1,0 +1,40 @@
+alluxio.job.master.bind.host=xxx.0.0.0
+# Description: The host that the Alluxio job master will bind to.
+
+alluxio.master.metastore.inode.cache.evict.batch.size=500
+# Description: The batch size for evicting entries from the inode cache.
+
+alluxio.master.daily.backup.state.lock.timeout=2h
+# Description: The max duration for a grace-cycle.
+
+alluxio.job.master.rpc.addresses=
+# Description: A list of comma-separated host:port RPC addresses where the client should look for job masters when using multiple job masters without Zookeeper. This property is not used when Zookeeper is enabled, since Zookeeper already stores the job master addresses. If property is not defined, clients will look for job masters using [alluxio.master.rpc.addresses]:alluxio.job.master.rpc.port first, then for [alluxio.job.master.embedded.journal.addresses]:alluxio.job.master.rpc.port.
+
+alluxio.master.mount.table.root.option=
+# Description: Configuration for the UFS of Alluxio root mount point.
+
+alluxio.user.network.writer.chunk.size.bytes=
+# Description: When a client writes to a remote worker, the maximum chunk size.
+
+alluxio.master.embedded.journal.entry.size.max=10MB
+# Description: The maximum single journal entry size allowed to be flushed. This value should be smaller than 30MB. Set to a larger value to allow larger journal entries when using the Alluxio Catalog service.
+
+alluxio.network.ip.address.used=true
+# Description: If true, when alluxio.<service_name>.hostname and alluxio.<service_name>.bind.host of a service not specified, use IP as the connect host of the service.
+
+
+Question: Are there any mistakes in the above configuration file for Alluxio version 2.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["alluxio.job.master.bind.host"],
+    "reason": ["The property 'alluxio.job.master.bind.host' has the value 'xxx.0.0.0' which does not follow the correct IP address format."]
+}
+```

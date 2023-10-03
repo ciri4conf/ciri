@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hbase.zookeeper.property.maxClientCnxns</name>
+  <value>300</value>
+    <description>Property from ZooKeeper's config zoo.cfg.
+    Limit on number of concurrent connections (at the socket level) that a
+    single client, identified by IP address, may make to a single member of
+    the ZooKeeper ensemble. Set high to avoid zk connection issues running
+    standalone and pseudo-distributed.</description>
+</property>
+
+<property>
+  <name>hbase.server.keyvalue.maxsize</name>
+  <value>5242880</value>
+    <description>Maximum allowed size of an individual cell, inclusive of value and all key
+    components. A value of 0 or less disables the check.
+    The default value is 10MB.
+    This is a safety setting to protect the server from OOM situations.
+    </description>
+</property>
+
+<property>
+  <name>hbase.hstore.compaction.ratio.offpeak</name>
+  <value>5.0F</value>
+    <description>Allows you to set a different (by default, more aggressive) ratio for determining
+      whether larger StoreFiles are included in compactions during off-peak hours. Works in the
+      same way as hbase.hstore.compaction.ratio. Only applies if hbase.offpeak.start.hour and
+      hbase.offpeak.end.hour are also enabled.</description>
+</property>
+
+<property>
+  <name>hbase.rpc.timeout</name>
+  <value>30000</value>
+    <description>This is for the RPC layer to define how long (millisecond) HBase client applications
+        take for a remote call to time out. It uses pings to check connections
+        but will eventually throw a TimeoutException.</description>
+</property>
+
+<property>
+  <name>hbase.master.keytab.file</name>
+  <value>/valid/file1</value>
+    <description>Full path to the kerberos keytab file to use for logging in
+    the configured HMaster server principal.</description>
+</property>
+
+<property>
+  <name>hbase.rest.support.proxyuser</name>
+  <value>false</value>
+    <description>Enables running the REST server to support proxy-user mode.</description>
+</property>
+
+<property>
+  <name>hbase.replication.rpc.codec</name>
+  <value>org.apache.hadoop.hbase.codec.KeyValueCodecWithTags</value>
+  	<description>
+  		The codec that is to be used when replication is enabled so that
+  		the tags are also replicated. This is used along with HFileV3 which
+  		supports tags in them.  If tags are not used or if the hfile version used
+  		is HFileV2 then KeyValueCodec can be used as the replication codec. Note that
+  		using KeyValueCodecWithTags for replication when there are no tags causes no harm.
+  	</description>
+</property>
+
+<property>
+  <name>hbase.mob.compaction.mergeable.threshold</name>
+  <value>671088640</value>
+    <description>
+      If the size of a mob file is less than this value, it's regarded as a small
+      file and needs to be merged in mob compaction. The default value is 1280MB.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HBase version 2.2.7? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

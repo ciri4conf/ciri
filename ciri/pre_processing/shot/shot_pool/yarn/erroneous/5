@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.webapp.ui2.enable</name>
+  <value>-1</value>
+    <description>To enable RM web ui2 application.</description>
+</property>
+
+<property>
+  <name>yarn.scheduler.minimum-allocation-vcores</name>
+  <value>1</value>
+    <description>The minimum allocation for every container request at the RM
+    in terms of virtual CPU cores. Requests lower than this will be set to the
+    value of this property. Additionally, a node manager that is configured to
+    have fewer virtual cores than this value will be shut down by the resource
+    manager.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.fs.state-store.uri</name>
+  <value>${hadoop.tmp.dir}/yarn/system/rmstore</value>
+    <description>URI pointing to the location of the FileSystem path where
+    RM state will be stored. This must be supplied when using
+    org.apache.hadoop.yarn.server.resourcemanager.recovery.FileSystemRMStateStore
+    as the value for yarn.resourcemanager.store.class</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.resource.pcores-vcores-multiplier</name>
+  <value>2.0</value>
+    <description>Multiplier to determine how to convert phyiscal cores to
+    vcores. This value is used if yarn.nodemanager.resource.cpu-vcores
+    is set to -1(which implies auto-calculate vcores) and
+    yarn.nodemanager.resource.detect-hardware-capabilities is set to true. The
+    number of vcores will be calculated as
+    number of CPUs * multiplier.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.linux-container-executor.path</name>
+  <value>/valid/file2</value>
+    <description>The path to the Linux container executor.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.container-retry-minimum-interval-ms</name>
+  <value>500</value>
+    <description>Minimum container restart interval in milliseconds.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.disk-health-checker.enable</name>
+  <value>false</value>
+    <description>
+    Flag to enable NodeManager disk health checker
+    </description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.entity-group-fs-store.app-cache-size</name>
+  <value>10</value>
+    <description>
+      Size of the reader cache for ATS v1.5 reader. This value controls how many
+      entity groups the ATS v1.5 server should cache. If the number of active
+      read entity groups is greater than the number of caches items, some reads
+      may return empty data. This value must be greater than 0.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for YARN version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["yarn.webapp.ui2.enable"],
+    "reason": ["The property 'yarn.webapp.ui2.enable' has the value '-1' which is not within the accepted value {true,false}."]
+}
+```

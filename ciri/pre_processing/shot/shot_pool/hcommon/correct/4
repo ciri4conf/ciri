@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hadoop.security.group.mapping.ldap.bind.user</name>
+  <value></value>
+  <description>
+    The distinguished name of the user to bind as when connecting to the LDAP
+    server. This may be left blank if the LDAP server supports anonymous binds.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.security.service.user.name.key</name>
+  <value></value>
+  <description>
+    For those cases where the same RPC protocol is implemented by multiple
+    servers, this configuration is required for specifying the principal
+    name to use for the service when the client wishes to make an RPC call.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.connection.maximum</name>
+  <value>96</value>
+  <description>Controls the maximum number of simultaneous connections to S3.
+    This must be bigger than the value of fs.s3a.threads.max so as to stop
+    threads being blocked waiting for new HTTPS connections.
+    Why not equal? The AWS SDK transfer manager also uses these connections.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.select.input.compression</name>
+  <value>none</value>
+  <description>In S3 Select queries, the source compression
+    algorithm. One of: "none" and "gzip"</description>
+</property>
+
+<property>
+  <name>ipc.server.reuseaddr</name>
+  <value>false</value>
+  <description>Enables the SO_REUSEADDR TCP option on the server.
+    Useful if BindException often prevents a certain service to be restarted
+    because the server side is stuck in TIME_WAIT state.
+  </description>
+</property>
+
+<property>
+  <name>file.blocksize</name>
+  <value>67108864</value>
+  <description>Block size</description>
+</property>
+
+<property>
+  <name>ha.health-monitor.connect-retry-interval.ms</name>
+  <value>2000</value>
+  <description>
+    How often to retry connecting to the service.
+  </description>
+</property>
+
+<property>
+  <name>fs.getspaceused.classname</name>
+  <value></value>
+    <description>
+      The class that can tell estimate much space is used in a directory.
+      There are four impl classes that being supported:
+      org.apache.hadoop.fs.DU(default), org.apache.hadoop.fs.WindowsGetSpaceUsed
+      org.apache.hadoop.fs.DFCachingGetSpaceUsed and
+      org.apache.hadoop.hdfs.server.datanode.fsdataset.impl.ReplicaCachingGetSpaceUsed.
+      And the ReplicaCachingGetSpaceUsed impl class only used in HDFS module.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HCommon version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hbase.cluster.distributed</name>
+  <value>false</value>
+    <description>The mode the cluster will be in. Possible values are
+      false for standalone mode and true for distributed mode.  If
+      false, startup will run all HBase and ZooKeeper daemons together
+      in the one JVM.</description>
+</property>
+
+<property>
+  <name>zookeeper.znode.acl.parent</name>
+  <value>acl</value>
+    <description>Root ZNode for access control lists.</description>
+</property>
+
+<property>
+  <name>hbase.client.scanner.caching</name>
+  <value>4294967294</value>
+    <description>Number of rows that we try to fetch when calling next
+    on a scanner if it is not served from (local, client) memory. This configuration
+    works together with hbase.client.scanner.max.result.size to try and use the
+    network efficiently. The default value is Integer.MAX_VALUE by default so that
+    the network will fill the chunk size defined by hbase.client.scanner.max.result.size
+    rather than be limited by a particular number of rows since the size of rows varies
+    table to table. If you know ahead of time that you will not require more than a certain
+    number of rows from a scan, this configuration should be set to that row limit via
+    Scan#setCaching. Higher caching values will enable faster scanners but will eat up more
+    memory and some calls of next may take longer and longer times when the cache is empty.
+    Do not set this value such that the time between invocations is greater than the scanner
+    timeout; i.e. hbase.client.scanner.timeout.period</description>
+</property>
+
+<property>
+  <name>hbase.normalizer.period</name>
+  <value>150000</value>
+    <description>Period at which the region normalizer runs in the Master.</description>
+</property>
+
+<property>
+  <name>hfile.index.block.max.size</name>
+  <value>262144</value>
+      <description>When the size of a leaf-level, intermediate-level, or root-level
+          index block in a multi-level block index grows to this size, the
+          block is written out and a new block is started.</description>
+</property>
+
+<property>
+  <name>hbase.client.operation.timeout</name>
+  <value>600000</value>
+    <description>Operation timeout is a top-level restriction (millisecond) that makes sure a
+      blocking operation in Table will not be blocked more than this. In each operation, if rpc
+      request fails because of timeout or other reason, it will retry until success or throw
+      RetriesExhaustedException. But if the total time being blocking reach the operation timeout
+      before retries exhausted, it will break early and throw SocketTimeoutException.</description>
+</property>
+
+<property>
+  <name>hbase.regionserver.thrift.framed</name>
+  <value>true</value>
+    <description>Use Thrift TFramedTransport on the server side.
+      This is the recommended transport for thrift servers and requires a similar setting
+      on the client side. Changing this to false will select the default transport,
+      vulnerable to DoS when malformed requests are issued due to THRIFT-601.
+    </description>
+</property>
+
+<property>
+  <name>hbase.server.compactchecker.interval.multiplier</name>
+  <value>500</value>
+    <description>The number that determines how often we scan to see if compaction is necessary.
+        Normally, compactions are done after some events (such as memstore flush), but if
+        region didn't receive a lot of writes for some time, or due to different compaction
+        policies, it may be necessary to check it periodically. The interval between checks is
+        hbase.server.compactchecker.interval.multiplier multiplied by
+        hbase.server.thread.wakefrequency.</description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HBase version 2.2.7? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

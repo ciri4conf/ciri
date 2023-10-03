@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>io.map.index.skip</name>
+  <value>0</value>
+  <description>Number of index entries to skip between each entry.
+  Zero by default. Setting this to values larger than zero can
+  facilitate opening large MapFiles using less memory.</description>
+</property>
+
+<property>
+  <name>fs.s3a.delegation.token.binding</name>
+  <value></value>
+  <description>
+    The name of a class to provide delegation tokens support in S3A.
+    If unset: delegation token support is disabled.
+
+    Note: for job submission to actually collect these tokens,
+    Kerberos must be enabled.
+
+    Options are:
+    org.apache.hadoop.fs.s3a.auth.delegation.SessionTokenBinding
+    org.apache.hadoop.fs.s3a.auth.delegation.FullCredentialsTokenBinding
+    and org.apache.hadoop.fs.s3a.auth.delegation.RoleTokenBinding
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.multipart.threshold</name>
+  <value>128M</value>
+  <description>How big (in bytes) to split upload or copy operations up into.
+    This also controls the partition size in renamed files, as rename() involves
+    copying the source file(s).
+    A suffix from the set {K,M,G,T,P} may be used to scale the numeric value.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.select.output.csv.quote.character</name>
+  <value>"</value>
+  <description>
+    In S3 Select queries: the quote character for generated CSV Files.
+  </description>
+</property>
+
+<property>
+  <name>fs.azure.authorization</name>
+  <value>false</value>
+  <description>
+    Config flag to enable authorization support in WASB. Setting it to "true" enables
+    authorization support to WASB. Currently WASB authorization requires a remote service
+    to provide authorization that needs to be specified via fs.azure.authorization.remote.service.url
+    configuration
+  </description>
+</property>
+
+<property>
+  <name>ipc.[port_number].decay-scheduler.period-ms</name>
+  <value>5000</value>
+  <description>How frequently the decay factor should be applied to the
+    operation counts of users. Higher values have less overhead, but respond
+    less quickly to changes in client behavior.
+    This property applies to DecayRpcScheduler.
+  </description>
+</property>
+
+<property>
+  <name>ha.zookeeper.quorum</name>
+  <value></value>
+  <description>
+    A list of ZooKeeper server addresses, separated by commas, that are
+    to be used by the ZKFailoverController in automatic failover.
+  </description>
+</property>
+
+<property>
+  <name>fs.adl.oauth2.devicecode.clientapp.id</name>
+  <value></value>
+    <description>
+      The app id of the AAD native app in whose context the auth request
+      should be made.
+      Used by DeviceCode token provider.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HCommon version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

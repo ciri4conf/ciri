@@ -1,0 +1,40 @@
+alluxio.master.backup.directory=/tmp//hadoop-ciri
+# Description: Default directory for writing master metadata backups. This path is an absolute path of the root UFS. For example, if the root ufs directory is hdfs://host:port/alluxio/data, the default backup directory will be hdfs://host:port/alluxio_backups.
+
+alluxio.security.group.mapping.cache.timeout=10min
+# Description: Time for cached group mapping to expire.
+
+alluxio.worker.management.tier.swap.restore.enabled=true
+# Description: Whether to run management swap-restore task when tier alignment cannot make progress.
+
+alluxio.worker.master.connect.retry.timeout=1hour
+# Description: Retry period before workers give up on connecting to master and exit.
+
+alluxio.fuse.user.group.translation.enabled=true
+# Description: Whether to translate Alluxio users and groups into Unix users and groups when exposing Alluxio files through the FUSE API. When this property is set to false, the user and group for all FUSE files will match the user who started the alluxio-fuse process.Note that this applies to JNR-FUSE only.
+
+alluxio.underfs.gcs.version=4
+# Description: Specify the version of GCS module to use. GCS version "1" builds on top of jets3t package which requires fs.gcs.accessKeyId and fs.gcs.secretAccessKey. GCS version "2" build on top of Google cloud API which requires fs.gcs.credential.path
+
+alluxio.master.tieredstore.global.level0.alias=MEM
+# Description: The name of the highest storage tier in the entire system.
+
+alluxio.user.client.cache.async.write.threads=32
+# Description: Number of threads to asynchronously cache data.
+
+
+Question: Are there any mistakes in the above configuration file for Alluxio version 2.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["alluxio.master.backup.directory"],
+    "reason": ["The property 'alluxio.master.backup.directory' has the value '/tmp//hadoop-ciri' which does not follow the correct path format."]
+}
+```

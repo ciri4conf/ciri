@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.heartbeat.interval</name>
+  <value>3s</value>
+  <description>
+    Determines datanode heartbeat interval in seconds.
+    Can use the following suffix (case insensitive):
+    ms(millis), s(sec), m(min), h(hour), d(day)
+    to specify the time (such as 2s, 2m, 1h, etc.).
+    Or provide complete number in seconds (such as 30 for 30 seconds).
+    If no time unit is specified then seconds is assumed.
+  </description>
+</property>
+
+<property>
+  <name>dfs.datanode.lifeline.interval.seconds</name>
+  <value>5s</value>
+  <description>
+    Sets the interval in seconds between sending DataNode Lifeline Protocol
+    messages from the DataNode to the NameNode.  The value must be greater than
+    the value of dfs.heartbeat.interval.  If this property is not defined, then
+    the default behavior is to calculate the interval as 3x the value of
+    dfs.heartbeat.interval.  Note that normal heartbeat processing may cause the
+    DataNode to postpone sending lifeline messages if they are not required.
+    Under normal operations with speedy heartbeat processing, it is possible
+    that no lifeline messages will need to be sent at all.  This property has no
+    effect if dfs.namenode.lifeline.rpc-address is not defined.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.service.handler.count</name>
+  <value>10</value>
+  <description>The number of Namenode RPC server threads that listen to
+  requests from DataNodes and from all other non-client nodes.
+  dfs.namenode.service.handler.count will be valid only if
+  dfs.namenode.servicerpc-address is configured.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.server-defaults.validity.period.ms</name>
+  <value>7200000</value>
+  <description>
+    The amount of milliseconds after which cached server defaults are updated.
+
+    By default this parameter is set to 1 hour.
+    Support multiple time unit suffix(case insensitive), as described
+    in dfs.heartbeat.interval.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.short.circuit.replica.stale.threshold.ms</name>
+  <value>900000</value>
+  <description>
+    The maximum amount of time that we will consider a short-circuit replica to
+    be valid, if there is no communication from the DataNode.  After this time
+    has elapsed, we will re-fetch the short-circuit replica even if it is in
+    the cache.
+  </description>
+</property>
+
+<property>
+  <name>dfs.datanode.transferTo.allowed</name>
+  <value>true</value>
+  <description>
+    If false, break block transfers on 32-bit machines greater than
+    or equal to 2GB into smaller chunks.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.snapshot.skiplist.max.levels</name>
+  <value>1</value>
+  <description>
+    Maximum no of the skip levels to be maintained in the skip list for
+    storing directory snapshot diffs. By default, it is set to 0 and a linear
+    list will be used to store the directory snapshot diffs.
+  </description>
+</property>
+
+<property>
+  <name>dfs.webhdfs.oauth2.client.id</name>
+  <value></value>
+  <description>
+    Client id used to obtain access token with either credential or
+    refresh token.
+  </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HDFS version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["dfs.datanode.lifeline.interval.seconds"],
+    "reason": ["The value of the property 'dfs.datanode.lifeline.interval.seconds' should be smaller or equal to the value of the property 'dfs.heartbeat.interval'."]
+}
+```

@@ -1,0 +1,40 @@
+alluxio.job.master.embedded.journal.port=-1
+# Description: The port job masters use for embedded journal communications.
+
+alluxio.master.lock.pool.initsize=2000
+# Description: Initial size of the lock pool for master inodes.
+
+alluxio.user.rpc.retry.max.duration=2min
+# Description: Alluxio client RPCs automatically retry for transient errors with an exponential backoff. This property determines the maximum duration to retry for before giving up. Note that, this value is set to 5s for fs and fsadmin CLIs.
+
+alluxio.master.journal.space.monitor.interval=1min
+# Description: How often to check and update information on space utilization of tsse journal disk. This is currently only compatible with linux-basedsystems and when alluxio.master.journal.type is configured to EMBEDDED
+
+alluxio.worker.network.block.reader.threads.max=4096
+# Description: The maximum number of threads used to read blocks in the data server.
+
+alluxio.master.journal.tailer.shutdown.quiet.wait.time=5sec
+# Description: Before the standby master shuts down its tailer thread, there should be no update to the leader master's journal in this specified time period.
+
+alluxio.user.client.cache.evictor.class=alluxio.client.file.cache.evictor.LRUCacheEvictor
+# Description: The strategy that client uses to evict local cached pages when running out of space. Currently valid options include `alluxio.client.file.cache.evictor.LRUCacheEvictor`,`alluxio.client.file.cache.evictor.LFUCacheEvictor`.
+
+alluxio.worker.network.async.cache.manager.queue.max=256
+# Description: The maximum number of outstanding async caching requests to cache blocks in each data server
+
+
+Question: Are there any mistakes in the above configuration file for Alluxio version 2.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["alluxio.job.master.embedded.journal.port"],
+    "reason": ["The property 'alluxio.job.master.embedded.journal.port' has the value '-1' which is out of the valid range of a port number."]
+}
+```

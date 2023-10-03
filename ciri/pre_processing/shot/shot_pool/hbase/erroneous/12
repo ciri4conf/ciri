@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hbase.client.pause</name>
+  <value>200</value>
+    <description>General client pause value.  Used mostly as value to wait
+    before running a retry of a failed get, region lookup, etc.
+    See hbase.client.retries.number for description of how we backoff from
+    this initial pause amount and how this pause works w/ retries.</description>
+</property>
+
+<property>
+  <name>hbase.client.scanner.caching</name>
+  <value>2147483647</value>
+    <description>Number of rows that we try to fetch when calling next
+    on a scanner if it is not served from (local, client) memory. This configuration
+    works together with hbase.client.scanner.max.result.size to try and use the
+    network efficiently. The default value is Integer.MAX_VALUE by default so that
+    the network will fill the chunk size defined by hbase.client.scanner.max.result.size
+    rather than be limited by a particular number of rows since the size of rows varies
+    table to table. If you know ahead of time that you will not require more than a certain
+    number of rows from a scan, this configuration should be set to that row limit via
+    Scan#setCaching. Higher caching values will enable faster scanners but will eat up more
+    memory and some calls of next may take longer and longer times when the cache is empty.
+    Do not set this value such that the time between invocations is greater than the scanner
+    timeout; i.e. hbase.client.scanner.timeout.period</description>
+</property>
+
+<property>
+    <name>hbase.hregion.percolumnfamilyflush.size.lower.bound</name>
+    <value>16777216</value>
+    <description>
+    If FlushLargeStoresPolicy is used, then every time that we hit the
+    total memstore limit, we find out all the column families whose memstores
+    exceed this value, and only flush them, while retaining the others whose
+    memstores are lower than this limit. If none of the families have their
+    memstore size more than this, all the memstores will be flushed
+    (just as usual). This value should be less than half of the total memstore
+    threshold (hbase.hregion.memstore.flush.size).
+    </description>
+</property>
+
+<property>
+  <name>hbase.master.balancer.maxRitPercent</name>
+  <value>0.5</value>
+    <description>The max percent of regions in transition when balancing.
+      The default value is 1.0. So there are no balancer throttling. If set this config to 0.01,
+      It means that there are at most 1% regions in transition when balancing.
+      Then the cluster's availability is at least 99% when balancing.</description>
+</property>
+
+<property>
+  <name>hbase.bucketcache.size</name>
+  <value>0.5</value>
+    <description>A float that EITHER represents a percentage of total heap memory
+    size to give to the cache (if &lt; 1.0) OR, it is the total capacity in
+    megabytes of BucketCache. Default: 0.0</description>
+</property>
+
+<property>
+  <name>hbase.coprocessor.region.classes</name>
+  <value></value>
+    <description>A comma-separated list of Coprocessors that are loaded by
+    default on all tables. For any override coprocessor method, these classes
+    will be called in order. After implementing your own Coprocessor, just put
+    it in HBase's classpath and add the fully qualified class name here.
+    A coprocessor can also be loaded on demand by setting HTableDescriptor.</description>
+</property>
+
+<property>
+  <name>hbase.status.published</name>
+  <value>true</value>
+    <description>
+      This setting activates the publication by the master of the status of the region server.
+      When a region server dies and its recovery starts, the master will push this information
+      to the client application, to let them cut the connection immediately instead of waiting
+      for a timeout.
+    </description>
+</property>
+
+<property>
+  <name>hbase.mob.cache.evict.remain.ratio</name>
+  <value>0.5f</value>
+    <description>
+      The ratio (between 0.0 and 1.0) of files that remains cached after an eviction
+      is triggered when the number of cached mob files exceeds the hbase.mob.file.cache.size.
+      The default value is 0.5f.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HBase version 2.2.7? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["hbase.hregion.percolumnfamilyflush.size.lower.bound"],
+    "reason": ["The property 'hbase.hregion.percolumnfamilyflush.size.lower.bound' was removed in the pervious version and is not used in the current version."]
+}
+```

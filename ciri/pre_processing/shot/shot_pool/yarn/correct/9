@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.reservation-system.class</name>
+  <value></value>
+    <description>
+    The Java class to use as the ResourceManager reservation system.
+    By default, is set to
+    org.apache.hadoop.yarn.server.resourcemanager.reservation.CapacityReservationSystem
+    when using CapacityScheduler and is set to
+    org.apache.hadoop.yarn.server.resourcemanager.reservation.FairReservationSystem
+    when using FairScheduler.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.localizer.cache.target-size-mb</name>
+  <value>10240</value>
+    <description>Target size of localizer cache in MB, per nodemanager. It is
+      a target retention size that only includes resources with PUBLIC and 
+      PRIVATE visibility and excludes resources with APPLICATION visibility
+    </description>
+</property>
+
+<property>
+  <name>yarn.client.nodemanager-connect.retry-interval-ms</name>
+  <value>5000</value>
+    <description>Time interval between each attempt to connect to NM</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.disk-health-checker.enable</name>
+  <value>false</value>
+    <description>
+    Flag to enable NodeManager disk health checker
+    </description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.client.max-retries</name>
+  <value>30</value>
+    <description>
+    Default maximum number of retries for timeline service client
+    and value -1 means no limit.
+    </description>
+</property>
+
+<property>
+  <name>yarn.sharedcache.app-checker.class</name>
+  <value>org.apache.hadoop.yarn.server.sharedcachemanager.RemoteAppChecker</value>
+    <description>The implementation to be used for the SCM app-checker</description>
+</property>
+
+<property>
+  <name>yarn.sharedcache.store.in-memory.initial-delay-mins</name>
+  <value>20</value>
+    <description>Initial delay before the in-memory store runs its first check
+    to remove dead initial applications. Specified in minutes.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.webapp.rest-csrf.custom-header</name>
+  <value>X-XSRF-Header</value>
+    <description>
+      Optional parameter that indicates the custom header name to use for CSRF
+      protection.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for YARN version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

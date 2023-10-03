@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>fs.ftp.host.port</name>
+  <value>hadoop</value>
+  <description>
+    FTP filesystem connects to fs.ftp.host on this port
+  </description>
+</property>
+
+<property>
+  <name>fs.du.interval</name>
+  <value>300000</value>
+  <description>File space usage statistics refresh interval in msec.</description>
+</property>
+
+<property>
+  <name>fs.s3a.retry.interval</name>
+  <value>1000ms</value>
+  <description>
+    Initial retry interval when retrying operations for any reason other
+    than S3 throttle errors and S3Guard inconsistency resolution.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.select.output.csv.quote.escape.character</name>
+  <value>\\</value>
+  <description>
+    In S3 Select queries: the quote escape character for generated CSV Files.
+  </description>
+</property>
+
+<property>
+  <name>ipc.[port_number].weighted-cost.response</name>
+  <value>0</value>
+  <description>The weight multiplier to apply to the time spent in the
+    RESPONSE phase which do not involve holding a lock.
+    See org.apache.hadoop.ipc.ProcessingDetails.Timing for more details on
+    this phase. This property applies to WeightedTimeCostProvider.
+  </description>
+</property>
+
+<property>
+  <name>ha.failover-controller.graceful-fence.connection.retries</name>
+  <value>1</value>
+  <description>
+    FC connection retries for graceful fencing
+  </description>
+</property>
+
+<property>
+  <name>hadoop.security.key.default.bitlength</name>
+  <value>256</value>
+  <description>
+    The length (bits) of keys we want the KeyProvider to produce. Key length
+    defines the upper-bound on an algorithm's security, ideally, it would
+    coincide with the lower-bound on an algorithm's security.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.registry.zk.session.timeout.ms</name>
+  <value>30000</value>
+    <description>
+      Zookeeper session timeout in milliseconds
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HCommon version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["fs.ftp.host.port"],
+    "reason": ["The property 'fs.ftp.host.port' has the value 'hadoop' which does not follow the correct port format."]
+}
+```

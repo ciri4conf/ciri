@@ -1,0 +1,40 @@
+alluxio.master.shell.backup.state.lock.timeout=2s
+# Description: The max duration for a grace-cycle.
+
+alluxio.underfs.s3.streaming.upload.partition.size=64MB
+# Description: Maximum allowable size of a single buffer file when using S3A streaming upload. When the buffer file reaches the partition size, it will be uploaded and the upcoming data will write to other buffer files.If the partition size is too small, S3A upload speed might be affected.
+
+alluxio.underfs.s3.connection.ttl=0
+# Description: The expiration time of S3 connections in ms. -1 means the connection will never expire.
+
+alluxio.worker.tieredstore.level0.dirs.path=/mnt/ramdisk
+# Description: A comma-separated list of paths (eg., /mnt/ramdisk1,/mnt/ramdisk2,/mnt/ssd/alluxio/cache1) of storage directories for the top storage tier. Note that for MacOS, the root directory should be `/Volumes/` and not `/mnt/`.
+
+alluxio.worker.network.netty.worker.threads=8
+# Description: Number of threads to use for processing requests in worker
+
+alluxio.worker.data.folder.tmp=.tmp_blocks
+# Description: A relative path in alluxio.worker.data.folder used to store the temporary data for uncommitted files.
+
+alluxio.master.lock.pool.concurrency.level=50
+# Description: Maximum concurrency level for the lock pool
+
+alluxio.user.network.rpc.netty.worker.threads=1
+# Description: How many threads to use for rpc client to read from remote workers.
+
+
+Question: Are there any mistakes in the above configuration file for Alluxio version 2.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

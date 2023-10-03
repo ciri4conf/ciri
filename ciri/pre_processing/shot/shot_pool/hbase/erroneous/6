@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>zookeeper.znode.acl.parent</name>
+  <value>acl</value>
+    <description>Root ZNode for access control lists.</description>
+</property>
+
+<property>
+  <name>hbase.client.max.total.tasks</name>
+  <value>200</value>
+    <description>The maximum number of concurrent mutation tasks a single HTable instance will
+    send to the cluster.</description>
+</property>
+
+<property>
+  <name>hbase.hregion.memstore.mslab.enabled</name>
+  <value>-1</value>
+    <description>
+      Enables the MemStore-Local Allocation Buffer,
+      a feature which works to prevent heap fragmentation under
+      heavy write loads. This can reduce the frequency of stop-the-world
+      GC pauses on large heaps.</description>
+</property>
+
+<property>
+  <name>hbase.hstore.compactionThreshold</name>
+  <value>6</value>
+    <description> If more than this number of StoreFiles exist in any one Store
+      (one StoreFile is written per flush of MemStore), a compaction is run to rewrite all
+      StoreFiles into a single StoreFile. Larger values delay compaction, but when compaction does
+      occur, it takes longer to complete.</description>
+</property>
+
+<property>
+  <name>hfile.block.bloom.cacheonwrite</name>
+  <value>true</value>
+      <description>Enables cache-on-write for inline blocks of a compound Bloom filter.</description>
+</property>
+
+<property>
+  <name>hbase.status.multicast.address.ip</name>
+  <value>127.0.0.1</value>
+    <description>
+      Multicast address to use for the status publication by multicast.
+    </description>
+</property>
+
+<property>
+  <name>hbase.status.multicast.address.port</name>
+  <value>3001</value>
+    <description>
+      Multicast port to use for the status publication by multicast.
+    </description>
+</property>
+
+<property>
+  <name>hbase.rpc.rows.warning.threshold</name>
+  <value>10000</value>
+    <description>
+      Number of rows in a batch operation above which a warning will be logged.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HBase version 2.2.7? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["hbase.hregion.memstore.mslab.enabled"],
+    "reason": ["The property 'hbase.hregion.memstore.mslab.enabled' has the value '-1' which is not within the accepted value {true,false}."]
+}
+```

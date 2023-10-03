@@ -1,0 +1,40 @@
+alluxio.worker.tieredstore.level0.alias=MEM
+# Description: The alias of the top storage tier on this worker. It must match one of the global storage tiers from the master configuration. We disable placing an alias lower in the global hierarchy before an alias with a higher position on the worker hierarchy. So by default, SSD cannot come before MEM on any worker.
+
+alluxio.proxy.web.port=39999
+# Description: The port Alluxio proxy's web UI runs on.
+
+alluxio.master.log.config.report.heartbeat.interval=10h
+# Description: The interval for periodically logging the configuration check report.
+
+alluxio.master.tieredstore.global.mediumtype=MEM
+# Description: The list of medium types we support in the system.
+
+alluxio.worker.data.server.domain.socket.address=127.0.0.1
+# Description: The path to the domain socket. Short-circuit reads make use of a UNIX domain socket when this is set (non-empty). This is a special path in the file system that allows the client and the AlluxioWorker to communicate. You will need to set a path to this socket. The AlluxioWorker needs to be able to create the path. If alluxio.worker.data.server.domain.socket.as.uuid is set, the path should be the home directory for the domain socket. The full path for the domain socket with be {path}/{uuid}.
+
+alluxio.master.rpc.executor.core.pool.size=1000
+# Description: The number of threads to keep in thread pool of master RPC ExecutorService.
+
+alluxio.master.metadata.sync.concurrency.level=6
+# Description: The maximum number of concurrent sync tasks running for a given sync operation
+
+alluxio.master.periodic.block.integrity.check.interval=10hr
+# Description: The period for the block integrity check, disabled if <= 0.
+
+
+Question: Are there any mistakes in the above configuration file for Alluxio version 2.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

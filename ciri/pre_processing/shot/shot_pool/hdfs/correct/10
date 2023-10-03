@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.namenode.max-corrupt-file-blocks-returned</name>
+  <value>50</value>
+  <description>
+      The maximum number of corrupt file blocks listed by NameNode Web UI,
+      JMX and other client request.
+  </description>
+</property>
+
+<property>
+  <name>dfs.image.parallel.inode.threshold</name>
+  <value>500000</value>
+  <description>
+        If the image contains less inodes than this setting, then
+        do not write sub-sections and hence disable parallel loading.
+        This is because small images load very quickly in serial and
+        parallel loading is not needed.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.cache.readahead</name>
+  <value></value>
+  <description>
+    When using remote reads, this setting causes the datanode to
+    read ahead in the block file using posix_fadvise, potentially decreasing
+    I/O wait times.  Unlike dfs.datanode.readahead.bytes, this is a client-side
+    setting rather than a setting for the entire datanode.  If present, this
+    setting will override the DataNode default. Support multiple size unit
+    suffix(case insensitive), as described in dfs.blocksize.
+
+    When using local reads, this setting determines how much readahead we do in
+    BlockReaderLocal.
+
+    If the native libraries are not available to the DataNode, this
+    configuration has no effect.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.enable.retrycache</name>
+  <value>false</value>
+  <description>
+    This enables the retry cache on the namenode. Namenode tracks for
+    non-idempotent requests the corresponding response. If a client retries the
+    request, the response from the retry cache is sent. Such operations
+    are tagged with annotation @AtMostOnce in namenode protocols. It is
+    recommended that this flag be set to true. Setting it to false, will result
+    in clients getting failure responses to retried request. This flag must 
+    be enabled in HA setup for transparent fail-overs.
+
+    The entries in the cache have expiration time configurable
+    using dfs.namenode.retrycache.expirytime.millis.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.domain.socket.data.traffic</name>
+  <value>false</value>
+  <description>
+    This control whether we will try to pass normal data traffic
+    over UNIX domain socket rather than over TCP socket
+    on node-local data transfer.
+    This is currently experimental and turned off by default.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.retry.policy.enabled</name>
+  <value>false</value>
+  <description>
+    If true, turns on DFSClient retry policy.
+  </description>
+</property>
+
+<property>
+  <name>dfs.datanode.restart.replica.expiration</name>
+  <value>50</value>
+  <description>
+    During shutdown for restart, the amount of time in seconds budgeted for
+    datanode restart.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.snapshot.skiplist.max.levels</name>
+  <value>1</value>
+  <description>
+    Maximum no of the skip levels to be maintained in the skip list for
+    storing directory snapshot diffs. By default, it is set to 0 and a linear
+    list will be used to store the directory snapshot diffs.
+  </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HDFS version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

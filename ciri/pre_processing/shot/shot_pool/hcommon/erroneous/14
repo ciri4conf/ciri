@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hadoop.security.group.mapping.ldap.search.filter.user</name>
+  <value>(&(objectClass=user)(sAMAccountName={0}))</value>
+  <description>
+    An additional filter to use when searching for LDAP users. The default will
+    usually be appropriate for Active Directory installations. If connecting to
+    an LDAP server with a non-AD schema, this should be replaced with
+    (&amp;(objectClass=inetOrgPerson)(uid={0}). {0} is a special string used to
+    denote where the username fits into the filter.
+
+    If the LDAP server supports posixGroups, Hadoop can enable the feature by
+    setting the value of this property to "posixAccount" and the value of
+    the hadoop.security.group.mapping.ldap.search.filter.group property to
+    "posixGroup".
+  </description>
+</property>
+
+<property>
+  <name>hadoop.security.group.mapping.ldap.posix.attr.uid.name</name>
+  <value>uidNumber</value>
+  <description>
+    The attribute of posixAccount to use when groups for membership.
+    Mostly useful for schemas wherein groups have memberUids that use an
+    attribute other than uidNumber.
+  </description>
+</property>
+
+<property>
+  <name>ipc.[port_number].decay-scheduler.decay-factor</name>
+  <value>0.5</value>
+  <description>When decaying the operation counts of users, the multiplicative
+    decay factor to apply. Higher values will weight older operations more
+    strongly, essentially giving the scheduler a longer memory, and penalizing
+    heavy clients for a longer period of time.
+    This property applies to DecayRpcScheduler.
+  </description>
+</property>
+
+<property>
+  <name>ftp.bytes-per-checksum</name>
+  <value>1024</value>
+  <description>The number of bytes per checksum.  Must not be larger than
+  ftp.stream-buffer-size</description>
+</property>
+
+<property>
+  <name>ha.zookeeper.auth</name>
+  <value></value>
+  <description>
+    A comma-separated list of ZooKeeper authentications to add when
+    connecting to ZooKeeper. These are specified in the same format
+    as used by the &quot;addauth&quot; command in the ZK CLI. It is
+    important that the authentications specified here are sufficient
+    to access znodes with the ACL specified in ha.zookeeper.acl.
+
+    If the auths contain secrets, you may instead specify a
+    path to a file, prefixed with the '@' symbol, and the value of
+    this configuration will be loaded from within.
+  </description>
+</property>
+
+<property>
+  <name>rpc.metrics.quantile.enable</name>
+  <value>false</value>
+  <description>
+    Setting this property to true and rpc.metrics.percentiles.intervals
+    to a comma-separated list of the granularity in seconds, the
+    50/75/90/95/99th percentile latency for rpc queue/processing time in
+    milliseconds are added to rpc metrics.
+  </description>
+</property>
+
+<property>
+  <name>rpc.metrics.percentiles.intervals</name>
+  <value>60,300,900,3600,86400</value>
+  <description>
+    A comma-separated list of the granularity in seconds for the metrics which
+    describe the 50/75/90/95/99th percentile latency for rpc queue/processing
+    time. The metrics are outputted if rpc.metrics.quantile.enable is set to
+    true.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.security.key.default.bitlength</name>
+  <value>128</value>
+  <description>
+    The length (bits) of keys we want the KeyProvider to produce. Key length
+    defines the upper-bound on an algorithm's security, ideally, it would
+    coincide with the lower-bound on an algorithm's security.
+  </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HCommon version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["rpc.metrics.quantile.enable"],
+    "reason": ["The value of the property 'rpc.metrics.quantile.enable' should be 'true' to eable the property 'rpc.metrics.percentiles.intervals'."]
+}
+```

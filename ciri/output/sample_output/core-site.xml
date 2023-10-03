@@ -1,0 +1,32 @@
+Wrong shot number:
+[13, 5, 16]
+
+Correct shot number:
+[10]
+
+Raw json:
+
+{'hasError': True, 'errParameter': ['fs.default.name'], 'reason': ["The property 'fs.default.name' has the value 'file//' which does not follow the correct URI format."]}
+
+{'hasError': True, 'errParameter': ['fs.default.name'], 'reason': ["The property 'fs.default.name' has the value 'file//' which does not follow the correct URI format."]}
+
+{'hasError': True, 'errParameter': ['fs.default.name'], 'reason': ["The property 'fs.default.name' has the value 'file//' which does not follow the correct URI format."]}
+
+{'hasError': True, 'errParameter': ['fs.default.name'], 'reason': ["The property 'fs.default.name' has the value 'file//' which does not follow the correct URI format."]}
+
+{'hasError': True, 'errParameter': ['fs.default.name'], 'reason': ["The property 'fs.default.name' has the value 'file//' which does not follow the correct URI format."]}
+
+{'hasError': True, 'errParameter': ['fs.default.name'], 'reason': ["The property 'fs.default.name' has the value 'file//' which does not follow the correct URI format."]}
+
+{'hasError': True, 'errParameter': ['fs.default.name'], 'reason': ["The property 'fs.default.name' has the value 'file//' which does not follow the correct URI format."]}
+
+{'hasError': True, 'errParameter': ['fs.default.name'], 'reason': ["The property 'fs.default.name' has the value 'file//' which does not follow the correct URI format."]}
+
+{'hasError': True, 'errParameter': ['fs.default.name'], 'reason': ["The property 'fs.default.name' has the value 'file//' which does not follow the correct URI format."]}
+
+{'hasError': True, 'errParameter': ['fs.default.name'], 'reason': ["The property 'fs.default.name' has the value 'file//' which does not follow the correct URI format."]}
+
+Final result:
+
+There are 1 misconfiguration parameters in the input: fs.default.name
+[Ciri] Reason for fs.default.name: The property 'fs.default.name' has the value 'file//' which does not follow the correct URI format.

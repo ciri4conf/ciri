@@ -1,0 +1,40 @@
+alluxio.debug=-1
+# Description: Set to true to enable debug mode which has additional logging and info in the Web UI.
+
+alluxio.worker.jvm.monitor.enabled=true
+# Description: Whether to enable start JVM monitor thread on the worker. This will start a thread to detect JVM-wide pauses induced by GC or other reasons.
+
+alluxio.user.network.rpc.keepalive.timeout=1sec
+# Description: The maximum time for a rpc client to wait for a keepalive response before closing the connection.
+
+alluxio.user.logging.threshold=10s
+# Description: Logging a client RPC when it takes more time than the threshold.
+
+alluxio.worker.tieredstore.block.locks=500
+# Description: Total number of block locks for an Alluxio block worker. Larger value leads to finer locking granularity, but uses more space.
+
+alluxio.worker.management.load.detection.cool.down.time=10sec
+# Description: Management tasks will not run for this long after load detected. Any user I/O will still register as a load for this period of time after it is finished. Short durations might cause interference between user I/O and background tier management tasks. Long durations might cause starvation for background tasks.
+
+alluxio.master.daily.backup.enabled=true
+# Description: Whether or not to enable daily primary master metadata backup.
+
+alluxio.job.master.worker.heartbeat.interval=1sec
+# Description: The amount of time that the Alluxio job worker should wait in between heartbeats to the Job Master.
+
+
+Question: Are there any mistakes in the above configuration file for Alluxio version 2.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["alluxio.debug"],
+    "reason": ["The property 'alluxio.debug' has the value '-1' which is not within the accepted value {true,false}."]
+}
+```

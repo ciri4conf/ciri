@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.hostname</name>
+  <value>xxx.0.0.0</value>
+    <description>The hostname of the RM.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.nodes.exclude-path</name>
+  <value></value>
+    <description>Path to file with nodes to exclude.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.delete.thread-count</name>
+  <value>4</value>
+    <description>Number of threads used in cleanup.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.application-tag-based-placement.enable</name>
+  <value>true</value>
+    <description>
+      Whether to enable application placement based on user ID passed via
+      application tags. When it is enabled, userid=&lt;userId&gt;
+      pattern will be checked and if found, the application will be placed
+      onto the found user's queue,
+      if the original user has enough rights on the passed user's queue.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.docker.privileged-containers.acl</name>
+  <value></value>
+    <description>This configuration setting determines who is allowed to run
+      privileged docker containers on this cluster. Use with extreme care.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.docker.enable-userremapping.allowed</name>
+  <value>false</value>
+    <description>Property to enable docker user remapping</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.node-labels.resync-interval-ms</name>
+  <value>240000</value>
+    <description>
+   Interval at which NM syncs its node labels with RM. NM will send its loaded
+   labels every x intervals configured, along with heartbeat to RM.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.csi-driver.names</name>
+  <value></value>
+    <description>
+      CSI driver names running on this node, multiple driver names need to
+      be delimited by comma. The driver name should be same value returned
+      by the getPluginInfo call.For each of the CSI driver name, it must
+      to define following two corresponding properties:
+        "yarn.nodemanager.csi-driver.${NAME}.endpoint"
+        "yarn.nodemanager.csi-driver-adaptor.${NAME}.address"
+      The 1st property defines where the driver's endpoint is;
+      2nd property defines where the mapping csi-driver-adaptor's address is.
+      What's more, an optional csi-driver-adaptor class can be defined
+      for each csi-driver:
+        "yarn.nodemanager.csi-driver.${NAME}.class"
+      once given, the adaptor will be initiated with the given class instead
+      of the default implementation
+      org.apache.hadoop.yarn.csi.adaptor.DefaultCsiAdaptorImpl. User can plug
+      customized adaptor code for csi-driver with this configuration
+      if necessary.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for YARN version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["yarn.resourcemanager.hostname"],
+    "reason": ["The property 'yarn.resourcemanager.hostname' has the value 'xxx.0.0.0' which does not follow the correct IP address format."]
+}
+```

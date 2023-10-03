@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.nodemanager.linux-container-executor.nonsecure-mode.user-pattern</name>
+  <value>^[_.A-Za-z0-9][-@_.A-Za-z0-9]{0,255}?[$]?$</value>
+    <description>The allowed pattern for UNIX user names enforced by
+    Linux-container-executor when used in nonsecure mode (use case for this
+    is using cgroups). The default value is taken from /usr/sbin/adduser</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.docker.image-name</name>
+  <value></value>
+    <description>Default docker image to be used when the docker runtime is
+    selected.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.runc.image-tag-to-manifest-plugin.num-manifests-to-cache</name>
+  <value>1</value>
+    <description>The number of manifests to cache in the image tag
+      to hash cache.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.container-executor.os.sched.priority.adjustment</name>
+  <value></value>
+    <description>
+    Adjustment to the container OS scheduling priority.  In Linux, passed
+    directly to the nice command. If unspecified then containers are launched
+    without any explicit OS priority.
+    </description>
+</property>
+
+<property>
+  <name>yarn.web-proxy.keytab</name>
+  <value>/valid/file1</value>
+    <description>Keytab for WebAppProxy, if the proxy is not running as part of 
+    the RM.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.log-aggregation.roll-monitoring-interval-seconds.min</name>
+  <value>3600</value>
+    <description>Defines the positive minimum hard limit for
+    "yarn.nodemanager.log-aggregation.roll-monitoring-interval-seconds".
+    If this configuration has been set less than its default value (3600)
+    the NodeManager may raise a warning.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.application-timeouts.monitor.interval-ms</name>
+  <value>3000</value>
+    <description>
+    The RMAppLifetimeMonitor Service uses this value as monitor interval
+    </description>
+</property>
+
+<property>
+  <name>yarn.app.attempt.diagnostics.limit.kc</name>
+  <value>32</value>
+    <description>
+      Defines the limit of the diagnostics message of an application
+      attempt, in kilo characters (character count * 1024).
+      When using ZooKeeper to store application state behavior, its
+      important to limit the size of the diagnostic messages to
+      prevent YARN from overwhelming ZooKeeper. In cases where
+      yarn.resourcemanager.state-store.max-completed-applications is set to
+      a large number, it may be desirable to reduce the value of this property
+      to limit the total data stored.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for YARN version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

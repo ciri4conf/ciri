@@ -1,0 +1,40 @@
+alluxio.user.file.master.client.pool.size.max=1000
+# Description: The maximum number of fs master clients cached in the fs master client pool.
+
+alluxio.worker.network.zerocopy.enabled=false
+# Description: Whether zero copy is enabled on worker when processing data streams.
+
+alluxio.user.block.size.bytes.default=128MB
+# Description: Default block size for Alluxio files.
+
+alluxio.master.tieredstore.global.mediumtype=MEM
+# Description: The list of medium types we support in the system.
+
+alluxio.underfs.s3.socket.timeout=50sec
+# Description: Length of the socket timeout when communicating with S3.
+
+alluxio.job.master.worker.timeout=120sec
+# Description: The time period after which the job master will mark a worker as lost without a subsequent heartbeat.
+
+alluxio.master.rpc.executor.keepalive=60sec
+# Description: The keep alive time of a thread in master RPC ExecutorServicelast used before this thread is terminated (and replaced if necessary).
+
+alluxio.user.network.streaming.max.connections=128
+# Description: The maximum number of physical connections to be used per target host.
+
+
+Question: Are there any mistakes in the above configuration file for Alluxio version 2.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

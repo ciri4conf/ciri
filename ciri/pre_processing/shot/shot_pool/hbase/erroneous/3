@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hbase.master.info.bindAddress</name>
+  <value>xxx.0.0.0</value>
+    <description>The bind address for the HBase Master web UI
+    </description>
+</property>
+
+<property>
+  <name>zookeeper.znode.acl.parent</name>
+  <value>acl</value>
+    <description>Root ZNode for access control lists.</description>
+</property>
+
+<property>
+  <name>hbase.regions.slop</name>
+  <value>0.001</value>
+    <description>Rebalance if any regionserver has average + (average * slop) regions.
+      The default value of this parameter is 0.001 in StochasticLoadBalancer (the default load balancer),
+      while the default is 0.2 in other load balancers (i.e., SimpleLoadBalancer).</description>
+</property>
+
+<property>
+  <name>hbase.bucketcache.ioengine</name>
+  <value></value>
+    <description>Where to store the contents of the bucketcache. One of: offheap,
+    file, files, mmap or pmem. If a file or files, set it to file(s):PATH_TO_FILE.
+    mmap means the content will be in an mmaped file. Use mmap:PATH_TO_FILE. 'pmem'
+    is bucket cache over a file on the persistent memory device.
+    Use pmem:PATH_TO_FILE.
+    See http://hbase.apache.org/book.html#offheap.blockcache for more information.
+    </description>
+</property>
+
+<property>
+  <name>hbase.display.keys</name>
+  <value>false</value>
+    <description>When this is set to true the webUI and such will display all start/end keys
+                 as part of the table details, region names, etc. When this is set to false,
+                 the keys are hidden.</description>
+</property>
+
+<property>
+  <name>hbase.column.max.version</name>
+  <value>0</value>
+    <description>New column family descriptors will use this value as the default number of versions
+      to keep.</description>
+</property>
+
+<property>
+  <name>hbase.master.loadbalance.bytable</name>
+  <value>true</value>
+    <description>Factor Table name when the balancer runs.
+      Default: false.
+    </description>
+</property>
+
+<property>
+  <name>hbase.http.max.threads</name>
+  <value>16</value>
+    <description>
+      The maximum number of threads that the HTTP Server will create in its
+      ThreadPool.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HBase version 2.2.7? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["hbase.master.info.bindAddress"],
+    "reason": ["The property 'hbase.master.info.bindAddress' has the value 'xxx.0.0.0' which does not follow the correct IP address format."]
+}
+```

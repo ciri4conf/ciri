@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.leveldb-state-store.path</name>
+  <value>${hadoop.tmp.dir}/yarn/system/rmstore</value>
+    <description>Local path where the RM state will be stored when using
+    org.apache.hadoop.yarn.server.resourcemanager.recovery.LeveldbRMStateStore
+    as the value for yarn.resourcemanager.store.class</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.hostname</name>
+  <value>127.0.0.1</value>
+    <description>The hostname of the NM.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.local-dirs</name>
+  <value>${hadoop.tmp.dir}/nm-local-dir</value>
+    <description>List of directories to store localized files in. An 
+      application's localized file directory will be found in:
+      ${yarn.nodemanager.local-dirs}/usercache/${user}/appcache/application_${appid}.
+      Individual containers' work directories, called container_${contid}, will
+      be subdirectories of this.
+   </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.disk-health-checker.max-disk-utilization-per-disk-percentage</name>
+  <value>90.0</value>
+    <description>The maximum percentage of disk space utilization allowed after 
+    which a disk is marked as bad. Values can range from 0.0 to 100.0. 
+    If the value is greater than or equal to 100, the nodemanager will check 
+    for full disk. This applies to yarn.nodemanager.local-dirs and
+    yarn.nodemanager.log-dirs.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.aux-services</name>
+  <value></value>
+    <description>A comma separated list of services where service name should only
+      contain a-zA-Z0-9_ and can not start with numbers</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.process-kill-wait.ms</name>
+  <value>2500</value>
+    <description>Max time to wait for a process to come up when trying to cleanup a container</description>
+</property>
+
+<property>
+  <name>yarn.sharedcache.checksum.algo.impl</name>
+  <value>org.apache.hadoop.yarn.sharedcache.ChecksumSHA256Impl</value>
+    <description>The algorithm used to compute checksums of files (SHA-256 by
+    default)</description>
+</property>
+
+<property>
+  <name>yarn.webapp.enable-rest-app-submissions</name>
+  <value>false</value>
+    <description>Whether or not to allow application submissions via REST. Default is true.</description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for YARN version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hadoop.http.filter.initializers</name>
+  <value>org.apache.hadoop.http.lib.StaticUserWebFilter</value>
+  <description>A comma separated list of class names. Each class in the list
+  must extend org.apache.hadoop.http.FilterInitializer. The corresponding
+  Filter will be initialized. Then, the Filter will be applied to all user
+  facing jsp and servlet web pages.  The ordering of the list defines the
+  ordering of the filters.</description>
+</property>
+
+<property>
+  <name>io.skip.checksum.errors</name>
+  <value>false</value>
+  <description>If true, when a checksum error is encountered while
+  reading a sequence file, entries are skipped, instead of throwing an
+  exception.</description>
+</property>
+
+<property>
+  <name>fs.ftp.host</name>
+  <value>256.0.0.0</value>
+  <description>FTP filesystem connects to this server</description>
+</property>
+
+<property>
+  <name>fs.s3a.multiobjectdelete.enable</name>
+  <value>false</value>
+  <description>When enabled, multiple single-object delete requests are replaced by
+    a single 'delete multiple objects'-request, reducing the number of requests.
+    Beware: legacy S3-compatible object stores might not support this request.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.acl.default</name>
+  <value></value>
+  <description>Set a canned ACL for newly created and copied objects. Value may be Private,
+      PublicRead, PublicReadWrite, AuthenticatedRead, LogDeliveryWrite, BucketOwnerRead,
+      or BucketOwnerFullControl.</description>
+</property>
+
+<property>
+  <name>ipc.[port_number].decay-scheduler.metrics.top.user.count</name>
+  <value>1</value>
+  <description>The number of top (i.e., heaviest) users to emit metric
+    information about. This property applies to DecayRpcScheduler.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.http.staticuser.user</name>
+  <value>samsuper</value>
+  <description>
+    The user name to filter as, on static web filters
+    while rendering content. An example use is the HDFS
+    web UI (user to be used for browsing files).
+  </description>
+</property>
+
+<property>
+  <name>hadoop.security.crypto.jceks.key.serialfilter</name>
+  <value></value>
+  <description>
+    Enhanced KeyStore Mechanisms in JDK 8u171 introduced jceks.key.serialFilter.
+    If jceks.key.serialFilter is configured, the JCEKS KeyStore uses it during
+    the deserialization of the encrypted Key object stored inside a
+    SecretKeyEntry.
+    If jceks.key.serialFilter is not configured it will cause an error when
+    recovering keystore file in KeyProviderFactory when recovering key from
+    keystore file using JDK 8u171 or newer. The filter pattern uses the same
+    format as jdk.serialFilter.
+
+    The value of this property will be used as the following:
+    1. The value of jceks.key.serialFilter system property takes precedence
+    over the value of this property.
+    2. In the absence of jceks.key.serialFilter system property the value of
+    this property will be set as the value of jceks.key.serialFilter.
+    3. If the value of this property and jceks.key.serialFilter system
+    property has not been set, org.apache.hadoop.crypto.key.KeyProvider
+    sets a default value for jceks.key.serialFilter.
+  </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HCommon version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["fs.ftp.host"],
+    "reason": ["The property 'fs.ftp.host' has the value '256.0.0.0' which is out of the valid range of an IP address."]
+}
+```

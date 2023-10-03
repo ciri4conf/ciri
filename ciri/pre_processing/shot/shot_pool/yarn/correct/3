@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.nodemanager.runtime.linux.runc.image-tag-to-manifest-plugin.cache-refresh-interval-secs</name>
+  <value>120</value>
+    <description>The interval in seconds between refreshing the hdfs image tag
+      to hash cache.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.windows-container.memory-limit.enabled</name>
+  <value>true</value>
+    <description>This flag determines whether memory limit will be set for the Windows Job
+    Object of the containers launched by the default container executor.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.entity-group-fs-store.group-id-plugin-classes</name>
+  <value></value>
+    <description>
+      Plugins that can translate a timeline entity read request into
+      a list of timeline entity group ids, separated by commas.
+    </description>
+</property>
+
+<property>
+  <name>yarn.sharedcache.nm.uploader.thread-count</name>
+  <value>40</value>
+    <description>The number of threads used to upload files from a node manager
+    instance (20 by default)</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.webapp.rest-csrf.methods-to-ignore</name>
+  <value>GET,OPTIONS,HEAD</value>
+    <description>
+      Optional parameter that indicates the list of HTTP methods that do not
+      require CSRF protection
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.resource-plugins.gpu.path-to-discovery-executables</name>
+  <value></value>
+    <description>
+      When yarn.nodemanager.resource.gpu.allowed-gpu-devices=auto specified,
+      YARN NodeManager needs to run GPU discovery binary (now only support
+      nvidia-smi) to get GPU-related information.
+      When value is empty (default), YARN NodeManager will try to locate
+      discovery executable itself.
+      An example of the config value is: /usr/local/bin/nvidia-smi
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.resource-plugins.gpu.docker-plugin</name>
+  <value>nvidia-docker-v1</value>
+    <description>
+      Specify docker command plugin for GPU. By default uses Nvidia docker V1.
+    </description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.reader.bind-host</name>
+  <value></value>
+    <description>
+      The actual address timeline reader will bind to. If this optional address is
+      set, the reader server will bind to this address and the port specified in
+      yarn.timeline-service.reader.webapp.address.
+      This is most useful for making the service listen to all interfaces by setting to
+      0.0.0.0.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for YARN version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

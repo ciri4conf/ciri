@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.namenode.redundancy.considerLoad.factor</name>
+  <value>ciri</value>
+    <description>The factor by which a node's load can exceed the average
+      before being rejected for writes, only if considerLoad is true.
+    </description>
+</property>
+
+<property>
+  <name>dfs.web.authentication.kerberos.principal</name>
+  <value></value>
+  <description>
+    The server principal used by the NameNode for WebHDFS SPNEGO
+    authentication.
+
+    Required when WebHDFS and security are enabled. In most secure clusters this
+    setting is also used to specify the values for
+    dfs.namenode.kerberos.internal.spnego.principal and
+    dfs.journalnode.kerberos.internal.spnego.principal.
+  </description>
+</property>
+
+<property>
+  <name>nfs.dump.dir</name>
+  <value>/tmp/.hdfs-nfs</value>
+  <description>
+    This directory is used to temporarily save out-of-order writes before
+    writing to HDFS. For each file, the out-of-order writes are dumped after
+    they are accumulated to exceed certain threshold (e.g., 1MB) in memory. 
+    One needs to make sure the directory has enough space.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.user.group.metrics.percentiles.intervals</name>
+  <value></value>
+  <description>
+    A comma-separated list of the granularity in seconds for the metrics
+    which describe the 50/75/90/95/99th percentile latency for group resolution
+    in milliseconds.
+    By default, percentile latency metrics are disabled.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.deadnode.detection.rpc.threads</name>
+  <value>20</value>
+    <description>
+      The maximum number of threads to use for calling RPC call to recheck the liveness of dead node.
+    </description>
+</property>
+
+<property>
+  <name>dfs.balancer.getBlocks.min-block-size</name>
+  <value>10485760</value>
+  <description>
+    Minimum block threshold size in bytes to ignore when fetching a source's
+    block list.
+  </description>
+</property>
+
+<property>
+  <name>dfs.qjournal.get-journal-state.timeout.ms</name>
+  <value>60000</value>
+  <description>
+    Timeout in milliseconds when calling getJournalState().
+    JournalNodes.
+  </description>
+</property>
+
+<property>
+  <name>dfs.disk.balancer.plan.valid.interval</name>
+  <value>1d</value>
+    <description>
+      Maximum amount of time disk balancer plan is valid. This setting
+      supports multiple time unit suffixes as described in
+      dfs.heartbeat.interval. If no suffix is specified then milliseconds
+      is assumed.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HDFS version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["dfs.namenode.redundancy.considerLoad.factor"],
+    "reason": ["The property 'dfs.namenode.redundancy.considerLoad.factor' has the value 'ciri' which is not of the correct type Integer."]
+}
+```

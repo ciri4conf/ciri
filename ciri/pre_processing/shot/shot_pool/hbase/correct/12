@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hbase.master.info.bindAddress</name>
+  <value>0.0.0.0</value>
+    <description>The bind address for the HBase Master web UI
+    </description>
+</property>
+
+<property>
+  <name>hbase.regionserver.msginterval</name>
+  <value>1500</value>
+    <description>Interval between messages from the RegionServer to Master
+    in milliseconds.</description>
+</property>
+
+<property>
+  <name>hbase.regionserver.dns.interface</name>
+  <value>eth1</value>
+    <description>The name of the Network Interface from which a region server
+      should report its IP address.</description>
+</property>
+
+<property>
+  <name>hbase.master.balancer.maxRitPercent</name>
+  <value>1.0</value>
+    <description>The max percent of regions in transition when balancing.
+      The default value is 1.0. So there are no balancer throttling. If set this config to 0.01,
+      It means that there are at most 1% regions in transition when balancing.
+      Then the cluster's availability is at least 99% when balancing.</description>
+</property>
+
+<property>
+  <name>hbase.hregion.preclose.flush.size</name>
+  <value>10485760</value>
+    <description>
+      If the memstores in a region are this size or larger when we go
+      to close, run a "pre-flush" to clear out memstores before we put up
+      the region closed flag and take the region offline.  On close,
+      a flush is run under the close flag to empty memory.  During
+      this time the region is offline and we are not taking on any writes.
+      If the memstore content is large, this flush could take a long time to
+      complete.  The preflush is meant to clean out the bulk of the memstore
+      before putting up the close flag and taking the region offline so the
+      flush that runs under the close flag has little to do.</description>
+</property>
+
+<property>
+  <name>hbase.storescanner.parallel.seek.enable</name>
+  <value>true</value>
+    <description>
+      Enables StoreFileScanner parallel-seeking in StoreScanner,
+      a feature which can reduce response latency under special conditions.</description>
+</property>
+
+<property>
+  <name>hbase.procedure.regionserver.classes</name>
+  <value></value>
+    <description>A comma-separated list of
+    org.apache.hadoop.hbase.procedure.RegionServerProcedureManager procedure managers that are
+    loaded by default on the active HRegionServer process. The lifecycle methods (init/start/stop)
+    will be called by the active HRegionServer process to perform the specific globally barriered
+    procedure. After implementing your own RegionServerProcedureManager, just put it in
+    HBase's classpath and add the fully qualified class name here.
+    </description>
+</property>
+
+<property>
+  <name>hbase.procedure.master.classes</name>
+  <value></value>
+    <description>A comma-separated list of
+    org.apache.hadoop.hbase.procedure.MasterProcedureManager procedure managers that are
+    loaded by default on the active HMaster process. A procedure is identified by its signature and
+    users can use the signature and an instant name to trigger an execution of a globally barriered
+    procedure. After implementing your own MasterProcedureManager, just put it in HBase's classpath
+    and add the fully qualified class name here.</description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HBase version 2.2.7? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

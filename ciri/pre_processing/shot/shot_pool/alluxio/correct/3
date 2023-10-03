@@ -1,0 +1,40 @@
+alluxio.worker.tieredstore.level0.alias=MEM
+# Description: The alias of the top storage tier on this worker. It must match one of the global storage tiers from the master configuration. We disable placing an alias lower in the global hierarchy before an alias with a higher position on the worker hierarchy. So by default, SSD cannot come before MEM on any worker.
+
+alluxio.user.block.avoid.eviction.policy.reserved.size.bytes=2MB
+# Description: The portion of space reserved in a worker when using the LocalFirstAvoidEvictionPolicy class as block location policy.
+
+alluxio.user.network.writer.chunk.size.bytes=
+# Description: When a client writes to a remote worker, the maximum chunk size.
+
+alluxio.master.journal.type=EMBEDDED
+# Description: The type of journal to use. Valid options are UFS (store journal in UFS), EMBEDDED (use a journal embedded in the masters), and NOOP (do not use a journal)
+
+alluxio.master.backup.state.lock.exclusive.duration=1ms
+# Description: Alluxio master will allow only exclusive locking of the state-lock for this duration. This duration starts after masters are started for the first time. User RPCs will fail to acquire state-lock during this phase and a backup is guaranteed take the state-lock meanwhile.
+
+alluxio.job.worker.rpc.port=30001
+# Description: The port for Alluxio job worker's RPC service.
+
+alluxio.master.mount.table.root.alluxio=/valid/file1
+# Description: Alluxio root mount point.
+
+alluxio.master.metastore=ROCKS
+# Description: The type of metastore to use, either HEAP or ROCKS. The heap metastore keeps all metadata on-heap, while the rocks metastore stores some metadata on heap and some metadata on disk. The rocks metastore has the advantage of being able to support a large namespace (1 billion plus files) without needing a massive heap size.The metadata storage includes inode and block metadata. Users can override the type of metastore using alluxio.master.metastore.inode and alluxio.master.metastore.block. For example if alluxio.master.metastore=ROCKS but alluxio.master.metastore.inode=HEAP, then inodes are stored with HEAP and blocks are stored with ROCKS.
+
+
+Question: Are there any mistakes in the above configuration file for Alluxio version 2.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

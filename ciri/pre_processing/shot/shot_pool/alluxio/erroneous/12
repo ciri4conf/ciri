@@ -1,0 +1,40 @@
+alluxio.worker.tieredstore.level0.watermark.low.ratio=0.8
+# Description: The low watermark of the space in the top storage tier (a value between 0 and 1).
+
+alluxio.worker.tieredstore.level0.watermark.high.ratio=0.7
+# Description: The high watermark of the space in the top storage tier (a value between 0 and 1).
+
+alluxio.underfs.hdfs.impl=org.apache.hadoop.hdfs.DistributedFileSystem
+# Description: The implementation class of the HDFS as the under storage system.
+
+alluxio.worker.management.backoff.strategy=ANY
+# Description: Defines the backoff scope respected by background tasks. Supported values are ANY / DIRECTORY. ANY: Management tasks will backoff from worker when there is any user I/O.This mode will ensure low management task overhead in order to favor immediate user I/O performance. However, making progress on management tasks will require quite periods on the worker.DIRECTORY: Management tasks will backoff from directories with ongoing user I/O.This mode will give better chance of making progress on management tasks.However, immediate user I/O throughput might be reduced due to increased management task activity.
+
+alluxio.underfs.oss.socket.timeout=1sec
+# Description: The timeout of OSS socket.
+
+alluxio.underfs.s3.max.error.retry=
+# Description: The maximum number of retry attempts for failed retryable requests.Setting this property will override the AWS SDK default.
+
+alluxio.user.metrics.collection.enabled=true
+# Description: Enable collecting the client-side metrics and heartbeat them to master
+
+alluxio.master.file.access.time.update.precision=2d
+# Description: The file last access time is precise up to this value. Setting it toa non-positive value will update last access time on every file access operation.Longer precision will help reduce the performance impact of tracking access time by reduce the amount of metadata writes occur while reading the same group of files repetitively.
+
+
+Question: Are there any mistakes in the above configuration file for Alluxio version 2.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["alluxio.worker.tieredstore.level0.watermark.low.ratio"],
+    "reason": ["The value of the property 'alluxio.worker.tieredstore.level0.watermark.low.ratio' should be smaller or equal to the value of the property 'alluxio.worker.tieredstore.level0.watermark.high.ratio'."]
+}
+```

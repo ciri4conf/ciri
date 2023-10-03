@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.namenode.posix.acl.inheritance.enabled</name>
+  <value>false</value>
+    <description>
+      Set to true to enable POSIX style ACL inheritance. When it is enabled
+      and the create request comes from a compatible client, the NameNode
+      will apply default ACLs from the parent directory to the create mode
+      and ignore the client umask. If no default ACL found, it will apply the
+      client umask.
+    </description>
+</property>
+
+<property>
+  <name>dfs.namenode.resource.check.interval</name>
+  <value>5000</value>
+  <description>
+    The interval in milliseconds at which the NameNode resource checker runs.
+    The checker calculates the number of the NameNode storage volumes whose
+    available spaces are more than dfs.namenode.resource.du.reserved, and
+    enters safemode if the number becomes lower than the minimum value
+    specified by dfs.namenode.resource.checked.volumes.minimum.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.num.checkpoints.retained</name>
+  <value>2</value>
+  <description>The number of image checkpoint files (fsimage_*) that will be retained by
+  the NameNode and Secondary NameNode in their storage directories. All edit
+  logs (stored on edits_* files) necessary to recover an up-to-date namespace from the oldest retained
+  checkpoint will also be retained.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.read.shortcircuit.streams.cache.size</name>
+  <value>128</value>
+  <description>
+    The DFSClient maintains a cache of recently opened file descriptors.
+    This parameter controls the maximum number of file descriptors in the cache.
+    Setting this higher will use more file descriptors,
+    but potentially provide better performance on workloads
+    involving lots of seeks.
+  </description>
+</property>
+
+<property>
+  <name>dfs.datanode.socket.reuse.keepalive</name>
+  <value>4000</value>
+  <description>
+    The window of time in ms before the DataXceiver closes a socket for a
+    single request.  If a second request occurs within that window, the
+    socket can be reused.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.file.close.num-committed-allowed</name>
+  <value>-1</value>
+  <description>
+    Normally a file can only be closed with all its blocks are committed.
+    When this value is set to a positive integer N, a file can be closed
+    when N blocks are committed and the rest complete.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.storageinfo.defragment.interval.ms</name>
+  <value>3000000000</value>
+  <description>
+    The thread for checking the StorageInfo for defragmentation will
+    run periodically.  The time between runs is determined by this
+    property.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.lease-hard-limit-sec</name>
+  <value>2400</value>
+    <description>
+      Determines the namenode automatic lease recovery interval in seconds.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HDFS version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["dfs.namenode.storageinfo.defragment.interval.ms"],
+    "reason": ["The property 'dfs.namenode.storageinfo.defragment.interval.ms' has the value '3000000000' which exceeds the range of an Integer."]
+}
+```

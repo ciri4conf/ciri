@@ -1,0 +1,40 @@
+alluxio.fuse.logging.threshold=10nounit
+# Description: Logging a FUSE API call when it takes more time than the threshold.
+
+alluxio.worker.management.tier.align.range=50
+# Description: Maximum number of blocks to consider from one tier for a single alignment task.
+
+alluxio.user.network.netty.worker.threads=0
+# Description: How many threads to use for remote block worker client to read from remote block workers.
+
+alluxio.fuse.jnifuse.enabled=false
+# Description: Use JNI-Fuse library for better performance. If disabled, JNR-Fuse will be used.
+
+alluxio.master.embedded.journal.transport.max.inbound.message.size=1MB
+# Description: The maximum size of a message that can be sent to the embedded journal server node.
+
+alluxio.worker.jvm.monitor.enabled=true
+# Description: Whether to enable start JVM monitor thread on the worker. This will start a thread to detect JVM-wide pauses induced by GC or other reasons.
+
+alluxio.secondary.master.metastore.dir=/valid/file1
+# Description: The secondary master metastore work directory. Only some metastores need disk.
+
+alluxio.master.ufs.journal.max.catchup.time=1min
+# Description: The maximum time to wait for ufs journal catching up before listening to Zookeeper state change. This is added to prevent frequently leadership transition during heavy journal replay stage.
+
+
+Question: Are there any mistakes in the above configuration file for Alluxio version 2.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["alluxio.fuse.logging.threshold"],
+    "reason": ["The property 'alluxio.fuse.logging.threshold' has the value '10nounit' which uses an incorrect unit."]
+}
+```

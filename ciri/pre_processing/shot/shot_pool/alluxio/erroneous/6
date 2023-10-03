@@ -1,0 +1,40 @@
+fs.cos.connection.max=3000000000
+# Description: The maximum number of COS connections.
+
+alluxio.master.metastore.iterator.readahead.size=1MB
+# Description: The read-ahead size (in bytes) for metastore iterators.
+
+alluxio.master.filesystem.liststatus.result.message.length=10000
+# Description: Count of items on each list-status response message.
+
+alluxio.user.client.cache.evictor.lfu.logbase=1.0
+# Description: The log base for client cache LFU evictor bucket index.
+
+alluxio.underfs.s3.connection.ttl=-2
+# Description: The expiration time of S3 connections in ms. -1 means the connection will never expire.
+
+alluxio.worker.tieredstore.level0.dirs.path=/mnt/ramdisk
+# Description: A comma-separated list of paths (eg., /mnt/ramdisk1,/mnt/ramdisk2,/mnt/ssd/alluxio/cache1) of storage directories for the top storage tier. Note that for MacOS, the root directory should be `/Volumes/` and not `/mnt/`.
+
+alluxio.job.master.web.port=20002
+# Description: The port the job master web server uses.
+
+alluxio.underfs.s3.owner.id.to.username.mapping=
+# Description: Optionally, specify a preset s3 canonical id to Alluxio username static mapping, in the format "id1=user1;id2=user2". The AWS S3 canonical ID can be found at the console address https://console.aws.amazon.com/iam/home?#security_credential . Please expand the "Account Identifiers" tab and refer to "Canonical User ID". Unspecified owner id will map to a default empty username
+
+
+Question: Are there any mistakes in the above configuration file for Alluxio version 2.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["fs.cos.connection.max"],
+    "reason": ["The property 'fs.cos.connection.max' has the value '3000000000' which exceeds the range of an Integer."]
+}
+```

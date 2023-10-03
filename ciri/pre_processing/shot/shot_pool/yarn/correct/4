@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.nodemanager.log.retain-seconds</name>
+  <value>10800</value>
+    <description>Time in seconds to retain user logs. Only applicable if
+    log aggregation is disabled
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.resource.count-logical-processors-as-cores</name>
+  <value>true</value>
+    <description>Flag to determine if logical processors(such as
+    hyperthreads) should be counted as cores. Only applicable on Linux
+    when yarn.nodemanager.resource.cpu-vcores is set to -1 and
+    yarn.nodemanager.resource.detect-hardware-capabilities is true.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.resource.pcores-vcores-multiplier</name>
+  <value>0.5</value>
+    <description>Multiplier to determine how to convert phyiscal cores to
+    vcores. This value is used if yarn.nodemanager.resource.cpu-vcores
+    is set to -1(which implies auto-calculate vcores) and
+    yarn.nodemanager.resource.detect-hardware-capabilities is set to true. The
+    number of vcores will be calculated as
+    number of CPUs * multiplier.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.principal</name>
+  <value></value>
+    <description>The kerberos principal for the node manager.</description>
+</property>
+
+<property>
+  <name>yarn.client.nodemanager-connect.retry-interval-ms</name>
+  <value>20000</value>
+    <description>Time interval between each attempt to connect to NM</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.address</name>
+  <value>127.0.0.1</value>
+    <description>This is default address for the timeline server to start the
+    RPC server.</description>
+</property>
+
+<property>
+  <name>yarn.node-labels.fs-store.root-dir</name>
+  <value></value>
+    <description>
+    URI for NodeLabelManager.  The default value is
+    /tmp/hadoop-yarn-${user}/node-labels/ in the local filesystem.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.resource-plugins.fail-fast</name>
+  <value></value>
+    <description>
+      Specifies whether the initialization of the Node Manager should continue
+      if a certain device (GPU, FPGA, etc) was not found in the system. If set
+      to "true", then an exception will be thrown if a device is missing or
+      an error occurred during discovery.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for YARN version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hbase.master.port</name>
+  <value>hadoop</value>
+    <description>The port the HBase Master should bind to.</description>
+</property>
+
+<property>
+  <name>hbase.zookeeper.property.initLimit</name>
+  <value>20</value>
+    <description>Property from ZooKeeper's config zoo.cfg.
+    The number of ticks that the initial synchronization phase can take.</description>
+</property>
+
+<property>
+  <name>hbase.hregion.preclose.flush.size</name>
+  <value>5242880</value>
+    <description>
+      If the memstores in a region are this size or larger when we go
+      to close, run a "pre-flush" to clear out memstores before we put up
+      the region closed flag and take the region offline.  On close,
+      a flush is run under the close flag to empty memory.  During
+      this time the region is offline and we are not taking on any writes.
+      If the memstore content is large, this flush could take a long time to
+      complete.  The preflush is meant to clean out the bulk of the memstore
+      before putting up the close flag and taking the region offline so the
+      flush that runs under the close flag has little to do.</description>
+</property>
+
+<property>
+  <name>hbase.hstore.time.to.purge.deletes</name>
+  <value>0</value>
+    <description>The amount of time to delay purging of delete markers with future timestamps. If
+      unset, or set to 0, all delete markers, including those with future timestamps, are purged
+      during the next major compaction. Otherwise, a delete marker is kept until the major compaction
+      which occurs after the marker's timestamp plus the value of this setting, in milliseconds.
+    </description>
+</property>
+
+<property>
+  <name>hbase.storescanner.parallel.seek.threads</name>
+  <value>20</value>
+    <description>
+      The default thread pool size if parallel-seeking feature enabled.</description>
+</property>
+
+<property>
+  <name>hbase.coprocessor.user.enabled</name>
+  <value>false</value>
+    <description>Enables or disables user (aka. table) coprocessor loading.
+    If 'false' (disabled), any table coprocessor attributes in table
+    descriptors will be ignored. If "hbase.coprocessor.enabled" is 'false'
+    this setting has no effect.
+    </description>
+</property>
+
+<property>
+  <name>hbase.rootdir.perms</name>
+  <value>700</value>
+    <description>FS Permissions for the root data subdirectory in a secure (kerberos) setup.
+    When master starts, it creates the rootdir with this permissions or sets the permissions
+    if it does not match.</description>
+</property>
+
+<property>
+  <name>hbase.status.listener.class</name>
+  <value>org.apache.hadoop.hbase.client.ClusterStatusListener$MulticastListener</value>
+    <description>
+      Implementation of the status listener with a multicast message.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HBase version 2.2.7? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["hbase.master.port"],
+    "reason": ["The property 'hbase.master.port' has the value 'hadoop' which does not follow the correct port format."]
+}
+```

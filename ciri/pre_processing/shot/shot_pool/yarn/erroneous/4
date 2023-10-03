@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.system-metrics-publisher.enabled</name>
+  <value>false</value>
+    <description>The setting that controls whether yarn system metrics is
+    published on the Timeline service or not by RM And NM.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.metrics.runtime.buckets</name>
+  <value>60,300,1440</value>
+    <description>
+    Comma-separated list of values (in minutes) for schedule queue related
+    metrics.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.health-checker.interval-ms</name>
+  <value>3000000000</value>
+    <description>Frequency of running node health scripts.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.disk-health-checker.interval-ms</name>
+  <value>120000</value>
+    <description>Frequency of running disk health checker code.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.runc.seccomp-profile</name>
+  <value></value>
+    <description>Path to the seccomp profile to use with runC
+      containers</description>
+</property>
+
+<property>
+  <name>yarn.sharedcache.nested-level</name>
+  <value>3</value>
+    <description>The level of nested directories before getting to the checksum
+    directories. It must be non-negative.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.webapp.rest-csrf.custom-header</name>
+  <value>X-XSRF-Header</value>
+    <description>
+      Optional parameter that indicates the custom header name to use for CSRF
+      protection.
+    </description>
+</property>
+
+<property>
+  <name>yarn.node-attribute.fs-store.impl.class</name>
+  <value>org.apache.hadoop.yarn.server.resourcemanager.nodelabels.FileSystemNodeAttributeStore</value>
+    <description>
+      Choose different implementation of node attribute's storage
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for YARN version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["yarn.nodemanager.health-checker.interval-ms"],
+    "reason": ["The property 'yarn.nodemanager.health-checker.interval-ms' has the value '3000000000' which exceeds the range of an Integer."]
+}
+```

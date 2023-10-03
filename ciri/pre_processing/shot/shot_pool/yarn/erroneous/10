@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.resource-tracker.client.thread-count</name>
+  <value>25</value>
+    <description>Number of threads to handle resource tracker calls.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.zk-timeout-ms</name>
+  <value>10000</value>
+    <description>ZooKeeper session timeout in milliseconds. Session expiration
+    is managed by the ZooKeeper cluster itself, not by the client. This value is
+    used by the cluster to determine when the client's session expires.
+    Expirations happens when the cluster does not hear from the client within
+    the specified session timeout period (i.e. no heartbeat).</description>
+</property>
+
+<property>
+  <name>yarn.log-aggregation.file-formats</name>
+  <value>TFile</value>
+    <description>Specify which log file controllers we will support. The first
+    file controller we add will be used to write the aggregated logs.
+    This comma separated configuration will work with the configuration:
+    yarn.log-aggregation.file-controller.%s.class which defines the supported
+    file controller's class. By default, the TFile controller would be used.
+    The user could override this configuration by adding more file controllers.
+    To support back-ward compatibility, make sure that we always
+    add TFile file controller.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.container-monitor.enabled</name>
+  <value>true</value>
+    <description>Enable container monitor</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.keytab</name>
+  <value>/etc/krb5.keytab</value>
+    <description>The Kerberos keytab for the timeline server.</description>
+</property>
+
+<property>
+  <name>yarn.sharedcache.store.in-memory.staleness-period-mins</name>
+  <value>20160</value>
+    <description>A resource in the in-memory store is considered stale
+    if the time since the last reference exceeds the staleness period.
+    This value is specified in minutes.</description>
+</property>
+
+<property>
+  <name>yarn.sharedcache.store.in-memory.initial-delay-mins</name>
+  <value>1</value>
+    <description>Initial delay before the in-memory store runs its first check
+    to remove dead initial applications. Specified in minutes.</description>
+</property>
+
+<property>
+  <name>yarn.sharedcache.cleaner.period-mins</name>
+  <value>1440</value>
+    <description>The frequency at which a cleaner task runs.
+    Specified in minutes.</description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for YARN version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["yarn.resourcemanager.zk-timeout-ms"],
+    "reason": ["The property 'yarn.resourcemanager.zk-timeout-ms' was removed in the pervious version and is not used in the current version."]
+}
+```
