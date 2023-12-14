@@ -1,0 +1,24 @@
+alluxio.jvm.monitor.sleep.interval=1sec
+# Description: The time for the JVM monitor thread to sleep.
+
+alluxio.job.master.rpc.port=20001
+# Description: The port for Alluxio job master's RPC service.
+
+alluxio.worker.block.annotator.lrfu.step.factor=0.25
+# Description: A factor in [0, 1] to control the behavior of LRFU: smaller value makes LRFU more similar to LFU; and larger value makes LRFU closer to LRU.
+
+alluxio.master.daily.backup.files.retained=1
+# Description: The maximum number of backup files to keep in the backup directory.
+
+alluxio.master.web.port=19999
+# Description: The port Alluxio web UI runs on.
+
+alluxio.worker.tieredstore.level2.dirs.mediumtype=${alluxio.worker.tieredstore.level2.alias}
+# Description: A list of media types (e.g., "SSD,HDD,HDD") for each storage directory on the third storage tier specified by alluxio.worker.tieredstore.level2.dirs.path.
+
+alluxio.worker.management.tier.align.range=50
+# Description: Maximum number of blocks to consider from one tier for a single alignment task.
+
+alluxio.worker.tieredstore.level0.dirs.path=/valid/file1
+# Description: A comma-separated list of paths (eg., /mnt/ramdisk1,/mnt/ramdisk2,/mnt/ssd/alluxio/cache1) of storage directories for the top storage tier. Note that for MacOS, the root directory should be `/Volumes/` and not `/mnt/`.
+

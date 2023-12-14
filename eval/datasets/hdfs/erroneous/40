@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.namenode.redundancy.considerLoad</name>
+  <value>false</value>
+  <description>
+    Decide if chooseTarget considers the target's load or not when write.
+    Turn on by default.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.keytab.file</name>
+  <value>/valid/file1</value>
+  <description>
+    The keytab file used by each NameNode daemon to login as its
+    service principal. The principal name is configured with
+    dfs.namenode.kerberos.principal.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.read-lock-reporting-threshold-ms</name>
+  <value>2500</value>
+  <description>When a read lock is held on the namenode for a long time,
+    this will be logged as the lock is released. This sets how long the
+    lock must be held for logging to occur.
+  </description>
+</property>
+
+<property>
+  <name>dfs.xframe.value</name>
+  <value>NOEXIST_TRANSFER_MODE</value>
+    <description>
+      This configration value allows user to specify the value for the
+      X-FRAME-OPTIONS. The possible values for this field are
+      DENY, SAMEORIGIN and ALLOW-FROM. Any other value will throw an
+      exception when namenode and datanodes are starting up.
+    </description>
+</property>
+
+<property>
+  <name>dfs.client.block.reader.remote.buffer.size</name>
+  <value>256</value>
+    <description>
+      The output stream buffer size of a DFSClient remote read. The buffer default value is 512B. The buffer includes
+      only some request parameters that are: block, blockToken, clientName, startOffset, len, verifyChecksum,
+      cachingStrategy.
+    </description>
+</property>
+
+<property>
+  <name>dfs.mover.address</name>
+  <value>0.0.0.0:0</value>
+  <description>
+    The hostname used for a keytab based Kerberos login. Keytab based login
+    can be enabled with dfs.mover.keytab.enabled.
+  </description>
+</property>
+
+<property>
+  <name>dfs.provided.aliasmap.inmemory.leveldb.dir</name>
+  <value>/tmp</value>
+    <description>
+      The directory where the leveldb files will be kept
+    </description>
+</property>
+
+<property>
+  <name>dfs.encrypt.data.overwrite.downstream.new.qop</name>
+  <value></value>
+    <description>
+      When dfs.datanode.overwrite.downstream.derived.qop is set to true,
+      this configuration specifies the new QOP to be used to overwrite
+      inter-DN QOP.
+    </description>
+</property>
+
+</configuration>

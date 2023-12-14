@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.webapp.address</name>
+  <value>${yarn.resourcemanager.hostname}:8088</value>
+    <description>
+      The http address of the RM web application.
+      If only a host is provided as the value,
+      the webapp will be served on a random port.
+    </description>
+</property>
+
+<property>
+  <name>yarn.scheduler.maximum-allocation-mb</name>
+  <value>4096</value>
+    <description>The maximum allocation for every container request at the RM
+    in MBs. Memory requests higher than this will throw an
+    InvalidResourceRequestException.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.emit-container-events</name>
+  <value>true</value>
+    <description>The setting that controls whether yarn container events are
+      published to the timeline service or not by NM. This configuration setting
+      is for ATS V2.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.recovery.dir</name>
+  <value>/valid/file1</value>
+    <description>The local filesystem directory in which the node manager will
+    store state when recovery is enabled.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.opportunistic-containers-use-pause-for-preemption</name>
+  <value>true</value>
+    <description>
+    Use container pause as the preemption policy over kill in the container
+    queue at a NodeManager.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resource-types</name>
+  <value></value>
+    <description>
+    The resource types to be used for scheduling. Use resource-types.xml
+    to specify details about the individual resource types.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.pluggable-device-framework.enabled</name>
+  <value>false</value>
+    <description>
+      This setting controls if pluggable device framework is enabled.
+      Disabled by default
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.resource-plugins.fail-fast</name>
+  <value></value>
+    <description>
+      Specifies whether the initialization of the Node Manager should continue
+      if a certain device (GPU, FPGA, etc) was not found in the system. If set
+      to "true", then an exception will be thrown if a device is missing or
+      an error occurred during discovery.
+    </description>
+</property>
+
+</configuration>

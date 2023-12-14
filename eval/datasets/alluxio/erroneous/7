@@ -1,0 +1,24 @@
+alluxio.underfs.web.connnection.timeout=80hhhhh
+# Description: Default timeout for a http connection.
+
+alluxio.master.metastore.dir=${alluxio.work.dir}/metastore
+# Description: The metastore work directory. Only some metastores need disk.
+
+alluxio.master.embedded.journal.snapshot.replication.chunk.size=4MB
+# Description: The stream chunk size used by masters to replicate snapshots.
+
+alluxio.user.metadata.cache.expiration.time=
+# Description: Metadata will expire and be evicted after being cached for this time period. If the value is not set, metadata will not be expired and will only be evicted after reaching the alluxio.user.metadata.cache.max.size
+
+alluxio.underfs.eventual.consistency.retry.max.sleep=30sec
+# Description: To handle eventually consistent storage semantics for certain under storages, Alluxio will perform retries when under storage metadata doesn't match Alluxio's expectations. These retries use exponential backoff. This property determines the maximum wait time in the backoff.
+
+alluxio.underfs.listing.length=500
+# Description: The maximum number of directory entries to list in a single query to under file system. If the total number of entries is greater than the specified length, multiple queries will be issued.
+
+alluxio.master.worker.info.cache.refresh.time=1sec
+# Description: The worker information list will be refreshed after being cached for this time period. If the refresh time is too big, operations on the job servers or clients may fail because of the stale worker info. If it is too small, continuously updating worker information may case lock contention in the block master
+
+alluxio.job.master.worker.timeout=120sec
+# Description: The time period after which the job master will mark a worker as lost without a subsequent heartbeat.
+

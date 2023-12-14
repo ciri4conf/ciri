@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hadoop.security.group.mapping.ldap.ssl.keystore.password</name>
+  <value></value>
+  <description>
+    The password of the LDAP SSL keystore. this property name is used as an
+    alias to get the password from credential providers. If the password can
+    not be found and hadoop.security.credential.clear-text-fallback is true
+    LDAPGroupsMapping uses the value of this property for password.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.security.group.mapping.ldap.ssl.truststore.password.file</name>
+  <value>/valid/file1</value>
+  <description>
+    The path to a file containing the password of the LDAP SSL truststore.
+
+    IMPORTANT: This file should be readable only by the Unix user running
+    the daemons.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.security.group.mapping.ldap.bind.password</name>
+  <value></value>
+  <description>
+    The password of the bind user. this property name is used as an
+    alias to get the password from credential providers. If the password can
+    not be found and hadoop.security.credential.clear-text-fallback is true
+    LDAPGroupsMapping uses the value of this property for password.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.security.service.user.name.key</name>
+  <value></value>
+  <description>
+    For those cases where the same RPC protocol is implemented by multiple
+    servers, this configuration is required for specifying the principal
+    name to use for the service when the client wishes to make an RPC call.
+  </description>
+</property>
+
+<property>
+  <name>fs.trash.checkpoint.interval</name>
+  <value>1</value>
+  <description>Number of minutes between trash checkpoints.
+  Should be smaller or equal to fs.trash.interval. If zero,
+  the value is set to the value of fs.trash.interval.
+  Every time the checkpointer runs it creates a new checkpoint
+  out of current and removes checkpoints created more than
+  fs.trash.interval minutes ago.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.security.credential.provider.path</name>
+  <value></value>
+  <description>
+    Optional comma separated list of credential providers, a list
+    which is prepended to that set in hadoop.security.credential.provider.path
+  </description>
+</property>
+
+<property>
+  <name>ipc.[port_number].decay-scheduler.thresholds</name>
+  <value>13,25,50</value>
+  <description>The client load threshold, as an integer percentage, for each
+    priority queue. Clients producing less load, as a percent of total
+    operations, than specified at position i will be given priority i. This
+    should be a comma-separated list of length equal to the number of priority
+    levels minus 1 (the last is implicitly 100).
+    Thresholds ascend by a factor of 2 (e.g., for 4 levels: 13,25,50).
+    This property applies to DecayRpcScheduler.
+  </description>
+</property>
+
+<property>
+  <name>ha.zookeeper.acl</name>
+  <value>world:anyone:rwcda</value>
+  <description>
+    A comma-separated list of ZooKeeper ACLs to apply to the znodes
+    used by automatic failover. These ACLs are specified in the same
+    format as used by the ZooKeeper CLI.
+
+    If the ACL itself contains secrets, you may instead specify a
+    path to a file, prefixed with the '@' symbol, and the value of
+    this configuration will be loaded from within.
+  </description>
+</property>
+
+</configuration>

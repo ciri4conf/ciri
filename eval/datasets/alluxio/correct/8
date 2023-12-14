@@ -1,0 +1,24 @@
+alluxio.underfs.web.connnection.timeout=120s
+# Description: Default timeout for a http connection.
+
+alluxio.job.master.worker.timeout=60sec
+# Description: The time period after which the job master will mark a worker as lost without a subsequent heartbeat.
+
+alluxio.master.ufs.active.sync.thread.pool.size=1
+# Description: Max number of threads used to perform active sync
+
+alluxio.master.journal.log.size.bytes.max=20MB
+# Description: If a log file is bigger than this value, it will rotate to next file.
+
+alluxio.test.deprecated.key=
+# Description: N/A
+
+alluxio.worker.tieredstore.level2.dirs.path=
+# Description: A comma-separated list of paths (eg., /mnt/ssd/alluxio/cache4,/mnt/hdd/alluxio/cache2,/mnt/hdd/alluxio/cache3) of storage directories for the third storage tier.
+
+alluxio.user.conf.cluster.default.enabled=true
+# Description: When this property is true, an Alluxio client will load the default values of cluster-wide configuration and path-specific configuration set by Alluxio master.
+
+alluxio.master.backup.state.lock.exclusive.duration=1ms
+# Description: Alluxio master will allow only exclusive locking of the state-lock for this duration. This duration starts after masters are started for the first time. User RPCs will fail to acquire state-lock during this phase and a backup is guaranteed take the state-lock meanwhile.
+

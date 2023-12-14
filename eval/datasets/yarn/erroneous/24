@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.placement-constraints.handler</name>
+  <value>disabled</value>
+    <description>
+      Specify which handler will be used to process PlacementConstraints.
+      Acceptable values are: `placement-processor`, `scheduler` and `disabled`.
+      For a detailed explanation of these values, please refer to documentation.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.zk-delegation-token-node.split-index</name>
+  <value>0</value>
+    <description>Index at which the RM Delegation Token ids will be split so
+      that the delegation token znodes stored in the zookeeper RM state store
+      will be stored as two different znodes (parent-child). The split is done
+      from the end. For instance, with no split, a delegation token znode will
+      be of the form RMDelegationToken_123456789. If the value of this config is
+      1, the delegation token znode will be broken into two parts:
+      RMDelegationToken_12345678 and 9 respectively with former being the parent
+      node. This config can take values from 0 to 4. 0 means there will be no
+      split. If the value is outside this range, it will be treated as 0 (i.e.
+      no split). A value larger than 0 (up to 4) should be configured if you are
+      running a large number of applications, with long-lived delegation tokens
+      and state store operations (e.g. failover) are failing due to LenError in
+      Zookeeper.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.resource-calculator.class</name>
+  <value></value>
+    <description>Class that calculates current resource utilization.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.principal</name>
+  <value></value>
+    <description>The kerberos principal for the node manager.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.resourcemanager.connect.max-wait.ms</name>
+  <value></value>
+    <description>
+      Max time to wait for NM to connect to RM.
+      When not set, proxy will fall back to use value of
+      yarn.resourcemanager.connect.max-wait.ms.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.node-labels.provider.fetch-interval-ms</name>
+  <value>1200000</value>
+    <description>
+    When "yarn.nodemanager.node-labels.provider" is configured with "config",
+    "Script" or the configured class extends AbstractNodeLabelsProvider, then
+    periodically node labels are retrieved from the node labels provider. This
+    configuration is to define the interval period.
+    If -1 is configured then node labels are retrieved from provider only
+    during initialization. Defaults to 10 mins.
+    </description>
+</property>
+
+<property>
+  <name>yarn.router.rmadmin.interceptor-class.pipeline</name>
+  <value>org.apache.hadoop.yarn.server.router.rmadmin.DefaultRMAdminRequestInterceptor</value>
+    <description>
+      The comma separated list of class names that implement the
+      RequestInterceptor interface. This is used by the RouterRMAdminService
+      to create the request processing pipeline for users.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.resource-plugins</name>
+  <value>NOEXIST2</value>
+    <description>
+      Enable additional discovery/isolation of resources on the NodeManager,
+      split by comma. By default, this is empty.
+      Acceptable values: { "yarn.io/gpu", "yarn.io/fpga"}.
+    </description>
+</property>
+
+</configuration>

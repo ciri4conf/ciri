@@ -1,0 +1,24 @@
+fs.azure.account.oauth2.client.endpoint=
+# Description: The oauth endpoint for ABFS.
+
+alluxio.master.shell.backup.state.lock.try.duration=2s
+# Description: The duration that controls how long the state-lock is tried within a single grace-cycle.
+
+alluxio.network.thrift.frame.size.bytes.max=16MB
+# Description: Control the maximum allowed frame size, in bytes, for Thrift communication within the Alluxio system.
+
+alluxio.fuse.shared.caching.reader.enabled=false
+# Description: (Experimental) Use share grpc data reader for better performance on multi-process file reading through Alluxio JNI Fuse. Blocks data will be cached on the client side so more memory is required for the Fuse process.
+
+alluxio.user.streaming.writer.close.timeout=60min
+# Description: The timeout to close a writer client.
+
+alluxio.master.ufs.active.sync.thread.pool.size=1
+# Description: Max number of threads used to perform active sync
+
+alluxio.master.journal.gc.threshold=10min
+# Description: Minimum age for garbage collecting checkpoints.
+
+alluxio.user.block.master.client.pool.gc.interval=240sec
+# Description: The interval at which block master client GC checks occur.
+

@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.resource-tracker.address</name>
+  <value>${yarn.resourcemanager.hostname}:8031</value>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.am.max-attempts</name>
+  <value>2</value>
+    <description>The default maximum number of application attempts, if unset by
+    the user. Each application master can specify its individual maximum number of application
+    attempts via the API, but the individual number cannot be more than the global upper bound in
+    yarn.resourcemanager.am.global.max-attempts. The default number is set to 2, to
+    allow at least one retry for AM.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.delegation-token-renewer.thread-retry-max-attempts</name>
+  <value>20</value>
+    <description>
+    Default maximum number of retries for each RM DelegationTokenRenewer thread
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.collector-service.thread-count</name>
+  <value>5</value>
+    <description>Number of threads collector service uses.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.resource.cpu-vcores</name>
+  <value>-1</value>
+    <description>Number of vcores that can be allocated
+    for containers. This is used by the RM scheduler when allocating
+    resources for containers. This is not used to limit the number of
+    CPUs used by YARN containers. If it is set to -1 and
+    yarn.nodemanager.resource.detect-hardware-capabilities is true, it is
+    automatically determined from the hardware in case of Windows and Linux.
+    In other cases, number of vcores is 8 by default.</description>
+</property>
+
+<property>
+  <name>yarn.web-proxy.principal</name>
+  <value></value>
+    <description>The kerberos principal for the proxy, if the proxy is not
+    running as part of the RM.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.hostname</name>
+  <value>x.0.0.0.0.0</value>
+    <description>The hostname of the timeline service web application.</description>
+</property>
+
+<property>
+  <name>yarn.scheduler.configuration.fs.path</name>
+  <value>/valid/file2</value>
+    <description>
+      The file system directory to store the configuration files. The path
+      can be any format as long as it follows hadoop compatible schema,
+      for example value "file:///path/to/dir" means to store files on local
+      file system, value "hdfs:///path/to/dir" means to store files on HDFS.
+      If resource manager HA is enabled, recommended to use hdfs schema so
+      it works in fail-over scenario.
+    </description>
+</property>
+
+</configuration>

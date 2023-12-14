@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hbase.master.logcleaner.ttl</name>
+  <value>-5.5</value>
+    <description>How long a WAL remain in the archive ({hbase.rootdir}/oldWALs) directory,
+    after which it will be cleaned by a Master thread. The value is in milliseconds.</description>
+</property>
+
+<property>
+  <name>hbase.zookeeper.dns.interface</name>
+  <value>default</value>
+    <description>The name of the Network Interface from which a ZooKeeper server
+      should report its IP address.</description>
+</property>
+
+<property>
+  <name>hbase.client.localityCheck.threadPoolSize</name>
+  <value>4</value>
+</property>
+
+<property>
+  <name>hbase.client.operation.timeout</name>
+  <value>600000</value>
+    <description>Operation timeout is a top-level restriction (millisecond) that makes sure a
+      blocking operation in Table will not be blocked more than this. In each operation, if rpc
+      request fails because of timeout or other reason, it will retry until success or throw
+      RetriesExhaustedException. But if the total time being blocking reach the operation timeout
+      before retries exhausted, it will break early and throw SocketTimeoutException.</description>
+</property>
+
+<property>
+  <name>hbase.regionserver.keytab.file</name>
+  <value>/valid/file1</value>
+    <description>Full path to the kerberos keytab file to use for logging in
+    the configured HRegionServer server principal.</description>
+</property>
+
+<property>
+  <name>hbase.table.max.rowsize</name>
+  <value>536870912</value>
+    <description>
+      Maximum size of single row in bytes (default is 1 Gb) for Get'ting
+      or Scan'ning without in-row scan flag set. If row size exceeds this limit
+      RowTooBigException is thrown to client.
+    </description>
+</property>
+
+<property>
+  <name>hbase.lease.recovery.dfs.timeout</name>
+  <value>32000</value>
+    <description>How long between dfs recover lease invocations. Should be larger than the sum of
+        the time it takes for the namenode to issue a block recovery command as part of
+        datanode; dfs.heartbeat.interval and the time it takes for the primary
+        datanode, performing block recovery to timeout on a dead datanode; usually
+        dfs.client.socket-timeout. See the end of HBASE-8389 for more.</description>
+</property>
+
+<property>
+  <name>hbase.mob.delfile.max.count</name>
+  <value>1</value>
+    <description>
+      The max number of del files that is allowed in the mob compaction.
+      In the mob compaction, when the number of existing del files is larger than
+      this value, they are merged until number of del files is not larger this value.
+      The default value is 3.
+    </description>
+</property>
+
+</configuration>

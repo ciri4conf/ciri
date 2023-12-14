@@ -1,0 +1,24 @@
+alluxio.worker.tieredstore.level2.dirs.mediumtype=${alluxio.worker.tieredstore.level2.alias}
+# Description: A list of media types (e.g., "SSD,HDD,HDD") for each storage directory on the third storage tier specified by alluxio.worker.tieredstore.level2.dirs.path.
+
+alluxio.user.file.write.tier.default=0
+# Description: The default tier for choosing a where to write a block. Valid option is any integer. Non-negative values identify tiers starting from top going down (0 identifies the first tier, 1 identifies the second tier, and so on). If the provided value is greater than the number of tiers, it identifies the last tier. Negative values identify tiers starting from the bottom going up (-1 identifies the last tier, -2 identifies the second to last tier, and so on). If the absolute value of the provided value is greater than the number of tiers, it identifies the first tier.
+
+alluxio.master.journal.init.from.backup=
+# Description: A uri for a backup to initialize the journal from. When the master becomes primary, if it sees that its journal is freshly formatted, it will restore its state from the backup. When running multiple masters, this property must be configured on all masters since it isn't known during startup which master will become the first primary.
+
+alluxio.master.persistence.max.total.wait.time=2day
+# Description: Total wait time for master persistence checker persistence status for files written using ASYNC_THROUGH
+
+alluxio.user.block.worker.client.pool.max=2048
+# Description: The maximum number of block worker clients cached in the block worker client pool.
+
+alluxio.user.file.master.client.pool.gc.threshold=1sec
+# Description: A fs master client is closed if it has been idle for more than this threshold.
+
+alluxio.underfs.s3.connection.ttl=-2
+# Description: The expiration time of S3 connections in ms. -1 means the connection will never expire.
+
+alluxio.security.authentication.custom.provider.class=
+# Description: The class to provide customized authentication implementation, when alluxio.security.authentication.type is set to CUSTOM. It must implement the interface 'alluxio.security.authentication.AuthenticationProvider'.
+

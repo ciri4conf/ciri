@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.scheduler.client.thread-count</name>
+  <value>25</value>
+    <description>Number of threads to handle scheduler interface.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.webapp.spnego-principal</name>
+  <value></value>
+    <description>
+    The Kerberos principal to be used for spnego filter for the RM web
+    interface.
+    </description>
+</property>
+
+<property>
+  <name>yarn.scheduler.minimum-allocation-vcores</name>
+  <value>5</value>
+    <description>The minimum allocation for every container request at the RM
+    in terms of virtual CPU cores. Requests lower than this will be set to the
+    value of this property. Additionally, a node manager that is configured to
+    have fewer virtual cores than this value will be shut down by the resource
+    manager.</description>
+</property>
+
+<property>
+  <name>yarn.scheduler.maximum-allocation-vcores</name>
+  <value>4</value>
+    <description>The maximum allocation for every container request at the RM
+    in terms of virtual CPU cores. Requests higher than this will throw an
+    InvalidResourceRequestException.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.ha.automatic-failover.embedded</name>
+  <value>true</value>
+    <description>Enable embedded automatic failover.
+      By default, it is enabled only when HA is enabled.
+      The embedded elector relies on the RM state store to handle fencing,
+      and is primarily intended to be used in conjunction with ZKRMStateStore.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.container-monitor.interval-ms</name>
+  <value></value>
+    <description>How often to monitor containers. If not set, the value for
+    yarn.nodemanager.resource-monitor.interval-ms will be used.
+    If 0 or negative, container monitoring is disabled.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.generic-application-history.max-applications</name>
+  <value>5000</value>
+    <description>
+      Defines the max number of applications could be fetched using REST API or
+      application history protocol and shown in timeline server web ui.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.log-aggregation.num-log-files-per-app</name>
+  <value>60</value>
+    <description>Define how many aggregated log files per application per NM
+    we can have in remote file system. By default, the total number of
+    aggregated log files per application per NM is 30.
+    </description>
+</property>
+
+</configuration>

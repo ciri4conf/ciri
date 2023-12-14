@@ -1,0 +1,24 @@
+alluxio.job.master.web.bind.host=999.-1.0.0
+# Description: The host that the job master web server binds to.
+
+alluxio.worker.tieredstore.level1.watermark.low.ratio=0.7
+# Description: The low watermark of the space in the second storage tier (a value between 0 and 1).
+
+alluxio.worker.network.async.cache.manager.threads.max=8
+# Description: The maximum number of threads used to cache blocks asynchronously in the data server.
+
+alluxio.master.jvm.monitor.enabled=true
+# Description: Whether to enable start JVM monitor thread on the master. This will start a thread to detect JVM-wide pauses induced by GC or other reasons.
+
+alluxio.worker.management.tier.promote.enabled=false
+# Description: Whether to promote blocks to higher tiers.
+
+alluxio.worker.remote.io.slow.threshold=10s
+# Description: The time threshold for when a worker remote IO (read or write) of a single buffer is considered slow. When slow IO occurs, it is logged by a sampling logger.
+
+alluxio.underfs.s3.connection.ttl=-2
+# Description: The expiration time of S3 connections in ms. -1 means the connection will never expire.
+
+alluxio.user.client.cache.store.type=LOCAL
+# Description: The type of page store to use for client-side cache. Can be either `LOCAL` or `ROCKS`. The `LOCAL` page store stores all pages in a directory, the `ROCKS` page store utilizes rocksDB to persist the data.
+

@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.datanode.https.address</name>
+  <value>0.0.0.0:9865</value>
+  <description>The datanode secure http server address and port.</description>
+</property>
+
+<property>
+  <name>dfs.ha.tail-edits.period</name>
+  <value>60s</value>
+  <description>
+    How often, the StandbyNode and ObserverNode should check if there are new
+    edit log entries ready to be consumed. This is the minimum period between
+    checking; exponential backoff will be applied if no edits are found and
+    dfs.ha.tail-edits.period.backoff-max is configured. By default, no
+    backoff is applied.
+    Supports multiple time unit suffix (case insensitive), as described
+    in dfs.heartbeat.interval.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.stale.datanode.interval</name>
+  <value>15000</value>
+  <description>
+    Default time interval in milliseconds for marking a datanode as "stale",
+    i.e., if the namenode has not received heartbeat msg from a datanode for
+    more than this time interval, the datanode will be marked and treated 
+    as "stale" by default. The stale interval cannot be too small since 
+    otherwise this may cause too frequent change of stale states. 
+    We thus set a minimum stale interval value (the default value is 3 times 
+    of heartbeat interval) and guarantee that the stale interval cannot be less
+    than the minimum value. A stale data node is avoided during lease/block
+    recovery. It can be conditionally avoided for reads (see
+    dfs.namenode.avoid.read.stale.datanode) and for writes (see
+    dfs.namenode.avoid.write.stale.datanode).
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.cache.drop.behind.writes</name>
+  <value></value>
+  <description>
+    Just like dfs.datanode.drop.cache.behind.writes, this setting causes the
+    page cache to be dropped behind HDFS writes, potentially freeing up more
+    memory for other uses.  Unlike dfs.datanode.drop.cache.behind.writes, this
+    is a client-side setting rather than a setting for the entire datanode.
+    If present, this setting will override the DataNode default.
+
+    If the native libraries are not available to the DataNode, this
+    configuration has no effect.
+  </description>
+</property>
+
+<property>
+  <name>dfs.data.transfer.server.tcpnodelay</name>
+  <value>false</value>
+  <description>
+    If true, set TCP_NODELAY to sockets for transferring data between Datanodes.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.audit.log.token.tracking.id</name>
+  <value>true</value>
+  <description>
+    If true, adds a tracking ID for all audit log events.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.available-space-block-placement-policy.balance-local-node</name>
+  <value>true</value>
+  <description>
+    Only used when the dfs.block.replicator.classname is set to
+    org.apache.hadoop.hdfs.server.blockmanagement.AvailableSpaceBlockPlacementPolicy.
+    If true, balances the local node too.
+  </description>
+</property>
+
+<property>
+  <name>dfs.qjournal.accept-recovery.timeout.ms</name>
+  <value>120000</value>
+  <description>
+    Quorum timeout in milliseconds during accept phase of
+    recovery/synchronization for a specific segment.
+  </description>
+</property>
+
+</configuration>

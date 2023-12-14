@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.namenode.secondary.http-address</name>
+  <value>0.0.0.0:3000</value>
+  <description>
+    The secondary namenode http server address and port.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.checkpoint.dir</name>
+  <value>file:::</value>
+  <description>Determines where on the local filesystem the DFS secondary
+      name node should store the temporary images to merge.
+      If this is a comma-delimited list of directories then the image is
+      replicated in all of the directories for redundancy.
+  </description>
+</property>
+
+<property>
+  <name>dfs.encrypt.data.transfer.algorithm</name>
+  <value></value>
+  <description>
+    This value may be set to either "3des" or "rc4". If nothing is set, then
+    the configured JCE default on the system is used (usually 3DES.) It is
+    widely believed that 3DES is more cryptographically secure, but RC4 is
+    substantially faster.
+    
+    Note that if AES is supported by both the client and server then this 
+    encryption algorithm will only be used to initially transfer keys for AES.
+    (See dfs.encrypt.data.transfer.cipher.suites.)
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.mmap.enabled</name>
+  <value>false</value>
+  <description>
+    If this is set to false, the client won't attempt to perform memory-mapped reads.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.deadnode.detection.probe.deadnode.interval.ms</name>
+  <value>120000</value>
+    <description>
+      Interval time in milliseconds for probing dead node behavior.
+    </description>
+</property>
+
+<property>
+  <name>dfs.client.retry.interval-ms.get-last-block-length</name>
+  <value>4000</value>
+  <description>
+    Retry interval in milliseconds to wait between retries in getting
+    block lengths from the datanodes.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.write.byte-array-manager.count-limit</name>
+  <value>1024</value>
+  <description>
+    The maximum number of arrays allowed for each array length.
+  </description>
+</property>
+
+<property>
+  <name>dfs.datanode.data.write.bandwidthPerSec</name>
+  <value>0</value>
+    <description>
+      Specifies the maximum amount of bandwidth that the data transfering can utilize for writing block or pipeline
+      recovery when
+      BlockConstructionStage is PIPELINE_SETUP_APPEND_RECOVERY or PIPELINE_SETUP_STREAMING_RECOVERY.
+      When the bandwidth value is zero, there is no limit.
+    </description>
+</property>
+
+</configuration>

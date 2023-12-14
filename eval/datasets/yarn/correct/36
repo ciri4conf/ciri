@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.proxy-user-privileges.enabled</name>
+  <value>true</value>
+  <description>If true, ResourceManager will have proxy-user privileges.
+    Use case: In a secure cluster, YARN requires the user hdfs delegation-tokens to
+    do localization and log-aggregation on behalf of the user. If this is set to true,
+    ResourceManager is able to request new hdfs delegation tokens on behalf of
+    the user. This is needed by long-running-service, because the hdfs tokens
+    will eventually expire and YARN requires new valid tokens to do localization
+    and log-aggregation. Note that to enable this use case, the corresponding
+    HDFS NameNode has to configure ResourceManager as the proxy-user so that
+    ResourceManager can itself ask for new tokens on behalf of the user when
+    tokens are past their max-life-time.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.scheduler.monitor.policies</name>
+  <value>org.apache.hadoop.yarn.server.resourcemanager.monitor.capacity.ProportionalCapacityPreemptionPolicy</value>
+    <description>The list of SchedulingEditPolicy classes that interact with
+        the scheduler. A particular module may be incompatible with the
+        scheduler, other policies, or a configuration of either.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.metrics.runtime.buckets</name>
+  <value>60,300,1440</value>
+    <description>
+    Comma-separated list of values (in minutes) for schedule queue related
+    metrics.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.vmem-check-enabled</name>
+  <value>true</value>
+    <description>Whether virtual memory limits will be enforced for
+    containers.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.runc.allowed-container-runtimes</name>
+  <value>runc</value>
+    <description>The set of runtimes allowed when launching containers
+      using the RuncContainerRuntime.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.principal</name>
+  <value></value>
+    <description>The kerberos principal for the node manager.</description>
+</property>
+
+<property>
+  <name>yarn.node-labels.enabled</name>
+  <value>false</value>
+    <description>
+    Enable node labels feature
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.submission-preprocessor.enabled</name>
+  <value>false</value>
+    <description>
+      Enable the Pre processing of Application Submission context with server side configuration
+    </description>
+</property>
+
+</configuration>

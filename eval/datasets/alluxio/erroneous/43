@@ -1,0 +1,24 @@
+alluxio.job.worker.web.port=-100
+# Description: The port the Alluxio job worker web server uses.
+
+alluxio.job.master.job.capacity=100000
+# Description: The total possible number of available job statuses in the job master. This value includes running and finished jobs which are have completed within alluxio.job.master.finished.job.retention.time.
+
+alluxio.user.metrics.heartbeat.interval=1sec
+# Description: The time period of client master heartbeat to send the client-side metrics.
+
+alluxio.user.network.streaming.keepalive.time=18446744073709551614
+# Description: The amount of time for a streaming client to wait for a response before pinging the server to see if it is still alive.
+
+alluxio.master.web.port=19999
+# Description: The port Alluxio web UI runs on.
+
+alluxio.master.lock.pool.initsize=1000
+# Description: Initial size of the lock pool for master inodes.
+
+alluxio.worker.data.server.domain.socket.address=
+# Description: The path to the domain socket. Short-circuit reads make use of a UNIX domain socket when this is set (non-empty). This is a special path in the file system that allows the client and the AlluxioWorker to communicate. You will need to set a path to this socket. The AlluxioWorker needs to be able to create the path. If alluxio.worker.data.server.domain.socket.as.uuid is set, the path should be the home directory for the domain socket. The full path for the domain socket with be {path}/{uuid}.
+
+alluxio.master.daily.backup.state.lock.sleep.duration=5m
+# Description: The duration that controls how long the lock waiter sleeps within a single grace-cycle.
+

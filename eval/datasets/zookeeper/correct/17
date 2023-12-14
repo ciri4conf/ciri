@@ -1,0 +1,16 @@
+sslQuorumReloadCertFiles=true
+
+portUnification=false
+
+electionAlg=3
+
+quorum.auth.enableSasl=false
+
+standaloneEnabled=false
+
+sslQuorum=true
+
+quorum.auth.server.saslLoginContext=QuorumServer
+
+dataLogDir=/valid/dir1
+

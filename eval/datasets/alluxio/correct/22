@@ -1,0 +1,24 @@
+alluxio.master.backup.directory=/valid/file2
+# Description: Default directory for writing master metadata backups. This path is an absolute path of the root UFS. For example, if the root ufs directory is hdfs://host:port/alluxio/data, the default backup directory will be hdfs://host:port/alluxio_backups.
+
+alluxio.master.metrics.time.series.interval=10min
+# Description: Interval for which the master records metrics information. This affects the granularity of the metrics graphed in the UI.
+
+alluxio.user.network.writer.buffer.size.messages=
+# Description: When a client writes to a remote worker, the maximum number of messages to buffer by the client. A message can be either a command response, a data chunk, or a gRPC stream event such as complete or error.
+
+alluxio.master.metadata.sync.executor.pool.size=10
+# Description: The number of threads used to execute all metadata syncoperations
+
+alluxio.user.logging.threshold=10s
+# Description: Logging a client RPC when it takes more time than the threshold.
+
+alluxio.master.ufs.active.sync.poll.timeout=10sec
+# Description: Max time to wait before timing out a polling operation
+
+alluxio.network.connection.health.check.timeout=1sec
+# Description: Allowed duration for checking health of client connections (gRPC channels) before being assigned to a client. If a connection does not become active within configured time, it will be shut down and a new connection will be created for the client
+
+alluxio.user.client.cache.quota.enabled=false
+# Description: Whether to support cache quota.
+

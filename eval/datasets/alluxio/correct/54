@@ -1,0 +1,24 @@
+alluxio.worker.tieredstore.level2.alias=
+# Description: The alias of the third storage tier on this worker.
+
+alluxio.security.stale.channel.purge.interval=6day
+# Description: Interval for which client channels that have been inactive will be regarded as unauthenticated. Such channels will reauthenticate with their target master upon being used for new RPCs.
+
+alluxio.master.periodic.block.integrity.check.interval=2hr
+# Description: The period for the block integrity check, disabled if <= 0.
+
+alluxio.jvm.monitor.sleep.interval=2sec
+# Description: The time for the JVM monitor thread to sleep.
+
+alluxio.worker.session.timeout=2min
+# Description: Timeout between worker and client connection indicating a lost session connection.
+
+alluxio.network.connection.shutdown.graceful.timeout=90sec
+# Description: Maximum time to wait for connections (gRPC channels) to stop on shutdown
+
+alluxio.master.journal.flush.batch.time=100ms
+# Description: Time to wait for batching journal writes.
+
+alluxio.underfs.s3.secure.http.enabled=true
+# Description: Whether or not to use HTTPS protocol when communicating with S3.
+

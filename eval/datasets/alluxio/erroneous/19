@@ -1,0 +1,24 @@
+alluxio.job.worker.rpc.port=-100.22
+# Description: The port for Alluxio job worker's RPC service.
+
+alluxio.master.persistence.checker.interval=2s
+# Description: How often the master checks persistence status for files written using ASYNC_THROUGH
+
+alluxio.underfs.s3.list.objects.v1=true
+# Description: Whether to use version 1 of GET Bucket (List Objects) API.
+
+alluxio.proxy.web.hostname=
+# Description: The hostname Alluxio proxy's web UI binds to.
+
+alluxio.underfs.s3.intermediate.upload.clean.age=3day
+# Description: Streaming uploads may not have been completed/aborted correctly and need periodical ufs cleanup. If ufs cleanup is enabled, intermediate multipart uploads in all non-readonly S3 mount points older than this age will be cleaned. This may impact other ongoing upload operations, so a large clean age is encouraged.
+
+alluxio.user.block.size.bytes.default=1MB
+# Description: Default block size for Alluxio files.
+
+alluxio.user.file.persistence.initial.wait.time=0
+# Description: Time to wait before starting the persistence job. When the value is set to -1, the file will be persisted by rename operation or persist CLI but will not be automatically persisted in other cases. This is to avoid the heavy object copy in rename operation when alluxio.user.file.writetype.default is set to ASYNC_THROUGH. This value should be smaller than the value of alluxio.master.persistence.max.total.wait.time
+
+alluxio.user.file.create.ttl=-2
+# Description: Time to live for files created by a user, no ttl by default.
+

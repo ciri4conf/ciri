@@ -1,0 +1,24 @@
+alluxio.master.journal.flush.batch.time=500ms
+# Description: Time to wait for batching journal writes.
+
+alluxio.master.journal.flush.timeout=400ms
+# Description: The amount of time to keep retrying journal writes before giving up and shutting down the master.
+
+alluxio.worker.tieredstore.level0.watermark.high.ratio=0.475
+# Description: The high watermark of the space in the top storage tier (a value between 0 and 1).
+
+alluxio.underfs.s3.threads.max=80
+# Description: The maximum number of threads to use for communicating with S3 and the maximum number of concurrent connections to S3. Includes both threads for data upload and metadata operations. This number should be at least as large as the max admin threads plus max upload threads.
+
+alluxio.master.journal.checkpoint.period.entries=1000000
+# Description: The number of journal entries to write before creating a new journal checkpoint.
+
+fs.gcs.accessKeyId=
+# Description: The access key of GCS bucket. This property key is only valid when alluxio.underfs.gcs.version=1
+
+alluxio.worker.block.annotator.lrfu.step.factor=0.125
+# Description: A factor in [0, 1] to control the behavior of LRFU: smaller value makes LRFU more similar to LFU; and larger value makes LRFU closer to LRU.
+
+alluxio.worker.network.netty.boss.threads=0
+# Description: How many threads to use for accepting new requests.
+

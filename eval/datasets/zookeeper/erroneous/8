@@ -1,0 +1,16 @@
+dataDir=dev/urandom///
+
+localSessionsEnabled=true
+
+secureClientPortAddress=0.0.0.0:3001
+
+quorum.cnxn.threads.size=1
+
+dataLogDir=
+
+secureClientPort=3000
+
+quorumListenOnAllIPs=false
+
+clientPort=3000
+

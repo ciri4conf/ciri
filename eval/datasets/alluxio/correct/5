@@ -1,0 +1,24 @@
+alluxio.job.worker.hostname=${alluxio.worker.hostname}
+# Description: The hostname of the Alluxio job worker.
+
+alluxio.underfs.s3.list.objects.v1=true
+# Description: Whether to use version 1 of GET Bucket (List Objects) API.
+
+alluxio.master.metastore.inode.cache.evict.batch.size=500
+# Description: The batch size for evicting entries from the inode cache.
+
+alluxio.master.worker.timeout=5min
+# Description: Timeout between master and worker indicating a lost worker.
+
+alluxio.table.catalog.path=/valid/file2
+# Description: The Alluxio file path for the table catalog metadata.
+
+alluxio.worker.management.tier.align.range=200
+# Description: Maximum number of blocks to consider from one tier for a single alignment task.
+
+alluxio.table.transform.manager.job.monitor.interval=10s
+# Description: Job monitor is a heartbeat thread in the transform manager, this is the time interval in milliseconds the job monitor heartbeat is run to check the status of the transformation jobs and update table and partition locations after transformation.
+
+alluxio.user.file.master.client.pool.size.max=1000
+# Description: The maximum number of fs master clients cached in the fs master client pool.
+

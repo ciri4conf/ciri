@@ -1,0 +1,24 @@
+alluxio.worker.tieredstore.level1.dirs.path=/valid/file2
+# Description: A comma-separated list of paths (eg., /mnt/ssd/alluxio/cache2,/mnt/ssd/alluxio/cache3,/mnt/hdd/alluxio/cache1) of storage directories for the second storage tier.
+
+alluxio.network.connection.health.check.timeout=1sec
+# Description: Allowed duration for checking health of client connections (gRPC channels) before being assigned to a client. If a connection does not become active within configured time, it will be shut down and a new connection will be created for the client
+
+alluxio.user.client.cache.size=1024MB
+# Description: A list of maximum cache size for each cache directory.
+
+alluxio.fuse.user.group.translation.enabled=false
+# Description: Whether to translate Alluxio users and groups into Unix users and groups when exposing Alluxio files through the FUSE API. When this property is set to false, the user and group for all FUSE files will match the user who started the alluxio-fuse process.Note that this applies to JNR-FUSE only.
+
+alluxio.master.daily.backup.files.retained=3
+# Description: The maximum number of backup files to keep in the backup directory.
+
+alluxio.job.master.worker.heartbeat.interval=2sec
+# Description: The amount of time that the Alluxio job worker should wait in between heartbeats to the Job Master.
+
+alluxio.master.periodic.block.integrity.check.interval=10hr
+# Description: The period for the block integrity check, disabled if <= 0.
+
+alluxio.user.network.streaming.max.connections=32
+# Description: The maximum number of physical connections to be used per target host.
+

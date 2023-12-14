@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.scheduler.maximum-allocation-vcores</name>
+  <value>16</value>
+    <description>The maximum allocation for every container request at the RM
+    in terms of virtual CPU cores. Requests higher than this will throw an
+    InvalidResourceRequestException.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.nodemanager.minimum.version</name>
+  <value>NONE</value>
+    <description>The minimum allowed version of a connecting nodemanager.  The valid values are
+      NONE (no version checking), EqualToRM (the nodemanager's version is equal to
+      or greater than the RM version), or a Version String.</description>
+</property>
+
+<property>
+  <name>yarn.log-aggregation.retain-seconds</name>
+  <value>-2</value>
+    <description>How long to keep aggregation logs before deleting them.  -1 disables. 
+    Be careful set this too small and you will spam the name node.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.resource.cpu-vcores</name>
+  <value>8</value>
+    <description>Number of vcores that can be allocated
+    for containers. This is used by the RM scheduler when allocating
+    resources for containers. This is not used to limit the number of
+    CPUs used by YARN containers. If it is set to -1 and
+    yarn.nodemanager.resource.detect-hardware-capabilities is true, it is
+    automatically determined from the hardware in case of Windows and Linux.
+    In other cases, number of vcores is 8 by default.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.docker.default-container-network</name>
+  <value>host</value>
+    <description>The network used when launching containers using the
+      DockerContainerRuntime when no network is specified in the request
+      . This network must be one of the (configurable) set of allowed container
+      networks.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.runc.host-pid-namespace.allowed</name>
+  <value>false</value>
+    <description>Allow host pid namespace for runC containers.
+      Use with care.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.leveldb-timeline-store.read-cache-size</name>
+  <value>104857600</value>
+    <description>Size of read cache for uncompressed blocks for leveldb timeline store in bytes.</description>
+</property>
+
+<property>
+  <name>yarn.webapp.xfs-filter.enabled</name>
+  <value>true</value>
+    <description>
+      Enable the XFS filter for YARN
+    </description>
+</property>
+
+</configuration>

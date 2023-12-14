@@ -1,0 +1,16 @@
+autopurge.purgeInterval=-1
+
+syncLimit=1
+
+quorum.auth.learnerRequireSasl=true
+
+maxSessionTimeout=-1
+
+autopurge.snapRetainCount=1
+
+localSessionsEnabled=false
+
+sslQuorum=false
+
+electionAlg=6
+

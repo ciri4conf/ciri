@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hbase.master.info.port</name>
+  <value>3001</value>
+    <description>The port for the HBase Master web UI.
+    Set to -1 if you do not want a UI instance run.</description>
+</property>
+
+<property>
+  <name>hbase.regionserver.info.port.auto</name>
+  <value>true</value>
+    <description>Whether or not the Master or RegionServer
+    UI should search for a port to bind to. Enables automatic port
+    search if hbase.regionserver.info.port is already in use.
+    Useful for testing, turned off by default.</description>
+</property>
+
+<property>
+  <name>hbase.regionserver.dns.interface</name>
+  <value>eth1</value>
+    <description>The name of the Network Interface from which a region server
+      should report its IP address.</description>
+</property>
+
+<property>
+  <name>zookeeper.znode.acl.parent</name>
+  <value>acl</value>
+    <description>Root ZNode for access control lists.</description>
+</property>
+
+<property>
+  <name>hbase.hstore.compaction.throughput.lower.bound</name>
+  <value>104857600</value>
+    <description>The target lower bound on aggregate compaction throughput, in bytes/sec. Allows
+    you to tune the minimum available compaction throughput when the
+    PressureAwareCompactionThroughputController throughput controller is active. (It is active by
+    default.)</description>
+</property>
+
+<property>
+  <name>hbase.bucketcache.bucket.sizes</name>
+  <value></value>
+    <description>A comma-separated list of sizes for buckets for the bucketcache.
+    Can be multiple sizes. List block sizes in order from smallest to largest.
+    The sizes you use will depend on your data access patterns.
+    Must be a multiple of 256 else you will run into
+    'java.io.IOException: Invalid HFile block magic' when you go to read from cache.
+    If you specify no values here, then you pick up the default bucketsizes set
+    in code (See BucketAllocator#DEFAULT_BUCKET_SIZES).
+  </description>
+</property>
+
+<property>
+  <name>hbase.dynamic.jars.dir</name>
+  <value>//hadoop/io/local</value>
+    <description>
+      The directory from which the custom filter JARs can be loaded
+      dynamically by the region server without the need to restart. However,
+      an already loaded filter/co-processor class would not be un-loaded. See
+      HBASE-1936 for more details.
+
+      Does not apply to coprocessors.
+    </description>
+</property>
+
+<property>
+  <name>hbase.master.wait.on.service.seconds</name>
+  <value>30</value>
+    <description>Default is 5 minutes. Make it 30 seconds for tests. See
+    HBASE-19794 for some context.</description>
+</property>
+
+</configuration>

@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hadoop.security.groups.cache.warn.after.ms</name>
+  <value>2500</value>
+  <description>
+    If looking up a single user to group takes longer than this amount of
+    milliseconds, we will log a warning message.
+  </description>
+</property>
+
+<property>
+  <name>fs.ftp.host.port</name>
+  <value>3001</value>
+  <description>
+    FTP filesystem connects to fs.ftp.host on this port
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.executor.capacity</name>
+  <value>8</value>
+  <description>The maximum number of submitted tasks which is a single
+    operation (e.g. rename(), delete()) may submit simultaneously for
+    execution -excluding the IO-heavy block uploads, whose capacity
+    is set in "fs.s3a.fast.upload.active.blocks"
+
+    All tasks are submitted to the shared thread pool whose size is
+    set in "fs.s3a.threads.max"; the value of capacity should be less than that
+    of the thread pool itself, as the goal is to stop a single operation
+    from overloading that thread pool.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.metadatastore.impl</name>
+  <value>org.apache.hadoop.fs.s3a.s3guard.NullMetadataStore</value>
+    <description>
+        Fully-qualified name of the class that implements the MetadataStore
+        to be used by s3a.  The default class, NullMetadataStore, has no
+        effect: s3a will continue to treat the backing S3 service as the one
+        and only source of truth for file and directory metadata.
+    </description>
+</property>
+
+<property>
+  <name>fs.abfss.impl</name>
+  <value>org.apache.hadoop.fs.azurebfs.SecureAzureBlobFileSystem</value>
+  <description>The implementation class of the Secure Azure Blob Filesystem</description>
+</property>
+
+<property>
+  <name>ipc.[port_number].faircallqueue.multiplexer.weights</name>
+  <value>[4, 2, 1, 0]</value>
+  <description>How much weight to give to each priority queue. This should be
+    a comma-separated list of length equal to the number of priority levels.
+    Weights descend by a factor of 2 (e.g., for 4 levels: 8,4,2,1).
+    This property applies to WeightedRoundRobinMultiplexer.
+  </description>
+</property>
+
+<property>
+  <name>ftp.stream-buffer-size</name>
+  <value>4096</value>
+  <description>The size of buffer to stream files.
+  The size of this buffer should probably be a multiple of hardware
+  page size (4096 on Intel x86), and it determines how much data is
+  buffered during read and write operations.</description>
+</property>
+
+<property>
+  <name>hadoop.registry.zk.retry.ceiling.ms</name>
+  <value>120000</value>
+    <description>
+      Zookeeper retry limit in milliseconds, during
+      exponential backoff.
+
+      This places a limit even
+      if the retry times and interval limit, combined
+      with the backoff policy, result in a long retry
+      period
+    </description>
+</property>
+
+</configuration>

@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hadoop.security.service.user.name.key</name>
+  <value></value>
+  <description>
+    For those cases where the same RPC protocol is implemented by multiple
+    servers, this configuration is required for specifying the principal
+    name to use for the service when the client wishes to make an RPC call.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.security.uid.cache.secs</name>
+  <value>14400</value>
+    <description>
+        This is the config controlling the validity of the entries in the cache
+        containing the userId to userName and groupId to groupName used by
+        NativeIO getFstat().
+    </description>
+</property>
+
+<property>
+  <name>fs.ftp.host.port</name>
+  <value>3000</value>
+  <description>
+    FTP filesystem connects to fs.ftp.host on this port
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.buffer.dir</name>
+  <value>/valid/file1</value>
+  <description>Comma separated list of directories that will be used to buffer file
+    uploads to.</description>
+</property>
+
+<property>
+  <name>fs.s3a.select.output.csv.record.delimiter</name>
+  <value>\n</value>
+  <description>
+    In S3 Select queries: the record delimiter for generated CSV Files.
+  </description>
+</property>
+
+<property>
+  <name>dfs.ha.fencing.methods</name>
+  <value></value>
+  <description>
+    List of fencing methods to use for service fencing. May contain
+    builtin methods (eg shell and sshfence) or user-defined method.
+  </description>
+</property>
+
+<property>
+  <name>ha.health-monitor.connect-retry-interval.ms</name>
+  <value>2000</value>
+  <description>
+    How often to retry connecting to the service.
+  </description>
+</property>
+
+<property>
+  <name>ha.failover-controller.graceful-fence.connection.retries</name>
+  <value>1</value>
+  <description>
+    FC connection retries for graceful fencing
+  </description>
+</property>
+
+</configuration>

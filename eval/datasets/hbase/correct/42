@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hbase.rootdir</name>
+  <value>${hbase.tmp.dir}/hbase</value>
+    <description>The directory shared by region servers and into
+    which HBase persists.  The URL should be 'fully-qualified'
+    to include the filesystem scheme.  For example, to specify the
+    HDFS directory '/hbase' where the HDFS instance's namenode is
+    running at namenode.example.org on port 9000, set this value to:
+    hdfs://namenode.example.org:9000/hbase.  By default, we write
+    to whatever ${hbase.tmp.dir} is set too -- usually /tmp --
+    so change this configuration or else all data will be lost on
+    machine restart.</description>
+</property>
+
+<property>
+  <name>hbase.regionserver.region.split.policy</name>
+  <value>org.apache.hadoop.hbase.regionserver.SteppingSplitPolicy</value>
+    <description>
+      A split policy determines when a region should be split. The various
+      other split policies that are available currently are BusyRegionSplitPolicy,
+      ConstantSizeRegionSplitPolicy, DisabledRegionSplitPolicy,
+      DelimitedKeyPrefixRegionSplitPolicy, KeyPrefixRegionSplitPolicy, and
+      SteppingSplitPolicy. DisabledRegionSplitPolicy blocks manual region splitting.
+    </description>
+</property>
+
+<property>
+  <name>hbase.hstore.compaction.kv.max</name>
+  <value>20</value>
+    <description>The maximum number of KeyValues to read and then write in a batch when flushing or
+      compacting. Set this lower if you have big KeyValues and problems with Out Of Memory
+      Exceptions Set this higher if you have wide, small rows. </description>
+</property>
+
+<property>
+  <name>hbase.master.kerberos.principal</name>
+  <value></value>
+    <description>Ex. "hbase/_HOST@EXAMPLE.COM".  The kerberos principal name
+    that should be used to run the HMaster process.  The principal name should
+    be in the form: user/hostname@DOMAIN.  If "_HOST" is used as the hostname
+    portion, it will be replaced with the actual hostname of the running
+    instance.</description>
+</property>
+
+<property>
+  <name>hbase.coprocessor.enabled</name>
+  <value>true</value>
+    <description>Enables or disables coprocessor loading. If 'false'
+    (disabled), any other coprocessor related configuration will be ignored.
+    </description>
+</property>
+
+<property>
+  <name>hbase.defaults.for.version</name>
+  <value>@@@VERSION@@@</value>
+    <description>This defaults file was compiled for version ${project.version}. This variable is used
+    to make sure that a user doesn't have an old version of hbase-default.xml on the
+    classpath.</description>
+</property>
+
+<property>
+  <name>hbase.lease.recovery.dfs.timeout</name>
+  <value>64000</value>
+    <description>How long between dfs recover lease invocations. Should be larger than the sum of
+        the time it takes for the namenode to issue a block recovery command as part of
+        datanode; dfs.heartbeat.interval and the time it takes for the primary
+        datanode, performing block recovery to timeout on a dead datanode; usually
+        dfs.client.socket-timeout. See the end of HBASE-8389 for more.</description>
+</property>
+
+<property>
+  <name>dfs.client.read.shortcircuit</name>
+  <value></value>
+    <description>
+      If set to true, this configuration parameter enables short-circuit local
+      reads.
+    </description>
+</property>
+
+</configuration>

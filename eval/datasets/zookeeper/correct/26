@@ -1,0 +1,16 @@
+localSessionsUpgradingEnabled=false
+
+quorumListenOnAllIPs=true
+
+quorum.auth.learnerRequireSasl=false
+
+peerType=participant
+
+dataLogDir=/valid/dir1
+
+syncLimit=1
+
+tickTime=1500
+
+maxClientCnxns=60
+

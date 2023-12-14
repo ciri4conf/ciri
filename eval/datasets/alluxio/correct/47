@@ -1,0 +1,24 @@
+alluxio.user.network.writer.buffer.size.messages=
+# Description: When a client writes to a remote worker, the maximum number of messages to buffer by the client. A message can be either a command response, a data chunk, or a gRPC stream event such as complete or error.
+
+alluxio.worker.ufs.instream.cache.enabled=false
+# Description: Enable caching for seekable under storage input stream, so that subsequent seek operations on the same file will reuse the cached input stream. This will improve position read performance as the open operations of some under file system would be expensive. The cached input stream would be stale, when the UFS file is modified without notifying alluxio.
+
+alluxio.job.master.client.threads=1024
+# Description: The number of threads the Alluxio master uses to make requests to the job master.
+
+alluxio.user.network.rpc.netty.worker.threads=1
+# Description: How many threads to use for rpc client to read from remote workers.
+
+alluxio.user.block.write.location.policy.class=alluxio.client.block.policy.LocalFirstPolicy
+# Description: The default location policy for choosing workers for writing a file's blocks.
+
+alluxio.security.authentication.type=SIMPLE
+# Description: The authentication mode. Currently three modes are supported: NOSASL, SIMPLE, CUSTOM. The default value SIMPLE indicates that a simple authentication is enabled. Server trusts whoever the client claims to be.
+
+alluxio.user.network.streaming.netty.channel=EPOLL
+# Description: Type of netty channels used by streaming connections. If EPOLL is not available, this will automatically fall back to NIO.
+
+alluxio.master.metastore.inode.cache.evict.batch.size=1000
+# Description: The batch size for evicting entries from the inode cache.
+

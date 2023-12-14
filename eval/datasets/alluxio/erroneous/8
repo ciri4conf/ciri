@@ -1,0 +1,24 @@
+alluxio.underfs.s3.intermediate.upload.clean.age=128N
+# Description: Streaming uploads may not have been completed/aborted correctly and need periodical ufs cleanup. If ufs cleanup is enabled, intermediate multipart uploads in all non-readonly S3 mount points older than this age will be cleaned. This may impact other ongoing upload operations, so a large clean age is encouraged.
+
+alluxio.user.network.netty.worker.threads=1
+# Description: How many threads to use for remote block worker client to read from remote block workers.
+
+alluxio.user.network.reader.chunk.size.bytes=
+# Description: When a client reads from a remote worker, the maximum chunk size.
+
+alluxio.web.cors.enabled=true
+# Description: Set to true to enable Cross-Origin Resource Sharing for RESTful APIendpoints.
+
+alluxio.master.backup.suspend.timeout=1min
+# Description: Timeout for when suspend request is not followed by a backup request.
+
+alluxio.user.rpc.retry.max.duration=2min
+# Description: Alluxio client RPCs automatically retry for transient errors with an exponential backoff. This property determines the maximum duration to retry for before giving up. Note that, this value is set to 5s for fs and fsadmin CLIs.
+
+alluxio.master.embedded.journal.write.timeout=30sec
+# Description: Maximum time to wait for a write/flush on embedded journal.
+
+alluxio.user.file.reserved.bytes=${alluxio.user.block.size.bytes.default}
+# Description: The size to reserve on workers for file system writes.Using smaller value will improve concurrency for writes smaller than block size.
+

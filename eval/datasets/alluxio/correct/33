@@ -1,0 +1,24 @@
+alluxio.underfs.s3.intermediate.upload.clean.age=3day
+# Description: Streaming uploads may not have been completed/aborted correctly and need periodical ufs cleanup. If ufs cleanup is enabled, intermediate multipart uploads in all non-readonly S3 mount points older than this age will be cleaned. This may impact other ongoing upload operations, so a large clean age is encouraged.
+
+alluxio.worker.network.netty.watermark.high=32KB
+# Description: Determines how many bytes can be in the write queue before switching to non-writable.
+
+alluxio.jvm.monitor.sleep.interval=1sec
+# Description: The time for the JVM monitor thread to sleep.
+
+alluxio.worker.management.load.detection.cool.down.time=10sec
+# Description: Management tasks will not run for this long after load detected. Any user I/O will still register as a load for this period of time after it is finished. Short durations might cause interference between user I/O and background tier management tasks. Long durations might cause starvation for background tasks.
+
+alluxio.worker.tieredstore.level1.watermark.low.ratio=0.7
+# Description: The low watermark of the space in the second storage tier (a value between 0 and 1).
+
+alluxio.user.logging.threshold=10s
+# Description: Logging a client RPC when it takes more time than the threshold.
+
+alluxio.table.journal.partitions.chunk.size=1000
+# Description: The maximum table partitions number in a single journal entry.
+
+alluxio.master.worker.connect.wait.time=10sec
+# Description: Alluxio master will wait a period of time after start up for all workers to register, before it starts accepting client requests. This property determines the wait time.
+

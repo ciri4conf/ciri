@@ -1,0 +1,24 @@
+alluxio.job.master.client.threads=9.9
+# Description: The number of threads the Alluxio master uses to make requests to the job master.
+
+alluxio.job.worker.rpc.port=3001
+# Description: The port for Alluxio job worker's RPC service.
+
+alluxio.master.embedded.journal.flush.size.max=320MB
+# Description: The maximum size in bytes of journal entries allowed in concurrent journal flushing (journal IO to standby masters and IO to local disks).
+
+alluxio.master.jvm.monitor.enabled=true
+# Description: Whether to enable start JVM monitor thread on the master. This will start a thread to detect JVM-wide pauses induced by GC or other reasons.
+
+alluxio.worker.evictor.class=
+# Description: The strategy that a worker uses to evict block files when a storage layer runs out of space. Valid options include `alluxio.worker.block.evictor.LRFUEvictor`, `alluxio.worker.block.evictor.GreedyEvictor`, `alluxio.worker.block.evictor.LRUEvictor`, `alluxio.worker.block.evictor.PartialLRUEvictor`.
+
+alluxio.master.hostname=127.0.0.1
+# Description: The hostname of Alluxio master.
+
+alluxio.master.file.access.time.updater.shutdown.timeout=10sec
+# Description: Maximum time to wait for access updater to stop on shutdown.
+
+alluxio.underfs.web.parent.names=..
+# Description: The text of the http link for the parent directory.
+

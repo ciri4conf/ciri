@@ -1,0 +1,24 @@
+alluxio.job.master.web.bind.host=2.2.2.2.2.2
+# Description: The host that the job master web server binds to.
+
+alluxio.underfs.s3.threads.max=40
+# Description: The maximum number of threads to use for communicating with S3 and the maximum number of concurrent connections to S3. Includes both threads for data upload and metadata operations. This number should be at least as large as the max admin threads plus max upload threads.
+
+alluxio.master.ufs.active.sync.thread.pool.size=4
+# Description: Max number of threads used to perform active sync
+
+alluxio.security.group.mapping.cache.timeout=2min
+# Description: Time for cached group mapping to expire.
+
+alluxio.worker.reviewer.class=alluxio.worker.block.reviewer.ProbabilisticBufferReviewer
+# Description: (Experimental) The API is subject to change in the future.The strategy that a worker uses to review space allocation in the Allocator. Each time a block allocation decision is made by the Allocator, the Reviewer will review the decision and rejects it,if the allocation does not meet certain criteria of the Reviewer.The Reviewer prevents the worker to make a bad block allocation decision.Valid options include:`alluxio.worker.block.reviewer.ProbabilisticBufferReviewer`.
+
+alluxio.master.ufs.active.sync.poll.batch.size=512
+# Description: The number of event batches that should be submitted together to a single thread for processing.
+
+alluxio.master.metastore.dir=/valid/file2
+# Description: The metastore work directory. Only some metastores need disk.
+
+alluxio.master.journal.checkpoint.period.entries=1000000
+# Description: The number of journal entries to write before creating a new journal checkpoint.
+

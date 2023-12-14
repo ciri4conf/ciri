@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.am.liveness-monitor.expiry-interval-ms</name>
+  <value>1200000</value>
+    <description>The expiry interval for application master reporting.</description>
+</property>
+
+<property>
+  <name>yarn.acl.enable</name>
+  <value>false</value>
+    <description>Are acls enabled.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.delegation.token.max-lifetime</name>
+  <value>302400000</value>
+    <description>
+    RM delegation token maximum lifetime in ms
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.linux-container-executor.cgroups.strict-resource-usage</name>
+  <value>false</value>
+    <description>This flag determines whether apps should run with strict resource limits
+    or be allowed to consume spare resources if they need them. For example, turning the
+    flag on will restrict apps to use only their share of CPU, even if the node has spare
+    CPU cycles. The default value is false i.e. use available resources. Please note that
+    turning this flag on may reduce job throughput on the cluster. This setting does
+    not apply to other subsystems like memory.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.entity-group-fs-store.cache-store-class</name>
+  <value>org.apache.hadoop.yarn.server.timeline.MemoryTimelineStore</value>
+    <description>Caching storage timeline server v1.5 is using. </description>
+</property>
+
+<property>
+  <name>yarn.node-labels.enabled</name>
+  <value>false</value>
+    <description>
+    Enable node labels feature
+    </description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.webapp.rest-csrf.custom-header</name>
+  <value>X-XSRF-Header</value>
+    <description>
+      Optional parameter that indicates the custom header name to use for CSRF
+      protection.
+    </description>
+</property>
+
+<property>
+  <name>yarn.webapp.xfs-filter.enabled</name>
+  <value>true</value>
+    <description>
+      Enable the XFS filter for YARN
+    </description>
+</property>
+
+</configuration>

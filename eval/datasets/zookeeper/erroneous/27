@@ -1,0 +1,16 @@
+secureClientPortAddress=999.-1.0.0
+
+quorumListenOnAllIPs=true
+
+quorum.auth.kerberos.servicePrincipal=zkquorum/localhost
+
+clientPort=3001
+
+minSessionTimeout=-2
+
+maxSessionTimeout=-2
+
+autopurge.snapRetainCount=1
+
+maxClientCnxns=30
+

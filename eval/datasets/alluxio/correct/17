@@ -1,0 +1,24 @@
+alluxio.master.daily.backup.time=05:00
+# Description: Default UTC time for writing daily master metadata backups. The accepted time format is hour:minute which is based on a 24-hour clock (E.g., 05:30, 06:00, and 22:04). Backing up metadata requires a pause in master metadata changes, so please set this value to an off-peak time to avoid interfering with other users of the system.
+
+fs.gcs.credential.path=/valid/file1
+# Description: The json file path of Google application credentials. This property key is only valid when alluxio.underfs.gcs.version=2
+
+alluxio.user.app.id=
+# Description: The custom id to use for labeling this client's info, such as metrics. If unset, a random long will be used. This value is displayed in the client logs on initialization. Note that using the same app id will cause client info to be aggregated, so different applications must set their own ids or leave this value unset to use a randomly generated id.
+
+alluxio.master.embedded.journal.entry.size.max=20MB
+# Description: The maximum single journal entry size allowed to be flushed. This value should be smaller than 30MB. Set to a larger value to allow larger journal entries when using the Alluxio Catalog service.
+
+alluxio.master.backup.state.lock.exclusive.duration=2ms
+# Description: Alluxio master will allow only exclusive locking of the state-lock for this duration. This duration starts after masters are started for the first time. User RPCs will fail to acquire state-lock during this phase and a backup is guaranteed take the state-lock meanwhile.
+
+alluxio.master.ufs.active.sync.interval=1sec
+# Description: Time interval to periodically actively sync UFS
+
+alluxio.job.master.rpc.addresses=127.0.0.1
+# Description: A list of comma-separated host:port RPC addresses where the client should look for job masters when using multiple job masters without Zookeeper. This property is not used when Zookeeper is enabled, since Zookeeper already stores the job master addresses. If property is not defined, clients will look for job masters using [alluxio.master.rpc.addresses]:alluxio.job.master.rpc.port first, then for [alluxio.job.master.embedded.journal.addresses]:alluxio.job.master.rpc.port.
+
+alluxio.master.embedded.journal.addresses=
+# Description: A comma-separated list of journal addresses for all masters in the cluster. The format is 'hostname1:port1,hostname2:port2,...'. When left unset, Alluxio uses ${alluxio.master.hostname}:${alluxio.master.embedded.journal.port} by default
+

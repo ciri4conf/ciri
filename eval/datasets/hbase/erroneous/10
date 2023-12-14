@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hbase.master.info.bindAddress</name>
+  <value>0.0.0.0</value>
+    <description>The bind address for the HBase Master web UI
+    </description>
+</property>
+
+<property>
+  <name>hbase.zookeeper.leaderport</name>
+  <value>7776</value>
+    <description>Port used by ZooKeeper for leader election.
+    See https://zookeeper.apache.org/doc/r3.3.3/zookeeperStarted.html#sc_RunningReplicatedZooKeeper
+    for more information.</description>
+</property>
+
+<property>
+  <name>hbase.zookeeper.property.clientPort</name>
+  <value>4362</value>
+    <description>Property from ZooKeeper's config zoo.cfg.
+    The port at which the clients will connect.</description>
+</property>
+
+<property>
+  <name>hbase.regions.slop</name>
+  <value>0.001</value>
+    <description>Rebalance if any regionserver has average + (average * slop) regions.
+      The default value of this parameter is 0.001 in StochasticLoadBalancer (the default load balancer),
+      while the default is 0.2 in other load balancers (i.e., SimpleLoadBalancer).</description>
+</property>
+
+<property>
+  <name>hbase.hregion.memstore.flush.size</name>
+  <value>268435456</value>
+    <description>
+    Memstore will be flushed to disk if size of the memstore
+    exceeds this number of bytes.  Value is checked by a thread that runs
+    every hbase.server.thread.wakefrequency.</description>
+</property>
+
+<property>
+  <name>hbase.status.multicast.address.ip</name>
+  <value>1.1.1.1.1.1</value>
+    <description>
+      Multicast address to use for the status publication by multicast.
+    </description>
+</property>
+
+<property>
+  <name>hbase.mob.compaction.batch.size</name>
+  <value>50</value>
+    <description>
+      The max number of the mob files that is allowed in a batch of the mob compaction.
+      The mob compaction merges the small mob files to bigger ones. If the number of the
+      small files is very large, it could lead to a "too many opened file handlers" in the merge.
+      And the merge has to be split into batches. This value limits the number of mob files
+      that are selected in a batch of the mob compaction. The default value is 100.
+    </description>
+</property>
+
+<property>
+  <name>hbase.mob.compaction.chore.period</name>
+  <value>1209600</value>
+    <description>
+      The period that MobCompactionChore runs. The unit is second.
+      The default value is one week.
+    </description>
+</property>
+
+</configuration>

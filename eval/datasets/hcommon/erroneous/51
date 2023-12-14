@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hadoop.security.group.mapping.ldap.userbase</name>
+  <value></value>
+  <description>
+    The search base for the LDAP connection for user search query. This is a
+    distinguished name, and its the root of the LDAP directory for users.
+    If not set, hadoop.security.group.mapping.ldap.base is used.
+  </description>
+</property>
+
+<property>
+  <name>io.compression.codecs</name>
+  <value></value>
+  <description>A comma-separated list of the compression codec classes that can
+  be used for compression/decompression. In addition to any classes specified
+  with this property (which take precedence), codec classes on the classpath
+  are discovered using a Java ServiceLoader.</description>
+</property>
+
+<property>
+  <name>fs.s3a.session.token</name>
+  <value></value>
+  <description>Session token, when using org.apache.hadoop.fs.s3a.TemporaryAWSCredentialsProvider
+    as one of the providers.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.select.input.csv.quote.character</name>
+  <value>"</value>
+  <description>In S3 Select queries over CSV files: quote character.
+    \t is remapped to the TAB character, \r to CR \n to newline. \\ to \
+    and \" to "
+  </description>
+</property>
+
+<property>
+  <name>hadoop.http.cross-origin.max-age</name>
+  <value>3600</value>
+  <description>The number of seconds a pre-flighted request can be cached
+    for web services needing cross-origin (CORS) support.</description>
+</property>
+
+<property>
+  <name>fs.permissions.umask-mode</name>
+  <value>080</value>
+  <description>
+    The umask used when creating files and directories.
+    Can be in octal or in symbolic. Examples are:
+    "022" (octal for u=rwx,g=r-x,o=r-x in symbolic),
+    or "u=rwx,g=rwx,o=" (symbolic for 007 in octal).
+  </description>
+</property>
+
+<property>
+  <name>ha.failover-controller.graceful-fence.connection.retries</name>
+  <value>0</value>
+  <description>
+    FC connection retries for graceful fencing
+  </description>
+</property>
+
+<property>
+  <name>hadoop.security.crypto.codec.classes.EXAMPLECIPHERSUITE</name>
+  <value></value>
+  <description>
+    The prefix for a given crypto codec, contains a comma-separated
+    list of implementation classes for a given crypto codec (eg EXAMPLECIPHERSUITE).
+    The first implementation will be used if available, others are fallbacks.
+  </description>
+</property>
+
+</configuration>

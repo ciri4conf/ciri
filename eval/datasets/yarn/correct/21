@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.work-preserving-recovery.enabled</name>
+  <value>true</value>
+    <description>Enable RM work preserving recovery. This configuration is private
+    to YARN for experimenting the feature.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.zk-delegation-token-node.split-index</name>
+  <value>0</value>
+    <description>Index at which the RM Delegation Token ids will be split so
+      that the delegation token znodes stored in the zookeeper RM state store
+      will be stored as two different znodes (parent-child). The split is done
+      from the end. For instance, with no split, a delegation token znode will
+      be of the form RMDelegationToken_123456789. If the value of this config is
+      1, the delegation token znode will be broken into two parts:
+      RMDelegationToken_12345678 and 9 respectively with former being the parent
+      node. This config can take values from 0 to 4. 0 means there will be no
+      split. If the value is outside this range, it will be treated as 0 (i.e.
+      no split). A value larger than 0 (up to 4) should be configured if you are
+      running a large number of applications, with long-lived delegation tokens
+      and state store operations (e.g. failover) are failing due to LenError in
+      Zookeeper.</description>
+</property>
+
+<property>
+  <name>yarn.client.failover-proxy-provider</name>
+  <value>org.apache.hadoop.yarn.client.ConfiguredRMFailoverProxyProvider</value>
+    <description>When HA is enabled, the class to be used by Clients, AMs and
+      NMs to failover to the Active RM. It should extend
+      org.apache.hadoop.yarn.client.RMFailoverProxyProvider</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.vmem-pmem-ratio</name>
+  <value>2.1</value>
+    <description>Ratio between virtual memory to physical memory when
+    setting memory limits for containers. Container allocations are
+    expressed in terms of physical memory, and virtual memory usage
+    is allowed to exceed this allocation by this ratio.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.container-monitor.process-tree.class</name>
+  <value></value>
+    <description>
+    Class used to calculate current container resource utilization.
+    </description>
+</property>
+
+<property>
+  <name>yarn.sharedcache.uploader.server.address</name>
+  <value>0.0.0.0:3001</value>
+    <description>The address of the node manager interface in the SCM
+    (shared cache manager)</description>
+</property>
+
+<property>
+  <name>yarn.scheduler.configuration.leveldb-store.compaction-interval-secs</name>
+  <value>43200</value>
+    <description>
+      The compaction interval for LevelDB configuration store in secs,
+      when yarn.scheduler.configuration.store.class is configured to be
+      "leveldb". Default is one day.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.submission-preprocessor.file-path</name>
+  <value></value>
+    <description>Path to file with hosts for the submission processor to handle.</description>
+</property>
+
+</configuration>

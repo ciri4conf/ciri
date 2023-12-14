@@ -1,0 +1,24 @@
+alluxio.job.master.finished.job.retention.time=120sec
+# Description: The length of time the Alluxio Job Master should save information about completed jobs before they are discarded.
+
+alluxio.worker.web.bind.host=127.0.0.1
+# Description: The hostname Alluxio worker's web server binds to.
+
+alluxio.worker.management.tier.align.reserved.bytes=1GB
+# Description: The amount of space that is reserved from each storage directory for internal management tasks.
+
+alluxio.master.ufs.active.sync.poll.timeout=1sec
+# Description: Max time to wait before timing out a polling operation
+
+alluxio.underfs.s3.connection.ttl=-2
+# Description: The expiration time of S3 connections in ms. -1 means the connection will never expire.
+
+alluxio.master.metastore.inode.cache.evict.batch.size=1000
+# Description: The batch size for evicting entries from the inode cache.
+
+alluxio.worker.ramdisk.size=1GB
+# Description: The allocated memory for each worker node's ramdisk(s). It is recommended to set this value explicitly.
+
+alluxio.master.tieredstore.global.level2.alias=HDD
+# Description: The name of the third highest storage tier in the entire system.
+

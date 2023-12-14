@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.namenode.edits.dir</name>
+  <value>/valid/dir2</value>
+  <description>Determines where on the local filesystem the DFS name node
+      should store the transaction (edits) file. If this is a comma-delimited list
+      of directories then the transaction file is replicated in all of the 
+      directories, for redundancy. Default value is same as dfs.namenode.name.dir
+  </description>
+</property>
+
+<property>
+  <name>dfs.cluster.administrators</name>
+  <value></value>
+   <description>ACL for the admins, this configuration is used to control
+     who can access the default servlets in the namenode, etc. The value
+     should be a comma separated list of users and groups. The user list
+     comes first and is separated by a space followed by the group list,
+     e.g. "user1,user2 group1,group2". Both users and groups are optional,
+     so "user1", " group1", "", "user1 group1", "user1,user2 group1,group2"
+     are all valid (note the leading space in " group1"). '*' grants access
+     to all users and groups, e.g. '*', '* ' and ' *' are all valid.
+   </description>
+</property>
+
+<property>
+  <name>dfs.namenode.full.block.report.lease.length.ms</name>
+  <value>150000</value>
+  <description>
+    The number of milliseconds that the NameNode will wait before invalidating
+    a full block report lease.  This prevents a crashed DataNode from
+    permanently using up a full block report lease.
+  </description>
+</property>
+
+<property>
+  <name>dfs.datanode.plugins</name>
+  <value></value>
+  <description>Comma-separated list of datanode plug-ins to be activated.
+  </description>
+</property>
+
+<property>
+  <name>dfs.block.invalidate.limit</name>
+  <value>500</value>
+  <description>
+    The maximum number of invalidate blocks sent by namenode to a datanode
+    per heartbeat deletion command. This property works with
+    "dfs.namenode.invalidate.work.pct.per.iteration" to throttle block
+    deletions.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.retry.interval-ms.get-last-block-length</name>
+  <value>8000</value>
+  <description>
+    Retry interval in milliseconds to wait between retries in getting
+    block lengths from the datanodes.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.write.max-packets-in-flight</name>
+  <value>80</value>
+  <description>
+    The maximum number of DFSPackets allowed in flight.
+  </description>
+</property>
+
+<property>
+  <name>dfs.net.topology.impl</name>
+  <value>org.apache.hadoop.hdfs.net.DFSNetworkTopology</value>
+    <description>
+      The implementation class of NetworkTopology used in HDFS. By default,
+      the class org.apache.hadoop.hdfs.net.DFSNetworkTopology is specified and
+      used in block placement.
+      This property only works when dfs.use.dfs.network.topology is true.
+    </description>
+</property>
+
+</configuration>

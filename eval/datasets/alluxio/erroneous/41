@@ -1,0 +1,24 @@
+alluxio.job.worker.rpc.port=65536
+# Description: The port for Alluxio job worker's RPC service.
+
+alluxio.user.streaming.writer.buffer.size.messages=32
+# Description: When a client writes to a remote worker, the maximum number of messages to buffer by the client. A message can be either a command response, a data chunk, or a gRPC stream event such as complete or error.
+
+alluxio.worker.block.annotator.class=alluxio.worker.block.annotator.LRUAnnotator
+# Description: The strategy that a worker uses to annotate blocks in order to have an ordered view of them during internalmanagement tasks such as eviction and promotion/demotion. Valid options include: `alluxio.worker.block.annotator.LRFUAnnotator`, `alluxio.worker.block.annotator.LRUAnnotator`,
+
+alluxio.user.file.replication.durable=1
+# Description: The target replication level of a file created by ASYNC_THROUGH writesbefore this file is persisted.
+
+alluxio.underfs.oss.socket.timeout=1sec
+# Description: The timeout of OSS socket.
+
+alluxio.user.network.flowcontrol.window=
+# Description: The HTTP2 flow control window used by user gRPC connections. Larger value will allow more data to be buffered but will use more memory.
+
+alluxio.user.client.cache.timeout.duration=-2
+# Description: The timeout duration for local cache I/O operations (reading/writing/deleting). When this property is a positive value,local cache operations after timing out will fail and fallback to external file system but transparent to applications; when this property is a negative value, this feature is disabled.
+
+fs.oss.accessKeyId=
+# Description: The access key of OSS bucket.
+

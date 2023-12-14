@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hbase.hstore.compaction.ratio.offpeak</name>
+  <value>6.0F</value>
+    <description>Allows you to set a different (by default, more aggressive) ratio for determining
+      whether larger StoreFiles are included in compactions during off-peak hours. Works in the
+      same way as hbase.hstore.compaction.ratio. Only applies if hbase.offpeak.start.hour and
+      hbase.offpeak.end.hour are also enabled.</description>
+</property>
+
+<property>
+  <name>hbase.offpeak.start.hour</name>
+  <value>-1</value>
+    <description>The start of off-peak hours, expressed as an integer between 0 and 23, inclusive.
+      Set to -1 to disable off-peak.</description>
+</property>
+
+<property>
+  <name>hbase.data.umask</name>
+  <value>002</value>
+    <description>File permissions that should be used to write data
+      files when hbase.data.umask.enable is true</description>
+</property>
+
+<property>
+  <name>hbase.snapshot.restore.take.failsafe.snapshot</name>
+  <value>true</value>
+    <description>Set to true to take a snapshot before the restore operation.
+      The snapshot taken will be used in case of failure, to restore the previous state.
+      At the end of the restore operation this snapshot will be deleted</description>
+</property>
+
+<property>
+  <name>dfs.domain.socket.path</name>
+  <value></value>
+    <description>
+      This is a path to a UNIX domain socket that will be used for
+      communication between the DataNode and local HDFS clients, if
+      dfs.client.read.shortcircuit is set to true. If the string "_PORT" is
+      present in this path, it will be replaced by the TCP port of the DataNode.
+      Be careful about permissions for the directory that hosts the shared
+      domain socket; dfsclient will complain if open to other users than the HBase user.
+    </description>
+</property>
+
+<property>
+  <name>hbase.client.scanner.max.result.size</name>
+  <value>1048576</value>
+    <description>Maximum number of bytes returned when calling a scanner's next method.
+    Note that when a single row is larger than this limit the row is still returned completely.
+    The default value is 2MB, which is good for 1ge networks.
+    With faster and/or high latency networks this value should be increased.
+    </description>
+</property>
+
+<property>
+  <name>hbase.rest.csrf.enabled</name>
+  <value>true</value>
+  <description>
+    Set to true to enable protection against cross-site request forgery (CSRF)
+	</description>
+</property>
+
+<property>
+  <name>hbase.mob.compaction.threads.max</name>
+  <value>2</value>
+    <description>
+      The max number of threads used in MobCompactor.
+    </description>
+</property>
+
+</configuration>

@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.namenode.https-address</name>
+  <value>0.0.0.0:3000</value>
+  <description>The namenode secure http server address and port.</description>
+</property>
+
+<property>
+  <name>dfs.namenode.decommission.blocks.per.interval</name>
+  <value>500000</value>
+  <description>The approximate number of blocks to process per decommission
+    or maintenance interval, as defined in dfs.namenode.decommission.interval.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.use.datanode.hostname</name>
+  <value>true</value>
+  <description>Whether clients should use datanode hostnames when
+    connecting to datanodes.
+  </description>
+</property>
+
+<property>
+  <name>dfs.journalnode.http-bind-host</name>
+  <value>-1.0.0.0</value>
+  <description>
+    The actual address the HTTP server will bind to. If this optional address
+    is set, it overrides only the hostname portion of
+    dfs.journalnode.http-address. This is useful for making the JournalNode
+    HTTP server listen on allinterfaces by setting it to 0.0.0.0.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.inotify.max.events.per.rpc</name>
+  <value>2000</value>
+  <description>Maximum number of events that will be sent to an inotify client
+    in a single RPC response. The default value attempts to amortize away
+    the overhead for this RPC while avoiding huge memory requirements for the
+    client and NameNode (1000 events should consume no more than 1 MB.)
+  </description>
+</property>
+
+<property>
+  <name>dfs.webhdfs.rest-csrf.enabled</name>
+  <value>false</value>
+  <description>
+    If true, then enables WebHDFS protection against cross-site request forgery
+    (CSRF).  The WebHDFS client also uses this property to determine whether or
+    not it needs to send the custom CSRF prevention header in its HTTP requests.
+  </description>
+</property>
+
+<property>
+  <name>dfs.balancer.max-size-to-move</name>
+  <value>5368709120</value>
+  <description>
+    Maximum number of bytes that can be moved by the balancer in a single
+    thread.
+  </description>
+</property>
+
+<property>
+  <name>dfs.provided.aliasmap.inmemory.batch-size</name>
+  <value>250</value>
+    <description>
+      The batch size when iterating over the database backing the aliasmap
+    </description>
+</property>
+
+</configuration>

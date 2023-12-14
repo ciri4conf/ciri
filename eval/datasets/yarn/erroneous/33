@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.webapp.spnego-keytab-file</name>
+  <value></value>
+    <description>
+    The Kerberos keytab file to be used for spnego filter for the RM web
+    interface.
+    </description>
+</property>
+
+<property>
+  <name>yarn.scheduler.maximum-allocation-mb</name>
+  <value>4096</value>
+    <description>The maximum allocation for every container request at the RM
+    in MBs. Memory requests higher than this will throw an
+    InvalidResourceRequestException.</description>
+</property>
+
+<property>
+  <name>yarn.log-aggregation.file-controller.TFile.class</name>
+  <value>org.apache.hadoop.yarn.logaggregation.filecontroller.tfile.LogAggregationTFileController</value>
+    <description>Class that supports TFile read and write operations.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.resource.memory-mb</name>
+  <value>2048</value>
+    <description>Amount of physical memory, in MB, that can be allocated 
+    for containers. If set to -1 and
+    yarn.nodemanager.resource.detect-hardware-capabilities is true, it is
+    automatically calculated(in case of Windows and Linux).
+    In other cases, the default is 8192MB.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.container-monitor.interval-ms</name>
+  <value></value>
+    <description>How often to monitor containers. If not set, the value for
+    yarn.nodemanager.resource-monitor.interval-ms will be used.
+    If 0 or negative, container monitoring is disabled.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.container-metrics.unregister-delay-ms</name>
+  <value>10000</value>
+    <description>
+    The delay time ms to unregister container metrics after completion.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.webapp.xfs-filter.xframe-options</name>
+  <value>SAMEORIGIN</value>
+    <description>
+      Property specifying the xframe options value.
+    </description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.webapp.xfs-filter.xframe-options</name>
+  <value>SAMEORIGIN</value>
+    <description>
+      Property specifying the xframe options value.
+    </description>
+</property>
+
+</configuration>

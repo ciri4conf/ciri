@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.namenode.read.considerLoad</name>
+  <value>true</value>
+  <description>
+    Decide if sort block locations considers the target's load or not when read.
+    Turn off by default.
+  </description>
+</property>
+
+<property>
+  <name>dfs.journalnode.http-bind-host</name>
+  <value>0.0.0</value>
+  <description>
+    The actual address the HTTP server will bind to. If this optional address
+    is set, it overrides only the hostname portion of
+    dfs.journalnode.http-address. This is useful for making the JournalNode
+    HTTP server listen on allinterfaces by setting it to 0.0.0.0.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.caching.enabled</name>
+  <value>false</value>
+  <description>
+    Set to true to enable block caching.  This flag enables the NameNode to
+    maintain a mapping of cached blocks to DataNodes via processing DataNode
+    cache reports.  Based on these reports and addition and removal of caching
+    directives, the NameNode will schedule caching and uncaching work.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.deadnode.detection.rpc.threads</name>
+  <value>40</value>
+    <description>
+      The maximum number of threads to use for calling RPC call to recheck the liveness of dead node.
+    </description>
+</property>
+
+<property>
+  <name>dfs.namenode.write-lock-reporting-threshold-ms</name>
+  <value>10000</value>
+  <description>When a write lock is held on the namenode for a long time,
+    this will be logged as the lock is released. This sets how long the
+    lock must be held for logging to occur.
+  </description>
+</property>
+
+<property>
+  <name>dfs.balancer.service.interval</name>
+  <value>1m</value>
+  <description>
+    The schedule interval of balancer when running as a long service.
+  </description>
+</property>
+
+<property>
+  <name>dfs.datanode.fixed.volume.size</name>
+  <value>true</value>
+  <description>
+    If false, call function getTotalSpace of File to get capacity of volume
+    during every heartbeat.
+    If true, cache the capacity when when the first call, and reuse it later.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.corrupt.block.delete.immediately.enabled</name>
+  <value>true</value>
+    <description>
+      Whether the corrupt replicas should be deleted immediately, irrespective
+      of other replicas on stale storages..
+    </description>
+</property>
+
+</configuration>

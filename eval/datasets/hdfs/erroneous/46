@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.datanode.data.dir</name>
+  <value>/valid/dir1</value>
+  <description>Determines where on the local filesystem an DFS data node
+  should store its blocks.  If this is a comma-delimited
+  list of directories, then data will be stored in all named
+  directories, typically on different devices. The directories should be tagged
+  with corresponding storage types ([SSD]/[DISK]/[ARCHIVE]/[RAM_DISK]) for HDFS
+  storage policies. The default storage type will be DISK if the directory does
+  not have a storage type tagged explicitly. Directories that do not exist will
+  be created if local filesystem permission allows.
+  </description>
+</property>
+
+<property>
+  <name>nfs.mountd.port</name>
+  <value>65536</value>
+  <description>
+      Specify the port number used by Hadoop mount daemon.
+  </description>
+</property>
+
+<property>
+  <name>dfs.datanode.slow.io.warning.threshold.ms</name>
+  <value>300</value>
+  <description>The threshold in milliseconds at which we will log a slow
+    io warning in a datanode. By default, this parameter is set to 300
+    milliseconds.
+  </description>
+</property>
+
+<property>
+  <name>dfs.ha.nn.not-become-active-in-safemode</name>
+  <value>false</value>
+  <description>
+    This will prevent safe mode namenodes to become active while other standby
+    namenodes might be ready to serve requests when it is set to true.
+  </description>
+</property>
+
+<property>
+  <name>dfs.balancer.max-size-to-move</name>
+  <value>21474836480</value>
+  <description>
+    Maximum number of bytes that can be moved by the balancer in a single
+    thread.
+  </description>
+</property>
+
+<property>
+  <name>dfs.balancer.service.retries.on.exception</name>
+  <value>10</value>
+  <description>
+    When the balancer is executed as a long-running service, it will retry upon encountering an exception. This
+    configuration determines how many times it will retry before considering the exception to be fatal and quitting.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.storageinfo.defragment.timeout.ms</name>
+  <value>8</value>
+  <description>
+    Timeout value in ms for the StorageInfo compaction run.
+  </description>
+</property>
+
+<property>
+  <name>dfs.web.authentication.simple.anonymous.allowed</name>
+  <value></value>
+  <description>
+    If true, allow anonymous user to access WebHDFS. Set to
+    false to disable anonymous authentication.
+  </description>
+</property>
+
+</configuration>

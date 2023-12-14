@@ -1,0 +1,16 @@
+sslQuorum=false
+
+minSessionTimeout=0
+
+secureClientPortAddress=
+
+electionAlg=3
+
+clientPort=3000
+
+quorum.auth.kerberos.servicePrincipal=zkquorum/localhost
+
+maxClientCnxns=30
+
+clientPortAddress=0.0.0.0:3000
+

@@ -1,0 +1,24 @@
+alluxio.user.network.writer.close.timeout=
+# Description: The timeout to close a writer client.
+
+alluxio.worker.tieredstore.level0.watermark.low.ratio=0.7
+# Description: The low watermark of the space in the top storage tier (a value between 0 and 1).
+
+alluxio.user.file.delete.unchecked=false
+# Description: Whether to check if the UFS contents are in sync with Alluxio before attempting to delete persisted directories recursively.
+
+alluxio.master.lock.pool.low.watermark=500000
+# Description: Low watermark of lock pool size. When the size grows over the high watermark, a background thread will try to evict unused locks until the size reaches the low watermark.
+
+alluxio.user.file.buffer.bytes=8MB
+# Description: The size of the file buffer to use for file system reads/writes.
+
+alluxio.worker.network.writer.buffer.size.messages=16
+# Description: When a client writes to a remote worker, the maximum number of data messages to buffer by the server for each request.
+
+alluxio.master.journal.log.size.bytes.max=1MB
+# Description: If a log file is bigger than this value, it will rotate to next file.
+
+alluxio.master.metastore.inode.iteration.crawler.count=1
+# Description: The number of threads used during inode tree enumeration.
+

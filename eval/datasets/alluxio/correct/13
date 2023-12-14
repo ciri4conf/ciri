@@ -1,0 +1,24 @@
+alluxio.underfs.s3.proxy.host=
+# Description: Optionally, specify a proxy host for communicating with S3.
+
+alluxio.master.backup.abandon.timeout=10min
+# Description: Duration after which leader will abandon the backup if it has not received heartbeat from backup-worker.
+
+alluxio.underfs.cleanup.enabled=false
+# Description: Whether or not to clean up under file storage periodically.Some ufs operations may not be completed and cleaned up successfully in normal ways and leave some intermediate data that needs periodical cleanup.If enabled, all the mount points will be cleaned up when a leader master starts or cleanup interval is reached. This should be used sparingly.
+
+alluxio.worker.bind.host=127.0.0.1
+# Description: The hostname Alluxio's worker node binds to.
+
+alluxio.worker.storage.checker.enabled=false
+# Description: Whether periodic storage health checker is enabled on Alluxio workers.
+
+alluxio.web.refresh.interval=15s
+# Description: The amount of time to await before refreshing the Web UI if it is set to auto refresh.
+
+alluxio.underfs.object.store.service.threads=40
+# Description: The number of threads in executor pool for parallel object store UFS operations, such as directory renames and deletes.
+
+alluxio.master.ufs.active.sync.poll.batch.size=2048
+# Description: The number of event batches that should be submitted together to a single thread for processing.
+

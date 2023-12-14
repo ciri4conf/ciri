@@ -1,0 +1,24 @@
+alluxio.worker.tieredstore.level2.dirs.mediumtype=${alluxio.worker.tieredstore.level2.alias}
+# Description: A list of media types (e.g., "SSD,HDD,HDD") for each storage directory on the third storage tier specified by alluxio.worker.tieredstore.level2.dirs.path.
+
+alluxio.master.mount.table.root.readonly=true
+# Description: Whether Alluxio root mount point is readonly.
+
+alluxio.user.block.master.client.pool.gc.threshold=120sec
+# Description: A block master client is closed if it has been idle for more than this threshold.
+
+alluxio.master.journal.folder=${alluxio.work.dir}/journal
+# Description: The path to store master journal logs. When using the UFS journal this could be a URI like hdfs://namenode:port/alluxio/journal. When using the embedded journal this must be a local path
+
+alluxio.underfs.s3.request.timeout=2min
+# Description: The timeout for a single request to S3. Infinity if set to 0. Setting this property to a non-zero value can improve performance by avoiding the long tail of requests to S3. For very slow connections to S3, consider increasing this value or setting it to 0.
+
+alluxio.user.network.rpc.keepalive.timeout=1sec
+# Description: The maximum time for a rpc client to wait for a keepalive response before closing the connection.
+
+alluxio.master.backup.connect.interval.max=30sec
+# Description: Maximum delay between each connection attempt to backup-leader.
+
+alluxio.user.file.buffer.bytes=8MB
+# Description: The size of the file buffer to use for file system reads/writes.
+

@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.placement-constraints.retry-attempts</name>
+  <value>6</value>
+    <description>Number of times to retry placing of rejected SchedulingRequests</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.linux-container-executor.nonsecure-mode.user-pattern</name>
+  <value>^[_.A-Za-z0-9][-@_.A-Za-z0-9]{0</value>
+    <description>The allowed pattern for UNIX user names enforced by
+    Linux-container-executor when used in nonsecure mode (use case for this
+    is using cgroups). The default value is taken from /usr/sbin/adduser</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.container-retry-minimum-interval-ms</name>
+  <value>1000</value>
+    <description>Minimum container restart interval in milliseconds.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.recovery.supervised</name>
+  <value>true</value>
+    <description>Whether the nodemanager is running under supervision. A
+      nodemanager that supports recovery and is running under supervision
+      will not try to cleanup containers as it exits with the assumption
+      it will be immediately be restarted and recover containers.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.container-metrics.enable</name>
+  <value>true</value>
+    <description>
+    Flag to enable container metrics
+    </description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.reader.class</name>
+  <value>org.apache.hadoop.yarn.server.timelineservice.storage.HBaseTimelineReaderImpl</value>
+    <description>
+      Storage implementation ATS v2 will use for the TimelineReader service.
+    </description>
+</property>
+
+<property>
+  <name>yarn.registry.class</name>
+  <value>org.apache.hadoop.registry.client.impl.FSRegistryOperationsService</value>
+    <description>The registry implementation to use.</description>
+</property>
+
+<property>
+  <name>yarn.router.webapp.address</name>
+  <value>0.0.0.0:8089</value>
+    <description>
+      The http address of the Router web application.
+      If only a host is provided as the value,
+      the webapp will be served on a random port.
+    </description>
+</property>
+
+</configuration>

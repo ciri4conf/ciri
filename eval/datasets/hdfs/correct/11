@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.datanode.address</name>
+  <value>0.0.0.0:9866</value>
+  <description>
+    The datanode server address and port for data transfer.
+  </description>
+</property>
+
+<property>
+  <name>dfs.permissions.superusergroup</name>
+  <value>supergroup</value>
+  <description>The name of the group of super-users.
+    The value should be a single group name.
+  </description>
+</property>
+
+<property>
+  <name>dfs.nameservice.id</name>
+  <value></value>
+  <description>
+    The ID of this nameservice. If the nameservice ID is not
+    configured or more than one nameservice is configured for
+    dfs.nameservices it is determined automatically by
+    matching the local node's address with the configured address.
+  </description>
+</property>
+
+<property>
+  <name>nfs.mountd.port</name>
+  <value>4242</value>
+  <description>
+      Specify the port number used by Hadoop mount daemon.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.edit.log.autoroll.check.interval.ms</name>
+  <value>300000</value>
+  <description>
+    How often an active namenode will check if it needs to roll its edit log,
+    in milliseconds.
+  </description>
+</property>
+
+<property>
+  <name>dfs.http.client.failover.max.attempts</name>
+  <value>15</value>
+  <description>
+    Specify the max number of failover attempts for WebHDFS client
+    in case of network exception.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.name.cache.threshold</name>
+  <value>20</value>
+  <description>
+    Frequently accessed files that are accessed more times than this
+    threshold are cached in the FSDirectory nameCache.
+  </description>
+</property>
+
+<property>
+  <name>dfs.provided.aliasmap.inmemory.rpc.bind-host</name>
+  <value></value>
+    <description>
+      The actual address the in-memory aliasmap server will bind to.
+      If this optional address is set, it overrides the hostname portion of
+      dfs.provided.aliasmap.inmemory.rpc.address.
+      This is useful for making the name node listen on all interfaces by
+      setting it to 0.0.0.0.
+    </description>
+</property>
+
+</configuration>

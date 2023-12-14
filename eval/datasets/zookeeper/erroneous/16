@@ -1,0 +1,16 @@
+clientPort=file://
+
+localSessionsEnabled=true
+
+autopurge.snapRetainCount=6
+
+maxSessionTimeout=-1
+
+clientPortAddress=0.0.0.0:3000
+
+tickTime=6000
+
+maxClientCnxns=60
+
+syncLimit=1
+

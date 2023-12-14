@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.http.policy</name>
+  <value>HTTP_ONLY</value>
+  <description>Decide if HTTPS(SSL) is supported on HDFS
+    This configures the HTTP endpoint for HDFS daemons:
+      The following values are supported:
+      - HTTP_ONLY : Service is provided only on http
+      - HTTPS_ONLY : Service is provided only on https
+      - HTTP_AND_HTTPS : Service is provided both on http and https
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.list.openfiles.num.responses</name>
+  <value>2000</value>
+    <description>
+      When listing open files, the maximum number of open files that will be
+      returned in a single batch. Fetching the list incrementally in batches
+      improves namenode performance.
+    </description>
+</property>
+
+<property>
+  <name>dfs.namenode.reencrypt.batch.size</name>
+  <value>500</value>
+  <description>How many EDEKs should the re-encrypt thread process in one batch.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.top.window.num.buckets</name>
+  <value>1</value>
+  <description>Number of buckets in the rolling window implementation of nntop
+  </description>
+</property>
+
+<property>
+  <name>dfs.datanode.transfer.socket.send.buffer.size</name>
+  <value>1</value>
+  <description>
+    Socket send buffer size for DataXceiver (mirroring packets to downstream
+    in pipeline). This may affect TCP connection throughput.
+    If it is set to zero or negative value, no buffer size will be set
+    explicitly, thus enable tcp auto-tuning on some system.
+    The default value is 0.
+  </description>
+</property>
+
+<property>
+  <name>dfs.balancer.dispatcherThreads</name>
+  <value>100</value>
+  <description>
+    Size of the thread pool for the HDFS balancer block mover.
+    dispatchExecutor
+  </description>
+</property>
+
+<property>
+  <name>dfs.datanode.fsdataset.volume.choosing.policy</name>
+  <value></value>
+  <description>
+    The class name of the policy for choosing volumes in the list of
+    directories.  Defaults to
+    org.apache.hadoop.hdfs.server.datanode.fsdataset.RoundRobinVolumeChoosingPolicy.
+    If you would like to take into account available disk space, set the
+    value to
+    "org.apache.hadoop.hdfs.server.datanode.fsdataset.AvailableSpaceVolumeChoosingPolicy".
+  </description>
+</property>
+
+<property>
+  <name>dfs.journalnode.kerberos.principal</name>
+  <value></value>
+  <description>
+    Kerberos principal name for the journal node.
+  </description>
+</property>
+
+</configuration>

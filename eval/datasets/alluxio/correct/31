@@ -1,0 +1,24 @@
+alluxio.security.login.impersonation.username=_HDFS_USER_
+# Description: When alluxio.security.authentication.type is set to SIMPLE or CUSTOM, user application uses this property to indicate the IMPERSONATED user requesting Alluxio service. If it is not set explicitly, or set to _NONE_, impersonation will not be used. A special value of '_HDFS_USER_' can be specified to impersonate the hadoop client user.
+
+alluxio.worker.network.writer.buffer.size.messages=1
+# Description: When a client writes to a remote worker, the maximum number of data messages to buffer by the server for each request.
+
+alluxio.worker.tieredstore.level2.dirs.path=/valid/file1
+# Description: A comma-separated list of paths (eg., /mnt/ssd/alluxio/cache4,/mnt/hdd/alluxio/cache2,/mnt/hdd/alluxio/cache3) of storage directories for the third storage tier.
+
+alluxio.worker.tieredstore.level1.dirs.quota=
+# Description: A comma-separated list of capacities (e.g., "5GB,5GB,50GB") for each storage directory on the second storage tier specified by alluxio.worker.tieredstore.level1.dirs.path.
+
+alluxio.worker.tieredstore.level2.alias=
+# Description: The alias of the third storage tier on this worker.
+
+alluxio.underfs.s3.request.timeout=1min
+# Description: The timeout for a single request to S3. Infinity if set to 0. Setting this property to a non-zero value can improve performance by avoiding the long tail of requests to S3. For very slow connections to S3, consider increasing this value or setting it to 0.
+
+alluxio.worker.management.task.thread.count=1
+# Description: The number of threads for management task executor
+
+alluxio.worker.ufs.block.open.timeout=1min
+# Description: Timeout to open a block from UFS.
+

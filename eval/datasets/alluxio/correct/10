@@ -1,0 +1,24 @@
+alluxio.security.authorization.permission.enabled=false
+# Description: Whether to enable access control based on file permission.
+
+alluxio.master.jvm.monitor.enabled=true
+# Description: Whether to enable start JVM monitor thread on the master. This will start a thread to detect JVM-wide pauses induced by GC or other reasons.
+
+alluxio.user.date.format.pattern=MM-dd-yyyy HH:mm:ss:SSS
+# Description: Display formatted date in cli command and web UI by given date format pattern.
+
+fs.azure.account.oauth2.client.secret=
+# Description: The client secret for ABFS.
+
+alluxio.master.ufs.active.sync.event.rate.interval=120sec
+# Description: The time interval we use to estimate incoming event rate
+
+alluxio.user.network.rpc.max.connections=1
+# Description: The maximum number of physical connections to be used per target host.
+
+alluxio.master.metastore.inode.cache.high.water.mark.ratio=1.7
+# Description: The high water mark for the inode cache, as a ratio from high water mark to total cache size. If this is 0.85 and the max size is 10 million, the high water mark value is 8.5 million. When the cache reaches the high water mark, the eviction process will evict down to the low water mark.
+
+alluxio.underfs.hdfs.remote=false
+# Description: Boolean indicating whether or not the under storage worker nodes are remote with respect to Alluxio worker nodes. If set to true, Alluxio will not attempt to discover locality information from the under storage because locality is impossible. This will improve performance. The default value is true.
+

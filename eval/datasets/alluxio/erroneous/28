@@ -1,0 +1,24 @@
+alluxio.fuse.debug.enabled=10
+# Description: Run FUSE in debug mode, and have the fuse process log every FS request.
+
+alluxio.user.app.id=
+# Description: The custom id to use for labeling this client's info, such as metrics. If unset, a random long will be used. This value is displayed in the client logs on initialization. Note that using the same app id will cause client info to be aggregated, so different applications must set their own ids or leave this value unset to use a randomly generated id.
+
+alluxio.master.persistence.initial.interval=1s
+# Description: How often the master persistence checker checks persistence status for files written using ASYNC_THROUGH
+
+alluxio.job.master.finished.job.retention.time=1sec
+# Description: The length of time the Alluxio Job Master should save information about completed jobs before they are discarded.
+
+alluxio.master.metastore.inode.cache.low.water.mark.ratio=0.8
+# Description: The low water mark for the inode cache, as a ratio from low water mark to total cache size. If this is 0.8 and the max size is 10 million, the low water mark value is 8 million. When the cache reaches the high water mark, the eviction process will evict down to the low water mark.
+
+alluxio.worker.data.folder=/valid/file2
+# Description: A relative path within each storage directory used as the data folder for Alluxio worker to put data for tiered store.
+
+alluxio.user.file.master.client.pool.size.min=0
+# Description: The minimum number of fs master clients cached in the fs master client pool. For long running processes, this should be set to zero.
+
+alluxio.master.filesystem.liststatus.result.message.length=5000
+# Description: Count of items on each list-status response message.
+

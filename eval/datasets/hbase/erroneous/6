@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hbase.tmp.dir</name>
+  <value>/\hadoop/s3a</value>
+    <description>Temporary directory on the local filesystem.
+    Change this setting to point to a location more permanent
+    than '/tmp', the usual resolve for java.io.tmpdir, as the
+    '/tmp' directory is cleared on machine restart.</description>
+</property>
+
+<property>
+  <name>hbase.master.infoserver.redirect</name>
+  <value>false</value>
+    <description>Whether or not the Master listens to the Master web
+      UI port (hbase.master.info.port) and redirects requests to the web
+      UI server shared by the Master and RegionServer. Config. makes
+      sense when Master is serving Regions (not the default).</description>
+</property>
+
+<property>
+  <name>hbase.client.pause</name>
+  <value>100</value>
+    <description>General client pause value.  Used mostly as value to wait
+    before running a retry of a failed get, region lookup, etc.
+    See hbase.client.retries.number for description of how we backoff from
+    this initial pause amount and how this pause works w/ retries.</description>
+</property>
+
+<property>
+  <name>hbase.offpeak.start.hour</name>
+  <value>-1</value>
+    <description>The start of off-peak hours, expressed as an integer between 0 and 23, inclusive.
+      Set to -1 to disable off-peak.</description>
+</property>
+
+<property>
+  <name>hbase.cells.scanned.per.heartbeat.check</name>
+  <value>5000</value>
+    <description>The number of cells scanned in between heartbeat checks. Heartbeat
+        checks occur during the processing of scans to determine whether or not the
+        server should stop scanning in order to send back a heartbeat message to the
+        client. Heartbeat messages are used to keep the client-server connection alive
+        during long running scans. Small values mean that the heartbeat checks will
+        occur more often and thus will provide a tighter bound on the execution time of
+        the scan. Larger values mean that the heartbeat checks occur less frequently
+        </description>
+</property>
+
+<property>
+  <name>hbase.regionserver.kerberos.principal</name>
+  <value></value>
+    <description>Ex. "hbase/_HOST@EXAMPLE.COM".  The kerberos principal name
+    that should be used to run the HRegionServer process.  The principal name
+    should be in the form: user/hostname@DOMAIN.  If "_HOST" is used as the
+    hostname portion, it will be replaced with the actual hostname of the
+    running instance.  An entry for this principal must exist in the file
+    specified in hbase.regionserver.keytab.file</description>
+</property>
+
+<property>
+  <name>hbase.coordinated.state.manager.class</name>
+  <value>org.apache.hadoop.hbase.coordination.ZkCoordinatedStateManager</value>
+    <description>Fully qualified name of class implementing coordinated state manager.</description>
+</property>
+
+<property>
+  <name>hbase.mob.delfile.max.count</name>
+  <value>3</value>
+    <description>
+      The max number of del files that is allowed in the mob compaction.
+      In the mob compaction, when the number of existing del files is larger than
+      this value, they are merged until number of del files is not larger this value.
+      The default value is 3.
+    </description>
+</property>
+
+</configuration>

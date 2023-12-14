@@ -1,0 +1,24 @@
+alluxio.fuse.cached.paths.max=250
+# Description: Maximum number of FUSE-to-Alluxio path mappings to cache for FUSE conversion.
+
+alluxio.worker.tieredstore.level1.dirs.path=/valid/file2
+# Description: A comma-separated list of paths (eg., /mnt/ssd/alluxio/cache2,/mnt/ssd/alluxio/cache3,/mnt/hdd/alluxio/cache1) of storage directories for the second storage tier.
+
+alluxio.master.audit.logging.enabled=false
+# Description: Set to true to enable file system master audit.
+
+alluxio.underfs.s3.socket.timeout=100sec
+# Description: Length of the socket timeout when communicating with S3.
+
+alluxio.user.file.sequential.pread.threshold=1MB
+# Description: An upper bound on the client buffer size for positioned read to hint at the sequential nature of reads. For reads with a buffer size greater than this threshold, the read op is treated to be sequential and the worker may handle the read differently. For instance, cold reads from the HDFS ufs may use a different HDFS client API.
+
+alluxio.master.backup.state.lock.interrupt.cycle.enabled=true
+# Description: This controls whether RPCs that are waiting/holding state-lock in shared-mode will be interrupted while state-lock is taken exclusively.
+
+alluxio.user.logging.threshold=20s
+# Description: Logging a client RPC when it takes more time than the threshold.
+
+alluxio.user.rpc.retry.base.sleep=100ms
+# Description: Alluxio client RPCs automatically retry for transient errors with an exponential backoff. This property determines the base time in the exponential backoff.
+

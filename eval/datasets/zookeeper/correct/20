@@ -1,0 +1,16 @@
+maxClientCnxns=30
+
+tickTime=3000
+
+quorum.auth.enableSasl=false
+
+sslQuorum=true
+
+autopurge.purgeInterval=0
+
+dataLogDir=
+
+dataDir=/valid/dir1
+
+quorumListenOnAllIPs=true
+

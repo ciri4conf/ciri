@@ -1,0 +1,16 @@
+secureClientPortAddress=0.0.256.0
+
+peerType=participant
+
+localSessionsUpgradingEnabled=false
+
+quorum.auth.kerberos.servicePrincipal=zkquorum/localhost
+
+sslQuorumReloadCertFiles=true
+
+tickTime=3000
+
+initLimit=
+
+clientPort=
+

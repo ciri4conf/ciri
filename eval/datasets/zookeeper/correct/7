@@ -1,0 +1,16 @@
+clientPortAddress=0.0.0.0:3000
+
+quorum.auth.learnerRequireSasl=true
+
+autopurge.snapRetainCount=3
+
+secureClientPort=
+
+quorumListenOnAllIPs=false
+
+quorum.auth.learner.saslLoginContext=QuorumLearner
+
+secureClientPortAddress=0.0.0.0:3000
+
+quorum.auth.serverRequireSasl=true
+

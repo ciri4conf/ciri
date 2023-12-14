@@ -1,0 +1,16 @@
+clientPortAddress=256.256.256.256
+
+maxSessionTimeout=-1
+
+quorum.auth.enableSasl=false
+
+peerType=participant
+
+quorum.auth.learner.saslLoginContext=QuorumLearner
+
+localSessionsEnabled=true
+
+quorum.cnxn.threads.size=10
+
+clientPort=
+

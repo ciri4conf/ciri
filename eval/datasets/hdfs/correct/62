@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.block.access.token.lifetime</name>
+  <value>1200</value>
+  <description>The lifetime of access tokens in minutes.</description>
+</property>
+
+<property>
+  <name>dfs.blocksize</name>
+  <value>134217728</value>
+  <description>
+      The default block size for new files, in bytes.
+      You can use the following suffix (case insensitive):
+      k(kilo), m(mega), g(giga), t(tera), p(peta), e(exa) to specify the size (such as 128k, 512m, 1g, etc.),
+      Or provide complete size in bytes (such as 134217728 for 128 MB).
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.cache.drop.behind.reads</name>
+  <value></value>
+  <description>
+    Just like dfs.datanode.drop.cache.behind.reads, this setting causes the
+    page cache to be dropped behind HDFS reads, potentially freeing up more
+    memory for other uses.  Unlike dfs.datanode.drop.cache.behind.reads, this
+    is a client-side setting rather than a setting for the entire datanode.  If
+    present, this setting will override the DataNode default.
+
+    If the native libraries are not available to the DataNode, this
+    configuration has no effect.
+  </description>
+</property>
+
+<property>
+  <name>dfs.webhdfs.socket.connect-timeout</name>
+  <value>1s</value>
+  <description>
+    Socket timeout for connecting to WebHDFS servers. This prevents a
+    WebHDFS client from hanging if the server hostname is
+    misconfigured, or the server does not response before the timeout
+    expires. Value is followed by a unit specifier: ns, us, ms, s, m,
+    h, d for nanoseconds, microseconds, milliseconds, seconds,
+    minutes, hours, days respectively. Values should provide units,
+    but milliseconds are assumed.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.hosts.provider.classname</name>
+  <value>org.apache.hadoop.hdfs.server.blockmanagement.HostFileManager</value>
+  <description>
+    The class that provides access for host files.
+    org.apache.hadoop.hdfs.server.blockmanagement.HostFileManager is used
+    by default which loads files specified by dfs.hosts and dfs.hosts.exclude.
+    If org.apache.hadoop.hdfs.server.blockmanagement.CombinedHostFileManager is
+    used, it will load the JSON file defined in dfs.hosts.
+    To change class name, nn restart is required. "dfsadmin -refreshNodes" only
+    refreshes the configuration files used by the class.
+  </description>
+</property>
+
+<property>
+  <name>dfs.balancer.getBlocks.min-block-size</name>
+  <value>20971520</value>
+  <description>
+    Minimum block threshold size in bytes to ignore when fetching a source's
+    block list.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.read.shortcircuit.buffer.size</name>
+  <value>1048576</value>
+  <description>
+    Buffer size in bytes for short-circuit local reads.
+  </description>
+</property>
+
+<property>
+  <name>dfs.storage.policy.satisfier.max.outstanding.paths</name>
+  <value>20000</value>
+  <description>
+    Defines the maximum number of paths to satisfy that can be queued up in the
+    Satisfier call queue in a period of time. Default value is 10000.
+  </description>
+</property>
+
+</configuration>

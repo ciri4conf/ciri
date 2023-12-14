@@ -1,0 +1,16 @@
+tickTime=1500
+
+quorum.auth.learner.saslLoginContext=QuorumLearner
+
+autopurge.snapRetainCount=1
+
+sslQuorum=true
+
+quorum.cnxn.threads.size=10
+
+initLimit=10
+
+electionAlg=6
+
+quorumListenOnAllIPs=false
+

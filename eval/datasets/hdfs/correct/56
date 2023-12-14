@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.namenode.redundancy.considerLoad.factor</name>
+  <value>2.0</value>
+    <description>The factor by which a node's load can exceed the average
+      before being rejected for writes, only if considerLoad is true.
+    </description>
+</property>
+
+<property>
+  <name>dfs.namenode.edit.log.autoroll.check.interval.ms</name>
+  <value>300000</value>
+  <description>
+    How often an active namenode will check if it needs to roll its edit log,
+    in milliseconds.
+  </description>
+</property>
+
+<property>
+  <name>dfs.balancer.moverThreads</name>
+  <value>2000</value>
+  <description>
+    Thread pool size for executing block moves.
+    moverThreadAllocator
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.failover.proxy.provider</name>
+  <value></value>
+  <description>
+    The prefix (plus a required nameservice ID) for the class name of the configured
+    Failover proxy provider for the host. For normal HA mode, please consult
+    the "Configuration Details" section of the HDFS High Availability documentation.
+    For observer reading mode, please choose a custom class--ObserverReadProxyProvider.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.failover.resolve-needed</name>
+  <value>false</value>
+  <description>
+    Determines if the given nameservice address is a domain name which needs to
+    be resolved (using the resolver configured by dfs.client.failover.resolver-impl).
+    This adds a transparency layer in the client so physical server address
+    can change without changing the client. The config name can be extended with
+    an optional nameservice ID (of form dfs.client.failover.resolve-needed[.nameservice])
+    to configure specific nameservices when multiple nameservices exist.
+  </description>
+</property>
+
+<property>
+  <name>dfs.datanode.data.transfer.bandwidthPerSec</name>
+  <value>0</value>
+    <description>
+      Specifies the maximum amount of bandwidth that the data transfering can utilize for transfering block when
+      BlockConstructionStage is
+      PIPELINE_SETUP_CREATE and clientName is empty.
+      When the bandwidth value is zero, there is no limit.
+    </description>
+</property>
+
+<property>
+  <name>dfs.namenode.available-space-block-placement-policy.balanced-space-preference-fraction</name>
+  <value>0.3</value>
+  <description>
+    Only used when the dfs.block.replicator.classname is set to
+    org.apache.hadoop.hdfs.server.blockmanagement.AvailableSpaceBlockPlacementPolicy.
+    Special value between 0 and 1, noninclusive.  Increases chance of
+    placing blocks on Datanodes with less disk space used.
+  </description>
+</property>
+
+<property>
+  <name>dfs.use.dfs.network.topology</name>
+  <value>true</value>
+    <description>
+      Enables DFSNetworkTopology to choose nodes for placing replicas.
+      When enabled, NetworkTopology will be instantiated as class defined in
+      property dfs.net.topology.impl, otherwise NetworkTopology will be
+      instantiated as class defined in property net.topology.impl.
+    </description>
+</property>
+
+</configuration>

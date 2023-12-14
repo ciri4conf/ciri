@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.admin.client.thread-count</name>
+  <value>2</value>
+    <description>Number of threads used to handle RM admin interface.</description>
+</property>
+
+<property>
+  <name>yarn.scheduler.maximum-allocation-vcores</name>
+  <value>8</value>
+    <description>The maximum allocation for every container request at the RM
+    in terms of virtual CPU cores. Requests higher than this will throw an
+    InvalidResourceRequestException.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.delegation-token-renewer.thread-count</name>
+  <value>25</value>
+    <description>
+    RM DelegationTokenRenewer thread count
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.hostname</name>
+  <value>0.0.0.0</value>
+    <description>The hostname of the NM.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.docker.capabilities</name>
+  <value>CHOWN</value>
+    <description>This configuration setting determines the capabilities
+      assigned to docker containers when they are launched. While these may not
+      be case-sensitive from a docker perspective, it is best to keep these
+      uppercase. To run without any capabilities, set this value to
+      "none" or "NONE"</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.recovery.supervised</name>
+  <value>true</value>
+    <description>Whether the nodemanager is running under supervision. A
+      nodemanager that supports recovery and is running under supervision
+      will not try to cleanup containers as it exits with the assumption
+      it will be immediately be restarted and recover containers.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.client.internal-timers-ttl-secs</name>
+  <value>840</value>
+    <description>
+      How long the internal Timer Tasks can be alive in writer. If there is no
+      write operation for this configured time, the internal timer tasks will
+      be close.
+    </description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.writer.flush-interval-seconds</name>
+  <value>60</value>
+    <description>The setting that controls how often the timeline collector
+    flushes the timeline writer.</description>
+</property>
+
+</configuration>

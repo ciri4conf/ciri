@@ -1,0 +1,24 @@
+alluxio.security.authorization.permission.enabled=false
+# Description: Whether to enable access control based on file permission.
+
+alluxio.master.shell.backup.state.lock.timeout=2s
+# Description: The max duration for a grace-cycle.
+
+alluxio.worker.tieredstore.block.lock.readers=2000
+# Description: The max number of concurrent readers for a block lock.
+
+alluxio.worker.network.block.writer.threads.max=1024
+# Description: The maximum number of threads used to write blocks in the data server.
+
+alluxio.master.standby.heartbeat.interval=4min
+# Description: The heartbeat interval between Alluxio primary master and standby masters.
+
+alluxio.worker.network.block.reader.threads.max=4096
+# Description: The maximum number of threads used to read blocks in the data server.
+
+alluxio.worker.ufs.block.open.timeout=1min
+# Description: Timeout to open a block from UFS.
+
+alluxio.master.ufs.active.sync.poll.timeout=1sec
+# Description: Max time to wait before timing out a polling operation
+

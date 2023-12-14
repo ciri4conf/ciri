@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.webapp.ui2.war-file-path</name>
+  <value></value>
+    <description>
+      Explicitly provide WAR file path for ui2 if needed.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.epoch.range</name>
+  <value>1</value>
+    <description>The range of values above base epoch that the RM will use before
+      wrapping around</description>
+</property>
+
+<property>
+  <name>yarn.rm.system-metrics-publisher.emit-container-events</name>
+  <value>true</value>
+    <description>The setting that controls whether yarn container events are
+    published to the timeline service or not by RM. This configuration setting
+    is for ATS V2.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.application-tag-based-placement.username.whitelist</name>
+  <value></value>
+    <description>
+      Comma separated list of users who can use the application tag based
+      placement, if it is enabled.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.allowed-runtimes</name>
+  <value>default</value>
+    <description>Comma separated list of runtimes that are allowed when using
+    LinuxContainerExecutor. The allowed values are default, docker, runc, and
+    javasandbox.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.docker.userremapping-uid-threshold</name>
+  <value>0</value>
+    <description>lower limit for acceptable uids of user remapped user</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.resourcemanager.connect.retry-interval.ms</name>
+  <value></value>
+    <description>
+      Time interval between each NM attempt to connect to RM.
+      When not set, proxy will fall back to use value of
+      yarn.resourcemanager.connect.retry-interval.ms.
+    </description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.leveldb-timeline-store.ttl-interval-ms</name>
+  <value>150000</value>
+    <description>Length of time to wait between deletion cycles of leveldb timeline store in milliseconds.</description>
+</property>
+
+</configuration>

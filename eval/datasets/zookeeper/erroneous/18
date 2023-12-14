@@ -1,0 +1,16 @@
+electionAlg=-1
+
+sslQuorum=false
+
+standaloneEnabled=true
+
+dataLogDir=/valid/dir2
+
+quorum.cnxn.threads.size=
+
+localSessionsEnabled=false
+
+autopurge.snapRetainCount=3
+
+quorum.auth.kerberos.servicePrincipal=zkquorum/localhost
+

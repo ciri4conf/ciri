@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hadoop.security.dns.log-slow-lookups.threshold.ms</name>
+  <value>2000</value>
+  <description>
+    If slow lookup logging is enabled, this threshold is used to decide if a
+    lookup is considered slow enough to be logged.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.security.group.mapping.ldap.conversion.rule</name>
+  <value>nonono</value>
+  <description>
+    The rule is applied on the group names received from LDAP when
+    RuleBasedLdapGroupsMapping is configured.
+    Supported rules are "to_upper", "to_lower" and "none".
+    to_upper: This will convert all the group names to uppercase.
+    to_lower: This will convert all the group names to lowercase.
+    none: This will retain the source formatting, this is default value.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.service.shutdown.timeout</name>
+  <value>30s</value>
+    <description>
+      Timeout to wait for each shutdown operation to complete.
+      If a hook takes longer than this time to complete, it will be interrupted,
+      so the service will shutdown. This allows the service shutdown
+      to recover from a blocked operation.
+      Some shutdown hooks may need more time than this, for example when
+      a large amount of data needs to be uploaded to an object store.
+      In this situation: increase the timeout.
+
+      The minimum duration of the timeout is 1 second, "1s".
+    </description>
+</property>
+
+<property>
+  <name>hadoop.kerberos.keytab.login.autorenewal.enabled</name>
+  <value>true</value>
+  <description>Used to enable automatic renewal of keytab based kerberos login.
+    By default the automatic renewal is disabled for keytab based kerberos login.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.threads.keepalivetime</name>
+  <value>60</value>
+  <description>Number of seconds a thread can be idle before being
+    terminated.</description>
+</property>
+
+<property>
+  <name>fs.s3a.s3guard.consistency.retry.interval</name>
+  <value>4s</value>
+  <description>
+    Initial interval between attempts to retry operations while waiting for S3
+    to become consistent with the S3Guard data.
+    An exponential back-off is used here: every failure doubles the delay.
+  </description>
+</property>
+
+<property>
+  <name>ipc.[port_number].decay-scheduler.thresholds</name>
+  <value>[6, 12, 25]</value>
+  <description>The client load threshold, as an integer percentage, for each
+    priority queue. Clients producing less load, as a percent of total
+    operations, than specified at position i will be given priority i. This
+    should be a comma-separated list of length equal to the number of priority
+    levels minus 1 (the last is implicitly 100).
+    Thresholds ascend by a factor of 2 (e.g., for 4 levels: 13,25,50).
+    This property applies to DecayRpcScheduler.
+  </description>
+</property>
+
+<property>
+  <name>ftp.replication</name>
+  <value>3</value>
+  <description>Replication factor</description>
+</property>
+
+</configuration>

@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>fs.azure.user.agent.prefix</name>
+  <value>unknown</value>
+    <description>
+      WASB passes User-Agent header to the Azure back-end. The default value
+      contains WASB version, Java Runtime version, Azure Client library version,
+      and the value of the configuration option fs.azure.user.agent.prefix.
+    </description>
+</property>
+
+<property>
+  <name>fs.ftp.data.connection.mode</name>
+  <value>ACTIVE_LOCAL_DATA_CONNECTION_MODE</value>
+  <description>Set the FTPClient's data connection mode based on configuration.
+    Valid values are ACTIVE_LOCAL_DATA_CONNECTION_MODE,
+    PASSIVE_LOCAL_DATA_CONNECTION_MODE and PASSIVE_REMOTE_DATA_CONNECTION_MODE.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.proxy.host</name>
+  <value></value>
+  <description>Hostname of the (optional) proxy server for S3 connections.</description>
+</property>
+
+<property>
+  <name>fs.AbstractFileSystem.wasbs.impl</name>
+  <value>org.apache.hadoop.fs.azure.Wasbs</value>
+  <description>AbstractFileSystem implementation class of wasbs://</description>
+</property>
+
+<property>
+  <name>ipc.[port_number].identity-provider.impl</name>
+  <value>org.apache.hadoop.ipc.UserIdentityProvider</value>
+  <description>The identity provider mapping user requests to their identity.
+    This property applies to DecayRpcScheduler.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.http.authentication.type</name>
+  <value>simple</value>
+  <description>
+    Defines authentication used for Oozie HTTP endpoint.
+    Supported values are: simple | kerberos | #AUTHENTICATION_HANDLER_CLASSNAME#
+  </description>
+</property>
+
+<property>
+  <name>fs.adl.oauth2.refresh.url</name>
+  <value></value>
+    <description>The OAuth2 token endpoint.</description>
+</property>
+
+<property>
+  <name>hadoop.system.tags</name>
+  <value>HDFS</value>
+    <description>
+      Deprecated. Please use hadoop.tags.system instead.
+    </description>
+</property>
+
+</configuration>

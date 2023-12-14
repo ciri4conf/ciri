@@ -1,0 +1,16 @@
+tickTime=ciri/ciri
+
+quorum.auth.learnerRequireSasl=true
+
+localSessionsEnabled=false
+
+secureClientPort=3000
+
+reconfigEnabled=false
+
+quorum.auth.serverRequireSasl=false
+
+clientPort=
+
+quorumListenOnAllIPs=true
+

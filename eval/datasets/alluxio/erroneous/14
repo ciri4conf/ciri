@@ -1,0 +1,24 @@
+alluxio.job.worker.bind.host=0.0.0
+# Description: The host that the Alluxio job worker will bind to.
+
+alluxio.user.short.circuit.enabled=false
+# Description: The short circuit read/write which allows the clients to read/write data without going through Alluxio workers if the data is local is enabled if set to true.
+
+alluxio.user.block.master.client.pool.gc.interval=1sec
+# Description: The interval at which block master client GC checks occur.
+
+alluxio.user.ufs.block.read.location.policy=alluxio.client.block.policy.LocalFirstPolicy
+# Description: When an Alluxio client reads a file from the UFS, it delegates the read to an Alluxio worker. The client uses this policy to choose which worker to read through. Built-in choices: [<a href="https://docs.alluxio.io/os/javadoc/edge/alluxio/client/block/policy/CapacityBasedDeterministicHashPolicy.html">alluxio.client.block.policy.CapacityBasedDeterministicHashPolicy</a>, <a href="https://docs.alluxio.io/os/javadoc/edge/alluxio/client/block/policy/CapacityBaseRandomPolicy.html">alluxio.client.block.policy.CapacityBaseRandomPolicy</a>, <a href="https://docs.alluxio.io/os/javadoc/edge/alluxio/client/block/policy/DeterministicHashPolicy.html">alluxio.client.block.policy.DeterministicHashPolicy</a>, <a href="https://docs.alluxio.io/os/javadoc/edge/alluxio/client/block/policy/LocalFirstAvoidEvictionPolicy.html">alluxio.client.block.policy.LocalFirstAvoidEvictionPolicy</a>, <a href="https://docs.alluxio.io/os/javadoc/edge/alluxio/client/block/policy/LocalFirstPolicy.html">alluxio.client.block.policy.LocalFirstPolicy</a>, <a href="https://docs.alluxio.io/os/javadoc/edge/alluxio/client/block/policy/MostAvailableFirstPolicy.html">alluxio.client.block.policy.MostAvailableFirstPolicy</a>, <a href="https://docs.alluxio.io/os/javadoc/edge/alluxio/client/block/policy/RoundRobinPolicy.html">alluxio.client.block.policy.RoundRobinPolicy</a>, <a href="https://docs.alluxio.io/os/javadoc/edge/alluxio/client/block/policy/SpecificHostPolicy.html">alluxio.client.block.policy.SpecificHostPolicy</a>].
+
+alluxio.locality.compare.node.ip=false
+# Description: Whether try to resolve the node IP address for locality checking
+
+alluxio.underfs.gcs.directory.suffix=/valid/file1
+# Description: Directories are represented in GCS as zero-byte objects named with the specified suffix.
+
+alluxio.worker.tieredstore.block.locks=1000
+# Description: Total number of block locks for an Alluxio block worker. Larger value leads to finer locking granularity, but uses more space.
+
+alluxio.worker.jvm.monitor.enabled=false
+# Description: Whether to enable start JVM monitor thread on the worker. This will start a thread to detect JVM-wide pauses induced by GC or other reasons.
+

@@ -1,0 +1,24 @@
+alluxio.zookeeper.election.path=dev/urandom///
+# Description: Election directory in ZooKeeper.
+
+alluxio.worker.tieredstore.free.ahead.bytes=-1
+# Description: Amount to free ahead when worker storage is full. Higher values will help decrease CPU utilization under peak storage. Lower values will increase storage utilization.
+
+alluxio.user.file.replication.durable=1
+# Description: The target replication level of a file created by ASYNC_THROUGH writesbefore this file is persisted.
+
+alluxio.master.log.config.report.heartbeat.interval=1h
+# Description: The interval for periodically logging the configuration check report.
+
+alluxio.worker.tieredstore.block.lock.readers=2000
+# Description: The max number of concurrent readers for a block lock.
+
+alluxio.user.network.streaming.netty.channel=EPOLL
+# Description: Type of netty channels used by streaming connections. If EPOLL is not available, this will automatically fall back to NIO.
+
+alluxio.job.worker.rpc.port=30001
+# Description: The port for Alluxio job worker's RPC service.
+
+alluxio.underfs.s3.list.objects.v1=false
+# Description: Whether to use version 1 of GET Bucket (List Objects) API.
+

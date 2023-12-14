@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hadoop.security.groups.shell.command.timeout</name>
+  <value>1s</value>
+  <description>
+    Used by the ShellBasedUnixGroupsMapping class, this property controls how
+    long to wait for the underlying shell command that is run to fetch groups.
+    Expressed in seconds (e.g. 10s, 1m, etc.), if the running command takes
+    longer than the value configured, the command is aborted and the groups
+    resolver would return a result of no groups found. A value of 0s (default)
+    would mean an infinite wait (i.e. wait until the command exits on its own).
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.multipart.purge</name>
+  <value>true</value>
+  <description>True if you want to purge existing multipart uploads that may not have been
+    completed/aborted correctly. The corresponding purge age is defined in
+    fs.s3a.multipart.purge.age.
+    If set, when the filesystem is instantiated then all outstanding uploads
+    older than the purge age will be terminated -across the entire bucket.
+    This will impact multipart uploads by other applications and users. so should
+    be used sparingly, with an age value chosen to stop failed uploads, without
+    breaking ongoing operations.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.s3guard.consistency.retry.limit</name>
+  <value>7</value>
+  <description>
+    Number of times to retry attempts to read/open/copy files when
+    S3Guard believes a specific version of the file to be available,
+    but the S3 request does not find any version of a file, or a different
+    version.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.committer.staging.tmp.path</name>
+  <value>tmp////staging</value>
+  <description>
+    Path in the cluster filesystem for temporary data.
+    This is for HDFS, not the local filesystem.
+    It is only for the summary data of each file, not the actual
+    data being committed.
+    Using an unqualified path guarantees that the full path will be
+    generated relative to the home directory of the user creating the job,
+    hence private (assuming home directory permissions are secure).
+  </description>
+</property>
+
+<property>
+  <name>fs.azure.sas.expiry.period</name>
+  <value>1d</value>
+  <description>
+    The default value to be used for expiration period for SAS keys generated.
+    Can use the following suffix (case insensitive):
+    ms(millis), s(sec), m(min), h(hour), d(day)
+    to specify the time (such as 2s, 2m, 1h, etc.).
+  </description>
+</property>
+
+<property>
+  <name>hadoop.util.hash.type</name>
+  <value>murmur</value>
+  <description>The default implementation of Hash. Currently this can take one of the
+  two values: 'murmur' to select MurmurHash and 'jenkins' to select JenkinsHash.
+  </description>
+</property>
+
+<property>
+  <name>adl.ssl.channel.mode</name>
+  <value></value>
+    <description>
+      Valid inputs are OpenSSL, Default_JSE and Default (case insensitive).
+      If config is missing or is invalid, SSL Channel mode will be set to Default.
+
+      When OpenSSL, SSL socket connections are created in OpenSSL mode.
+      When Default_JSE, SSL socket connections are created in the default JSE mode.
+      When Default, SSL socket connections are attempted with OpenSSL
+      and will fallback to Default_JSE mode if OpenSSL is not available at runtime.
+    </description>
+</property>
+
+<property>
+  <name>hadoop.zk.num-retries</name>
+  <value>500</value>
+    <description>Number of tries to connect to ZooKeeper.</description>
+</property>
+
+</configuration>

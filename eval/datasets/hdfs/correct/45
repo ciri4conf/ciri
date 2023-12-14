@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.client.https.keystore.resource</name>
+  <value>ssl-client.xml</value>
+  <description>Resource file from which ssl client keystore
+  information will be extracted
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.backup.address</name>
+  <value>0.0.0.0:3000</value>
+  <description>
+    The backup node server address and port.
+    If the port is 0 then the server will start on a free port.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.delegation.token.renew-interval</name>
+  <value>86400000</value>
+  <description>The renewal interval for delegation token in milliseconds.
+  </description>
+</property>
+
+<property>
+  <name>dfs.image.transfer.bandwidthPerSec</name>
+  <value>0</value>
+  <description>
+        Maximum bandwidth used for regular image transfers (instead of
+        bootstrapping the standby namenode), in bytes per second.
+        This can help keep normal namenode operations responsive during
+        checkpointing.
+        A default value of 0 indicates that throttling is disabled.
+        The maximum bandwidth used for bootstrapping standby namenode is
+        configured with dfs.image.transfer-bootstrap-standby.bandwidthPerSec.
+        Support multiple size unit suffix(case insensitive), as described
+        in dfs.blocksize.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.failover.connection.retries.on.timeouts</name>
+  <value>1</value>
+  <description>
+    Expert only. The number of retry attempts a failover IPC client
+    will make on socket timeout when establishing a server connection.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.failover.random.order</name>
+  <value>false</value>
+  <description>
+    Determines if the failover proxies are picked in random order instead of the
+    configured order. Random order may be enabled for better load balancing
+    or to avoid always hitting failed ones first if the failed ones appear in the
+    beginning of the configured or resolved list.
+    For example, In the case of multiple RBF routers or ObserverNameNodes,
+    it is recommended to be turned on for load balancing.
+    The config name can be extended with an optional nameservice ID
+    (of form dfs.client.failover.random.order[.nameservice]) in case multiple
+    nameservices exist and random order should be enabled for specific
+    nameservices.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.retry.max.attempts</name>
+  <value>20</value>
+  <description>
+    Max retry attempts for DFSClient talking to namenodes.
+  </description>
+</property>
+
+<property>
+  <name>dfs.provided.storage.id</name>
+  <value>DS-PROVIDED</value>
+    <description>
+      The storage ID used for provided stores.
+    </description>
+</property>
+
+</configuration>

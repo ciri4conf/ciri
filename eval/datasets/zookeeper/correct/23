@@ -1,0 +1,16 @@
+quorum.auth.learner.saslLoginContext=QuorumLearner
+
+autopurge.snapRetainCount=6
+
+quorumListenOnAllIPs=true
+
+portUnification=false
+
+quorum.cnxn.threads.size=10
+
+quorum.auth.kerberos.servicePrincipal=zkquorum/localhost
+
+quorum.auth.server.saslLoginContext=QuorumServer
+
+quorum.auth.serverRequireSasl=true
+

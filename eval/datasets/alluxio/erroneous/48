@@ -1,0 +1,24 @@
+alluxio.security.authentication.type=NOSASL
+# Description: The authentication mode. Currently three modes are supported: NOSASL, SIMPLE, CUSTOM. The default value SIMPLE indicates that a simple authentication is enabled. Server trusts whoever the client claims to be.
+
+alluxio.security.login.username=ciri
+# Description: When alluxio.security.authentication.type is set to SIMPLE or CUSTOM, user application uses this property to indicate the user requesting Alluxio service. If it is not set explicitly, the OS login user will be used.
+
+alluxio.worker.reviewer.probabilistic.hardlimit.bytes=128MB
+# Description: This is used by the `alluxio.worker.block.reviewer.ProbabilisticBufferReviewer`. When the free space in a storage dir falls below this hard limit, the ProbabilisticBufferReviewer will stop accepting new blocks into it.This is because we may load more data into existing blocks in the directory and their sizes may expand.
+
+alluxio.proxy.web.hostname=
+# Description: The hostname Alluxio proxy's web UI binds to.
+
+alluxio.underfs.object.store.service.threads=20
+# Description: The number of threads in executor pool for parallel object store UFS operations, such as directory renames and deletes.
+
+alluxio.master.journal.temporary.file.gc.threshold=30min
+# Description: Minimum age for garbage collecting temporary checkpoint files.
+
+alluxio.master.file.access.time.updater.shutdown.timeout=10sec
+# Description: Maximum time to wait for access updater to stop on shutdown.
+
+alluxio.tmp.dirs=/valid/file1
+# Description: The path(s) to store Alluxio temporary files, use commas as delimiters. If multiple paths are specified, one will be selected at random per temporary file. Currently, only files to be uploaded to object stores are stored in these paths.
+

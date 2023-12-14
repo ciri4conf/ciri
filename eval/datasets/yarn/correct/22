@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.state-store.max-completed-applications</name>
+  <value>${yarn.resourcemanager.max-completed-applications}</value>
+    <description>The maximum number of completed applications RM state
+    store keeps, less than or equals to ${yarn.resourcemanager.max-completed-applications}.
+    By default, it equals to ${yarn.resourcemanager.max-completed-applications}.
+    This ensures that the applications kept in the state store are consistent with
+    the applications remembered in RM memory.
+    Any values larger than ${yarn.resourcemanager.max-completed-applications} will
+    be reset to ${yarn.resourcemanager.max-completed-applications}.
+    Note that this value impacts the RM recovery performance. Typically,
+    a smaller value indicates better performance on RM recovery.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.linux-container-executor.cgroups.delete-delay-ms</name>
+  <value>40</value>
+    <description>Delay in ms between attempts to remove linux cgroup</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.docker.stop.grace-period</name>
+  <value>20</value>
+    <description>A configurable value to pass to the Docker Stop command. This value
+      defines the number of seconds between the docker stop command sending
+      a SIGTERM and a SIGKILL.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.runc.image-tag-to-manifest-plugin</name>
+  <value>org.apache.hadoop.yarn.server.nodemanager.containermanager.linux.runtime.runc.ImageTagToManifestPlugin</value>
+    <description>The runC image tag to manifest plugin
+      class to be used.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.aux-services.mapreduce_shuffle.class</name>
+  <value>org.apache.hadoop.mapred.ShuffleHandler</value>
+</property>
+
+<property>
+  <name>yarn.timeline-service.leveldb-timeline-store.start-time-write-cache-size</name>
+  <value>20000</value>
+    <description>Size of cache for recently written entity start times for leveldb timeline store in number of entities.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.opportunistic-container-allocation.enabled</name>
+  <value>false</value>
+    <description>
+      Setting that controls whether opportunistic container allocation
+      is enabled.
+    </description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.webapp.rest-csrf.methods-to-ignore</name>
+  <value>GET,OPTIONS,HEAD</value>
+    <description>
+      Optional parameter that indicates the list of HTTP methods that do not
+      require CSRF protection
+    </description>
+</property>
+
+</configuration>

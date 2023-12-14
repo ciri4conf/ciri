@@ -1,0 +1,24 @@
+alluxio.network.host.resolution.timeout=10sec
+# Description: During startup of the Master and Worker processes Alluxio needs to ensure that they are listening on externally resolvable and reachable host names. To do this, Alluxio will automatically attempt to select an appropriate host name if one was not explicitly specified. This represents the maximum amount of time spent waiting to determine if a candidate host name is resolvable over the network.
+
+alluxio.master.backup.transport.timeout=30sec
+# Description: Communication timeout for messaging between masters for coordinating backup.
+
+alluxio.job.worker.bind.host=0.0.0.0
+# Description: The host that the Alluxio job worker will bind to.
+
+alluxio.zookeeper.connection.timeout=30s
+# Description: Connection timeout for Alluxio (job) masters to select the leading (job) master when connecting to Zookeeper
+
+alluxio.master.backup.state.lock.interrupt.cycle.interval=30sec
+# Description: The interval at which the RPCs that are waiting/holding state-lock in shared-mode will be interrupted while state-lock is taken exclusively.
+
+alluxio.master.tieredstore.global.level2.alias=HDD
+# Description: The name of the third highest storage tier in the entire system.
+
+alluxio.user.client.cache.quota.enabled=false
+# Description: Whether to support cache quota.
+
+alluxio.master.ttl.checker.interval=2hour
+# Description: How often to periodically check and delete/free the files with expired ttl value.
+

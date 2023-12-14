@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.system-metrics-publisher.enabled</name>
+  <value>true</value>
+    <description>The setting that controls whether yarn system metrics is
+    published on the Timeline service or not by RM And NM.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.container-localizer.log.level</name>
+  <value>INFO</value>
+    <description>
+      The log level for container localizer while it is an independent process.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.linux-container-executor.nonsecure-mode.user-pattern</name>
+  <value>^[_.A-Za-z0-9][-@_.A-Za-z0-9]{0</value>
+    <description>The allowed pattern for UNIX user names enforced by
+    Linux-container-executor when used in nonsecure mode (use case for this
+    is using cgroups). The default value is taken from /usr/sbin/adduser</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.docker.enable-userremapping.allowed</name>
+  <value>true</value>
+    <description>Property to enable docker user remapping</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.enabled</name>
+  <value>false</value>
+    <description>
+    In the server side it indicates whether timeline service is enabled or not.
+    And in the client side, users can enable it to indicate whether client wants
+    to use timeline service. If its enabled in the client side along with
+    security, then yarn client tries to fetch the delegation tokens for the
+    timeline server.
+    </description>
+</property>
+
+<property>
+  <name>yarn.sharedcache.admin.address</name>
+  <value>0.0.0.0:8047</value>
+    <description>The address of the admin interface in the SCM (shared cache manager)</description>
+</property>
+
+<property>
+  <name>yarn.log.server.web-service.url</name>
+  <value></value>
+    <description>
+    URL for log aggregation server web service
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.resource-plugins.fpga.path-to-discovery-executables</name>
+  <value></value>
+    <description>
+      When yarn.nodemanager.resource.fpga.allowed-fpga-devices=auto specified,
+      YARN NodeManager needs to run FPGA discovery binary (now only support
+      IntelFpgaOpenclPlugin) to get FPGA information.
+      When value is empty (default), YARN NodeManager will try to locate
+      discovery executable from vendor plugin's preference
+    </description>
+</property>
+
+</configuration>

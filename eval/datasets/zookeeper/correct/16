@@ -1,0 +1,16 @@
+quorum.auth.enableSasl=false
+
+maxSessionTimeout=-2
+
+quorum.auth.kerberos.servicePrincipal=zkquorum/localhost
+
+quorum.auth.serverRequireSasl=true
+
+dataLogDir=/valid/dir2
+
+reconfigEnabled=false
+
+autopurge.purgeInterval=1
+
+sslQuorum=true
+

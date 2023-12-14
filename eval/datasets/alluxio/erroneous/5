@@ -1,0 +1,24 @@
+alluxio.proxy.stream.cache.timeout=6HR
+# Description: The timeout for the input and output streams cache eviction in the proxy.
+
+alluxio.user.block.read.retry.sleep.max=4sec
+# Description: N/A
+
+fs.oss.accessKeyId=
+# Description: The access key of OSS bucket.
+
+alluxio.web.cors.enabled=false
+# Description: Set to true to enable Cross-Origin Resource Sharing for RESTful APIendpoints.
+
+alluxio.master.daily.backup.state.lock.try.duration=4m
+# Description: The duration that controls how long the state-lock is tried within a single grace-cycle.
+
+alluxio.user.ufs.block.read.location.policy=alluxio.client.block.policy.LocalFirstPolicy
+# Description: When an Alluxio client reads a file from the UFS, it delegates the read to an Alluxio worker. The client uses this policy to choose which worker to read through. Built-in choices: [<a href="https://docs.alluxio.io/os/javadoc/edge/alluxio/client/block/policy/CapacityBasedDeterministicHashPolicy.html">alluxio.client.block.policy.CapacityBasedDeterministicHashPolicy</a>, <a href="https://docs.alluxio.io/os/javadoc/edge/alluxio/client/block/policy/CapacityBaseRandomPolicy.html">alluxio.client.block.policy.CapacityBaseRandomPolicy</a>, <a href="https://docs.alluxio.io/os/javadoc/edge/alluxio/client/block/policy/DeterministicHashPolicy.html">alluxio.client.block.policy.DeterministicHashPolicy</a>, <a href="https://docs.alluxio.io/os/javadoc/edge/alluxio/client/block/policy/LocalFirstAvoidEvictionPolicy.html">alluxio.client.block.policy.LocalFirstAvoidEvictionPolicy</a>, <a href="https://docs.alluxio.io/os/javadoc/edge/alluxio/client/block/policy/LocalFirstPolicy.html">alluxio.client.block.policy.LocalFirstPolicy</a>, <a href="https://docs.alluxio.io/os/javadoc/edge/alluxio/client/block/policy/MostAvailableFirstPolicy.html">alluxio.client.block.policy.MostAvailableFirstPolicy</a>, <a href="https://docs.alluxio.io/os/javadoc/edge/alluxio/client/block/policy/RoundRobinPolicy.html">alluxio.client.block.policy.RoundRobinPolicy</a>, <a href="https://docs.alluxio.io/os/javadoc/edge/alluxio/client/block/policy/SpecificHostPolicy.html">alluxio.client.block.policy.SpecificHostPolicy</a>].
+
+alluxio.worker.management.tier.promote.enabled=false
+# Description: Whether to promote blocks to higher tiers.
+
+alluxio.master.filesystem.liststatus.result.message.length=10000
+# Description: Count of items on each list-status response message.
+

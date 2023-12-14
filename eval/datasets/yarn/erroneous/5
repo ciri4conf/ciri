@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.container-tokens.master-key-rolling-interval-secs</name>
+  <value>43200</value>
+    <description>Interval for the roll over for the master key used to generate
+        container tokens. It is expected to be much greater than
+        yarn.nm.liveness-monitor.expiry-interval-ms and
+        yarn.resourcemanager.rm.container-allocation.expiry-interval-ms. Otherwise the
+        behavior is undefined.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.container-state-transition-listener.classes</name>
+  <value></value>
+    <description>Comma separated List of container state transition listeners.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.log.retain-seconds</name>
+  <value>21600</value>
+    <description>Time in seconds to retain user logs. Only applicable if
+    log aggregation is disabled
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.remote-app-log-dir</name>
+  <value>//hadoop/io/local</value>
+    <description>Where to aggregate logs to.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.health-checker.interval-ms</name>
+  <value>1200000</value>
+    <description>Frequency of running node health scripts.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.keytab</name>
+  <value>/valid/file1</value>
+    <description>The Kerberos keytab for the timeline server.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.log-aggregation.roll-monitoring-interval-seconds</name>
+  <value>-1</value>
+    <description>Defines how often NMs wake up to upload log files.
+    The default value is -1. By default, the logs will be uploaded when
+    the application is finished. By setting this configuration logs can
+    be uploaded periodically while the application is running.
+    The minimum positive accepted value can be configured by the setting
+    "yarn.nodemanager.log-aggregation.roll-monitoring-interval-seconds.min".
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.nm-container-queuing.min-queue-length</name>
+  <value>5</value>
+    <description>
+    Min length of container queue at NodeManager.
+    </description>
+</property>
+
+</configuration>

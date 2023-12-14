@@ -1,0 +1,24 @@
+alluxio.master.persistence.scheduler.interval=2s
+# Description: How often the master schedules persistence jobs for files written using ASYNC_THROUGH
+
+alluxio.user.logging.threshold=1s
+# Description: Logging a client RPC when it takes more time than the threshold.
+
+alluxio.worker.network.block.reader.threads.max=2048
+# Description: The maximum number of threads used to read blocks in the data server.
+
+alluxio.underfs.s3.proxy.port=3000
+# Description: Optionally, specify a proxy port for communicating with S3.
+
+alluxio.master.worker.timeout=1min
+# Description: Timeout between master and worker indicating a lost worker.
+
+alluxio.worker.keytab.file=/valid/file2
+# Description: Kerberos keytab file for Alluxio worker.
+
+alluxio.underfs.gcs.owner.id.to.username.mapping=
+# Description: Optionally, specify a preset gcs owner id to Alluxio username static mapping in the format "id1=user1;id2=user2". The Google Cloud Storage IDs can be found at the console address https://console.cloud.google.com/storage/settings . Please use the "Owners" one. This property key is only valid when alluxio.underfs.gcs.version=1
+
+alluxio.user.metadata.cache.expiration.time=
+# Description: Metadata will expire and be evicted after being cached for this time period. If the value is not set, metadata will not be expired and will only be evicted after reaching the alluxio.user.metadata.cache.max.size
+

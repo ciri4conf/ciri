@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.nodemanager.resource.memory-mb</name>
+  <value>-2</value>
+    <description>Amount of physical memory, in MB, that can be allocated 
+    for containers. If set to -1 and
+    yarn.nodemanager.resource.detect-hardware-capabilities is true, it is
+    automatically calculated(in case of Windows and Linux).
+    In other cases, the default is 8192MB.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.docker.default-container-network</name>
+  <value>host</value>
+    <description>The network used when launching containers using the
+      DockerContainerRuntime when no network is specified in the request
+      . This network must be one of the (configurable) set of allowed container
+      networks.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.aux-services.manifest</name>
+  <value></value>
+    <description>A file containing auxiliary service specifications.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.container-metrics.period-ms</name>
+  <value>0</value>
+    <description>
+    Container metrics flush period in ms.  Set to -1 for flush on completion.
+    </description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.ttl-enable</name>
+  <value>true</value>
+    <description>Enable age off of timeline store data.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.amrmproxy.address</name>
+  <value>0.0.0.0:3001</value>
+    <description>
+    The address of the AMRMProxyService listener.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.webapp.xfs-filter.xframe-options</name>
+  <value>SAMEORIGIN</value>
+    <description>
+      Property specifying the xframe options value.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.submission-preprocessor.enabled</name>
+  <value>true</value>
+    <description>
+      Enable the Pre processing of Application Submission context with server side configuration
+    </description>
+</property>
+
+</configuration>

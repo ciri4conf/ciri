@@ -1,0 +1,16 @@
+minSessionTimeout=-2
+
+secureClientPort=3001
+
+dataDir=/valid/dir2
+
+clientPortAddress=0.0.0.0:3000
+
+quorumListenOnAllIPs=false
+
+maxClientCnxns=120
+
+localSessionsUpgradingEnabled=true
+
+peerType=participant
+

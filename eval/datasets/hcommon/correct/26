@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>io.compression.codecs</name>
+  <value></value>
+  <description>A comma-separated list of the compression codec classes that can
+  be used for compression/decompression. In addition to any classes specified
+  with this property (which take precedence), codec classes on the classpath
+  are discovered using a Java ServiceLoader.</description>
+</property>
+
+<property>
+  <name>ipc.client.connect.timeout</name>
+  <value>20000</value>
+  <description>Indicates the number of milliseconds a client will wait for the
+               socket to establish a server connection.
+  </description>
+</property>
+
+<property>
+  <name>ipc.[port_number].backoff.enable</name>
+  <value>false</value>
+  <description>Whether or not to enable client backoff when a queue is full.
+  </description>
+</property>
+
+<property>
+  <name>ipc.[port_number].scheduler.impl</name>
+  <value>org.apache.hadoop.ipc.DefaultRpcScheduler</value>
+  <description>The fully qualified name of a class to use as the
+    implementation of the scheduler. The default implementation is
+    org.apache.hadoop.ipc.DefaultRpcScheduler (no-op scheduler) when not using
+    FairCallQueue. If using FairCallQueue, defaults to
+    org.apache.hadoop.ipc.DecayRpcScheduler. Use
+    org.apache.hadoop.ipc.DecayRpcScheduler in conjunction with the Fair Call
+    Queue.
+  </description>
+</property>
+
+<property>
+  <name>file.client-write-packet-size</name>
+  <value>65536</value>
+  <description>Packet size for clients to write</description>
+</property>
+
+<property>
+  <name>hadoop.http.authentication.kerberos.endpoint.whitelist</name>
+  <value></value>
+    <description>
+      The comma-separated list of the endpoints that skips Kerberos
+      authentication. The endpoint must start with '/' and must not
+      contain special characters afterwards. This parameter is for
+      the monitoring tools that do not support Kerberos authentication.
+      Administrator must configure this parameter very carefully
+      because it allows unauthenticated access to the daemons.
+    </description>
+</property>
+
+<property>
+  <name>ha.zookeeper.quorum</name>
+  <value></value>
+  <description>
+    A list of ZooKeeper server addresses, separated by commas, that are
+    to be used by the ZKFailoverController in automatic failover.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.domainname.resolver.impl</name>
+  <value>org.apache.hadoop.net.DNSDomainNameResolver</value>
+    <description>The implementation of DomainNameResolver used for service (NameNodes,
+      RBF Routers etc) discovery. The default implementation
+      org.apache.hadoop.net.DNSDomainNameResolver returns all IP addresses associated
+      with the input domain name of the services by querying the underlying DNS.
+    </description>
+</property>
+
+</configuration>

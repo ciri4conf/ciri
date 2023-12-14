@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hadoop.security.groups.cache.warn.after.ms</name>
+  <value>2500</value>
+  <description>
+    If looking up a single user to group takes longer than this amount of
+    milliseconds, we will log a warning message.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.multipart.purge.age</name>
+  <value>172800</value>
+  <description>Minimum age in seconds of multipart uploads to purge
+    on startup if "fs.s3a.multipart.purge" is true
+  </description>
+</property>
+
+<property>
+  <name>fs.AbstractFileSystem.abfss.impl</name>
+  <value>org.apache.hadoop.fs.azurebfs.Abfss</value>
+  <description>AbstractFileSystem implementation class of abfss://</description>
+</property>
+
+<property>
+  <name>ipc.client.ping</name>
+  <value>true</value>
+  <description>Send a ping to the server when timeout on reading the response,
+  if set to true. If no failure is detected, the client retries until at least
+  a byte is read or the time given by ipc.client.rpc-timeout.ms is passed.
+  </description>
+</property>
+
+<property>
+  <name>ipc.ping.interval</name>
+  <value>30000</value>
+  <description>Timeout on waiting response from server, in milliseconds.
+  The client will send ping when the interval is passed without receiving bytes,
+  if ipc.client.ping is set to true.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.http.cross-origin.allowed-headers</name>
+  <value>X-Requested-With,Content-Type,Accept,Origin</value>
+  <description>Comma separated list of headers that are allowed for web
+    services needing cross-origin (CORS) support.</description>
+</property>
+
+<property>
+  <name>seq.io.sort.factor</name>
+  <value>100</value>
+    <description>
+      The number of streams to merge at once while sorting
+      files using SequenceFile.Sorter.
+      This determines the number of open file handles.
+    </description>
+</property>
+
+<property>
+  <name>hadoop.zk.num-retries</name>
+  <value>1000</value>
+    <description>Number of tries to connect to ZooKeeper.</description>
+</property>
+
+</configuration>

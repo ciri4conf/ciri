@@ -1,0 +1,24 @@
+alluxio.underfs.s3.upload.threads.max=-10
+# Description: For an Alluxio worker, this is the maximum number of threads to use for uploading data to S3 for multipart uploads. These operations can be fairly expensive, so multiple threads are encouraged. However, this also splits the bandwidth between threads, meaning the overall latency for completing an upload will be higher for more threads. For the Alluxio master, this is the maximum number of threads used for the rename (copy) operation. It is recommended that value should be greater than or equal to alluxio.underfs.object.store.service.threads
+
+alluxio.user.conf.sync.interval=10min
+# Description: The time period of client master heartbeat to update the configuration if necessary from meta master.
+
+alluxio.worker.ufs.block.open.timeout=10min
+# Description: Timeout to open a block from UFS.
+
+alluxio.user.network.netty.channel=NIO
+# Description: Type of netty channels. If EPOLL is not available, this will automatically fall back to NIO.
+
+alluxio.worker.network.netty.watermark.high=32KB
+# Description: Determines how many bytes can be in the write queue before switching to non-writable.
+
+alluxio.user.file.metadata.sync.interval=-2
+# Description: The interval for syncing UFS metadata before invoking an operation on a path. -1 means no sync will occur. 0 means Alluxio will always sync the metadata of the path before an operation. If you specify a time interval, Alluxio will (best effort) not re-sync a path within that time interval. Syncing the metadata for a path must interact with the UFS, so it is an expensive operation. If a sync is performed for an operation, the configuration of "alluxio.user.file.metadata.load.type" will be ignored.
+
+alluxio.user.file.replication.max=-2
+# Description: The target max replication level of a file in Alluxio space. Setting this property to a negative value means no upper limit.
+
+alluxio.master.backup.connect.interval.min=2sec
+# Description: Minimum delay between each connection attempt to backup-leader.
+

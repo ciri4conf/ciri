@@ -1,0 +1,24 @@
+alluxio.user.client.cache.async.write.threads=16
+# Description: Number of threads to asynchronously cache data.
+
+alluxio.underfs.s3.proxy.host=
+# Description: Optionally, specify a proxy host for communicating with S3.
+
+alluxio.test.deprecated.key=
+# Description: N/A
+
+alluxio.underfs.web.titles=Index of,Directory listing for
+# Description: The title of the content for a http url.
+
+alluxio.master.backup.state.lock.interrupt.cycle.interval=30sec
+# Description: The interval at which the RPCs that are waiting/holding state-lock in shared-mode will be interrupted while state-lock is taken exclusively.
+
+alluxio.user.network.streaming.max.connections=64
+# Description: The maximum number of physical connections to be used per target host.
+
+alluxio.worker.block.master.client.pool.size=11
+# Description: The block master client pool size on the Alluxio workers.
+
+alluxio.user.conf.cluster.default.enabled=true
+# Description: When this property is true, an Alluxio client will load the default values of cluster-wide configuration and path-specific configuration set by Alluxio master.
+

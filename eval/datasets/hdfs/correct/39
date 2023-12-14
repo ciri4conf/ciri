@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.namenode.rpc-address</name>
+  <value>127.0.0.1</value>
+  <description>
+    RPC address that handles all clients requests. In the case of HA/Federation where multiple namenodes exist,
+    the name service id is added to the name e.g. dfs.namenode.rpc-address.ns1
+    dfs.namenode.rpc-address.EXAMPLENAMESERVICE
+    The value of this property will take the form of nn-host1:rpc-port. The NameNode's default RPC port is 8020.
+  </description>
+</property>
+
+<property>
+  <name>nfs.mountd.port</name>
+  <value>3000</value>
+  <description>
+      Specify the port number used by Hadoop mount daemon.
+  </description>
+</property>
+
+<property>
+  <name>dfs.journalnode.http-bind-host</name>
+  <value></value>
+  <description>
+    The actual address the HTTP server will bind to. If this optional address
+    is set, it overrides only the hostname portion of
+    dfs.journalnode.http-address. This is useful for making the JournalNode
+    HTTP server listen on allinterfaces by setting it to 0.0.0.0.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.mmap.enabled</name>
+  <value>false</value>
+  <description>
+    If this is set to false, the client won't attempt to perform memory-mapped reads.
+  </description>
+</property>
+
+<property>
+  <name>dfs.webhdfs.socket.read-timeout</name>
+  <value>60s</value>
+  <description>
+    Socket timeout for reading data from WebHDFS servers. This
+    prevents a WebHDFS client from hanging if the server stops sending
+    data. Value is followed by a unit specifier: ns, us, ms, s, m, h,
+    d for nanoseconds, microseconds, milliseconds, seconds, minutes,
+    hours, days respectively. Values should provide units,
+    but milliseconds are assumed.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.refresh.read-block-locations.ms</name>
+  <value>-1</value>
+    <description>
+      Refreshing LocatedBlocks period. A value of 0 disables the feature.
+    </description>
+</property>
+
+<property>
+  <name>dfs.content-summary.sleep-microsec</name>
+  <value>500</value>
+  <description>
+    The length of time in microseconds to put the thread to sleep, between reaquiring the locks
+    in content summary computation.
+  </description>
+</property>
+
+<property>
+  <name>dfs.ha.standby.checkpoints</name>
+  <value>true</value>
+  <description>
+    If true, a NameNode in Standby state periodically takes a checkpoint
+    of the namespace, saves it to its local storage and then upload to
+    the remote NameNode.
+  </description>
+</property>
+
+</configuration>

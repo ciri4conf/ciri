@@ -1,0 +1,24 @@
+alluxio.work.dir=//hadoop/io/local
+# Description: The directory to use for Alluxio's working directory. By default, the journal, logs, and under file storage data (if using local filesystem) are written here.
+
+alluxio.user.ufs.block.location.all.fallback.enabled=false
+# Description: Whether to return all workers as block location if ufs block locations are not co-located with any Alluxio workers or is empty.
+
+alluxio.job.master.bind.host=127.0.0.1
+# Description: The host that the Alluxio job master will bind to.
+
+alluxio.master.file.access.time.update.precision=10d
+# Description: The file last access time is precise up to this value. Setting it toa non-positive value will update last access time on every file access operation.Longer precision will help reduce the performance impact of tracking access time by reduce the amount of metadata writes occur while reading the same group of files repetitively.
+
+alluxio.user.network.rpc.netty.worker.threads=-1
+# Description: How many threads to use for rpc client to read from remote workers.
+
+alluxio.user.client.cache.async.write.enabled=false
+# Description: If this is enabled, cache data asynchronously.
+
+fs.cos.socket.timeout=1sec
+# Description: The timeout of COS socket.
+
+alluxio.master.embedded.journal.write.timeout=30sec
+# Description: Maximum time to wait for a write/flush on embedded journal.
+

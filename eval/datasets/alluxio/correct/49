@@ -1,0 +1,24 @@
+alluxio.master.replication.check.interval=10min
+# Description: How often the master runs background process to check replication level for files
+
+alluxio.table.transform.manager.job.monitor.interval=10s
+# Description: Job monitor is a heartbeat thread in the transform manager, this is the time interval in milliseconds the job monitor heartbeat is run to check the status of the transformation jobs and update table and partition locations after transformation.
+
+alluxio.network.connection.server.shutdown.timeout=60sec
+# Description: Maximum time to wait for gRPC server to stop on shutdown
+
+alluxio.fuse.fs.name=alluxio-fuse
+# Description: The FUSE file system name.
+
+alluxio.master.tieredstore.global.levels=6
+# Description: The total number of storage tiers in the system.
+
+alluxio.master.ufs.path.cache.capacity=50000
+# Description: The capacity of the UFS sync path cache. This cache is used to approximate the `ONCE` metadata load behavior (see `alluxio.user.file.metadata.load.type`). Larger caches will consume more memory, but will better approximate the `ONCE` behavior.
+
+alluxio.master.embedded.journal.snapshot.replication.chunk.size=1MB
+# Description: The stream chunk size used by masters to replicate snapshots.
+
+alluxio.user.client.cache.evictor.class=alluxio.client.file.cache.evictor.LRUCacheEvictor
+# Description: The strategy that client uses to evict local cached pages when running out of space. Currently valid options include `alluxio.client.file.cache.evictor.LRUCacheEvictor`,`alluxio.client.file.cache.evictor.LFUCacheEvictor`.
+

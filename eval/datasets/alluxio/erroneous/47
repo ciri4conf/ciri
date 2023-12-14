@@ -1,0 +1,24 @@
+alluxio.user.streaming.writer.buffer.size.messages=32
+# Description: When a client writes to a remote worker, the maximum number of messages to buffer by the client. A message can be either a command response, a data chunk, or a gRPC stream event such as complete or error.
+
+alluxio.user.block.read.retry.max.duration=10min
+# Description: This duration controls for how long Alluxio clients should tryreading a single block. If a particular block can't be read within this duration, then the I/O will timeout.
+
+alluxio.master.filesystem.liststatus.result.message.length=10000
+# Description: Count of items on each list-status response message.
+
+alluxio.master.ufs.active.sync.thread.pool.size=4
+# Description: Max number of threads used to perform active sync
+
+alluxio.table.catalog.udb.sync.timeout=10h
+# Description: The timeout period for a db sync to finish in the catalog. If a synctakes longer than this timeout, the sync will be terminated.
+
+alluxio.worker.tieredstore.level1.dirs.path=/valid/file1
+# Description: A comma-separated list of paths (eg., /mnt/ssd/alluxio/cache2,/mnt/ssd/alluxio/cache3,/mnt/hdd/alluxio/cache1) of storage directories for the second storage tier.
+
+alluxio.worker.free.space.timeout=10sec
+# Description: The duration for which a worker will wait for eviction to make space available for a client write request.
+
+alluxio.worker.tieredstore.levels=0
+# Description: The number of storage tiers on the worker.
+

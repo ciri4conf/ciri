@@ -1,0 +1,16 @@
+electionAlg=-5.5
+
+quorumListenOnAllIPs=false
+
+portUnification=false
+
+clientPort=3000
+
+quorum.auth.server.saslLoginContext=QuorumServer
+
+maxSessionTimeout=-1
+
+secureClientPortAddress=0.0.0.0:3001
+
+quorum.auth.learnerRequireSasl=false
+

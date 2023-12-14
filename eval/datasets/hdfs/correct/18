@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.namenode.backup.address</name>
+  <value>0.0.0.0:3001</value>
+  <description>
+    The backup node server address and port.
+    If the port is 0 then the server will start on a free port.
+  </description>
+</property>
+
+<property>
+  <name>dfs.datanode.du.reserved</name>
+  <value>-1</value>
+  <description>Reserved space in bytes per volume. Always leave this much space free for non dfs use.
+      Specific storage type based reservation is also supported. The property can be followed with
+      corresponding storage types ([ssd]/[disk]/[archive]/[ram_disk]) for cluster with heterogeneous storage.
+      For example, reserved space for RAM_DISK storage can be configured using property
+      'dfs.datanode.du.reserved.ram_disk'. If specific storage type reservation is not configured
+      then dfs.datanode.du.reserved will be used. Support multiple size unit suffix(case insensitive),
+      as described in dfs.blocksize.
+      Note: In case of using tune2fs to set reserved-blocks-percentage, or other filesystem tools,
+      then you can possibly run into out of disk errors because hadoop will not check those
+      external tool configurations.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.redundancy.interval.seconds</name>
+  <value>1s</value>
+  <description>The periodicity in seconds with which the namenode computes 
+  low redundancy work for datanodes. Support multiple time unit suffix(case insensitive),
+  as described in dfs.heartbeat.interval.
+  </description>
+</property>
+
+<property>
+  <name>dfs.datanode.failed.volumes.tolerated</name>
+  <value>-1</value>
+  <description>The number of volumes that are allowed to
+  fail before a datanode stops offering service. By default
+  any volume failure will cause a datanode to shutdown.
+  The value should be greater than or equal to -1 , -1 represents minimum
+  1 valid volume.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.edit.log.autoroll.multiplier.threshold</name>
+  <value>1.0</value>
+  <description>
+    Determines when an active namenode will roll its own edit log.
+    The actual threshold (in number of edits) is determined by multiplying
+    this value by dfs.namenode.checkpoint.txns.
+
+    This prevents extremely large edit files from accumulating on the active
+    namenode, which can cause timeouts during namenode startup and pose an
+    administrative hassle. This behavior is intended as a failsafe for when
+    the standby or secondary namenode fail to roll the edit log by the normal
+    checkpoint threshold.
+  </description>
+</property>
+
+<property>
+  <name>dfs.datanode.transferTo.allowed</name>
+  <value>true</value>
+  <description>
+    If false, break block transfers on 32-bit machines greater than
+    or equal to 2GB into smaller chunks.
+  </description>
+</property>
+
+<property>
+  <name>dfs.journalnode.sync.interval</name>
+  <value>240000</value>
+  <description>
+    Time interval, in milliseconds, between two Journal Node syncs.
+    This configuration takes effect only if the journalnode sync is enabled
+    by setting the configuration parameter dfs.journalnode.enable.sync to true.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.delegation.token.always-use</name>
+  <value>false</value>
+  <description>
+    For testing.  Setting to true always allows the DT secret manager
+    to be used, even if security is disabled.
+  </description>
+</property>
+
+</configuration>

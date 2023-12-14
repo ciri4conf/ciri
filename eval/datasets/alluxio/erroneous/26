@@ -1,0 +1,24 @@
+alluxio.underfs.s3.threads.max=4000000000
+# Description: The maximum number of threads to use for communicating with S3 and the maximum number of concurrent connections to S3. Includes both threads for data upload and metadata operations. This number should be at least as large as the max admin threads plus max upload threads.
+
+alluxio.master.metastore=ROCKS
+# Description: The type of metastore to use, either HEAP or ROCKS. The heap metastore keeps all metadata on-heap, while the rocks metastore stores some metadata on heap and some metadata on disk. The rocks metastore has the advantage of being able to support a large namespace (1 billion plus files) without needing a massive heap size.The metadata storage includes inode and block metadata. Users can override the type of metastore using alluxio.master.metastore.inode and alluxio.master.metastore.block. For example if alluxio.master.metastore=ROCKS but alluxio.master.metastore.inode=HEAP, then inodes are stored with HEAP and blocks are stored with ROCKS.
+
+alluxio.underfs.eventual.consistency.retry.max.num=-1
+# Description: To handle eventually consistent storage semantics for certain under storages, Alluxio will perform retries when under storage metadata doesn't match Alluxio's expectations. These retries use exponential backoff. This property determines the maximum number of retries. This property defaults to 0 as modern object store UFSs provide strong consistency.
+
+alluxio.master.embedded.journal.snapshot.replication.chunk.size=8MB
+# Description: The stream chunk size used by masters to replicate snapshots.
+
+alluxio.proxy.web.hostname=127.0.0.1
+# Description: The hostname Alluxio proxy's web UI binds to.
+
+alluxio.user.network.rpc.keepalive.timeout=60sec
+# Description: The maximum time for a rpc client to wait for a keepalive response before closing the connection.
+
+alluxio.underfs.s3.proxy.port=
+# Description: Optionally, specify a proxy port for communicating with S3.
+
+alluxio.worker.reviewer.class=alluxio.worker.block.reviewer.ProbabilisticBufferReviewer
+# Description: (Experimental) The API is subject to change in the future.The strategy that a worker uses to review space allocation in the Allocator. Each time a block allocation decision is made by the Allocator, the Reviewer will review the decision and rejects it,if the allocation does not meet certain criteria of the Reviewer.The Reviewer prevents the worker to make a bad block allocation decision.Valid options include:`alluxio.worker.block.reviewer.ProbabilisticBufferReviewer`.
+

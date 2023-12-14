@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.namenode.safemode.min.datanodes</name>
+  <value>-1</value>
+  <description>
+    Specifies the number of datanodes that must be considered alive
+    before the name node exits safemode.
+    Values less than or equal to 0 mean not to take the number of live
+    datanodes into account when deciding whether to remain in safe mode
+    during startup.
+    Values greater than the number of datanodes in the cluster
+    will make safe mode permanent.
+  </description>
+</property>
+
+<property>
+  <name>dfs.bytes-per-checksum</name>
+  <value>1024</value>
+  <description>The number of bytes per checksum.  Must not be larger than
+  dfs.stream-buffer-size</description>
+</property>
+
+<property>
+  <name>nfs.mountd.port</name>
+  <value>4242</value>
+  <description>
+      Specify the port number used by Hadoop mount daemon.
+  </description>
+</property>
+
+<property>
+  <name>dfs.data.transfer.saslproperties.resolver.class</name>
+  <value></value>
+  <description>
+    SaslPropertiesResolver used to resolve the QOP used for a connection to the
+    DataNode when reading or writing block data. If not specified, the value of
+    hadoop.security.saslproperties.resolver.class is used as the default value.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.list.openfiles.num.responses</name>
+  <value>2000</value>
+    <description>
+      When listing open files, the maximum number of open files that will be
+      returned in a single batch. Fetching the list incrementally in batches
+      improves namenode performance.
+    </description>
+</property>
+
+<property>
+  <name>dfs.webhdfs.rest-csrf.methods-to-ignore</name>
+  <value>OPTIONS</value>
+  <description>
+    A comma-separated list of HTTP methods that do not require HTTP requests to
+    include a custom header when protection against cross-site request forgery
+    (CSRF) is enabled for WebHDFS by setting dfs.webhdfs.rest-csrf.enabled to
+    true.  The WebHDFS client also uses this property to determine whether or
+    not it needs to send the custom CSRF prevention header in its HTTP requests.
+  </description>
+</property>
+
+<property>
+  <name>dfs.qjournal.new-epoch.timeout.ms</name>
+  <value>120000</value>
+  <description>
+    Timeout in milliseconds when getting an epoch number for write
+    access to JournalNodes.
+  </description>
+</property>
+
+<property>
+  <name>dfs.web.ugi</name>
+  <value></value>
+  <description>
+    dfs.web.ugi is deprecated. Use hadoop.http.staticuser.user instead.
+  </description>
+</property>
+
+</configuration>

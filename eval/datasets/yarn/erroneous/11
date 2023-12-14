@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.metrics.runtime.buckets</name>
+  <value>[30, 150, 720]</value>
+    <description>
+    Comma-separated list of values (in minutes) for schedule queue related
+    metrics.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.hostname</name>
+  <value>2.2.2.2.2.2</value>
+    <description>The hostname of the NM.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.local-dirs</name>
+  <value>${hadoop.tmp.dir}/nm-local-dir</value>
+    <description>List of directories to store localized files in. An 
+      application's localized file directory will be found in:
+      ${yarn.nodemanager.local-dirs}/usercache/${user}/appcache/application_${appid}.
+      Individual containers' work directories, called container_${contid}, will
+      be subdirectories of this.
+   </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.resource.memory.cgroups.swappiness</name>
+  <value>1</value>
+    <description>Container swappiness is the likelihood a page will be swapped
+      out compared to be kept in memory. Value is between 0-100.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.allowed-runtimes</name>
+  <value>default</value>
+    <description>Comma separated list of runtimes that are allowed when using
+    LinuxContainerExecutor. The allowed values are default, docker, runc, and
+    javasandbox.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.principal</name>
+  <value></value>
+    <description>The Kerberos principal for the timeline server.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.reader.class</name>
+  <value>org.apache.hadoop.yarn.server.timelineservice.storage.HBaseTimelineReaderImpl</value>
+    <description>
+      Storage implementation ATS v2 will use for the TimelineReader service.
+    </description>
+</property>
+
+<property>
+  <name>yarn.node-labels.fs-store.impl.class</name>
+  <value>org.apache.hadoop.yarn.nodelabels.FileSystemNodeLabelsStore</value>
+    <description>
+    Choose different implementation of node label's storage
+    </description>
+</property>
+
+</configuration>

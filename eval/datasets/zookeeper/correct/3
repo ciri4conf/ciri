@@ -1,0 +1,16 @@
+sslQuorum=false
+
+peerType=participant
+
+localSessionsUpgradingEnabled=true
+
+clientPort=3000
+
+syncLimit=
+
+clientPortAddress=0.0.0.0:3001
+
+dataLogDir=/valid/dir2
+
+portUnification=true
+

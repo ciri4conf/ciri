@@ -1,0 +1,16 @@
+secureClientPort=-1
+
+quorum.auth.enableSasl=false
+
+quorum.auth.kerberos.servicePrincipal=zkquorum/localhost
+
+autopurge.purgeInterval=-1
+
+sslQuorum=true
+
+standaloneEnabled=true
+
+syncLimit=10
+
+sslQuorumReloadCertFiles=false
+

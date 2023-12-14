@@ -1,0 +1,24 @@
+alluxio.fuse.user.group.translation.enabled=10000
+# Description: Whether to translate Alluxio users and groups into Unix users and groups when exposing Alluxio files through the FUSE API. When this property is set to false, the user and group for all FUSE files will match the user who started the alluxio-fuse process.Note that this applies to JNR-FUSE only.
+
+alluxio.security.group.mapping.class=alluxio.security.group.provider.ShellBasedUnixGroupsMapping
+# Description: The class to provide user-to-groups mapping service. Master could get the various group memberships of a given user. It must implement the interface 'alluxio.security.group.GroupMappingService'. The default implementation execute the 'groups' shell command to fetch the group memberships of a given user.
+
+fs.cos.connection.max=512
+# Description: The maximum number of COS connections.
+
+alluxio.user.streaming.reader.close.timeout=10s
+# Description: The timeout to close a grpc streaming reader client. If too long, it may add delays to closing clients. If too short, the client will complete the close() before the server confirms the close()
+
+alluxio.worker.tieredstore.level1.watermark.low.ratio=0.7
+# Description: The low watermark of the space in the second storage tier (a value between 0 and 1).
+
+alluxio.master.metastore.inode.cache.evict.batch.size=500
+# Description: The batch size for evicting entries from the inode cache.
+
+alluxio.worker.tieredstore.level0.watermark.low.ratio=0.35
+# Description: The low watermark of the space in the top storage tier (a value between 0 and 1).
+
+alluxio.master.standby.heartbeat.interval=1min
+# Description: The heartbeat interval between Alluxio primary master and standby masters.
+

@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.dispatcher.drain-events.timeout</name>
+  <value>300000</value>
+    <description>Timeout in milliseconds when YARN dispatcher tries to drain the
+      events. Typically, this happens when service is stopping. e.g. RM drains
+      the ATS events dispatcher when stopping.
+    </description>
+</property>
+
+<property>
+  <name>yarn.webapp.ui2.war-file-path</name>
+  <value></value>
+    <description>
+      Explicitly provide WAR file path for ui2 if needed.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.scheduler.monitor.policies</name>
+  <value>org.apache.hadoop.yarn.server.resourcemanager.monitor.capacity.ProportionalCapacityPreemptionPolicy</value>
+    <description>The list of SchedulingEditPolicy classes that interact with
+        the scheduler. A particular module may be incompatible with the
+        scheduler, other policies, or a configuration of either.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.linux-container-executor.nonsecure-mode.local-user</name>
+  <value>nobody</value>
+    <description>The UNIX user that containers will run as when
+      Linux-container-executor is used in nonsecure mode (a use case for this
+      is using cgroups) if the
+      yarn.nodemanager.linux-container-executor.nonsecure-mode.limit-users is
+      set to true.</description>
+</property>
+
+<property>
+  <name>yarn.sharedcache.enabled</name>
+  <value>false</value>
+    <description>Whether the shared cache is enabled</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.entity-group-fs-store.with-user-dir</name>
+  <value>true</value>
+    <description>
+       It is TimelineClient 1.5 configuration whether to store active
+       application’s timeline data with in user directory i.e
+       ${yarn.timeline-service.entity-group-fs-store.active-dir}/${user.name}
+    </description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.reader.webapp.address</name>
+  <value>127.0.0.1</value>
+    <description>The http address of the timeline reader web application.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.elastic-memory-control.timeout-sec</name>
+  <value>10</value>
+    <description>
+      Maximum time to wait for an OOM situation to get resolved before
+      bringing down the node.
+    </description>
+</property>
+
+</configuration>

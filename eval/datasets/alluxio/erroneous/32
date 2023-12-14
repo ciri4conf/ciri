@@ -1,0 +1,24 @@
+alluxio.proxy.s3.writetype=nonono
+# Description: Write type when creating buckets and objects through S3 API. Valid options are `MUST_CACHE` (write will only go to Alluxio and must be stored in Alluxio), `CACHE_THROUGH` (try to cache, write to UnderFS synchronously), `ASYNC_THROUGH` (try to cache, write to UnderFS asynchronously), `THROUGH` (no cache, write to UnderFS synchronously).
+
+alluxio.underfs.s3.default.mode=1400
+# Description: Mode (in octal notation) for S3 objects if mode cannot be discovered.
+
+alluxio.worker.block.annotator.lrfu.attenuation.factor=1.0
+# Description: A attenuation factor in [2, INF) to control the behavior of LRFU annotator.
+
+alluxio.master.whitelist=/valid/file1
+# Description: A comma-separated list of prefixes of the paths which are cacheable, separated by semi-colons. Alluxio will try to cache the cacheable file when it is read for the first time.
+
+fs.cos.socket.timeout=100sec
+# Description: The timeout of COS socket.
+
+alluxio.underfs.s3.intermediate.upload.clean.age=6day
+# Description: Streaming uploads may not have been completed/aborted correctly and need periodical ufs cleanup. If ufs cleanup is enabled, intermediate multipart uploads in all non-readonly S3 mount points older than this age will be cleaned. This may impact other ongoing upload operations, so a large clean age is encouraged.
+
+fs.cos.secret.key=
+# Description: The secret key of COS bucket.
+
+alluxio.user.client.cache.evictor.class=alluxio.client.file.cache.evictor.LRUCacheEvictor
+# Description: The strategy that client uses to evict local cached pages when running out of space. Currently valid options include `alluxio.client.file.cache.evictor.LRUCacheEvictor`,`alluxio.client.file.cache.evictor.LFUCacheEvictor`.
+

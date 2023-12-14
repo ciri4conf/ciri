@@ -1,0 +1,24 @@
+alluxio.home=/\hadoop/s3a
+# Description: Alluxio installation directory.
+
+alluxio.underfs.object.store.mount.shared.publicly=false
+# Description: Whether or not to share object storage under storage system mounted point with all Alluxio users. Note that this configuration has no effect on HDFS nor local UFS.
+
+alluxio.network.connection.shutdown.timeout=30sec
+# Description: Maximum time to wait for connections (gRPC channels) to stop after graceful shutdown attempt.
+
+alluxio.master.tieredstore.global.mediumtype=SSD
+# Description: The list of medium types we support in the system.
+
+alluxio.master.journal.space.monitor.interval=20min
+# Description: How often to check and update information on space utilization of tsse journal disk. This is currently only compatible with linux-basedsystems and when alluxio.master.journal.type is configured to EMBEDDED
+
+alluxio.user.network.rpc.flowcontrol.window=2MB
+# Description: The HTTP2 flow control window used by user rpc connections. Larger value will allow more data to be buffered but will use more memory.
+
+alluxio.worker.block.annotator.lrfu.attenuation.factor=2.0
+# Description: A attenuation factor in [2, INF) to control the behavior of LRFU annotator.
+
+alluxio.user.ufs.block.read.concurrency.max=4294967294
+# Description: The maximum concurrent readers for one UFS block on one Block Worker.
+

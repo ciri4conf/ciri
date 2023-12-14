@@ -1,0 +1,24 @@
+alluxio.job.master.web.port=3001
+# Description: The port the job master web server uses.
+
+alluxio.master.metastore.inode.cache.high.water.mark.ratio=0.425
+# Description: The high water mark for the inode cache, as a ratio from high water mark to total cache size. If this is 0.85 and the max size is 10 million, the high water mark value is 8.5 million. When the cache reaches the high water mark, the eviction process will evict down to the low water mark.
+
+alluxio.master.metastore.inode.iteration.crawler.count=16
+# Description: The number of threads used during inode tree enumeration.
+
+alluxio.master.bind.host=0.0.0.0
+# Description: The hostname that Alluxio master binds to.
+
+alluxio.master.worker.timeout=1min
+# Description: Timeout between master and worker indicating a lost worker.
+
+alluxio.zookeeper.address=
+# Description: Address of ZooKeeper.
+
+alluxio.master.embedded.journal.snapshot.replication.chunk.size=8MB
+# Description: The stream chunk size used by masters to replicate snapshots.
+
+alluxio.user.block.avoid.eviction.policy.reserved.size.bytes=2MB
+# Description: The portion of space reserved in a worker when using the LocalFirstAvoidEvictionPolicy class as block location policy.
+

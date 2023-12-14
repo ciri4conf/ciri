@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.acl.enable</name>
+  <value>false</value>
+    <description>Are acls enabled.</description>
+</property>
+
+<property>
+  <name>yarn.admin.acl</name>
+  <value>*</value>
+    <description>ACL of who can be admin of the YARN cluster.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.resource-profiles.source-file</name>
+  <value>resource-profiles.json</value>
+    <description>
+    If resource profiles is enabled, source file for the profiles
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.keytab</name>
+  <value>/etc/krb5.keytab</value>
+    <description>Keytab for NM.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.webapp.https.address</name>
+  <value>127.0.0.1</value>
+    <description>The https address of the timeline service web application.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.leveldb-timeline-store.ttl-interval-ms</name>
+  <value>600000</value>
+    <description>Length of time to wait between deletion cycles of leveldb timeline store in milliseconds.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.entity-group-fs-store.group-id-plugin-classpath</name>
+  <value></value>
+    <description>
+      Classpath for all plugins defined in
+      yarn.timeline-service.entity-group-fs-store.group-id-plugin-classes.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.elastic-memory-control.enabled</name>
+  <value>true</value>
+    <description>
+      Enable elastic memory control. This is a Linux only feature.
+      When enabled, the node manager adds a listener to receive an
+      event, if all the containers exceeded a limit.
+      The limit is specified by yarn.nodemanager.resource.memory-mb.
+      If this is not set, the limit is set based on the capabilities.
+      See yarn.nodemanager.resource.detect-hardware-capabilities
+      for details.
+      The limit applies to the physical or virtual (rss+swap) memory
+      depending on whether yarn.nodemanager.pmem-check-enabled or
+      yarn.nodemanager.vmem-check-enabled is set.
+    </description>
+</property>
+
+</configuration>

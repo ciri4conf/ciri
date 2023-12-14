@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hadoop.security.groups.shell.command.timeout</name>
+  <value>0mm</value>
+  <description>
+    Used by the ShellBasedUnixGroupsMapping class, this property controls how
+    long to wait for the underlying shell command that is run to fetch groups.
+    Expressed in seconds (e.g. 10s, 1m, etc.), if the running command takes
+    longer than the value configured, the command is aborted and the groups
+    resolver would return a result of no groups found. A value of 0s (default)
+    would mean an infinite wait (i.e. wait until the command exits on its own).
+  </description>
+</property>
+
+<property>
+  <name>hadoop.security.sensitive-config-keys</name>
+  <value>secret$,password$,ssl.keystore.pass$,fs.s3a.server-side-encryption.key,fs.s3a.*.server-side-encryption.key,fs.s3a.secret.key,fs.s3a.*.secret.key,fs.s3a.session.key,fs.s3a.*.session.key,fs.s3a.session.token,fs.s3a.*.session.token,fs.azure.account.key.*,fs.azure.oauth2.*,fs.adl.oauth2.*,credential$,oauth.*secret,oauth.*password,oauth.*token,hadoop.security.sensitive-config-keys</value>
+  <description>A comma-separated or multi-line list of regular expressions to
+      match configuration keys that should be redacted where appropriate, for
+      example, when logging modified properties during a reconfiguration,
+      private credentials should not be logged.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.retry.limit</name>
+  <value>7</value>
+  <description>
+    Number of times to retry any repeatable S3 client request on failure,
+    excluding throttling requests and S3Guard inconsistency resolution.
+  </description>
+</property>
+
+<property>
+  <name>ipc.client.low-latency</name>
+  <value>false</value>
+  <description>Use low-latency QoS markers for IPC connections.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.http.authentication.kerberos.endpoint.whitelist</name>
+  <value></value>
+    <description>
+      The comma-separated list of the endpoints that skips Kerberos
+      authentication. The endpoint must start with '/' and must not
+      contain special characters afterwards. This parameter is for
+      the monitoring tools that do not support Kerberos authentication.
+      Administrator must configure this parameter very carefully
+      because it allows unauthenticated access to the daemons.
+    </description>
+</property>
+
+<property>
+  <name>hadoop.security.kms.client.encrypted.key.cache.low-watermark</name>
+  <value>0.15</value>
+  <description>
+    If size of the EncryptedKeyVersion cache Queue falls below the
+    low watermark, this cache queue will be scheduled for a refill
+  </description>
+</property>
+
+<property>
+  <name>hadoop.security.kms.client.timeout</name>
+  <value>60</value>
+  <description>
+    Sets value for KMS client connection timeout, and the read timeout
+    to KMS servers.
+  </description>
+</property>
+
+<property>
+  <name>adl.feature.ownerandgroup.enableupn</name>
+  <value>false</value>
+    <description>
+      When true : User and Group in FileStatus/AclStatus response is
+      represented as user friendly name as per Azure AD profile.
+
+      When false (default) : User and Group in FileStatus/AclStatus
+      response is represented by the unique identifier from Azure AD
+      profile (Object ID as GUID).
+
+      For optimal performance, false is recommended.
+    </description>
+</property>
+
+</configuration>

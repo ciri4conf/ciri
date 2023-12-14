@@ -1,0 +1,16 @@
+sslQuorum=true
+
+clientPort=3000
+
+initLimit=
+
+dataDir=/valid/dir2
+
+syncEnabled=false
+
+syncLimit=
+
+portUnification=true
+
+maxClientCnxns=120
+

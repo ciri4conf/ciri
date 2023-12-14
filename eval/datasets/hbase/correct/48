@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hbase.master.infoserver.redirect</name>
+  <value>true</value>
+    <description>Whether or not the Master listens to the Master web
+      UI port (hbase.master.info.port) and redirects requests to the web
+      UI server shared by the Master and RegionServer. Config. makes
+      sense when Master is serving Regions (not the default).</description>
+</property>
+
+<property>
+  <name>hbase.regionserver.handler.count</name>
+  <value>30</value>
+    <description>Count of RPC Listener instances spun up on RegionServers.
+      Same property is used by the Master for count of master handlers.
+      Too many handlers can be counter-productive. Make it a multiple of
+      CPU count. If mostly read-only, handlers count close to cpu count
+      does well. Start with twice the CPU count and tune from there.</description>
+</property>
+
+<property>
+  <name>zookeeper.session.timeout</name>
+  <value>45000</value>
+    <description>ZooKeeper session timeout in milliseconds. It is used in two different ways.
+      First, this value is used in the ZK client that HBase uses to connect to the ensemble.
+      It is also used by HBase when it starts a ZK server and it is passed as the 'maxSessionTimeout'.
+      See https://zookeeper.apache.org/doc/current/zookeeperProgrammers.html#ch_zkSessions.
+      For example, if an HBase region server connects to a ZK ensemble that's also managed
+      by HBase, then the session timeout will be the one specified by this configuration.
+      But, a region server that connects to an ensemble managed with a different configuration
+      will be subjected that ensemble's maxSessionTimeout. So, even though HBase might propose
+      using 90 seconds, the ensemble can have a max timeout lower than this and it will take
+      precedence. The current default maxSessionTimeout that ZK ships with is 40 seconds, which is lower than
+      HBase's.
+    </description>
+</property>
+
+<property>
+  <name>hbase.zookeeper.property.initLimit</name>
+  <value>20</value>
+    <description>Property from ZooKeeper's config zoo.cfg.
+    The number of ticks that the initial synchronization phase can take.</description>
+</property>
+
+<property>
+  <name>hfile.format.version</name>
+  <value>6</value>
+      <description>The HFile format version to use for new files.
+      Version 3 adds support for tags in hfiles (See http://hbase.apache.org/book.html#hbase.tags).
+      Also see the configuration 'hbase.replication.rpc.codec'.
+      </description>
+</property>
+
+<property>
+  <name>hbase.regionserver.kerberos.principal</name>
+  <value></value>
+    <description>Ex. "hbase/_HOST@EXAMPLE.COM".  The kerberos principal name
+    that should be used to run the HRegionServer process.  The principal name
+    should be in the form: user/hostname@DOMAIN.  If "_HOST" is used as the
+    hostname portion, it will be replaced with the actual hostname of the
+    running instance.  An entry for this principal must exist in the file
+    specified in hbase.regionserver.keytab.file</description>
+</property>
+
+<property>
+  <name>hbase.coprocessor.master.classes</name>
+  <value></value>
+    <description>A comma-separated list of
+    org.apache.hadoop.hbase.coprocessor.MasterObserver coprocessors that are
+    loaded by default on the active HMaster process. For any implemented
+    coprocessor methods, the listed classes will be called in order. After
+    implementing your own MasterObserver, just put it in HBase's classpath
+    and add the fully qualified class name here.</description>
+</property>
+
+<property>
+  <name>hbase.mob.file.cache.size</name>
+  <value>2000</value>
+    <description>
+      Number of opened file handlers to cache.
+      A larger value will benefit reads by providing more file handlers per mob
+      file cache and would reduce frequent file opening and closing.
+      However, if this is set too high, this could lead to a "too many opened file handlers"
+      The default value is 1000.
+    </description>
+</property>
+
+</configuration>

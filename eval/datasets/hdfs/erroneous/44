@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hadoop.hdfs.configuration.version</name>
+  <value>2</value>
+  <description>version of this configuration file</description>
+</property>
+
+<property>
+  <name>dfs.namenode.rpc-bind-host</name>
+  <value>0.0.256.0</value>
+  <description>
+    The actual address the RPC server will bind to. If this optional address is
+    set, it overrides only the hostname portion of dfs.namenode.rpc-address.
+    It can also be specified per name node or name service for HA/Federation.
+    This is useful for making the name node listen on all interfaces by
+    setting it to 0.0.0.0.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.max-corrupt-file-blocks-returned</name>
+  <value>50</value>
+  <description>
+      The maximum number of corrupt file blocks listed by NameNode Web UI,
+      JMX and other client request.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.support.allow.format</name>
+  <value>true</value>
+  <description>Does HDFS namenode allow itself to be formatted?
+               You may consider setting this to false for any production
+               cluster, to avoid any possibility of formatting a running DFS.
+  </description>
+</property>
+
+<property>
+  <name>dfs.datanode.outliers.report.interval</name>
+  <value>1m</value>
+  <description>
+    This setting controls how frequently DataNodes will report their peer
+    latencies to the NameNode via heartbeats.  This setting supports
+    multiple time unit suffixes as described in dfs.heartbeat.interval.
+    If no suffix is specified then milliseconds is assumed.
+
+    It is ignored if dfs.datanode.peer.stats.enabled is false.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.deadnode.detection.rpc.threads</name>
+  <value>20</value>
+    <description>
+      The maximum number of threads to use for calling RPC call to recheck the liveness of dead node.
+    </description>
+</property>
+
+<property>
+  <name>dfs.client.test.drop.namenode.response.number</name>
+  <value>0</value>
+  <description>
+    The number of Namenode responses dropped by DFSClient for each RPC call.  Used
+    for testing the NN retry cache.
+  </description>
+</property>
+
+<property>
+  <name>dfs.provided.aliasmap.text.write.dir</name>
+  <value>/valid/dir1</value>
+    <description>
+        The path to which the provided block map should be written as a text
+        file, specified as a URI.
+    </description>
+</property>
+
+</configuration>

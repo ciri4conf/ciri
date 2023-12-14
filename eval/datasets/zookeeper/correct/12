@@ -1,0 +1,16 @@
+quorum.auth.enableSasl=true
+
+quorum.auth.learner.saslLoginContext=QuorumLearner
+
+localSessionsUpgradingEnabled=false
+
+quorum.auth.learnerRequireSasl=true
+
+clientPortAddress=0.0.0.0:3000
+
+initLimit=10
+
+quorum.auth.server.saslLoginContext=QuorumServer
+
+electionAlg=3
+

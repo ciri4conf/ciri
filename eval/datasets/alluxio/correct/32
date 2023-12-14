@@ -1,0 +1,24 @@
+alluxio.master.metastore.inode.cache.evict.batch.size=1000
+# Description: The batch size for evicting entries from the inode cache.
+
+alluxio.user.file.readtype.default=CACHE
+# Description: Default read type when creating Alluxio files. Valid options are `CACHE_PROMOTE` (move data to highest tier if already in Alluxio storage, write data into highest tier of local Alluxio if data needs to be read from under storage), `CACHE` (write data into highest tier of local Alluxio if data needs to be read from under storage), `NO_CACHE` (no data interaction with Alluxio, if the read is from Alluxio data migration or eviction will not occur).
+
+alluxio.user.app.id=
+# Description: The custom id to use for labeling this client's info, such as metrics. If unset, a random long will be used. This value is displayed in the client logs on initialization. Note that using the same app id will cause client info to be aggregated, so different applications must set their own ids or leave this value unset to use a randomly generated id.
+
+alluxio.worker.tieredstore.free.ahead.bytes=-1
+# Description: Amount to free ahead when worker storage is full. Higher values will help decrease CPU utilization under peak storage. Lower values will increase storage utilization.
+
+alluxio.worker.network.writer.buffer.size.messages=8
+# Description: When a client writes to a remote worker, the maximum number of data messages to buffer by the server for each request.
+
+alluxio.user.network.netty.worker.threads=0
+# Description: How many threads to use for remote block worker client to read from remote block workers.
+
+alluxio.underfs.gcs.directory.suffix=/valid/file1
+# Description: Directories are represented in GCS as zero-byte objects named with the specified suffix.
+
+alluxio.user.block.master.client.pool.size.min=1
+# Description: The minimum number of block master clients cached in the block master client pool. For long running processes, this should be set to zero.
+

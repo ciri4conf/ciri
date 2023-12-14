@@ -1,0 +1,24 @@
+alluxio.user.file.buffer.bytes=16MB
+# Description: The size of the file buffer to use for file system reads/writes.
+
+alluxio.job.worker.threadpool.size=20
+# Description: Number of threads in the thread pool for job worker. This may be adjusted to a lower value to alleviate resource saturation on the job worker nodes (CPU + IO).
+
+alluxio.zookeeper.leader.inquiry.retry=1
+# Description: The number of retries to inquire leader from ZooKeeper.
+
+alluxio.user.network.streaming.max.inbound.message.size=1MB
+# Description: The max inbound message size used by user streaming connections.
+
+alluxio.master.backup.connect.interval.min=10sec
+# Description: Minimum delay between each connection attempt to backup-leader.
+
+alluxio.master.tieredstore.global.level0.alias=MEM
+# Description: The name of the highest storage tier in the entire system.
+
+alluxio.table.transform.manager.job.history.retention.time=600sec
+# Description: The length of time the Alluxio Table Master should keep information about finished transformation jobs before they are discarded.
+
+alluxio.worker.tieredstore.level1.dirs.path=/valid/file1
+# Description: A comma-separated list of paths (eg., /mnt/ssd/alluxio/cache2,/mnt/ssd/alluxio/cache3,/mnt/hdd/alluxio/cache1) of storage directories for the second storage tier.
+

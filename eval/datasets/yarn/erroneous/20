@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.nodes.exclude-path</name>
+  <value></value>
+    <description>Path to file with nodes to exclude.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.localizer.client.thread-count</name>
+  <value>10</value>
+    <description>Number of threads to handle localization requests.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.pmem-check-enabled</name>
+  <value>10000</value>
+    <description>Whether physical memory limits will be enforced for
+    containers.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.webapp.spnego-keytab-file</name>
+  <value></value>
+    <description>
+    The Kerberos keytab file to be used for spnego filter for the NM web
+    interface.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.linux-container-executor.resources-handler.class</name>
+  <value>org.apache.hadoop.yarn.server.nodemanager.util.DefaultLCEResourcesHandler</value>
+    <description>The class which should help the LCE handle resources.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.runc.default-rw-mounts</name>
+  <value></value>
+    <description>The default list of read-write mounts to be bind-mounted
+      into all runC containers that use RuncContainerRuntime.</description>
+</property>
+
+<property>
+  <name>yarn.client.nodemanager-client-async.thread-pool-max-size</name>
+  <value>1000</value>
+    <description>Max number of threads in NMClientAsync to process container
+    management events</description>
+</property>
+
+<property>
+  <name>yarn.router.pipeline.cache-max-size</name>
+  <value>25</value>
+    <description>
+      Size of LRU cache for Router ClientRM Service and RMAdmin Service.
+    </description>
+</property>
+
+</configuration>

@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.ha.failover-controller.active-standby-elector.zk.retries</name>
+  <value></value>
+    <description>When automatic failover is enabled, number of zookeeper
+      operation retry times in ActiveStandbyElector</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.log-container-debug-info.enabled</name>
+  <value>true</value>
+    <description>Generate additional logs about container launches.
+    Currently, this creates a copy of the launch script and lists the
+    directory contents of the container work dir. When listing directory
+    contents, we follow symlinks to a max-depth of 5(including symlinks
+    which point to outside the container work dir) which may lead to a
+    slowness in launching containers.
+    </description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.http-authentication.simple.anonymous.allowed</name>
+  <value>true</value>
+    <description>
+      Indicates if anonymous requests are allowed by the timeline server when using
+      'simple' authentication.
+    </description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.state-store-class</name>
+  <value>org.apache.hadoop.yarn.server.timeline.recovery.LeveldbTimelineStateStore</value>
+    <description>Store class name for timeline state store.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.entity-group-fs-store.done-dir</name>
+  <value>/valid/file1</value>
+    <description>HDFS path to store done application’s timeline data</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.entity-group-fs-store.app-cache-size</name>
+  <value>20</value>
+    <description>
+      Size of the reader cache for ATS v1.5 reader. This value controls how many
+      entity groups the ATS v1.5 server should cache. If the number of active
+      read entity groups is greater than the number of caches items, some reads
+      may return empty data. This value must be greater than 0.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.webapp.rest-csrf.custom-header</name>
+  <value>X-XSRF-Header</value>
+    <description>
+      Optional parameter that indicates the custom header name to use for CSRF
+      protection.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.csi-driver.names</name>
+  <value></value>
+    <description>
+      CSI driver names running on this node, multiple driver names need to
+      be delimited by comma. The driver name should be same value returned
+      by the getPluginInfo call.For each of the CSI driver name, it must
+      to define following two corresponding properties:
+        "yarn.nodemanager.csi-driver.${NAME}.endpoint"
+        "yarn.nodemanager.csi-driver-adaptor.${NAME}.address"
+      The 1st property defines where the driver's endpoint is;
+      2nd property defines where the mapping csi-driver-adaptor's address is.
+      What's more, an optional csi-driver-adaptor class can be defined
+      for each csi-driver:
+        "yarn.nodemanager.csi-driver.${NAME}.class"
+      once given, the adaptor will be initiated with the given class instead
+      of the default implementation
+      org.apache.hadoop.yarn.csi.adaptor.DefaultCsiAdaptorImpl. User can plug
+      customized adaptor code for csi-driver with this configuration
+      if necessary.
+    </description>
+</property>
+
+</configuration>

@@ -1,0 +1,24 @@
+alluxio.underfs.s3.default.mode=hadoop
+# Description: Mode (in octal notation) for S3 objects if mode cannot be discovered.
+
+alluxio.master.journal.folder=/valid/file2
+# Description: The path to store master journal logs. When using the UFS journal this could be a URI like hdfs://namenode:port/alluxio/journal. When using the embedded journal this must be a local path
+
+alluxio.user.network.zerocopy.enabled=
+# Description: Whether zero copy is enabled on client when processing data streams.
+
+alluxio.worker.network.block.writer.threads.max=1024
+# Description: The maximum number of threads used to write blocks in the data server.
+
+alluxio.master.daily.backup.time=05:00
+# Description: Default UTC time for writing daily master metadata backups. The accepted time format is hour:minute which is based on a 24-hour clock (E.g., 05:30, 06:00, and 22:04). Backing up metadata requires a pause in master metadata changes, so please set this value to an off-peak time to avoid interfering with other users of the system.
+
+alluxio.worker.file.buffer.size=1MB
+# Description: The buffer size for worker to write data into the tiered storage.
+
+alluxio.master.ufs.active.sync.max.activities=20
+# Description: Max number of changes in a directory to be considered for active syncing
+
+alluxio.master.mount.table.root.option=
+# Description: Configuration for the UFS of Alluxio root mount point.
+

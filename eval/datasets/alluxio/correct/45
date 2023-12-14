@@ -1,0 +1,24 @@
+alluxio.underfs.allow.set.owner.failure=true
+# Description: Whether to allow setting owner in UFS to fail. When set to true, it is possible file or directory owners diverge between Alluxio and UFS.
+
+alluxio.user.streaming.writer.buffer.size.messages=8
+# Description: When a client writes to a remote worker, the maximum number of messages to buffer by the client. A message can be either a command response, a data chunk, or a gRPC stream event such as complete or error.
+
+alluxio.master.metastore.inode.inherit.owner.and.group=true
+# Description: Whether to inherit the owner/group from the parent when creating a new inode path if empty
+
+alluxio.master.persistence.max.total.wait.time=2day
+# Description: Total wait time for master persistence checker persistence status for files written using ASYNC_THROUGH
+
+alluxio.network.connection.auth.timeout=30sec
+# Description: Maximum time to wait for a connection (gRPC channel) to attempt to receive an authentication response.
+
+alluxio.worker.rpc.port=3000
+# Description: The port for Alluxio worker's RPC service.
+
+alluxio.master.ufs.active.sync.poll.timeout=1sec
+# Description: Max time to wait before timing out a polling operation
+
+alluxio.user.file.replication.max=-2
+# Description: The target max replication level of a file in Alluxio space. Setting this property to a negative value means no upper limit.
+

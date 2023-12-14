@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.dispatcher.drain-events.timeout</name>
+  <value>300000</value>
+    <description>Timeout in milliseconds when YARN dispatcher tries to drain the
+      events. Typically, this happens when service is stopping. e.g. RM drains
+      the ATS events dispatcher when stopping.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.connect.retry-interval.ms</name>
+  <value>15000</value>
+    <description>How often to try connecting to the
+    ResourceManager.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.leveldb-state-store.path</name>
+  <value>${hadoop.tmp.dir}/yarn/system/rmstore</value>
+    <description>Local path where the RM state will be stored when using
+    org.apache.hadoop.yarn.server.resourcemanager.recovery.LeveldbRMStateStore
+    as the value for yarn.resourcemanager.store.class</description>
+</property>
+
+<property>
+  <name>yarn.system-metrics-publisher.enabled</name>
+  <value>false</value>
+    <description>The setting that controls whether yarn system metrics is
+    published on the Timeline service or not by RM And NM.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.leveldb-state-store.path</name>
+  <value>/\hadoop/s3a</value>
+    <description>Store file name for leveldb state store.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.entity-group-fs-store.app-cache-size</name>
+  <value>20</value>
+    <description>
+      Size of the reader cache for ATS v1.5 reader. This value controls how many
+      entity groups the ATS v1.5 server should cache. If the number of active
+      read entity groups is greater than the number of caches items, some reads
+      may return empty data. This value must be greater than 0.
+    </description>
+</property>
+
+<property>
+  <name>yarn.scheduler.configuration.store.max-logs</name>
+  <value>1000</value>
+    <description>
+      The max number of configuration change log entries kept in config
+      store, when yarn.scheduler.configuration.store.class is configured to be
+      "leveldb" or "zk". Default is 1000 for either.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.activities-manager.cleanup-interval-ms</name>
+  <value>10000</value>
+    <description>The cleanup interval for activities in milliseconds.</description>
+</property>
+
+</configuration>

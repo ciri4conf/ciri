@@ -1,0 +1,24 @@
+alluxio.master.tieredstore.global.mediumtype=MEM,SSD,HDD
+# Description: The list of medium types we support in the system.
+
+alluxio.user.file.replication.durable=2
+# Description: The target replication level of a file created by ASYNC_THROUGH writesbefore this file is persisted.
+
+alluxio.zookeeper.job.leader.path=/valid/file2
+# Description: N/A
+
+alluxio.job.master.client.threads=1024
+# Description: The number of threads the Alluxio master uses to make requests to the job master.
+
+alluxio.worker.tieredstore.level1.alias=
+# Description: The alias of the second storage tier on this worker.
+
+alluxio.worker.data.folder.permissions=rwxrwxrwx
+# Description: The permission set for the worker data folder. If short circuit is used this folder should be accessible by all users (rwxrwxrwx).
+
+alluxio.master.network.max.inbound.message.size=1MB
+# Description: The maximum size of a message that can be sent to the Alluxio master
+
+alluxio.master.ufs.active.sync.poll.batch.size=512
+# Description: The number of event batches that should be submitted together to a single thread for processing.
+

@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.http.policy</name>
+  <value>HTTP_ONLY</value>
+  <description>Decide if HTTPS(SSL) is supported on HDFS
+    This configures the HTTP endpoint for HDFS daemons:
+      The following values are supported:
+      - HTTP_ONLY : Service is provided only on http
+      - HTTPS_ONLY : Service is provided only on https
+      - HTTP_AND_HTTPS : Service is provided both on http and https
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.safemode.replication.min</name>
+  <value></value>
+  <description>
+      a separate minimum replication factor for calculating safe block count.
+      This is an expert level setting.
+      Setting this lower than the dfs.namenode.replication.min
+      is not recommend and/or dangerous for production setups.
+      When it's not set it takes value from dfs.namenode.replication.min
+  </description>
+</property>
+
+<property>
+  <name>nfs.keytab.file</name>
+  <value>/valid/file2</value>
+  <description>
+    *Note*: Advanced property. Change with caution.
+    This is the path to the keytab file for the hdfs-nfs gateway.
+    This is required when the cluster is kerberized.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.read.shortcircuit.streams.cache.size</name>
+  <value>512</value>
+  <description>
+    The DFSClient maintains a cache of recently opened file descriptors.
+    This parameter controls the maximum number of file descriptors in the cache.
+    Setting this higher will use more file descriptors,
+    but potentially provide better performance on workloads
+    involving lots of seeks.
+  </description>
+</property>
+
+<property>
+  <name>dfs.datanode.ram.disk.replica.tracker</name>
+  <value></value>
+  <description>
+    Name of the class implementing the RamDiskReplicaTracker interface.
+    Defaults to
+    org.apache.hadoop.hdfs.server.datanode.fsdataset.impl.RamDiskReplicaLruTracker.
+  </description>
+</property>
+
+<property>
+  <name>dfs.webhdfs.oauth2.client.id</name>
+  <value></value>
+  <description>
+    Client id used to obtain access token with either credential or
+    refresh token.
+  </description>
+</property>
+
+<property>
+  <name>ssl.server.keystore.password</name>
+  <value></value>
+  <description>
+    Keystore password for HTTPS SSL configuration
+  </description>
+</property>
+
+<property>
+  <name>dfs.provided.aliasmap.inmemory.dnrpc-address</name>
+  <value>127.0.0.1</value>
+    <description>
+      The address where the aliasmap server will be running. In the case of
+      HA/Federation where multiple namenodes exist, and if the Namenode is
+      configured to run the aliasmap server
+      (dfs.provided.aliasmap.inmemory.enabled is set to true),
+      the name service id is added to the name, e.g.,
+      dfs.provided.aliasmap.inmemory.rpc.address.EXAMPLENAMESERVICE.
+      The value of this property will take the form of host:rpc-port.
+    </description>
+</property>
+
+</configuration>

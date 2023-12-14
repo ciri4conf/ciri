@@ -1,0 +1,16 @@
+autopurge.purgeInterval=9.9
+
+secureClientPortAddress=0.0.0.0:3001
+
+maxClientCnxns=120
+
+secureClientPort=3001
+
+quorum.cnxn.threads.size=10
+
+quorum.auth.server.saslLoginContext=QuorumServer
+
+sslQuorumReloadCertFiles=true
+
+reconfigEnabled=false
+

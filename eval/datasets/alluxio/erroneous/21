@@ -1,0 +1,24 @@
+alluxio.job.worker.web.port=file://
+# Description: The port the Alluxio job worker web server uses.
+
+alluxio.zookeeper.address=127.0.0.1
+# Description: Address of ZooKeeper.
+
+alluxio.master.file.access.time.update.precision=2d
+# Description: The file last access time is precise up to this value. Setting it toa non-positive value will update last access time on every file access operation.Longer precision will help reduce the performance impact of tracking access time by reduce the amount of metadata writes occur while reading the same group of files repetitively.
+
+alluxio.master.filesystem.liststatus.result.message.length=5000
+# Description: Count of items on each list-status response message.
+
+alluxio.web.cors.enabled=true
+# Description: Set to true to enable Cross-Origin Resource Sharing for RESTful APIendpoints.
+
+alluxio.worker.network.netty.watermark.low=8KB
+# Description: Once the high watermark limit is reached, the queue must be flushed down to the low watermark before switching back to writable.
+
+alluxio.user.client.cache.timeout.threads=16
+# Description: The number of threads to handle cache I/O operation timeout, when alluxio.user.client.cache.timeout.duration is positive.
+
+alluxio.master.ufs.active.sync.max.activities=10
+# Description: Max number of changes in a directory to be considered for active syncing
+

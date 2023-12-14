@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.stream-buffer-size</name>
+  <value>2048</value>
+  <description>The size of buffer to stream files.
+  The size of this buffer should probably be a multiple of hardware
+  page size (4096 on Intel x86), and it determines how much data is
+  buffered during read and write operations.</description>
+</property>
+
+<property>
+  <name>dfs.image.transfer-bootstrap-standby.bandwidthPerSec</name>
+  <value>1</value>
+    <description>
+      Maximum bandwidth used for transferring image to bootstrap standby
+      namenode, in bytes per second.
+      A default value of 0 indicates that throttling is disabled. This default
+      value should be used in most cases, to ensure timely HA operations.
+      The maximum bandwidth used for regular image transfers is configured
+      with dfs.image.transfer.bandwidthPerSec.
+      Support multiple size unit suffix(case insensitive), as described in
+      dfs.blocksize.
+    </description>
+</property>
+
+<property>
+  <name>nfs.mountd.port</name>
+  <value>-100.22</value>
+  <description>
+      Specify the port number used by Hadoop mount daemon.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.top.windows.minutes</name>
+  <value>[2, 10, 50]</value>
+  <description>comma separated list of nntop reporting periods in minutes
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.socketcache.expiryMsec</name>
+  <value>1500</value>
+  <description>
+    Socket cache expiration for short-circuit reads in msec.
+  </description>
+</property>
+
+<property>
+  <name>dfs.datanode.replica.cache.expiry.time</name>
+  <value>10m</value>
+  <description>
+    Living time of replica cached files in milliseconds.
+  </description>
+</property>
+
+<property>
+  <name>dfs.journalnode.keytab.file</name>
+  <value>/valid/file1</value>
+  <description>
+    Kerberos keytab file for the journal node.
+  </description>
+</property>
+
+<property>
+  <name>dfs.provided.aliasmap.inmemory.rpc.bind-host</name>
+  <value></value>
+    <description>
+      The actual address the in-memory aliasmap server will bind to.
+      If this optional address is set, it overrides the hostname portion of
+      dfs.provided.aliasmap.inmemory.rpc.address.
+      This is useful for making the name node listen on all interfaces by
+      setting it to 0.0.0.0.
+    </description>
+</property>
+
+</configuration>

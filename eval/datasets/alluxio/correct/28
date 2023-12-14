@@ -1,0 +1,24 @@
+alluxio.job.master.hostname=${alluxio.master.hostname}
+# Description: The hostname of the Alluxio job master.
+
+alluxio.master.ufs.active.sync.event.rate.interval=1sec
+# Description: The time interval we use to estimate incoming event rate
+
+alluxio.job.master.embedded.journal.port=3001
+# Description: The port job masters use for embedded journal communications.
+
+alluxio.underfs.gcs.owner.id.to.username.mapping=
+# Description: Optionally, specify a preset gcs owner id to Alluxio username static mapping in the format "id1=user1;id2=user2". The Google Cloud Storage IDs can be found at the console address https://console.cloud.google.com/storage/settings . Please use the "Owners" one. This property key is only valid when alluxio.underfs.gcs.version=1
+
+fs.cos.connection.timeout=100sec
+# Description: The timeout of connecting to COS.
+
+alluxio.worker.network.netty.worker.threads=8
+# Description: Number of threads to use for processing requests in worker
+
+alluxio.master.metadata.sync.ufs.prefetch.pool.size=10
+# Description: The number of threads used to fetch UFS objects for all metadata syncoperations
+
+alluxio.jvm.monitor.warn.threshold=10sec
+# Description: When the JVM pauses for anything longer than this, log a WARN message.
+

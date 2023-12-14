@@ -1,0 +1,16 @@
+reconfigEnabled=10000
+
+clientPort=3000
+
+maxSessionTimeout=0
+
+syncLimit=1
+
+dataLogDir=/valid/dir2
+
+sslQuorum=false
+
+localSessionsUpgradingEnabled=false
+
+quorum.cnxn.threads.size=1
+

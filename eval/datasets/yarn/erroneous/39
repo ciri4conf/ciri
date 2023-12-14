@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.admin.acl</name>
+  <value>*</value>
+    <description>ACL of who can be admin of the YARN cluster.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.container.liveness-monitor.interval-ms</name>
+  <value>1200000</value>
+    <description>How often to check that containers are still alive. </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.zk-num-retries</name>
+  <value>1000</value>
+    <description>Number of times RM tries to connect to ZooKeeper.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.system-metrics-publisher.dispatcher.pool-size</name>
+  <value>1</value>
+    <description>Number of worker threads that send the yarn system metrics
+    data.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.container-metrics.enable</name>
+  <value>true</value>
+    <description>
+    Flag to enable container metrics
+    </description>
+</property>
+
+<property>
+  <name>yarn.sharedcache.nested-level</name>
+  <value>1</value>
+    <description>The level of nested directories before getting to the checksum
+    directories. It must be non-negative.</description>
+</property>
+
+<property>
+  <name>yarn.sharedcache.webapp.address</name>
+  <value>0.0.0.0:3000</value>
+    <description>The address of the web application in the SCM (shared cache manager)</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.node-labels.provider.fetch-interval-ms</name>
+  <value>300000</value>
+    <description>
+    When "yarn.nodemanager.node-labels.provider" is configured with "config",
+    "Script" or the configured class extends AbstractNodeLabelsProvider, then
+    periodically node labels are retrieved from the node labels provider. This
+    configuration is to define the interval period.
+    If -1 is configured then node labels are retrieved from provider only
+    during initialization. Defaults to 10 mins.
+    </description>
+</property>
+
+</configuration>

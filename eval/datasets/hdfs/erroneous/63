@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.blockreport.initialDelay</name>
+  <value>0s</value>
+  <description>
+    Delay for first block report in seconds. Support multiple time unit
+    suffix(case insensitive), as described in dfs.heartbeat.interval.If
+    no time unit is specified then seconds is assumed
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.file-block-storage-locations.num-threads</name>
+  <value>10</value>
+  <description>
+    Number of threads used for making parallel RPCs in DistributedFileSystem#getFileBlockStorageLocations().
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.top.windows.minutes</name>
+  <value>1,5,25</value>
+  <description>comma separated list of nntop reporting periods in minutes
+  </description>
+</property>
+
+<property>
+  <name>dfs.http.client.retry.policy.enabled</name>
+  <value>true</value>
+  <description>
+    If "true", enable the retry policy of WebHDFS client.
+    If "false", retry policy is turned off.
+    Enabling the retry policy can be quite useful while using WebHDFS to
+    copy large files between clusters that could timeout, or
+    copy files between HA clusters that could failover during the copy.
+  </description>
+</property>
+
+<property>
+  <name>dfs.datanode.network.counts.cache.max.size</name>
+  <value>2147483647</value>
+  <description>
+    The maximum number of entries the datanode per-host network error
+    count cache may contain.
+  </description>
+</property>
+
+<property>
+  <name>dfs.storage.policy.satisfier.keytab.file</name>
+  <value></value>
+  <description>
+    The keytab file used by external StoragePolicySatisfier to login as its
+    service principal. The principal name is configured with
+    dfs.storage.policy.satisfier.kerberos.principal. Keytab based login
+    is required when dfs.storage.policy.satisfier.mode is external.
+  </description>
+</property>
+
+<property>
+  <name>dfs.qjournal.queued-edits.limit.mb</name>
+  <value>1</value>
+  <description>
+    Queue size in MB for quorum journal edits.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.gc.time.monitor.observation.window.ms</name>
+  <value>2m</value>
+    <description>
+      Determines the windows size of GcTimeMonitor. A window is a period of time
+      starts at now-windowSize and ends at now. The GcTimePercentage is the gc
+      time proportion of the window.
+    </description>
+</property>
+
+</configuration>

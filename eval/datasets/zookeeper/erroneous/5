@@ -1,0 +1,16 @@
+dataLogDir=//hadoop/io/local
+
+peerType=participant
+
+quorum.auth.serverRequireSasl=true
+
+dataDir=
+
+localSessionsUpgradingEnabled=true
+
+autopurge.snapRetainCount=6
+
+localSessionsEnabled=true
+
+autopurge.purgeInterval=1
+

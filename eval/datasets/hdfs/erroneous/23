@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.datanode.drop.cache.behind.writes</name>
+  <value>true</value>
+  <description>
+        In some workloads, the data written to HDFS is known to be significantly
+        large enough that it is unlikely to be useful to cache it in the
+        operating system buffer cache. In this case, the DataNode may be
+        configured to automatically purge all data from the buffer cache
+        after it is written to disk.
+
+        This may improve performance for some workloads by freeing buffer
+        cache space usage for more cacheable data.
+
+        If the Hadoop native libraries are not available, this configuration
+        has no effect.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.deadnode.detection.probe.suspectnode.interval.ms</name>
+  <value>300</value>
+    <description>
+      Interval time in milliseconds for probing suspect node behavior.
+    </description>
+</property>
+
+<property>
+  <name>datanode.https.port</name>
+  <value>ciri</value>
+  <description>
+    HTTPS port for DataNode.
+  </description>
+</property>
+
+<property>
+  <name>dfs.mover.movedWinWidth</name>
+  <value>5400000</value>
+  <description>
+    The minimum time interval, in milliseconds, that a block can be
+    moved to another location again.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.audit.log.token.tracking.id</name>
+  <value>false</value>
+  <description>
+    If true, adds a tracking ID for all audit log events.
+  </description>
+</property>
+
+<property>
+  <name>dfs.storage.policy.satisfier.self.retry.timeout.millis</name>
+  <value>150000</value>
+  <description>
+    If any of file related block movements not at all reported by datanode,
+    then after this timeout(in milliseconds), the item will be added back to movement needed list
+    at namenode which will be retried for block movements.
+    The default value is 5 * 60 * 1000 (5 mins)
+  </description>
+</property>
+
+<property>
+  <name>dfs.storage.policy.satisfier.kerberos.principal</name>
+  <value></value>
+  <description>
+    The StoragePolicySatisfier principal. This is typically set to
+    satisfier/_HOST@REALM.TLD. The StoragePolicySatisfier will substitute
+    _HOST with its own fully qualified hostname at startup. The _HOST placeholder
+    allows using the same configuration setting on different servers. Keytab
+    based login is required when dfs.storage.policy.satisfier.mode is external.
+  </description>
+</property>
+
+<property>
+  <name>dfs.webhdfs.oauth2.enabled</name>
+  <value>true</value>
+  <description>
+    If true, enables OAuth2 in WebHDFS
+  </description>
+</property>
+
+</configuration>

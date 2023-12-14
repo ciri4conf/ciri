@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.hostname</name>
+  <value>127.0.0.1</value>
+    <description>The hostname of the RM.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.collector-service.thread-count</name>
+  <value>1</value>
+    <description>Number of threads collector service uses.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.type</name>
+  <value></value>
+    <description>Default container runtime to use.</description>
+</property>
+
+<property>
+  <name>yarn.client.nodemanager-connect.retry-interval-ms</name>
+  <value>10000</value>
+    <description>Time interval between each attempt to connect to NM</description>
+</property>
+
+<property>
+  <name>yarn.web-proxy.bind-host</name>
+  <value></value>
+    <description>The actual address the web proxy will bind to. If this optional
+     address is set, it overrides only the hostname portion of yarn.web-proxy.address.
+     This is useful for making the web proxy server listen on all interfaces by setting
+     it to 0.0.0.0 </description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.hostname</name>
+  <value>256.256.256.256</value>
+    <description>The hostname of the timeline service web application.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.app-aggregation-interval-secs</name>
+  <value>15</value>
+    <description>
+      The setting that controls how often in-memory app level
+      aggregation is kicked off in timeline collector.
+    </description>
+</property>
+
+<property>
+  <name>yarn.sharedcache.store.in-memory.staleness-period-mins</name>
+  <value>20160</value>
+    <description>A resource in the in-memory store is considered stale
+    if the time since the last reference exceeds the staleness period.
+    This value is specified in minutes.</description>
+</property>
+
+</configuration>

@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.namenode.rpc-bind-host</name>
+  <value></value>
+  <description>
+    The actual address the RPC server will bind to. If this optional address is
+    set, it overrides only the hostname portion of dfs.namenode.rpc-address.
+    It can also be specified per name node or name service for HA/Federation.
+    This is useful for making the name node listen on all interfaces by
+    setting it to 0.0.0.0.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.lifeline.handler.ratio</name>
+  <value>0.05</value>
+  <description>
+    A ratio applied to the value of dfs.namenode.handler.count, which then
+    provides the number of RPC server threads the NameNode runs for handling the
+    lifeline RPC server.  For example, if dfs.namenode.handler.count is 100, and
+    dfs.namenode.lifeline.handler.factor is 0.10, then the NameNode starts
+    100 * 0.10 = 10 threads for handling the lifeline RPC server.  It is common
+    to tune the value of dfs.namenode.handler.count as a function of the number
+    of DataNodes in a cluster.  Using this property allows for the lifeline RPC
+    server handler threads to be tuned automatically without needing to touch a
+    separate property.  Lifeline message processing is lightweight, so it is
+    expected to require many fewer threads than the main NameNode RPC server.
+    This property is not used if dfs.namenode.lifeline.handler.count is defined,
+    which sets an absolute thread count.  This property has no effect if
+    dfs.namenode.lifeline.rpc-address is not defined.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.delegation.token.max-lifetime</name>
+  <value>604800000</value>
+  <description>The maximum lifetime in milliseconds for which a delegation 
+      token is valid.
+  </description>
+</property>
+
+<property>
+  <name>nfs.dump.dir</name>
+  <value>/tmp/.hdfs-nfs</value>
+  <description>
+    This directory is used to temporarily save out-of-order writes before
+    writing to HDFS. For each file, the out-of-order writes are dumped after
+    they are accumulated to exceed certain threshold (e.g., 1MB) in memory. 
+    One needs to make sure the directory has enough space.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.enable.retrycache</name>
+  <value>false</value>
+  <description>
+    This enables the retry cache on the namenode. Namenode tracks for
+    non-idempotent requests the corresponding response. If a client retries the
+    request, the response from the retry cache is sent. Such operations
+    are tagged with annotation @AtMostOnce in namenode protocols. It is
+    recommended that this flag be set to true. Setting it to false, will result
+    in clients getting failure responses to retried request. This flag must 
+    be enabled in HA setup for transparent fail-overs.
+
+    The entries in the cache have expiration time configurable
+    using dfs.namenode.retrycache.expirytime.millis.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.mmap.retry.timeout.ms</name>
+  <value>150000</value>
+  <description>
+    The minimum amount of time that we will wait before retrying a failed mmap
+    operation.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.storageinfo.defragment.timeout.ms</name>
+  <value>4</value>
+  <description>
+    Timeout value in ms for the StorageInfo compaction run.
+  </description>
+</property>
+
+<property>
+  <name>dfs.web.authentication.simple.anonymous.allowed</name>
+  <value></value>
+  <description>
+    If true, allow anonymous user to access WebHDFS. Set to
+    false to disable anonymous authentication.
+  </description>
+</property>
+
+</configuration>

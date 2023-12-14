@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.ipc.client.factory.class</name>
+  <value></value>
+    <description>Factory to create client IPC classes.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.nodemanagers.heartbeat-interval-ms</name>
+  <value>500</value>
+    <description>The heart-beat interval in milliseconds for every NodeManager in the cluster.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.delegation.token.renew-interval</name>
+  <value>86400000</value>
+    <description>
+    RM delegation token update interval in ms
+    </description>
+</property>
+
+<property>
+  <name>yarn.log-aggregation.file-controller.TFile.class</name>
+  <value>org.apache.hadoop.yarn.logaggregation.filecontroller.tfile.LogAggregationTFileController</value>
+    <description>Class that supports TFile read and write operations.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.vmem-pmem-ratio</name>
+  <value>1.05</value>
+    <description>Ratio between virtual memory to physical memory when
+    setting memory limits for containers. Container allocations are
+    expressed in terms of physical memory, and virtual memory usage
+    is allowed to exceed this allocation by this ratio.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.webapp.spnego-principal</name>
+  <value></value>
+    <description>
+    The Kerberos principal to be used for spnego filter for the NM web
+    interface.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.docker.enable-userremapping.allowed</name>
+  <value>true</value>
+    <description>Property to enable docker user remapping</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.enabled</name>
+  <value>false</value>
+    <description>
+    In the server side it indicates whether timeline service is enabled or not.
+    And in the client side, users can enable it to indicate whether client wants
+    to use timeline service. If its enabled in the client side along with
+    security, then yarn client tries to fetch the delegation tokens for the
+    timeline server.
+    </description>
+</property>
+
+</configuration>

@@ -1,0 +1,24 @@
+alluxio.user.file.persistence.initial.wait.time=2day
+# Description: Time to wait before starting the persistence job. When the value is set to -1, the file will be persisted by rename operation or persist CLI but will not be automatically persisted in other cases. This is to avoid the heavy object copy in rename operation when alluxio.user.file.writetype.default is set to ASYNC_THROUGH. This value should be smaller than the value of alluxio.master.persistence.max.total.wait.time
+
+alluxio.master.persistence.max.total.wait.time=1day
+# Description: Total wait time for master persistence checker persistence status for files written using ASYNC_THROUGH
+
+alluxio.master.lock.pool.concurrency.level=100
+# Description: Maximum concurrency level for the lock pool
+
+alluxio.master.audit.logging.enabled=false
+# Description: Set to true to enable file system master audit.
+
+alluxio.zookeeper.auth.enabled=false
+# Description: If true, enable client-side Zookeeper authentication.
+
+alluxio.worker.hostname=
+# Description: The hostname of Alluxio worker.
+
+alluxio.master.ufs.active.sync.poll.timeout=20sec
+# Description: Max time to wait before timing out a polling operation
+
+alluxio.table.transform.manager.job.history.retention.time=1sec
+# Description: The length of time the Alluxio Table Master should keep information about finished transformation jobs before they are discarded.
+

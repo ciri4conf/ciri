@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.dispatcher.print-events-info.threshold</name>
+  <value>10000</value>
+    <description>
+      The threshold used to trigger the logging of event types
+      and counts in RM's main event dispatcher. Default length is 5000,
+      which means RM will print events info when the queue size cumulatively
+      reaches 5000 every time. Such info can be used to reveal what kind of events
+      that RM is stuck at processing mostly, it can help to
+      narrow down certain performance issues.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.connect.max-wait.ms</name>
+  <value>450000</value>
+    <description>Maximum time to wait to establish connection to
+    ResourceManager.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.logaggregation.threadpool-size-max</name>
+  <value>100</value>
+    <description>
+    Thread pool size for LogAggregationService in Node Manager.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.disk-health-checker.interval-ms</name>
+  <value>60000</value>
+    <description>Frequency of running disk health checker code.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.linux-container-executor.cgroups.mount</name>
+  <value>false</value>
+    <description>Whether the LCE should attempt to mount cgroups if not found.
+    This property only applies when the LCE resources handler is set to
+    CgroupsLCEResourcesHandler.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.linux-container-executor.cgroups.strict-resource-usage</name>
+  <value>true</value>
+    <description>This flag determines whether apps should run with strict resource limits
+    or be allowed to consume spare resources if they need them. For example, turning the
+    flag on will restrict apps to use only their share of CPU, even if the node has spare
+    CPU cycles. The default value is false i.e. use available resources. Please note that
+    turning this flag on may reduce job throughput on the cluster. This setting does
+    not apply to other subsystems like memory.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.webapp.rest-csrf.custom-header</name>
+  <value>X-XSRF-Header</value>
+    <description>
+      Optional parameter that indicates the custom header name to use for CSRF
+      protection.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.numa-awareness.node-ids</name>
+  <value></value>
+    <description>
+    NUMA node id's in the form of comma separated list. Memory and No of CPUs
+    will be read using the properties
+    'yarn.nodemanager.numa-awareness.&lt;NODE_ID&gt;.memory' and
+    'yarn.nodemanager.numa-awareness.&lt;NODE_ID&gt;.cpus' for each id specified
+    in this value. This property value will be read only when
+    'yarn.nodemanager.numa-awareness.read-topology=false'.
+
+    For example, if yarn.nodemanager.numa-awareness.node-ids=0,1
+    then need to specify memory and cpus for node id's '0' and '1' like below,
+    yarn.nodemanager.numa-awareness.0.memory=73717
+    yarn.nodemanager.numa-awareness.0.cpus=4
+    yarn.nodemanager.numa-awareness.1.memory=73727
+    yarn.nodemanager.numa-awareness.1.cpus=4
+    </description>
+</property>
+
+</configuration>

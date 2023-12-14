@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>fs.AbstractFileSystem.viewfs.impl</name>
+  <value>org.apache.hadoop.fs.viewfs.ViewFs</value>
+  <description>The AbstractFileSystem for view file system for viewfs: uris
+  (ie client side mount table:).</description>
+</property>
+
+<property>
+  <name>fs.viewfs.rename.strategy</name>
+  <value>NONE_MOUNTPOINT</value>
+  <description>Allowed rename strategy to rename between multiple mountpoints.
+    Allowed values are SAME_MOUNTPOINT,SAME_TARGET_URI_ACROSS_MOUNTPOINT and
+    SAME_FILESYSTEM_ACROSS_MOUNTPOINT.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.endpoint</name>
+  <value></value>
+  <description>AWS S3 endpoint to connect to. An up-to-date list is
+    provided in the AWS Documentation: regions and endpoints. Without this
+    property, the standard region (s3.amazonaws.com) is assumed.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.proxy.port</name>
+  <value>3001</value>
+  <description>Proxy server port. If this property is not set
+    but fs.s3a.proxy.host is, port 80 or 443 is assumed (consistent with
+    the value of fs.s3a.connection.ssl.enabled).</description>
+</property>
+
+<property>
+  <name>fs.azure.local.sas.key.mode</name>
+  <value>true</value>
+  <description>
+    Works in conjuction with fs.azure.secure.mode. Setting this config to true
+    results in fs.azure.NativeAzureFileSystem using the local SAS key generation
+    where the SAS keys are generating in the same process as fs.azure.NativeAzureFileSystem.
+    If fs.azure.secure.mode flag is set to false, this flag has no effect.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.util.hash.type</name>
+  <value>murmur</value>
+  <description>The default implementation of Hash. Currently this can take one of the
+  two values: 'murmur' to select MurmurHash and 'jenkins' to select JenkinsHash.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.http.authentication.kerberos.endpoint.whitelist</name>
+  <value></value>
+    <description>
+      The comma-separated list of the endpoints that skips Kerberos
+      authentication. The endpoint must start with '/' and must not
+      contain special characters afterwards. This parameter is for
+      the monitoring tools that do not support Kerberos authentication.
+      Administrator must configure this parameter very carefully
+      because it allows unauthenticated access to the daemons.
+    </description>
+</property>
+
+<property>
+  <name>hadoop.registry.jaas.context</name>
+  <value>Client</value>
+    <description>
+      Key to define the JAAS context. Used in secure
+      mode
+    </description>
+</property>
+
+</configuration>

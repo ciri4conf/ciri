@@ -1,0 +1,24 @@
+alluxio.master.web.bind.host=127.0.0.1
+# Description: The hostname Alluxio master web UI binds to.
+
+alluxio.table.journal.partitions.chunk.size=500
+# Description: The maximum table partitions number in a single journal entry.
+
+alluxio.underfs.s3.intermediate.upload.clean.age=3day
+# Description: Streaming uploads may not have been completed/aborted correctly and need periodical ufs cleanup. If ufs cleanup is enabled, intermediate multipart uploads in all non-readonly S3 mount points older than this age will be cleaned. This may impact other ongoing upload operations, so a large clean age is encouraged.
+
+fs.azure.account.oauth2.client.endpoint=
+# Description: The oauth endpoint for ABFS.
+
+alluxio.master.backup.abandon.timeout=1min
+# Description: Duration after which leader will abandon the backup if it has not received heartbeat from backup-worker.
+
+alluxio.worker.network.keepalive.timeout=30sec
+# Description: The maximum time for a data server (for block reads and block writes) to wait for a keepalive response before closing the connection.
+
+alluxio.master.journal.tailer.sleep.time=1sec
+# Description: Time for the standby master to sleep for when it cannot find anything new in leader master's journal.
+
+alluxio.user.network.streaming.max.inbound.message.size=200MB
+# Description: The max inbound message size used by user streaming connections.
+

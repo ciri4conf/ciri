@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.image.transfer-bootstrap-standby.bandwidthPerSec</name>
+  <value>1</value>
+    <description>
+      Maximum bandwidth used for transferring image to bootstrap standby
+      namenode, in bytes per second.
+      A default value of 0 indicates that throttling is disabled. This default
+      value should be used in most cases, to ensure timely HA operations.
+      The maximum bandwidth used for regular image transfers is configured
+      with dfs.image.transfer.bandwidthPerSec.
+      Support multiple size unit suffix(case insensitive), as described in
+      dfs.blocksize.
+    </description>
+</property>
+
+<property>
+  <name>dfs.namenode.avoid.read.stale.datanode</name>
+  <value>true</value>
+  <description>
+    Indicate whether or not to avoid reading from &quot;stale&quot; datanodes whose
+    heartbeat messages have not been received by the namenode 
+    for more than a specified time interval. Stale datanodes will be
+    moved to the end of the node list returned for reading. See
+    dfs.namenode.avoid.write.stale.datanode for a similar setting for writes.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.invalidate.work.pct.per.iteration</name>
+  <value>0.32f</value>
+  <description>
+    *Note*: Advanced property. Change with caution.
+    This determines the percentage amount of block
+    invalidations (deletes) to do over a single DN heartbeat
+    deletion command. The final deletion count is determined by applying this
+    percentage to the number of live nodes in the system.
+    The resultant number is the number of blocks from the deletion list
+    chosen for proper invalidation over a single heartbeat of a single DN.
+    Value should be a positive, non-zero percentage in float notation (X.Yf),
+    with 1.0f meaning 100%.
+  </description>
+</property>
+
+<property>
+  <name>nfs.server.port</name>
+  <value>3000</value>
+  <description>
+      Specify the port number used by Hadoop NFS.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.cache.drop.behind.reads</name>
+  <value></value>
+  <description>
+    Just like dfs.datanode.drop.cache.behind.reads, this setting causes the
+    page cache to be dropped behind HDFS reads, potentially freeing up more
+    memory for other uses.  Unlike dfs.datanode.drop.cache.behind.reads, this
+    is a client-side setting rather than a setting for the entire datanode.  If
+    present, this setting will override the DataNode default.
+
+    If the native libraries are not available to the DataNode, this
+    configuration has no effect.
+  </description>
+</property>
+
+<property>
+  <name>dfs.mover.movedWinWidth</name>
+  <value>5400000</value>
+  <description>
+    The minimum time interval, in milliseconds, that a block can be
+    moved to another location again.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.inode.attributes.provider.bypass.users</name>
+  <value></value>
+  <description>
+    A list of user principals (in secure cluster) or user names (in insecure
+    cluster) for whom the external attributes provider will be bypassed for all
+    operations. This means file attributes stored in HDFS instead of the
+    external provider will be used for permission checking and be returned when
+    requested.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.reconstruction.pending.timeout-sec</name>
+  <value>150</value>
+  <description>
+    Timeout in seconds for block reconstruction.  If this value is 0 or less,
+    then it will default to 5 minutes.
+  </description>
+</property>
+
+</configuration>

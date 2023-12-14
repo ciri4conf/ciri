@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.principal</name>
+  <value></value>
+    <description>The Kerberos principal for the resource manager.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.scheduler.address</name>
+  <value>127.0.0.1</value>
+    <description>The address of the scheduler interface.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.scheduler.monitor.enable</name>
+  <value>false</value>
+    <description>Enable a set of periodic monitors (specified in
+        yarn.resourcemanager.scheduler.monitor.policies) that affect the
+        scheduler.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.default-container-executor.log-dirs.permissions</name>
+  <value>1420</value>
+    <description>
+      The permissions settings used for the creation of container
+      directories when using DefaultContainerExecutor.  This follows
+      standard user/group/all permissions format.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.docker.allowed-container-runtimes</name>
+  <value>runc</value>
+    <description>The set of runtimes allowed when launching containers using the
+      DockerContainerRuntime.</description>
+</property>
+
+<property>
+  <name>yarn.client.nodemanager-connect.max-wait-ms</name>
+  <value>180000</value>
+    <description>Max time to wait to establish a connection to NM</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.hostname</name>
+  <value>0.0.0.0</value>
+    <description>The hostname of the timeline service web application.</description>
+</property>
+
+<property>
+  <name>yarn.minicluster.control-resource-monitoring</name>
+  <value>true</value>
+    <description>
+    Set for MiniYARNCluster unit tests to control resource monitoring
+    </description>
+</property>
+
+</configuration>

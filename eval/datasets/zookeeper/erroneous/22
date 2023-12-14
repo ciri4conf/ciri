@@ -1,0 +1,16 @@
+quorumListenOnAllIPs=hadoop
+
+clientPort=3001
+
+reconfigEnabled=false
+
+tickTime=3000
+
+sslQuorum=true
+
+minSessionTimeout=-1
+
+dataLogDir=/valid/dir1
+
+maxClientCnxns=60
+

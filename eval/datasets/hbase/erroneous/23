@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>zookeeper.znode.parent</name>
+  <value>/hbase</value>
+    <description>Root ZNode for HBase in ZooKeeper. All of HBase's ZooKeeper
+      files that are configured with a relative path will go under this node.
+      By default, all of HBase's ZooKeeper file paths are configured with a
+      relative path, so they will all go under this directory unless changed.
+    </description>
+</property>
+
+<property>
+  <name>hbase.zookeeper.dns.interface</name>
+  <value>eth1</value>
+    <description>The name of the Network Interface from which a ZooKeeper server
+      should report its IP address.</description>
+</property>
+
+<property>
+  <name>hbase.client.retries.number</name>
+  <value>15</value>
+    <description>Maximum retries.  Used as maximum for all retryable
+    operations such as the getting of a cell's value, starting a row update,
+    etc.  Retry interval is a rough function based on hbase.client.pause.  At
+    first we retry at this interval but then with backoff, we pretty quickly reach
+    retrying every ten seconds.  See HConstants#RETRY_BACKOFF for how the backup
+    ramps up.  Change this setting and hbase.client.pause to suit your workload.</description>
+</property>
+
+<property>
+  <name>hbase.client.max.perregion.tasks</name>
+  <value>0</value>
+    <description>The maximum number of concurrent mutation tasks the client will
+    maintain to a single Region. That is, if there is already
+    hbase.client.max.perregion.tasks writes in progress for this region, new puts
+    won't be sent to this region until some writes finishes.</description>
+</property>
+
+<property>
+  <name>hbase.balancer.period</name>
+  <value>600000</value>
+    <description>Period at which the region balancer runs in the Master.</description>
+</property>
+
+<property>
+  <name>hbase.regionserver.majorcompaction.pagecache.drop</name>
+  <value>hadoop</value>
+    <description>Specifies whether to drop pages read/written into the system page cache by
+      major compactions. Setting it to true helps prevent major compactions from
+      polluting the page cache, which is almost always required, especially for clusters
+      with low/moderate memory to storage ratio.</description>
+</property>
+
+<property>
+  <name>hbase.defaults.for.version</name>
+  <value>@@@VERSION@@@</value>
+    <description>This defaults file was compiled for version ${project.version}. This variable is used
+    to make sure that a user doesn't have an old version of hbase-default.xml on the
+    classpath.</description>
+</property>
+
+<property>
+  <name>hbase.mob.compaction.threads.max</name>
+  <value>1</value>
+    <description>
+      The max number of threads used in MobCompactor.
+    </description>
+</property>
+
+</configuration>

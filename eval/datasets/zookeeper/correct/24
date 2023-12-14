@@ -1,0 +1,16 @@
+quorum.auth.enableSasl=false
+
+peerType=participant
+
+clientPort=3001
+
+standaloneEnabled=false
+
+localSessionsEnabled=false
+
+quorum.auth.serverRequireSasl=true
+
+sslQuorum=true
+
+autopurge.purgeInterval=1
+

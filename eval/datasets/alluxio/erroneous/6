@@ -1,0 +1,24 @@
+alluxio.job.master.finished.job.retention.time=60nounit
+# Description: The length of time the Alluxio Job Master should save information about completed jobs before they are discarded.
+
+alluxio.user.network.streaming.netty.channel=EPOLL
+# Description: Type of netty channels used by streaming connections. If EPOLL is not available, this will automatically fall back to NIO.
+
+alluxio.master.journal.ufs.option=
+# Description: The configuration to use for the journal operations.
+
+alluxio.worker.tieredstore.free.ahead.bytes=-1
+# Description: Amount to free ahead when worker storage is full. Higher values will help decrease CPU utilization under peak storage. Lower values will increase storage utilization.
+
+alluxio.worker.tieredstore.block.lock.readers=2000
+# Description: The max number of concurrent readers for a block lock.
+
+alluxio.master.embedded.journal.flush.size.max=320MB
+# Description: The maximum size in bytes of journal entries allowed in concurrent journal flushing (journal IO to standby masters and IO to local disks).
+
+alluxio.master.metastore.inode.cache.low.water.mark.ratio=0.4
+# Description: The low water mark for the inode cache, as a ratio from low water mark to total cache size. If this is 0.8 and the max size is 10 million, the low water mark value is 8 million. When the cache reaches the high water mark, the eviction process will evict down to the low water mark.
+
+alluxio.master.mount.table.root.readonly=false
+# Description: Whether Alluxio root mount point is readonly.
+

@@ -1,0 +1,24 @@
+alluxio.master.file.access.time.updater.shutdown.timeout=1sec
+# Description: Maximum time to wait for access updater to stop on shutdown.
+
+alluxio.proxy.web.port=39999
+# Description: The port Alluxio proxy's web UI runs on.
+
+alluxio.underfs.s3.list.objects.v1=true
+# Description: Whether to use version 1 of GET Bucket (List Objects) API.
+
+alluxio.job.worker.web.port=30003
+# Description: The port the Alluxio job worker web server uses.
+
+alluxio.user.block.read.retry.sleep.max=4sec
+# Description: N/A
+
+alluxio.underfs.oss.connection.max=2048
+# Description: The maximum number of OSS connections.
+
+alluxio.master.journal.checkpoint.period.entries=2000000
+# Description: The number of journal entries to write before creating a new journal checkpoint.
+
+alluxio.master.journal.gc.threshold=5min
+# Description: Minimum age for garbage collecting checkpoints.
+

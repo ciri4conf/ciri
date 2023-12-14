@@ -1,0 +1,16 @@
+secureClientPort=65536
+
+clientPortAddress=0.0.0.0:3001
+
+electionAlg=3
+
+dataDir=/valid/dir1
+
+quorum.auth.serverRequireSasl=false
+
+quorum.auth.enableSasl=false
+
+syncEnabled=true
+
+peerType=participant
+

@@ -1,0 +1,24 @@
+alluxio.worker.data.folder.permissions=rwxrwx---
+# Description: The permission set for the worker data folder. If short circuit is used this folder should be accessible by all users (rwxrwxrwx).
+
+alluxio.underfs.s3a.consistency.timeout=1min
+# Description: Control the timeout duration for consistency checks between Alluxio and an S3A-based under storage system.
+
+alluxio.underfs.s3.inherit.acl=false
+# Description: Set this property to false to disable inheriting bucket ACLs on objects. Note that the translation from bucket ACLs to Alluxio user permissions is best effort as some S3-like storage services doe not implement ACLs fully compatible with S3.
+
+alluxio.user.block.worker.client.pool.max=2048
+# Description: The maximum number of block worker clients cached in the block worker client pool.
+
+alluxio.user.network.netty.channel=NIO
+# Description: Type of netty channels. If EPOLL is not available, this will automatically fall back to NIO.
+
+alluxio.job.master.embedded.journal.addresses=127.0.0.1
+# Description: A comma-separated list of journal addresses for all job masters in the cluster. The format is 'hostname1:port1,hostname2:port2,...'. Defaults to the journal addresses set for the Alluxio masters (alluxio.master.embedded.journal.addresses), but with the job master embedded journal port.
+
+alluxio.network.connection.auth.timeout=30sec
+# Description: Maximum time to wait for a connection (gRPC channel) to attempt to receive an authentication response.
+
+alluxio.underfs.allow.set.owner.failure=true
+# Description: Whether to allow setting owner in UFS to fail. When set to true, it is possible file or directory owners diverge between Alluxio and UFS.
+

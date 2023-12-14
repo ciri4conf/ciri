@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.zk-state-store.root-node.acl</name>
+  <value></value>
+    <description>
+      ACLs to be used for the root znode when using ZKRMStateStore in an HA
+      scenario for fencing.
+
+      ZKRMStateStore supports implicit fencing to allow a single
+      ResourceManager write-access to the store. For fencing, the
+      ResourceManagers in the cluster share read-write-admin privileges on the
+      root node, but the Active ResourceManager claims exclusive create-delete
+      permissions.
+
+      By default, when this property is not set, we use the ACLs from
+      yarn.resourcemanager.zk-acl for shared admin access and
+      rm-address:random-number for username-based exclusive create-delete
+      access.
+
+      This property allows users to set ACLs of their choice instead of using
+      the default mechanism. For fencing to work, the ACLs should be
+      carefully set differently on each ResourceManager such that all the
+      ResourceManagers have shared admin access and the Active ResourceManager
+      takes over (exclusively) the create-delete access.
+    </description>
+</property>
+
+<property>
+  <name>yarn.client.failover-proxy-provider</name>
+  <value>org.apache.hadoop.yarn.client.ConfiguredRMFailoverProxyProvider</value>
+    <description>When HA is enabled, the class to be used by Clients, AMs and
+      NMs to failover to the Active RM. It should extend
+      org.apache.hadoop.yarn.client.RMFailoverProxyProvider</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.application-tag-based-placement.enable</name>
+  <value>false</value>
+    <description>
+      Whether to enable application placement based on user ID passed via
+      application tags. When it is enabled, userid=&lt;userId&gt;
+      pattern will be checked and if found, the application will be placed
+      onto the found user's queue,
+      if the original user has enough rights on the passed user's queue.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.health-checker.interval-ms</name>
+  <value>600000</value>
+    <description>Frequency of running node health scripts.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.disk-health-checker.min-free-space-per-disk-mb</name>
+  <value>-1</value>
+    <description>The minimum space in megabytes that must be available on a disk for
+    it to be used. If space on a disk falls below this threshold, it will be marked
+    as bad. This applies to yarn.nodemanager.local-dirs and
+    yarn.nodemanager.log-dirs.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.recovery.compaction-interval-secs</name>
+  <value>7200</value>
+    <description>The time in seconds between full compactions of the NM state
+    database. Setting the interval to zero disables the full compaction
+    cycles.</description>
+</property>
+
+<property>
+  <name>yarn.sharedcache.store.in-memory.check-period-mins</name>
+  <value>1440</value>
+    <description>The frequency at which the in-memory store checks to remove
+    dead initial applications. Specified in minutes.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.http-cross-origin.enabled</name>
+  <value>false</value>
+    <description>
+      Flag to enable cross-origin (CORS) support for timeline service v1.x or
+      Timeline Reader in timeline service v2. For timeline service v2, also add
+      org.apache.hadoop.security.HttpCrossOriginFilterInitializer to the
+      configuration hadoop.http.filter.initializers in core-site.xml.
+    </description>
+</property>
+
+</configuration>

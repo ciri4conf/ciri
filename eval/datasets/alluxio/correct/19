@@ -1,0 +1,24 @@
+alluxio.user.file.sequential.pread.threshold=4MB
+# Description: An upper bound on the client buffer size for positioned read to hint at the sequential nature of reads. For reads with a buffer size greater than this threshold, the read op is treated to be sequential and the worker may handle the read differently. For instance, cold reads from the HDFS ufs may use a different HDFS client API.
+
+alluxio.job.master.finished.job.purge.count=-1
+# Description: The maximum amount of jobs to purge at any single time when the job master reaches its maximum capacity. It is recommended to set this value when setting the capacity of the job master to a large ( > 10M) value. Default is -1 denoting an unlimited value
+
+alluxio.user.ufs.block.location.all.fallback.enabled=false
+# Description: Whether to return all workers as block location if ufs block locations are not co-located with any Alluxio workers or is empty.
+
+alluxio.master.rpc.executor.max.pool.size=250
+# Description: The maximum number of threads allowed for master RPC ExecutorService. When the maximum is reached, attempts to replace blocked threads fail.
+
+alluxio.master.ufs.journal.max.catchup.time=1min
+# Description: The maximum time to wait for ufs journal catching up before listening to Zookeeper state change. This is added to prevent frequently leadership transition during heavy journal replay stage.
+
+alluxio.master.embedded.journal.write.timeout=30sec
+# Description: Maximum time to wait for a write/flush on embedded journal.
+
+alluxio.master.tieredstore.global.level1.alias=SSD
+# Description: The name of the second highest storage tier in the entire system.
+
+alluxio.zookeeper.leader.inquiry.retry=20
+# Description: The number of retries to inquire leader from ZooKeeper.
+

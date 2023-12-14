@@ -1,0 +1,16 @@
+maxSessionTimeout=0
+
+tickTime=1500
+
+reconfigEnabled=true
+
+minSessionTimeout=-1
+
+syncLimit=
+
+quorumListenOnAllIPs=true
+
+quorum.auth.learnerRequireSasl=false
+
+secureClientPortAddress=0.0.0.0:3000
+

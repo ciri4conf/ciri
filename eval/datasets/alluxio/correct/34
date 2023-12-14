@@ -1,0 +1,24 @@
+alluxio.worker.management.load.detection.cool.down.time=1sec
+# Description: Management tasks will not run for this long after load detected. Any user I/O will still register as a load for this period of time after it is finished. Short durations might cause interference between user I/O and background tier management tasks. Long durations might cause starvation for background tasks.
+
+alluxio.master.audit.logging.enabled=false
+# Description: Set to true to enable file system master audit.
+
+alluxio.zookeeper.auth.enabled=true
+# Description: If true, enable client-side Zookeeper authentication.
+
+alluxio.underfs.s3.threads.max=80
+# Description: The maximum number of threads to use for communicating with S3 and the maximum number of concurrent connections to S3. Includes both threads for data upload and metadata operations. This number should be at least as large as the max admin threads plus max upload threads.
+
+alluxio.user.file.master.client.pool.size.max=250
+# Description: The maximum number of fs master clients cached in the fs master client pool.
+
+alluxio.underfs.s3.directory.suffix=/valid/file1
+# Description: Directories are represented in S3 as zero-byte objects named with the specified suffix.
+
+alluxio.user.network.keepalive.timeout=
+# Description: The maximum time for a gRPC client (for block reads and block writes) to wait for a keepalive response before closing the connection.
+
+alluxio.user.file.buffer.bytes=16MB
+# Description: The size of the file buffer to use for file system reads/writes.
+

@@ -1,0 +1,16 @@
+quorum.cnxn.threads.size=
+
+tickTime=3000
+
+localSessionsUpgradingEnabled=true
+
+maxSessionTimeout=-2
+
+peerType=participant
+
+quorum.auth.enableSasl=false
+
+quorum.auth.serverRequireSasl=false
+
+autopurge.purgeInterval=1
+

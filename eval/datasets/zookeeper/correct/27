@@ -1,0 +1,16 @@
+quorum.auth.server.saslLoginContext=QuorumServer
+
+autopurge.purgeInterval=0
+
+syncLimit=1
+
+dataLogDir=
+
+sslQuorumReloadCertFiles=false
+
+reconfigEnabled=true
+
+quorum.auth.enableSasl=false
+
+peerType=participant
+

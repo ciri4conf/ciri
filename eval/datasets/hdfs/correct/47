@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.namenode.servicerpc-bind-host</name>
+  <value></value>
+  <description>
+    The actual address the service RPC server will bind to. If this optional address is
+    set, it overrides only the hostname portion of dfs.namenode.servicerpc-address.
+    It can also be specified per name node or name service for HA/Federation.
+    This is useful for making the name node listen on all interfaces by
+    setting it to 0.0.0.0.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.fs-limits.min-block-size</name>
+  <value>2097152</value>
+  <description>Minimum block size in bytes, enforced by the Namenode at create
+      time. This prevents the accidental creation of files with tiny block
+      sizes (and thus many blocks), which can degrade performance. Support multiple
+      size unit suffix(case insensitive), as described in dfs.blocksize.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.posix.acl.inheritance.enabled</name>
+  <value>false</value>
+    <description>
+      Set to true to enable POSIX style ACL inheritance. When it is enabled
+      and the create request comes from a compatible client, the NameNode
+      will apply default ACLs from the parent directory to the create mode
+      and ignore the client umask. If no default ACL found, it will apply the
+      client umask.
+    </description>
+</property>
+
+<property>
+  <name>nfs.server.port</name>
+  <value>2049</value>
+  <description>
+      Specify the port number used by Hadoop NFS.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.max-lock-hold-to-release-lease-ms</name>
+  <value>25</value>
+  <description>During the release of lease a lock is hold that make any
+    operations on the namenode stuck. In order to not block them during
+    a too long duration we stop releasing lease after this max lock limit.
+  </description>
+</property>
+
+<property>
+  <name>dfs.datanode.network.counts.cache.max.size</name>
+  <value>1073741823</value>
+  <description>
+    The maximum number of entries the datanode per-host network error
+    count cache may contain.
+  </description>
+</property>
+
+<property>
+  <name>dfs.journalnode.kerberos.internal.spnego.principal</name>
+  <value></value>
+  <description>
+    Kerberos SPNEGO principal name used by the journal node.
+  </description>
+</property>
+
+<property>
+  <name>dfs.provided.aliasmap.inmemory.batch-size</name>
+  <value>250</value>
+    <description>
+      The batch size when iterating over the database backing the aliasmap
+    </description>
+</property>
+
+</configuration>

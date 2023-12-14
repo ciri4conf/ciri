@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.ipc.client.factory.class</name>
+  <value></value>
+    <description>Factory to create client IPC classes.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.scheduler.address</name>
+  <value>${yarn.resourcemanager.hostname}:8030</value>
+    <description>The address of the scheduler interface.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.zk-retry-interval-ms</name>
+  <value>1000</value>
+    <description>Retry interval in milliseconds when connecting to ZooKeeper.
+      When HA is enabled, the value here is NOT used. It is generated
+      automatically from yarn.resourcemanager.zk-timeout-ms and
+      yarn.resourcemanager.zk-num-retries.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.vmem-check-enabled</name>
+  <value>false</value>
+    <description>Whether virtual memory limits will be enforced for
+    containers.</description>
+</property>
+
+<property>
+  <name>yarn.client.nodemanager-connect.max-wait-ms</name>
+  <value>90000</value>
+    <description>Max time to wait to establish a connection to NM</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.container-monitor.process-tree.class</name>
+  <value></value>
+    <description>
+    Class used to calculate current container resource utilization.
+    </description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.bind-host</name>
+  <value></value>
+    <description>
+      The actual address the server will bind to. If this optional address is
+      set, the RPC and webapp servers will bind to this address and the port specified in
+      yarn.timeline-service.address and yarn.timeline-service.webapp.address, respectively.
+      This is most useful for making the service listen to all interfaces by setting to
+      0.0.0.0.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.nm-container-queuing.load-comparator</name>
+  <value>QUEUE_LENGTH</value>
+    <description>
+    Comparator for determining node load for Distributed Scheduling.
+    </description>
+</property>
+
+</configuration>

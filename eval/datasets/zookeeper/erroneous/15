@@ -1,0 +1,16 @@
+secureClientPort=ciri
+
+maxSessionTimeout=0
+
+clientPortAddress=0.0.0.0:3001
+
+quorumListenOnAllIPs=false
+
+autopurge.snapRetainCount=3
+
+quorum.auth.enableSasl=true
+
+electionAlg=3
+
+dataLogDir=/valid/dir1
+

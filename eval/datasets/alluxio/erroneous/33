@@ -1,0 +1,24 @@
+alluxio.master.daily.backup.state.lock.grace.mode=TIME
+# Description: Grace mode helps taking the state-lock exclusively for backup with minimum disruption to existing RPCs. This low-impact locking phase is called grace-cycle. Two modes are supported: TIMEOUT/FORCED.TIMEOUT: Means exclusive locking will timeout if it cannot acquire the lockwith grace-cycle. FORCED: Means the state-lock will be taken forcefully if grace-cycle fails to acquire it. Forced phase might trigger interrupting of existing RPCs if it is enabled.
+
+alluxio.worker.management.tier.align.reserved.bytes=1GB
+# Description: The amount of space that is reserved from each storage directory for internal management tasks.
+
+alluxio.underfs.s3.inherit.acl=true
+# Description: Set this property to false to disable inheriting bucket ACLs on objects. Note that the translation from bucket ACLs to Alluxio user permissions is best effort as some S3-like storage services doe not implement ACLs fully compatible with S3.
+
+alluxio.master.whitelist=/valid/file2
+# Description: A comma-separated list of prefixes of the paths which are cacheable, separated by semi-colons. Alluxio will try to cache the cacheable file when it is read for the first time.
+
+alluxio.user.file.master.client.pool.size.min=1
+# Description: The minimum number of fs master clients cached in the fs master client pool. For long running processes, this should be set to zero.
+
+alluxio.underfs.cleanup.interval=1day
+# Description: The interval for periodically cleaning all the mounted under file storages.
+
+alluxio.security.authorization.permission.enabled=false
+# Description: Whether to enable access control based on file permission.
+
+alluxio.master.replication.check.interval=10min
+# Description: How often the master runs background process to check replication level for files
+

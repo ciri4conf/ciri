@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>fs.s3a.endpoint</name>
+  <value></value>
+  <description>AWS S3 endpoint to connect to. An up-to-date list is
+    provided in the AWS Documentation: regions and endpoints. Without this
+    property, the standard region (s3.amazonaws.com) is assumed.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.proxy.domain</name>
+  <value></value>
+  <description>Domain for authenticating with proxy server.</description>
+</property>
+
+<property>
+  <name>fs.s3a.connection.establish.timeout</name>
+  <value>2500</value>
+  <description>Socket connection setup timeout in milliseconds.</description>
+</property>
+
+<property>
+  <name>ipc.[port_number].backoff.enable</name>
+  <value>false</value>
+  <description>Whether or not to enable client backoff when a queue is full.
+  </description>
+</property>
+
+<property>
+  <name>file.replication</name>
+  <value>0</value>
+  <description>Replication factor</description>
+</property>
+
+<property>
+  <name>hadoop.security.crypto.cipher.suite</name>
+  <value>AES/CTR/NoPadding</value>
+  <description>
+    Cipher suite for crypto codec.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.shell.missing.defaultFs.warning</name>
+  <value>true</value>
+    <description>
+      Enable hdfs shell commands to display warnings if (fs.defaultFS) property
+      is not set.
+    </description>
+</property>
+
+<property>
+  <name>adl.ssl.channel.mode</name>
+  <value></value>
+    <description>
+      Valid inputs are OpenSSL, Default_JSE and Default (case insensitive).
+      If config is missing or is invalid, SSL Channel mode will be set to Default.
+
+      When OpenSSL, SSL socket connections are created in OpenSSL mode.
+      When Default_JSE, SSL socket connections are created in the default JSE mode.
+      When Default, SSL socket connections are attempted with OpenSSL
+      and will fallback to Default_JSE mode if OpenSSL is not available at runtime.
+    </description>
+</property>
+
+</configuration>

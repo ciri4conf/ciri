@@ -1,0 +1,24 @@
+alluxio.job.master.rpc.port=65536
+# Description: The port for Alluxio job master's RPC service.
+
+alluxio.worker.master.periodical.rpc.timeout=10min
+# Description: Timeout for periodical RPC between workers and the leading master. This property is added to prevent workers from hanging in periodical RPCs with previous leading master during flaky network situations. If the timeout is too short, periodical RPCs may not have enough time to get response from the leading master during heavy cluster load and high network latency.
+
+alluxio.user.block.read.retry.sleep.max=2sec
+# Description: N/A
+
+alluxio.worker.network.reader.max.chunk.size.bytes=1MB
+# Description: When a client read from a remote worker, the maximum chunk size.
+
+alluxio.master.backup.delegation.enabled=false
+# Description: Whether to delegate journals to standby masters in HA cluster.
+
+alluxio.master.mount.table.root.option=
+# Description: Configuration for the UFS of Alluxio root mount point.
+
+alluxio.master.web.bind.host=127.0.0.1
+# Description: The hostname Alluxio master web UI binds to.
+
+alluxio.user.client.cache.local.store.file.buckets=2000
+# Description: The number of file buckets for the local page store of the client-side cache. It is recommended to set this to a high value if the number of unique files is expected to be high (# files / file buckets <= 100,000).
+

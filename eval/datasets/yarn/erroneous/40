@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.ipc.record.factory.class</name>
+  <value></value>
+    <description>Factory to create serializeable records.</description>
+</property>
+
+<property>
+  <name>yarn.scheduler.maximum-allocation-mb</name>
+  <value>8192</value>
+    <description>The maximum allocation for every container request at the RM
+    in MBs. Memory requests higher than this will throw an
+    InvalidResourceRequestException.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.ha.automatic-failover.zk-base-path</name>
+  <value>/yarn-leader-election</value>
+    <description>The base znode path to use for storing leader information,
+      when using ZooKeeper based leader election.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.resource-profiles.source-file</name>
+  <value>resource-profiles.json</value>
+    <description>
+    If resource profiles is enabled, source file for the profiles
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.container-monitor.interval-ms</name>
+  <value></value>
+    <description>How often to monitor containers. If not set, the value for
+    yarn.nodemanager.resource-monitor.interval-ms will be used.
+    If 0 or negative, container monitoring is disabled.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.client.internal-timers-ttl-secs</name>
+  <value>210</value>
+    <description>
+      How long the internal Timer Tasks can be alive in writer. If there is no
+      write operation for this configured time, the internal timer tasks will
+      be close.
+    </description>
+</property>
+
+<property>
+  <name>yarn.sharedcache.admin.thread-count</name>
+  <value>0</value>
+    <description>The number of threads used to handle SCM admin interface (1 by default)</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.amrmproxy.enable</name>
+  <value>false</value>
+    <description>
+    Enable/Disable AMRMProxyService in the node manager. This service is used to intercept
+    calls from the application masters to the resource manager.
+    </description>
+</property>
+
+</configuration>

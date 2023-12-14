@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.nm.liveness-monitor.expiry-interval-ms</name>
+  <value>ciri/ciri</value>
+    <description>How long to wait until a node manager is considered dead.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.scheduler.class</name>
+  <value>org.apache.hadoop.yarn.server.resourcemanager.scheduler.capacity.CapacityScheduler</value>
+    <description>The class to use as the resource scheduler.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.system-metrics-publisher.dispatcher.pool-size</name>
+  <value>20</value>
+    <description>Number of worker threads that send the yarn system metrics
+    data.</description>
+</property>
+
+<property>
+  <name>yarn.sharedcache.nm.uploader.thread-count</name>
+  <value>10</value>
+    <description>The number of threads used to upload files from a node manager
+    instance (20 by default)</description>
+</property>
+
+<property>
+  <name>yarn.minicluster.control-resource-monitoring</name>
+  <value>false</value>
+    <description>
+    Set for MiniYARNCluster unit tests to control resource monitoring
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.container.stderr.tail.bytes</name>
+  <value>4096</value>
+    <description>
+    Size of the container error file which needs to be tailed, in bytes.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.webapp.rest-csrf.methods-to-ignore</name>
+  <value>GET</value>
+    <description>
+      Optional parameter that indicates the list of HTTP methods that do not
+      require CSRF protection
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.activities-manager.scheduler-activities.ttl-ms</name>
+  <value>600000</value>
+    <description>Time to live for scheduler activities in milliseconds.</description>
+</property>
+
+</configuration>

@@ -1,0 +1,24 @@
+alluxio.worker.principal=
+# Description: Kerberos principal for Alluxio worker.
+
+alluxio.worker.ufs.instream.cache.expiration.time=5min
+# Description: Cached UFS instream expiration time.
+
+alluxio.master.periodic.block.integrity.check.interval=1hr
+# Description: The period for the block integrity check, disabled if <= 0.
+
+alluxio.job.master.embedded.journal.port=20003
+# Description: The port job masters use for embedded journal communications.
+
+alluxio.master.journal.flush.timeout=1min
+# Description: The amount of time to keep retrying journal writes before giving up and shutting down the master.
+
+alluxio.user.client.cache.enabled=false
+# Description: If this is enabled, data will be cached on Alluxio client.
+
+alluxio.worker.network.max.inbound.message.size=8MB
+# Description: The max inbound message size used by worker gRPC connections.
+
+alluxio.test.deprecated.key=
+# Description: N/A
+

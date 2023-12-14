@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.nodemanager-connect-retries</name>
+  <value>20</value>
+    <description>Retry times to connect with NM.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.runc.hdfs-manifest-to-resources-plugin.stat-cache-size</name>
+  <value>250</value>
+    <description>The size of the stat cache which stores stats of the
+      layers and config.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.recovery.enabled</name>
+  <value>true</value>
+    <description>Enable the node manager to recover after starting</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.disk-health-checker.enable</name>
+  <value>true</value>
+    <description>
+    Flag to enable NodeManager disk health checker
+    </description>
+</property>
+
+<property>
+  <name>yarn.sharedcache.nm.uploader.replication.factor</name>
+  <value>10</value>
+    <description>The replication factor for the node manager uploader for the
+    shared cache (10 by default)</description>
+</property>
+
+<property>
+  <name>yarn.tracking.url.generator</name>
+  <value></value>
+    <description>
+    RM Application Tracking URL
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.log-aggregation.num-log-files-per-app</name>
+  <value>60</value>
+    <description>Define how many aggregated log files per application per NM
+    we can have in remote file system. By default, the total number of
+    aggregated log files per application per NM is 30.
+    </description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.webapp.rest-csrf.methods-to-ignore</name>
+  <value>GET</value>
+    <description>
+      Optional parameter that indicates the list of HTTP methods that do not
+      require CSRF protection
+    </description>
+</property>
+
+</configuration>

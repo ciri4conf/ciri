@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.hostname</name>
+  <value>127.0.0.1</value>
+    <description>The hostname of the RM.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.zk-max-znode-size.bytes</name>
+  <value>-100</value>
+    <description>Specifies the maximum size of the data that can be stored
+      in a znode. Value should be same or less than jute.maxbuffer configured
+      in zookeeper. Default value configured is 1MB.</description>
+</property>
+
+<property>
+  <name>yarn.client.failover-proxy-provider</name>
+  <value>org.apache.hadoop.yarn.client.ConfiguredRMFailoverProxyProvider</value>
+    <description>When HA is enabled, the class to be used by Clients, AMs and
+      NMs to failover to the Active RM. It should extend
+      org.apache.hadoop.yarn.client.RMFailoverProxyProvider</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.opportunistic-containers-max-queue-length</name>
+  <value>-1</value>
+    <description>Max number of OPPORTUNISTIC containers to queue at the
+      nodemanager.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.log.deletion-threads-count</name>
+  <value>1</value>
+    <description>
+    Number of threads to use in NM log cleanup.  Used when log aggregation
+    is disabled.
+    </description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.webapp.https.address</name>
+  <value>${yarn.timeline-service.hostname}:8190</value>
+    <description>The https address of the timeline service web application.</description>
+</property>
+
+<property>
+  <name>yarn.webapp.filter-invalid-xml-chars</name>
+  <value>true</value>
+    <description>
+      Flag to enable filter of invalid xml 1.0 characters present in the
+      value of diagnostics field of apps output from RM WebService.
+    </description>
+</property>
+
+<property>
+  <name>yarn.scheduler.configuration.leveldb-store.compaction-interval-secs</name>
+  <value>86400</value>
+    <description>
+      The compaction interval for LevelDB configuration store in secs,
+      when yarn.scheduler.configuration.store.class is configured to be
+      "leveldb". Default is one day.
+    </description>
+</property>
+
+</configuration>

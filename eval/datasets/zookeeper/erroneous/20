@@ -1,0 +1,16 @@
+autopurge.snapRetainCount=-10
+
+quorumListenOnAllIPs=false
+
+syncLimit=10
+
+clientPort=3000
+
+localSessionsUpgradingEnabled=false
+
+quorum.cnxn.threads.size=
+
+secureClientPortAddress=0.0.0.0:3001
+
+tickTime=6000
+

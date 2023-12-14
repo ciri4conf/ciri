@@ -1,0 +1,24 @@
+alluxio.master.journal.tailer.sleep.time=10sec
+# Description: Time for the standby master to sleep for when it cannot find anything new in leader master's journal.
+
+alluxio.user.streaming.writer.close.timeout=30min
+# Description: The timeout to close a writer client.
+
+alluxio.user.network.rpc.netty.channel=EPOLL
+# Description: Type of netty channels used by rpc connections. If EPOLL is not available, this will automatically fall back to NIO.
+
+alluxio.job.master.finished.job.retention.time=120sec
+# Description: The length of time the Alluxio Job Master should save information about completed jobs before they are discarded.
+
+alluxio.master.standby.heartbeat.interval=2min
+# Description: The heartbeat interval between Alluxio primary master and standby masters.
+
+alluxio.underfs.s3.endpoint=
+# Description: Optionally, to reduce data latency or visit resources which are separated in different AWS regions, specify a regional endpoint to make aws requests. An endpoint is a URL that is the entry point for a web service. For example, s3.cn-north-1.amazonaws.com.cn is an entry point for the Amazon S3 service in beijing region.
+
+alluxio.user.file.ufs.tier.enabled=true
+# Description: When workers run out of available memory, whether the client can skip writing data to Alluxio but fallback to write to UFS without stopping the application. This property only works when the write type is ASYNC_THROUGH.
+
+alluxio.user.file.delete.unchecked=true
+# Description: Whether to check if the UFS contents are in sync with Alluxio before attempting to delete persisted directories recursively.
+

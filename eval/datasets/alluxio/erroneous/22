@@ -1,0 +1,24 @@
+alluxio.underfs.gcs.default.mode=ciri
+# Description: Mode (in octal notation) for GCS objects if mode cannot be discovered.
+
+alluxio.user.network.reader.chunk.size.bytes=
+# Description: When a client reads from a remote worker, the maximum chunk size.
+
+alluxio.user.metadata.cache.max.size=-1
+# Description: Maximum number of paths with cached metadata.The cached metadata will be evicted when it expires after alluxio.user.metadata.cache.expiration.time or the cache size is over the limit of alluxio.user.metadata.cache.max.size. Each 1000 entries cost around 2MB memory. Recommend using 20,000 entries are cached with around 40MB memory consumption for FUSE client.
+
+alluxio.user.block.master.client.pool.size.min=-1
+# Description: The minimum number of block master clients cached in the block master client pool. For long running processes, this should be set to zero.
+
+alluxio.security.authorization.permission.umask=002
+# Description: The umask of creating file and directory. The initial creation permission is 777, and the difference between directory and file is 111. So for default umask value 022, the created directory has permission 755 and file has permission 644.
+
+alluxio.user.rpc.retry.max.sleep=3sec
+# Description: Alluxio client RPCs automatically retry for transient errors with an exponential backoff. This property determines the maximum wait time in the backoff.
+
+alluxio.user.network.streaming.flowcontrol.window=4MB
+# Description: The HTTP2 flow control window used by user streaming connections. Larger value will allow more data to be buffered but will use more memory.
+
+alluxio.worker.data.folder.tmp=.tmp_blocks
+# Description: A relative path in alluxio.worker.data.folder used to store the temporary data for uncommitted files.
+

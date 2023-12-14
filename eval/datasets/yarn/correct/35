@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.scheduler.address</name>
+  <value>${yarn.resourcemanager.hostname}:8030</value>
+    <description>The address of the scheduler interface.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.delegation-token-renewer.thread-timeout</name>
+  <value>60s</value>
+    <description>
+    RM DelegationTokenRenewer thread timeout
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.delete.thread-count</name>
+  <value>8</value>
+    <description>Number of threads used in cleanup.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.app-collector.linger-period.ms</name>
+  <value>30000</value>
+    <description>Time period till which the application collector will be alive
+     in NM, after the  application master container finishes.</description>
+</property>
+
+<property>
+  <name>yarn.node-labels.enabled</name>
+  <value>true</value>
+    <description>
+    Enable node labels feature
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.node-attributes.provider.script.path</name>
+  <value>/valid/file2</value>
+    <description>
+      The node attribute script NM runs to collect node attributes.
+      Script output Line starting with "NODE_ATTRIBUTE:" will be
+      considered as a record of node attribute, attribute name, type
+      and value should be delimited by comma. Each of such lines
+      will be parsed to a node attribute.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.log-aggregation.policy.class</name>
+  <value>org.apache.hadoop.yarn.server.nodemanager.containermanager.logaggregation.AllContainerLogAggregationPolicy</value>
+    <description>
+    The default log aggregation policy class. Applications can
+    override it via LogAggregationContext. This configuration can provide
+    some cluster-side default behavior so that if the application doesn't
+    specify any policy via LogAggregationContext administrators of the cluster
+    can adjust the policy globally.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.nm-container-queuing.load-comparator</name>
+  <value>QUEUE_LENGTH</value>
+    <description>
+    Comparator for determining node load for Distributed Scheduling.
+    </description>
+</property>
+
+</configuration>

@@ -1,0 +1,16 @@
+clientPortAddress=1.1.1.1.1.1
+
+clientPort=3001
+
+autopurge.snapRetainCount=3
+
+dataLogDir=
+
+standaloneEnabled=false
+
+portUnification=true
+
+dataDir=/valid/dir2
+
+localSessionsEnabled=true
+

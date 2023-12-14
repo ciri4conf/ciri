@@ -1,0 +1,16 @@
+peerType=participant
+
+clientPortAddress=0.0.0.0:3001
+
+secureClientPortAddress=0.0.0.0:3000
+
+maxSessionTimeout=-2
+
+sslQuorumReloadCertFiles=true
+
+quorum.auth.learner.saslLoginContext=QuorumLearner
+
+tickTime=3000
+
+maxClientCnxns=60
+

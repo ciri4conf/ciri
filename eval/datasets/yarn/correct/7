@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.ipc.record.factory.class</name>
+  <value></value>
+    <description>Factory to create serializeable records.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.connect.retry-interval.ms</name>
+  <value>15000</value>
+    <description>How often to try connecting to the
+    ResourceManager.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.configuration.file-system-based-store</name>
+  <value>/valid/file2</value>
+    <description>
+    The value specifies the file system (e.g. HDFS) path where ResourceManager
+    loads configuration if yarn.resourcemanager.configuration.provider-class
+    is set to org.apache.hadoop.yarn.FileSystemBasedConfigurationProvider.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.container-executor.class</name>
+  <value>org.apache.hadoop.yarn.server.nodemanager.DefaultContainerExecutor</value>
+    <description>who will execute(launch) the containers.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.pmem-check-enabled</name>
+  <value>true</value>
+    <description>Whether physical memory limits will be enforced for
+    containers.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.runc.layer-mounts-interval-secs</name>
+  <value>1200</value>
+    <description>The interval in seconds between executions of
+      reaping layer mounts.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.resourcemanager.minimum.version</name>
+  <value>NONE</value>
+    <description>The minimum allowed version of a resourcemanager that a nodemanager will connect to.  
+      The valid values are NONE (no version checking), EqualToNM (the resourcemanager's version is 
+      equal to or greater than the NM version), or a Version String.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.disk-health-checker.enable</name>
+  <value>false</value>
+    <description>
+    Flag to enable NodeManager disk health checker
+    </description>
+</property>
+
+</configuration>

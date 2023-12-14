@@ -1,0 +1,16 @@
+syncEnabled=false
+
+quorum.auth.learner.saslLoginContext=QuorumLearner
+
+peerType=participant
+
+minSessionTimeout=0
+
+quorum.auth.kerberos.servicePrincipal=zkquorum/localhost
+
+secureClientPort=3000
+
+secureClientPortAddress=
+
+electionAlg=1
+

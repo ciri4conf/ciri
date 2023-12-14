@@ -1,0 +1,16 @@
+maxSessionTimeout=-2
+
+peerType=participant
+
+standaloneEnabled=true
+
+clientPort=3000
+
+sslQuorum=false
+
+quorum.auth.learnerRequireSasl=true
+
+sslQuorumReloadCertFiles=true
+
+minSessionTimeout=0
+

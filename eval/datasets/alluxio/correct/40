@@ -1,0 +1,24 @@
+alluxio.master.persistence.max.total.wait.time=2day
+# Description: Total wait time for master persistence checker persistence status for files written using ASYNC_THROUGH
+
+alluxio.worker.management.tier.promote.quota.percent=180
+# Description: Max percentage of each tier that could be used for promotions. Promotions will be stopped to a tier once its used space go over this value. (0 means never promote, and, 100 means always promote.
+
+alluxio.master.rpc.addresses=127.0.0.1
+# Description: A list of comma-separated host:port RPC addresses where the client should look for masters when using multiple masters without Zookeeper. This property is not used when Zookeeper is enabled, since Zookeeper already stores the master addresses.
+
+alluxio.underfs.oss.connection.timeout=1sec
+# Description: The timeout when connecting to OSS.
+
+alluxio.user.file.persist.on.rename=true
+# Description: Whether or not to asynchronously persist any files which have been renamed. This is helpful when working with compute frameworks which use rename to commit results.
+
+alluxio.master.journal.type=EMBEDDED
+# Description: The type of journal to use. Valid options are UFS (store journal in UFS), EMBEDDED (use a journal embedded in the masters), and NOOP (do not use a journal)
+
+fs.oss.accessKeySecret=
+# Description: The secret key of OSS bucket.
+
+alluxio.user.network.reader.buffer.size.messages=
+# Description: When a client reads from a remote worker, the maximum number of messages to buffer by the client. A message can be either a command response, a data chunk, or a gRPC stream event such as complete or error.
+

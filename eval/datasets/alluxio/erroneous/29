@@ -1,0 +1,24 @@
+alluxio.fuse.jnifuse.enabled=hadoop
+# Description: Use JNI-Fuse library for better performance. If disabled, JNR-Fuse will be used.
+
+alluxio.job.master.hostname=127.0.0.1
+# Description: The hostname of the Alluxio job master.
+
+alluxio.user.block.write.location.policy.class=alluxio.client.block.policy.LocalFirstPolicy
+# Description: The default location policy for choosing workers for writing a file's blocks.
+
+alluxio.master.standby.heartbeat.interval=2min
+# Description: The heartbeat interval between Alluxio primary master and standby masters.
+
+fs.azure.account.oauth2.client.endpoint=
+# Description: The oauth endpoint for ABFS.
+
+alluxio.master.keytab.file=/valid/file1
+# Description: Kerberos keytab file for Alluxio master.
+
+alluxio.master.metrics.service.threads=1
+# Description: The number of threads in metrics master executor pool for parallel processing metrics submitted by workers or clients and update cluster metrics.
+
+alluxio.master.rpc.executor.keepalive=1sec
+# Description: The keep alive time of a thread in master RPC ExecutorServicelast used before this thread is terminated (and replaced if necessary).
+

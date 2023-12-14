@@ -1,0 +1,16 @@
+maxSessionTimeout=0
+
+quorum.auth.enableSasl=true
+
+quorum.cnxn.threads.size=
+
+clientPortAddress=0.0.0.0:3000
+
+standaloneEnabled=false
+
+syncLimit=1
+
+localSessionsUpgradingEnabled=true
+
+reconfigEnabled=false
+

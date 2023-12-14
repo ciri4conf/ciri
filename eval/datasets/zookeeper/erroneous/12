@@ -1,0 +1,16 @@
+secureClientPortAddress=x.0.0.0.0.0
+
+sslQuorum=true
+
+clientPort=
+
+localSessionsEnabled=false
+
+localSessionsUpgradingEnabled=false
+
+quorum.auth.serverRequireSasl=false
+
+autopurge.snapRetainCount=3
+
+portUnification=true
+

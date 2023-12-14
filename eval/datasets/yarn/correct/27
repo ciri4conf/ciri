@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.nodemanager.runtime.linux.docker.capabilities</name>
+  <value>CHOWN,DAC_OVERRIDE,FSETID,FOWNER,MKNOD,NET_RAW,SETGID,SETUID,SETFCAP,SETPCAP,NET_BIND_SERVICE,SYS_CHROOT,KILL,AUDIT_WRITE</value>
+    <description>This configuration setting determines the capabilities
+      assigned to docker containers when they are launched. While these may not
+      be case-sensitive from a docker perspective, it is best to keep these
+      uppercase. To run without any capabilities, set this value to
+      "none" or "NONE"</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.docker.host-pid-namespace.allowed</name>
+  <value>false</value>
+    <description>This configuration setting determines whether the host's PID
+      namespace is allowed for docker containers on this cluster.
+      Use with care.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.entity-group-fs-store.cleaner-interval-seconds</name>
+  <value>7200</value>
+    <description>
+      Scan interval for ATS v1.5 entity group file system storage cleaner.This
+      value controls how frequent the reader will scan the HDFS done directory
+      for stale application data.
+    </description>
+</property>
+
+<property>
+  <name>yarn.sharedcache.store.in-memory.staleness-period-mins</name>
+  <value>10080</value>
+    <description>A resource in the in-memory store is considered stale
+    if the time since the last reference exceeds the staleness period.
+    This value is specified in minutes.</description>
+</property>
+
+<property>
+  <name>yarn.sharedcache.nm.uploader.replication.factor</name>
+  <value>10</value>
+    <description>The replication factor for the node manager uploader for the
+    shared cache (10 by default)</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.node-attributes.provider.script.opts</name>
+  <value></value>
+    <description>
+      Command arguments passed to the node attribute script.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.webapp.rest-csrf.methods-to-ignore</name>
+  <value>GET,OPTIONS,HEAD</value>
+    <description>
+      Optional parameter that indicates the list of HTTP methods that do not
+      require CSRF protection
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.numa-awareness.numactl.cmd</name>
+  <value>/usr/bin/numactl</value>
+    <description>
+    The numactl command path which controls NUMA policy for processes or
+    shared memory.
+    </description>
+</property>
+
+</configuration>

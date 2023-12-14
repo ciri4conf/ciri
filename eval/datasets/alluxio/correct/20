@@ -1,0 +1,24 @@
+alluxio.master.journal.temporary.file.gc.threshold=1min
+# Description: Minimum age for garbage collecting temporary checkpoint files.
+
+alluxio.master.tieredstore.global.level0.alias=MEM
+# Description: The name of the highest storage tier in the entire system.
+
+alluxio.master.jvm.monitor.enabled=true
+# Description: Whether to enable start JVM monitor thread on the master. This will start a thread to detect JVM-wide pauses induced by GC or other reasons.
+
+alluxio.worker.tieredstore.level1.dirs.path=
+# Description: A comma-separated list of paths (eg., /mnt/ssd/alluxio/cache2,/mnt/ssd/alluxio/cache3,/mnt/hdd/alluxio/cache1) of storage directories for the second storage tier.
+
+alluxio.user.file.replication.durable=0
+# Description: The target replication level of a file created by ASYNC_THROUGH writesbefore this file is persisted.
+
+alluxio.user.network.streaming.netty.channel=EPOLL
+# Description: Type of netty channels used by streaming connections. If EPOLL is not available, this will automatically fall back to NIO.
+
+alluxio.web.ui.enabled=true
+# Description: Whether the master/worker will have Web UI enabled. If set to false, the master/worker will not have Web UI page, but the RESTful endpoints and metrics will still be available.
+
+alluxio.locality.compare.node.ip=false
+# Description: Whether try to resolve the node IP address for locality checking
+

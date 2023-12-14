@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.cluster.administrators</name>
+  <value></value>
+   <description>ACL for the admins, this configuration is used to control
+     who can access the default servlets in the namenode, etc. The value
+     should be a comma separated list of users and groups. The user list
+     comes first and is separated by a space followed by the group list,
+     e.g. "user1,user2 group1,group2". Both users and groups are optional,
+     so "user1", " group1", "", "user1 group1", "user1,user2 group1,group2"
+     are all valid (note the leading space in " group1"). '*' grants access
+     to all users and groups, e.g. '*', '* ' and ' *' are all valid.
+   </description>
+</property>
+
+<property>
+  <name>dfs.ha.namenode.id</name>
+  <value></value>
+  <description>
+    The ID of this namenode. If the namenode ID is not configured it
+    is determined automatically by matching the local node's address
+    with the configured address.
+  </description>
+</property>
+
+<property>
+  <name>dfs.encrypt.data.transfer</name>
+  <value>false</value>
+  <description>
+    Whether or not actual block data that is read/written from/to HDFS should
+    be encrypted on the wire. This only needs to be set on the NN and DNs,
+    clients will deduce this automatically. It is possible to override this setting 
+    per connection by specifying custom logic via dfs.trustedchannel.resolver.class. 
+  </description>
+</property>
+
+<property>
+  <name>dfs.encrypt.data.transfer.cipher.suites</name>
+  <value>AES/CTR/NoPadding</value>
+  <description>
+    This value may be either undefined or AES/CTR/NoPadding.  If defined, then
+    dfs.encrypt.data.transfer uses the specified cipher suite for data
+    encryption.  If not defined, then only the algorithm specified in
+    dfs.encrypt.data.transfer.algorithm is used.  By default, the property is
+    not defined.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.deadnode.detection.probe.deadnode.threads</name>
+  <value>20</value>
+    <description>
+      The maximum number of threads to use for probing dead node.
+    </description>
+</property>
+
+<property>
+  <name>dfs.mover.address</name>
+  <value>0.0.0.0:3000</value>
+  <description>
+    The hostname used for a keytab based Kerberos login. Keytab based login
+    can be enabled with dfs.mover.keytab.enabled.
+  </description>
+</property>
+
+<property>
+  <name>dfs.disk.balancer.block.tolerance.percent</name>
+  <value>20</value>
+    <description>
+      When a disk balancer copy operation is proceeding, the datanode is still
+      active. So it might not be possible to move the exactly specified
+      amount of data. So tolerance allows us to define a percentage which
+      defines a good enough move.
+    </description>
+</property>
+
+<property>
+  <name>dfs.namenode.blockreport.max.lock.hold.time</name>
+  <value>4</value>
+    <description>
+      The BlockReportProcessingThread max write lock hold time in ms.
+    </description>
+</property>
+
+</configuration>

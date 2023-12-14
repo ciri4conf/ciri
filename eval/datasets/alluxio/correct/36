@@ -1,0 +1,24 @@
+alluxio.master.worker.info.cache.refresh.time=1sec
+# Description: The worker information list will be refreshed after being cached for this time period. If the refresh time is too big, operations on the job servers or clients may fail because of the stale worker info. If it is too small, continuously updating worker information may case lock contention in the block master
+
+alluxio.master.worker.timeout=1min
+# Description: Timeout between master and worker indicating a lost worker.
+
+alluxio.underfs.s3.streaming.upload.partition.size=64MB
+# Description: Maximum allowable size of a single buffer file when using S3A streaming upload. When the buffer file reaches the partition size, it will be uploaded and the upcoming data will write to other buffer files.If the partition size is too small, S3A upload speed might be affected.
+
+alluxio.master.journal.flush.timeout=5min
+# Description: The amount of time to keep retrying journal writes before giving up and shutting down the master.
+
+alluxio.worker.tieredstore.level0.dirs.mediumtype=${alluxio.worker.tieredstore.level0.alias}
+# Description: A comma-separated list of media types (e.g., "MEM,MEM,SSD") for each storage directory on the top storage tier specified by alluxio.worker.tieredstore.level0.dirs.path.
+
+alluxio.security.authorization.permission.umask=002
+# Description: The umask of creating file and directory. The initial creation permission is 777, and the difference between directory and file is 111. So for default umask value 022, the created directory has permission 755 and file has permission 644.
+
+alluxio.master.daily.backup.files.retained=3
+# Description: The maximum number of backup files to keep in the backup directory.
+
+alluxio.worker.principal=
+# Description: Kerberos principal for Alluxio worker.
+

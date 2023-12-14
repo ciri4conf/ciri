@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.am.max-attempts</name>
+  <value>4</value>
+    <description>The default maximum number of application attempts, if unset by
+    the user. Each application master can specify its individual maximum number of application
+    attempts via the API, but the individual number cannot be more than the global upper bound in
+    yarn.resourcemanager.am.global.max-attempts. The default number is set to 2, to
+    allow at least one retry for AM.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.fs.state-store.uri</name>
+  <value>/valid/file1</value>
+    <description>URI pointing to the location of the FileSystem path where
+    RM state will be stored. This must be supplied when using
+    org.apache.hadoop.yarn.server.resourcemanager.recovery.FileSystemRMStateStore
+    as the value for yarn.resourcemanager.store.class</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.hostname</name>
+  <value>999.-1.0.0</value>
+    <description>The hostname of the NM.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.bind-host</name>
+  <value></value>
+    <description>
+      The actual address the server will bind to. If this optional address is
+      set, the RPC and webapp servers will bind to this address and the port specified in
+      yarn.nodemanager.address and yarn.nodemanager.webapp.address, respectively. This is
+      most useful for making NM listen to all interfaces by setting to 0.0.0.0.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.webapp.spnego-principal</name>
+  <value></value>
+    <description>
+    The Kerberos principal to be used for spnego filter for the NM web
+    interface.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.linux-container-executor.cgroups.mount</name>
+  <value>true</value>
+    <description>Whether the LCE should attempt to mount cgroups if not found.
+    This property only applies when the LCE resources handler is set to
+    CgroupsLCEResourcesHandler.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.docker.capabilities</name>
+  <value>DAC_OVERRIDE</value>
+    <description>This configuration setting determines the capabilities
+      assigned to docker containers when they are launched. While these may not
+      be case-sensitive from a docker perspective, it is best to keep these
+      uppercase. To run without any capabilities, set this value to
+      "none" or "NONE"</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.log-aggregation.roll-monitoring-interval-seconds</name>
+  <value>-2</value>
+    <description>Defines how often NMs wake up to upload log files.
+    The default value is -1. By default, the logs will be uploaded when
+    the application is finished. By setting this configuration logs can
+    be uploaded periodically while the application is running.
+    The minimum positive accepted value can be configured by the setting
+    "yarn.nodemanager.log-aggregation.roll-monitoring-interval-seconds.min".
+    </description>
+</property>
+
+</configuration>

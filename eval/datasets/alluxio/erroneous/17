@@ -1,0 +1,24 @@
+alluxio.proxy.web.bind.host=x.0.0.0.0.0
+# Description: The hostname that the Alluxio proxy's web server runs on.
+
+alluxio.worker.network.reader.max.chunk.size.bytes=4MB
+# Description: When a client read from a remote worker, the maximum chunk size.
+
+alluxio.worker.free.space.timeout=10sec
+# Description: The duration for which a worker will wait for eviction to make space available for a client write request.
+
+alluxio.user.streaming.reader.buffer.size.messages=16
+# Description: When a client reads from a remote worker, the maximum number of messages to buffer by the client. A message can be either a command response, a data chunk, or a gRPC stream event such as complete or error.
+
+alluxio.underfs.s3.owner.id.to.username.mapping=
+# Description: Optionally, specify a preset s3 canonical id to Alluxio username static mapping, in the format "id1=user1;id2=user2". The AWS S3 canonical ID can be found at the console address https://console.aws.amazon.com/iam/home?#security_credential . Please expand the "Account Identifiers" tab and refer to "Canonical User ID". Unspecified owner id will map to a default empty username
+
+alluxio.worker.data.folder.permissions=rwxrwx---
+# Description: The permission set for the worker data folder. If short circuit is used this folder should be accessible by all users (rwxrwxrwx).
+
+alluxio.master.heartbeat.timeout=1min
+# Description: Timeout between leader master and standby master indicating a lost master.
+
+alluxio.worker.block.annotator.lrfu.step.factor=0.125
+# Description: A factor in [0, 1] to control the behavior of LRFU: smaller value makes LRFU more similar to LFU; and larger value makes LRFU closer to LRU.
+

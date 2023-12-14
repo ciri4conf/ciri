@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.webapp.https.address</name>
+  <value>${yarn.resourcemanager.hostname}:8090</value>
+    <description>
+      The https address of the RM web application.
+      If only a host is provided as the value,
+      the webapp will be served on a random port.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nm.liveness-monitor.expiry-interval-ms</name>
+  <value>600000</value>
+    <description>How long to wait until a node manager is considered dead.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.resource-profiles.enabled</name>
+  <value>false</value>
+    <description>
+    Flag to enable/disable resource profiles
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.docker.default-container-network</name>
+  <value>host</value>
+    <description>The network used when launching containers using the
+      DockerContainerRuntime when no network is specified in the request
+      . This network must be one of the (configurable) set of allowed container
+      networks.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.runc.image-tag-to-manifest-plugin.cache-refresh-interval-secs</name>
+  <value>30</value>
+    <description>The interval in seconds between refreshing the hdfs image tag
+      to hash cache.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.hostname</name>
+  <value>1.1.1.1.1.1</value>
+    <description>The hostname of the timeline service web application.</description>
+</property>
+
+<property>
+  <name>yarn.sharedcache.root-dir</name>
+  <value>/sharedcache</value>
+    <description>The root directory for the shared cache</description>
+</property>
+
+<property>
+  <name>yarn.router.interceptor.user.threadpool-size</name>
+  <value>1</value>
+    <description>
+      The thread pool executor size of per user in Router ClientRM Service FederationClientInterceptor.
+    </description>
+</property>
+
+</configuration>

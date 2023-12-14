@@ -1,0 +1,24 @@
+alluxio.user.conf.cluster.default.enabled=false
+# Description: When this property is true, an Alluxio client will load the default values of cluster-wide configuration and path-specific configuration set by Alluxio master.
+
+alluxio.security.stale.channel.purge.interval=3day
+# Description: Interval for which client channels that have been inactive will be regarded as unauthenticated. Such channels will reauthenticate with their target master upon being used for new RPCs.
+
+alluxio.worker.web.bind.host=0.0.0.0
+# Description: The hostname Alluxio worker's web server binds to.
+
+alluxio.worker.network.netty.boss.threads=2
+# Description: How many threads to use for accepting new requests.
+
+alluxio.job.master.job.capacity=50000
+# Description: The total possible number of available job statuses in the job master. This value includes running and finished jobs which are have completed within alluxio.job.master.finished.job.retention.time.
+
+alluxio.worker.management.tier.promote.enabled=true
+# Description: Whether to promote blocks to higher tiers.
+
+alluxio.master.embedded.journal.flush.size.max=320MB
+# Description: The maximum size in bytes of journal entries allowed in concurrent journal flushing (journal IO to standby masters and IO to local disks).
+
+alluxio.user.file.master.client.pool.gc.interval=120sec
+# Description: The interval at which file system master client GC checks occur.
+

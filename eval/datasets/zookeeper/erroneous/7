@@ -1,0 +1,16 @@
+dataLogDir=tmp////staging
+
+localSessionsUpgradingEnabled=false
+
+maxClientCnxns=30
+
+quorum.auth.learnerRequireSasl=false
+
+reconfigEnabled=true
+
+maxSessionTimeout=-1
+
+peerType=participant
+
+sslQuorum=false
+

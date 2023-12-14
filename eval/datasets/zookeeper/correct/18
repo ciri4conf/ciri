@@ -1,0 +1,16 @@
+quorum.auth.server.saslLoginContext=QuorumServer
+
+clientPort=3001
+
+electionAlg=6
+
+tickTime=6000
+
+quorum.auth.enableSasl=true
+
+clientPortAddress=0.0.0.0:3000
+
+quorum.auth.learnerRequireSasl=true
+
+autopurge.snapRetainCount=3
+

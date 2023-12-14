@@ -1,0 +1,24 @@
+alluxio.security.authorization.permission.umask=022
+# Description: The umask of creating file and directory. The initial creation permission is 777, and the difference between directory and file is 111. So for default umask value 022, the created directory has permission 755 and file has permission 644.
+
+alluxio.underfs.cleanup.enabled=false
+# Description: Whether or not to clean up under file storage periodically.Some ufs operations may not be completed and cleaned up successfully in normal ways and leave some intermediate data that needs periodical cleanup.If enabled, all the mount points will be cleaned up when a leader master starts or cleanup interval is reached. This should be used sparingly.
+
+alluxio.job.worker.hostname=127.0.0.1
+# Description: The hostname of the Alluxio job worker.
+
+alluxio.master.daily.backup.state.lock.timeout=1h
+# Description: The max duration for a grace-cycle.
+
+alluxio.user.client.cache.timeout.threads=32
+# Description: The number of threads to handle cache I/O operation timeout, when alluxio.user.client.cache.timeout.duration is positive.
+
+alluxio.worker.tieredstore.level1.alias=
+# Description: The alias of the second storage tier on this worker.
+
+alluxio.worker.master.periodical.rpc.timeout=5min
+# Description: Timeout for periodical RPC between workers and the leading master. This property is added to prevent workers from hanging in periodical RPCs with previous leading master during flaky network situations. If the timeout is too short, periodical RPCs may not have enough time to get response from the leading master during heavy cluster load and high network latency.
+
+alluxio.proxy.web.port=3000
+# Description: The port Alluxio proxy's web UI runs on.
+

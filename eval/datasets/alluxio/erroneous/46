@@ -1,0 +1,24 @@
+alluxio.master.journal.type=UFS
+# Description: The type of journal to use. Valid options are UFS (store journal in UFS), EMBEDDED (use a journal embedded in the masters), and NOOP (do not use a journal)
+
+alluxio.master.journal.space.monitor.interval=10min
+# Description: How often to check and update information on space utilization of tsse journal disk. This is currently only compatible with linux-basedsystems and when alluxio.master.journal.type is configured to EMBEDDED
+
+alluxio.user.streaming.reader.close.timeout=10s
+# Description: The timeout to close a grpc streaming reader client. If too long, it may add delays to closing clients. If too short, the client will complete the close() before the server confirms the close()
+
+alluxio.master.metastore.inode.iteration.crawler.count=16
+# Description: The number of threads used during inode tree enumeration.
+
+alluxio.user.file.master.client.pool.size.max=500
+# Description: The maximum number of fs master clients cached in the fs master client pool.
+
+alluxio.master.startup.block.integrity.check.enabled=false
+# Description: Whether the system should be checked on startup for orphaned blocks (blocks having no corresponding files but still taking system resource due to various system failures). Orphaned blocks will be deleted during master startup if this property is true. This property is available since 1.7.1
+
+alluxio.master.backup.connect.interval.min=10sec
+# Description: Minimum delay between each connection attempt to backup-leader.
+
+alluxio.master.format.file.prefix=_format_
+# Description: The file prefix of the file generated in the journal directory when the journal is formatted. The master will search for a file with this prefix when determining if the journal is formatted.
+

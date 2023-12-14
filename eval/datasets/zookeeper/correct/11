@@ -1,0 +1,16 @@
+quorum.auth.server.saslLoginContext=QuorumServer
+
+localSessionsEnabled=false
+
+minSessionTimeout=0
+
+maxSessionTimeout=-2
+
+localSessionsUpgradingEnabled=false
+
+standaloneEnabled=true
+
+secureClientPortAddress=0.0.0.0:3001
+
+dataLogDir=/valid/dir2
+

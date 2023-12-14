@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.rm.system-metrics-publisher.emit-container-events</name>
+  <value>true</value>
+    <description>The setting that controls whether yarn container events are
+    published to the timeline service or not by RM. This configuration setting
+    is for ATS V2.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.max-log-aggregation-diagnostics-in-memory</name>
+  <value>20</value>
+    <description>Number of diagnostics/failure messages can be saved in RM for
+    log aggregation. It also defines the number of diagnostics/failure
+    messages can be shown in log aggregation web ui.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.container-localizer.java.opts</name>
+  <value>-Xmx256m</value>
+    <description>
+    </description>
+</property>
+
+<property>
+  <name>yarn.log-aggregation.file-formats</name>
+  <value>nonono</value>
+    <description>Specify which log file controllers we will support. The first
+    file controller we add will be used to write the aggregated logs.
+    This comma separated configuration will work with the configuration:
+    yarn.log-aggregation.file-controller.%s.class which defines the supported
+    file controller's class. By default, the TFile controller would be used.
+    The user could override this configuration by adding more file controllers.
+    To support back-ward compatibility, make sure that we always
+    add TFile file controller.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.linux-container-executor.cgroups.mount-path</name>
+  <value></value>
+    <description>This property sets the path from which YARN will read the
+    CGroups configuration. YARN has built-in functionality to discover the
+    system CGroup mount paths, so use this property only if YARN's automatic
+    mount path discovery does not work.
+
+    The path specified by this property must exist before the NodeManager is
+    launched.
+    If yarn.nodemanager.linux-container-executor.cgroups.mount is set to true,
+    YARN will first try to mount the CGroups at the specified path before
+    reading them.
+    If yarn.nodemanager.linux-container-executor.cgroups.mount is set to
+    false, YARN will read the CGroups at the specified path.
+    If this property is empty, YARN tries to detect the CGroups location.
+
+    Please refer to NodeManagerCgroups.html in the documentation for further
+    details.
+    This property only applies when the LCE resources handler is set to
+    CgroupsLCEResourcesHandler.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.runc.host-pid-namespace.allowed</name>
+  <value>true</value>
+    <description>Allow host pid namespace for runC containers.
+      Use with care.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.sandbox-mode.policy</name>
+  <value></value>
+    <description>Location for non-default java policy file.</description>
+</property>
+
+<property>
+  <name>yarn.federation.machine-list</name>
+  <value></value>
+    <description>
+      Machine list file to be loaded by the FederationSubCluster Resolver
+    </description>
+</property>
+
+</configuration>

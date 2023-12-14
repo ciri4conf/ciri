@@ -1,0 +1,16 @@
+standaloneEnabled=1.5
+
+tickTime=6000
+
+syncEnabled=false
+
+autopurge.purgeInterval=-1
+
+secureClientPortAddress=
+
+dataLogDir=/valid/dir2
+
+syncLimit=1
+
+clientPort=
+

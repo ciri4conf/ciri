@@ -1,0 +1,24 @@
+alluxio.user.network.writer.close.timeout=
+# Description: The timeout to close a writer client.
+
+alluxio.job.worker.threadpool.size=10
+# Description: Number of threads in the thread pool for job worker. This may be adjusted to a lower value to alleviate resource saturation on the job worker nodes (CPU + IO).
+
+alluxio.worker.network.block.reader.threads.max=2048
+# Description: The maximum number of threads used to read blocks in the data server.
+
+alluxio.tmp.dirs=/valid/file1
+# Description: The path(s) to store Alluxio temporary files, use commas as delimiters. If multiple paths are specified, one will be selected at random per temporary file. Currently, only files to be uploaded to object stores are stored in these paths.
+
+alluxio.underfs.object.store.mount.shared.publicly=false
+# Description: Whether or not to share object storage under storage system mounted point with all Alluxio users. Note that this configuration has no effect on HDFS nor local UFS.
+
+fs.oss.accessKeyId=
+# Description: The access key of OSS bucket.
+
+alluxio.user.metrics.heartbeat.interval=20sec
+# Description: The time period of client master heartbeat to send the client-side metrics.
+
+alluxio.worker.network.flowcontrol.window=1MB
+# Description: The HTTP2 flow control window used by worker gRPC connections. Larger value will allow more data to be buffered but will use more memory.
+

@@ -1,0 +1,16 @@
+quorum.auth.kerberos.servicePrincipal=zkquorum/localhost
+
+maxClientCnxns=30
+
+localSessionsUpgradingEnabled=false
+
+quorum.auth.server.saslLoginContext=QuorumServer
+
+electionAlg=1
+
+clientPortAddress=0.0.0.0:3001
+
+localSessionsEnabled=true
+
+syncEnabled=true
+

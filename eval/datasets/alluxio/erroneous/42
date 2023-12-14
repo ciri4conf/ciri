@@ -1,0 +1,24 @@
+alluxio.job.worker.data.port=-1
+# Description: The port the Alluxio Job worker uses to send data.
+
+alluxio.master.journal.folder=${alluxio.work.dir}/journal
+# Description: The path to store master journal logs. When using the UFS journal this could be a URI like hdfs://namenode:port/alluxio/journal. When using the embedded journal this must be a local path
+
+alluxio.worker.reviewer.class=alluxio.worker.block.reviewer.ProbabilisticBufferReviewer
+# Description: (Experimental) The API is subject to change in the future.The strategy that a worker uses to review space allocation in the Allocator. Each time a block allocation decision is made by the Allocator, the Reviewer will review the decision and rejects it,if the allocation does not meet certain criteria of the Reviewer.The Reviewer prevents the worker to make a bad block allocation decision.Valid options include:`alluxio.worker.block.reviewer.ProbabilisticBufferReviewer`.
+
+alluxio.worker.session.timeout=2min
+# Description: Timeout between worker and client connection indicating a lost session connection.
+
+alluxio.master.daily.backup.state.lock.grace.mode=TIMEOUT
+# Description: Grace mode helps taking the state-lock exclusively for backup with minimum disruption to existing RPCs. This low-impact locking phase is called grace-cycle. Two modes are supported: TIMEOUT/FORCED.TIMEOUT: Means exclusive locking will timeout if it cannot acquire the lockwith grace-cycle. FORCED: Means the state-lock will be taken forcefully if grace-cycle fails to acquire it. Forced phase might trigger interrupting of existing RPCs if it is enabled.
+
+alluxio.master.backup.connect.interval.max=1sec
+# Description: Maximum delay between each connection attempt to backup-leader.
+
+alluxio.worker.tieredstore.level2.dirs.mediumtype=${alluxio.worker.tieredstore.level2.alias}
+# Description: A list of media types (e.g., "SSD,HDD,HDD") for each storage directory on the third storage tier specified by alluxio.worker.tieredstore.level2.dirs.path.
+
+alluxio.worker.data.server.domain.socket.as.uuid=true
+# Description: If true, the property alluxio.worker.data.server.domain.socket.addressis the path to the home directory for the domain socket and a unique identifier is used as the domain socket name. If false, the property is the absolute path to the UNIX domain socket.
+

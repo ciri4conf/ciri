@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.webapp.https.address</name>
+  <value>${yarn.resourcemanager.hostname}:8090</value>
+    <description>
+      The https address of the RM web application.
+      If only a host is provided as the value,
+      the webapp will be served on a random port.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.nm-tokens.master-key-rolling-interval-secs</name>
+  <value>86400</value>
+    <description>
+    Interval for the roll over for the master key used to generate
+    NodeManager tokens.  It is expected to be set to a value much larger
+    than yarn.nm.liveness-monitor.expiry-interval-ms.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.opportunistic-containers-max-queue-length</name>
+  <value>0</value>
+    <description>Max number of OPPORTUNISTIC containers to queue at the
+      nodemanager.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.webapp.spnego-keytab-file</name>
+  <value></value>
+    <description>
+    The Kerberos keytab file to be used for spnego filter for the NM web
+    interface.
+    </description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.enabled</name>
+  <value>false</value>
+    <description>
+    In the server side it indicates whether timeline service is enabled or not.
+    And in the client side, users can enable it to indicate whether client wants
+    to use timeline service. If its enabled in the client side along with
+    security, then yarn client tries to fetch the delegation tokens for the
+    timeline server.
+    </description>
+</property>
+
+<property>
+  <name>security.applicationhistory.protocol.acl</name>
+  <value></value>
+    <description>
+    ACL protocol for use in the Timeline server.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.disk-validator</name>
+  <value>basic</value>
+    <description>
+      The name of disk validator.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.elastic-memory-control.timeout-sec</name>
+  <value>5</value>
+    <description>
+      Maximum time to wait for an OOM situation to get resolved before
+      bringing down the node.
+    </description>
+</property>
+
+</configuration>

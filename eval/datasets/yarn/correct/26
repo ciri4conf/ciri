@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.fs.state-store.num-retries</name>
+  <value>0</value>
+    <description>the number of retries to recover from IOException in
+    FileSystemRMStateStore.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.type</name>
+  <value></value>
+    <description>Default container runtime to use.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.docker.enable-userremapping.allowed</name>
+  <value>false</value>
+    <description>Property to enable docker user remapping</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.container-metrics.unregister-delay-ms</name>
+  <value>5000</value>
+    <description>
+    The delay time ms to unregister container metrics after completion.
+    </description>
+</property>
+
+<property>
+  <name>yarn.web-proxy.address</name>
+  <value></value>
+    <description>The address for the web proxy as HOST:PORT, if this is not
+     given then the proxy will run as part of the RM</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.leveldb-timeline-store.read-cache-size</name>
+  <value>104857600</value>
+    <description>Size of read cache for uncompressed blocks for leveldb timeline store in bytes.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.log-aggregation.policy.class</name>
+  <value>org.apache.hadoop.yarn.server.nodemanager.containermanager.logaggregation.AllContainerLogAggregationPolicy</value>
+    <description>
+    The default log aggregation policy class. Applications can
+    override it via LogAggregationContext. This configuration can provide
+    some cluster-side default behavior so that if the application doesn't
+    specify any policy via LogAggregationContext administrators of the cluster
+    can adjust the policy globally.
+    </description>
+</property>
+
+<property>
+  <name>yarn.node-attribute.fs-store.root-dir</name>
+  <value></value>
+    <description>
+      URI for NodeAttributeManager. The default value is
+      /tmp/hadoop-yarn-${user}/node-attribute/ in the local filesystem.
+    </description>
+</property>
+
+</configuration>

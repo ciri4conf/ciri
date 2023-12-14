@@ -1,0 +1,16 @@
+localSessionsEnabled=true
+
+quorum.auth.learner.saslLoginContext=QuorumLearner
+
+syncEnabled=false
+
+autopurge.purgeInterval=0
+
+quorumListenOnAllIPs=false
+
+quorum.auth.kerberos.servicePrincipal=zkquorum/localhost
+
+initLimit=1
+
+secureClientPort=3001
+

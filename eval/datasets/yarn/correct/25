@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.nm.liveness-monitor.expiry-interval-ms</name>
+  <value>1200000</value>
+    <description>How long to wait until a node manager is considered dead.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.work-preserving-recovery.enabled</name>
+  <value>true</value>
+    <description>Enable RM work preserving recovery. This configuration is private
+    to YARN for experimenting the feature.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.runc.allowed-container-runtimes</name>
+  <value>runc</value>
+    <description>The set of runtimes allowed when launching containers
+      using the RuncContainerRuntime.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.entity-group-fs-store.group-id-plugin-classes</name>
+  <value></value>
+    <description>
+      Plugins that can translate a timeline entity read request into
+      a list of timeline entity group ids, separated by commas.
+    </description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.entity-group-fs-store.retain-seconds</name>
+  <value>604800</value>
+    <description>
+      How long the ATS v1.5 entity group file system storage will keep an
+      application's data in the done directory.
+    </description>
+</property>
+
+<property>
+  <name>yarn.minicluster.yarn.nodemanager.resource.memory-mb</name>
+  <value>2048</value>
+    <description>
+    As yarn.nodemanager.resource.memory-mb property but for the NodeManager
+    in a MiniYARNCluster.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.resource-plugins.gpu.docker-plugin</name>
+  <value>nvidia-docker-v1</value>
+    <description>
+      Specify docker command plugin for GPU. By default uses Nvidia docker V1.
+    </description>
+</property>
+
+<property>
+  <name>yarn.workflow-id.tag-prefix</name>
+  <value>workflowid:</value>
+    <description>
+      Prefix used to identify the YARN tag which contains workflow ID. If a tag coming in application
+      submission context has this prefix, whatever follows the prefix will be considered as workflow ID
+      associated with the application. This configuration is used by features such as workflow priority
+      for identifying the workflow associated with an application.
+    </description>
+</property>
+
+</configuration>

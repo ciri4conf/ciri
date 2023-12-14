@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.ha.rm-ids</name>
+  <value></value>
+    <description>The list of RM nodes in the cluster when HA is
+      enabled. See description of yarn.resourcemanager.ha
+      .enabled for full details on how this is used.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.delegation.key.update-interval</name>
+  <value>43200000</value>
+    <description>
+    RM secret key update interval in ms
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.rm.container-allocation.expiry-interval-ms</name>
+  <value>1200000</value>
+    <description>
+    The expiry interval for a container
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.resource.memory.enforced</name>
+  <value>1.5</value>
+    <description>Whether YARN CGroups strict memory enforcement is enabled.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.log-aggregation.compression-type</name>
+  <value>none</value>
+    <description>T-file compression types used to compress aggregated logs.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.entity-group-fs-store.cache-store-class</name>
+  <value>org.apache.hadoop.yarn.server.timeline.MemoryTimelineStore</value>
+    <description>Caching storage timeline server v1.5 is using. </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.node-attributes.resync-interval-ms</name>
+  <value>60000</value>
+    <description>
+      Interval at which NM syncs its node attributes with RM. NM will send its loaded
+      attributes every x intervals configured, along with heartbeat to RM.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.amrmproxy.address</name>
+  <value>0.0.0.0:3000</value>
+    <description>
+    The address of the AMRMProxyService listener.
+    </description>
+</property>
+
+</configuration>

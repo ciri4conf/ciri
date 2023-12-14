@@ -1,0 +1,24 @@
+alluxio.worker.tieredstore.level1.dirs.quota=
+# Description: A comma-separated list of capacities (e.g., "5GB,5GB,50GB") for each storage directory on the second storage tier specified by alluxio.worker.tieredstore.level1.dirs.path.
+
+alluxio.master.embedded.journal.flush.size.max=160MB
+# Description: The maximum size in bytes of journal entries allowed in concurrent journal flushing (journal IO to standby masters and IO to local disks).
+
+alluxio.underfs.web.titles=Directory listing for
+# Description: The title of the content for a http url.
+
+alluxio.master.daily.backup.time=05:00
+# Description: Default UTC time for writing daily master metadata backups. The accepted time format is hour:minute which is based on a 24-hour clock (E.g., 05:30, 06:00, and 22:04). Backing up metadata requires a pause in master metadata changes, so please set this value to an off-peak time to avoid interfering with other users of the system.
+
+alluxio.underfs.listing.length=500
+# Description: The maximum number of directory entries to list in a single query to under file system. If the total number of entries is greater than the specified length, multiple queries will be issued.
+
+alluxio.job.worker.bind.host=0.0.0.0
+# Description: The host that the Alluxio job worker will bind to.
+
+alluxio.zookeeper.session.timeout=60s
+# Description: Session timeout to use when connecting to Zookeeper
+
+alluxio.master.tieredstore.global.level0.alias=MEM
+# Description: The name of the highest storage tier in the entire system.
+

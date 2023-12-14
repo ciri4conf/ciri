@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.datanode.data.dir.perm</name>
+  <value>999</value>
+  <description>Permissions for the directories on on the local filesystem where
+  the DFS data node store its blocks. The permissions can either be octal or
+  symbolic.</description>
+</property>
+
+<property>
+  <name>dfs.internal.nameservices</name>
+  <value></value>
+  <description>
+    Comma-separated list of nameservices that belong to this cluster.
+    Datanode will report to all the nameservices in this list. By default
+    this is set to the value of dfs.nameservices.
+  </description>
+</property>
+
+<property>
+  <name>dfs.webhdfs.ugi.expire.after.access</name>
+  <value>300000</value>
+    <description>How long in milliseconds after the last access
+      the cached UGI will expire. With 0, never expire.
+    </description>
+</property>
+
+<property>
+  <name>dfs.datanode.fsdataset.factory</name>
+  <value></value>
+  <description>
+    The class name for the underlying storage that stores replicas for a
+    Datanode.  Defaults to
+    org.apache.hadoop.hdfs.server.datanode.fsdataset.impl.FsDatasetFactory.
+  </description>
+</property>
+
+<property>
+  <name>dfs.mover.retry.max.attempts</name>
+  <value>20</value>
+  <description>
+    The maximum number of retries before the mover consider the
+    move failed.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.replication.max-streams-hard-limit</name>
+  <value>8</value>
+  <description>
+    Hard limit for all replication streams.
+  </description>
+</property>
+
+<property>
+  <name>dfs.secondary.namenode.kerberos.principal</name>
+  <value></value>
+  <description>
+    Kerberos principal name for the Secondary NameNode.
+  </description>
+</property>
+
+<property>
+  <name>dfs.provided.aliasmap.text.write.dir</name>
+  <value>/valid/dir1</value>
+    <description>
+        The path to which the provided block map should be written as a text
+        file, specified as a URI.
+    </description>
+</property>
+
+</configuration>

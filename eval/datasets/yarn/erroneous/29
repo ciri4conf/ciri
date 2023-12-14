@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.ha.enabled</name>
+  <value>false</value>
+    <description>Enable RM high-availability. When enabled,
+      (1) The RM starts in the Standby mode by default, and transitions to
+      the Active mode when prompted to.
+      (2) The nodes in the RM ensemble are listed in
+      yarn.resourcemanager.ha.rm-ids
+      (3) The id of each RM either comes from yarn.resourcemanager.ha.id
+      if yarn.resourcemanager.ha.id is explicitly specified or can be
+      figured out by matching yarn.resourcemanager.address.{id} with local address
+      (4) The actual physical addresses come from the configs of the pattern
+      - {rpc-config}.{id}</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.ha.rm-ids</name>
+  <value>rm1,rm2</value>
+    <description>The list of RM nodes in the cluster when HA is
+      enabled. See description of yarn.resourcemanager.ha
+      .enabled for full details on how this is used.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.max-completed-applications</name>
+  <value>1000</value>
+    <description>The maximum number of completed applications RM keeps. </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.resource.memory-mb</name>
+  <value>-1</value>
+    <description>Amount of physical memory, in MB, that can be allocated 
+    for containers. If set to -1 and
+    yarn.nodemanager.resource.detect-hardware-capabilities is true, it is
+    automatically calculated(in case of Windows and Linux).
+    In other cases, the default is 8192MB.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.runc.image-tag-to-manifest-plugin</name>
+  <value>org.apache.hadoop.yarn.server.nodemanager.containermanager.linux.runtime.runc.ImageTagToManifestPlugin</value>
+    <description>The runC image tag to manifest plugin
+      class to be used.</description>
+</property>
+
+<property>
+  <name>yarn.sharedcache.cleaner.period-mins</name>
+  <value>720</value>
+    <description>The frequency at which a cleaner task runs.
+    Specified in minutes.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.webapp.rest-csrf.methods-to-ignore</name>
+  <value>GET</value>
+    <description>
+      Optional parameter that indicates the list of HTTP methods that do not
+      require CSRF protection
+    </description>
+</property>
+
+<property>
+  <name>yarn.router.interceptor.user.threadpool-size</name>
+  <value>10</value>
+    <description>
+      The thread pool executor size of per user in Router ClientRM Service FederationClientInterceptor.
+    </description>
+</property>
+
+</configuration>

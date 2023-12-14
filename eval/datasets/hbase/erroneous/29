@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hbase.regionserver.dns.interface</name>
+  <value>eth2</value>
+    <description>The name of the Network Interface from which a region server
+      should report its IP address.</description>
+</property>
+
+<property>
+  <name>hbase.zookeeper.property.syncLimit</name>
+  <value>10</value>
+    <description>Property from ZooKeeper's config zoo.cfg.
+    The number of ticks that can pass between sending a request and getting an
+    acknowledgment.</description>
+</property>
+
+<property>
+  <name>hbase.hstore.compaction.ratio</name>
+  <value>2.4</value>
+    <description>For minor compaction, this ratio is used to determine whether a given StoreFile
+      which is larger than hbase.hstore.compaction.min.size is eligible for compaction. Its
+      effect is to limit compaction of large StoreFiles. The value of hbase.hstore.compaction.ratio
+      is expressed as a floating-point decimal. A large ratio, such as 10, will produce a single
+      giant StoreFile. Conversely, a low value, such as .25, will produce behavior similar to the
+      BigTable compaction algorithm, producing four StoreFiles. A moderate value of between 1.0 and
+      1.4 is recommended. When tuning this value, you are balancing write costs with read costs.
+      Raising the value (to something like 1.4) will have more write costs, because you will
+      compact larger StoreFiles. However, during reads, HBase will need to seek through fewer
+      StoreFiles to accomplish the read. Consider this approach if you cannot take advantage of
+      Bloom filters. Otherwise, you can lower this value to something like 1.0 to reduce the
+      background cost of writes, and use Bloom filters to control the number of StoreFiles touched
+      during reads. For most cases, the default value is appropriate.</description>
+</property>
+
+<property>
+  <name>hbase.coprocessor.abortonerror</name>
+  <value>true</value>
+      <description>Set to true to cause the hosting server (master or regionserver)
+      to abort if a coprocessor fails to load, fails to initialize, or throws an
+      unexpected Throwable object. Setting this to false will allow the server to
+      continue execution but the system wide state of the coprocessor in question
+      will become inconsistent as it will be properly executing in only a subset
+      of servers, so this is most useful for debugging only.</description>
+</property>
+
+<property>
+  <name>dfs.client.read.shortcircuit</name>
+  <value></value>
+    <description>
+      If set to true, this configuration parameter enables short-circuit local
+      reads.
+    </description>
+</property>
+
+<property>
+  <name>hbase.hstore.checksum.algorithm</name>
+  <value>NOEXIST_ALGORITHM</value>
+    <description>
+      Name of an algorithm that is used to compute checksums. Possible values
+      are NULL, CRC32, CRC32C.
+    </description>
+</property>
+
+<property>
+  <name>hbase.master.loadbalancer.class</name>
+  <value>org.apache.hadoop.hbase.master.balancer.StochasticLoadBalancer</value>
+    <description>
+      Class used to execute the regions balancing when the period occurs.
+      See the class comment for more on how it works
+      http://hbase.apache.org/devapidocs/org/apache/hadoop/hbase/master/balancer/StochasticLoadBalancer.html
+      It replaces the DefaultLoadBalancer as the default (since renamed
+      as the SimpleLoadBalancer).
+    </description>
+</property>
+
+<property>
+  <name>hbase.coordinated.state.manager.class</name>
+  <value>org.apache.hadoop.hbase.coordination.ZkCoordinatedStateManager</value>
+    <description>Fully qualified name of class implementing coordinated state manager.</description>
+</property>
+
+</configuration>

@@ -1,0 +1,24 @@
+alluxio.master.tieredstore.global.level0.alias=MEM
+# Description: The name of the highest storage tier in the entire system.
+
+alluxio.user.file.reserved.bytes=${alluxio.user.block.size.bytes.default}
+# Description: The size to reserve on workers for file system writes.Using smaller value will improve concurrency for writes smaller than block size.
+
+alluxio.worker.tieredstore.level0.dirs.path=/mnt/ramdisk
+# Description: A comma-separated list of paths (eg., /mnt/ramdisk1,/mnt/ramdisk2,/mnt/ssd/alluxio/cache1) of storage directories for the top storage tier. Note that for MacOS, the root directory should be `/Volumes/` and not `/mnt/`.
+
+alluxio.user.file.buffer.bytes=1MB
+# Description: The size of the file buffer to use for file system reads/writes.
+
+alluxio.worker.tieredstore.level1.watermark.high.ratio=0.475
+# Description: The high watermark of the space in the second storage tier (a value between 0 and 1).
+
+alluxio.job.master.worker.heartbeat.interval=1sec
+# Description: The amount of time that the Alluxio job worker should wait in between heartbeats to the Job Master.
+
+alluxio.user.rpc.retry.base.sleep=1ms
+# Description: Alluxio client RPCs automatically retry for transient errors with an exponential backoff. This property determines the base time in the exponential backoff.
+
+alluxio.master.rpc.port=3000
+# Description: The port for Alluxio master's RPC service.
+

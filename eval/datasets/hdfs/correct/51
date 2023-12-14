@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hadoop.hdfs.configuration.version</name>
+  <value>0</value>
+  <description>version of this configuration file</description>
+</property>
+
+<property>
+  <name>dfs.permissions.superusergroup</name>
+  <value>supergroup</value>
+  <description>The name of the group of super-users.
+    The value should be a single group name.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.full.block.report.lease.length.ms</name>
+  <value>600000</value>
+  <description>
+    The number of milliseconds that the NameNode will wait before invalidating
+    a full block report lease.  This prevents a crashed DataNode from
+    permanently using up a full block report lease.
+  </description>
+</property>
+
+<property>
+  <name>dfs.datanode.lifeline.interval.seconds</name>
+  <value></value>
+  <description>
+    Sets the interval in seconds between sending DataNode Lifeline Protocol
+    messages from the DataNode to the NameNode.  The value must be greater than
+    the value of dfs.heartbeat.interval.  If this property is not defined, then
+    the default behavior is to calculate the interval as 3x the value of
+    dfs.heartbeat.interval.  Note that normal heartbeat processing may cause the
+    DataNode to postpone sending lifeline messages if they are not required.
+    Under normal operations with speedy heartbeat processing, it is possible
+    that no lifeline messages will need to be sent at all.  This property has no
+    effect if dfs.namenode.lifeline.rpc-address is not defined.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.legacy-oiv-image.dir</name>
+  <value>/valid/dir2</value>
+  <description>Determines where to save the namespace in the old fsimage format
+    during checkpointing by standby NameNode or SecondaryNameNode. Users can
+    dump the contents of the old format fsimage by oiv_legacy command. If
+    the value is not specified, old format fsimage will not be saved in
+    checkpoint.
+  </description>
+</property>
+
+<property>
+  <name>dfs.datanode.ec.reconstruction.stripedread.buffer.size</name>
+  <value>65536</value>
+  <description>Datanode striped read buffer size.
+  </description>
+</property>
+
+<property>
+  <name>dfs.webhdfs.rest-csrf.enabled</name>
+  <value>false</value>
+  <description>
+    If true, then enables WebHDFS protection against cross-site request forgery
+    (CSRF).  The WebHDFS client also uses this property to determine whether or
+    not it needs to send the custom CSRF prevention header in its HTTP requests.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.file.close.num-committed-allowed</name>
+  <value>1</value>
+  <description>
+    Normally a file can only be closed with all its blocks are committed.
+    When this value is set to a positive integer N, a file can be closed
+    when N blocks are committed and the rest complete.
+  </description>
+</property>
+
+</configuration>

@@ -1,0 +1,24 @@
+alluxio.job.worker.data.port=ciri
+# Description: The port the Alluxio Job worker uses to send data.
+
+alluxio.user.ufs.block.read.location.policy.deterministic.hash.shards=0
+# Description: When alluxio.user.ufs.block.read.location.policy is set to alluxio.client.block.policy.DeterministicHashPolicy or alluxio.client.block.policy.CapacityBasedDeterministicHashPolicy, this specifies the number of hash shards.
+
+alluxio.master.backup.heartbeat.interval=4sec
+# Description: Interval at which stand-by master that is taking the backup will update the leading master with current backup status.
+
+alluxio.user.metrics.heartbeat.interval=1sec
+# Description: The time period of client master heartbeat to send the client-side metrics.
+
+alluxio.master.lost.worker.file.detection.interval=10min
+# Description: The interval between Alluxio master detections to find lost files based on updates from Alluxio workers.
+
+alluxio.user.file.delete.unchecked=false
+# Description: Whether to check if the UFS contents are in sync with Alluxio before attempting to delete persisted directories recursively.
+
+alluxio.master.jvm.monitor.enabled=true
+# Description: Whether to enable start JVM monitor thread on the master. This will start a thread to detect JVM-wide pauses induced by GC or other reasons.
+
+fs.cos.secret.key=
+# Description: The secret key of COS bucket.
+

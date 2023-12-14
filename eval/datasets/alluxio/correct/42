@@ -1,0 +1,24 @@
+alluxio.user.file.metadata.load.type=ONCE
+# Description: The behavior of loading metadata from UFS. When information about a path is requested and the path does not exist in Alluxio, metadata can be loaded from the UFS. Valid options are `ALWAYS`, `NEVER`, and `ONCE`. `ALWAYS` will always access UFS to see if the path exists in the UFS. `NEVER` will never consult the UFS. `ONCE` will access the UFS the "first" time (according to a cache), but not after that. This parameter is ignored if a metadata sync is performed, via the parameter "alluxio.user.file.metadata.sync.interval"
+
+alluxio.worker.tieredstore.block.lock.readers=2000
+# Description: The max number of concurrent readers for a block lock.
+
+alluxio.fuse.jnifuse.enabled=false
+# Description: Use JNI-Fuse library for better performance. If disabled, JNR-Fuse will be used.
+
+alluxio.worker.block.annotator.class=alluxio.worker.block.annotator.LRUAnnotator
+# Description: The strategy that a worker uses to annotate blocks in order to have an ordered view of them during internalmanagement tasks such as eviction and promotion/demotion. Valid options include: `alluxio.worker.block.annotator.LRFUAnnotator`, `alluxio.worker.block.annotator.LRUAnnotator`,
+
+alluxio.user.file.replication.max=-1
+# Description: The target max replication level of a file in Alluxio space. Setting this property to a negative value means no upper limit.
+
+alluxio.user.block.worker.client.pool.max=2048
+# Description: The maximum number of block worker clients cached in the block worker client pool.
+
+alluxio.jvm.monitor.sleep.interval=10sec
+# Description: The time for the JVM monitor thread to sleep.
+
+alluxio.security.authorization.permission.supergroup=samgroup
+# Description: The super group of Alluxio file system. All users in this group have super permission.
+

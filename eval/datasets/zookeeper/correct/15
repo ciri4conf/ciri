@@ -1,0 +1,16 @@
+electionAlg=6
+
+quorum.auth.kerberos.servicePrincipal=zkquorum/localhost
+
+secureClientPortAddress=0.0.0.0:3001
+
+clientPort=3000
+
+tickTime=3000
+
+syncEnabled=true
+
+reconfigEnabled=true
+
+sslQuorumReloadCertFiles=true
+

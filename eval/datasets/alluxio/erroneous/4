@@ -1,0 +1,24 @@
+alluxio.job.worker.threadpool.size=ciri/ciri
+# Description: Number of threads in the thread pool for job worker. This may be adjusted to a lower value to alleviate resource saturation on the job worker nodes (CPU + IO).
+
+alluxio.user.client.cache.timeout.threads=16
+# Description: The number of threads to handle cache I/O operation timeout, when alluxio.user.client.cache.timeout.duration is positive.
+
+alluxio.zookeeper.leader.path=/alluxio/leader
+# Description: Leader directory in ZooKeeper.
+
+alluxio.user.file.copyfromlocal.block.location.policy.class=alluxio.client.block.policy.RoundRobinPolicy
+# Description: The default location policy for choosing workers for writing a file's blocks using copyFromLocal command.
+
+alluxio.job.master.embedded.journal.port=20003
+# Description: The port job masters use for embedded journal communications.
+
+alluxio.table.catalog.path=/catalog
+# Description: The Alluxio file path for the table catalog metadata.
+
+alluxio.master.ufs.active.sync.event.rate.interval=60sec
+# Description: The time interval we use to estimate incoming event rate
+
+alluxio.master.backup.state.lock.forced.duration=30min
+# Description: Exclusive locking of the state-lock will timeout after this duration is spent on forced phase.
+

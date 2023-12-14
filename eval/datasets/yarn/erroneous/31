@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.ipc.record.factory.class</name>
+  <value></value>
+    <description>Factory to create serializeable records.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.address</name>
+  <value>${yarn.resourcemanager.hostname}:8032</value>
+    <description>The address of the applications manager interface in the RM.</description>
+</property>
+
+<property>
+  <name>yarn.webapp.ui2.enable</name>
+  <value>false</value>
+    <description>To enable RM web ui2 application.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.max-log-aggregation-diagnostics-in-memory</name>
+  <value>1</value>
+    <description>Number of diagnostics/failure messages can be saved in RM for
+    log aggregation. It also defines the number of diagnostics/failure
+    messages can be shown in log aggregation web ui.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.recovery.dir</name>
+  <value>/valid/file2</value>
+    <description>The local filesystem directory in which the node manager will
+    store state when recovery is enabled.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.enabled</name>
+  <value>false</value>
+    <description>
+    In the server side it indicates whether timeline service is enabled or not.
+    And in the client side, users can enable it to indicate whether client wants
+    to use timeline service. If its enabled in the client side along with
+    security, then yarn client tries to fetch the delegation tokens for the
+    timeline server.
+    </description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.leveldb-timeline-store.path</name>
+  <value>hadoop_tmp/yarn/timeline</value>
+    <description>Store file name for leveldb timeline store.</description>
+</property>
+
+<property>
+  <name>yarn.is.minicluster</name>
+  <value>true</value>
+    <description>
+    Set to true for MiniYARNCluster unit tests
+    </description>
+</property>
+
+</configuration>

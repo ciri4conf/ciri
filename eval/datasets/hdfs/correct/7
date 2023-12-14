@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.namenode.redundancy.considerLoad</name>
+  <value>true</value>
+  <description>
+    Decide if chooseTarget considers the target's load or not when write.
+    Turn on by default.
+  </description>
+</property>
+
+<property>
+  <name>dfs.journalnode.http-address</name>
+  <value>0.0.0.0:3000</value>
+  <description>
+    The address and port the JournalNode HTTP server listens on.
+    If the port is 0 then the server will start on a free port.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.socket-timeout</name>
+  <value>120000</value>
+  <description>
+    Default timeout value in milliseconds for all sockets.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.write.byte-array-manager.count-threshold</name>
+  <value>64</value>
+  <description>
+    The count threshold for each array length so that a manager is created only after the
+    allocation count exceeds the threshold. In other words, the particular array length
+    is not managed until the allocation count exceeds the threshold.
+  </description>
+</property>
+
+<property>
+  <name>dfs.webhdfs.oauth2.client.id</name>
+  <value></value>
+  <description>
+    Client id used to obtain access token with either credential or
+    refresh token.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.provided.enabled</name>
+  <value>true</value>
+    <description>
+      Enables the Namenode to handle provided storages.
+    </description>
+</property>
+
+<property>
+  <name>dfs.provided.aliasmap.inmemory.dnrpc-address</name>
+  <value></value>
+    <description>
+      The address where the aliasmap server will be running. In the case of
+      HA/Federation where multiple namenodes exist, and if the Namenode is
+      configured to run the aliasmap server
+      (dfs.provided.aliasmap.inmemory.enabled is set to true),
+      the name service id is added to the name, e.g.,
+      dfs.provided.aliasmap.inmemory.rpc.address.EXAMPLENAMESERVICE.
+      The value of this property will take the form of host:rpc-port.
+    </description>
+</property>
+
+<property>
+  <name>dfs.provided.aliasmap.inmemory.server.log</name>
+  <value>true</value>
+    <description>
+      Ensures that InMemoryAliasMap server logs every call to it.
+      Set to false by default.
+    </description>
+</property>
+
+</configuration>

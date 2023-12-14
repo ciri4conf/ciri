@@ -1,0 +1,24 @@
+alluxio.fuse.jnifuse.enabled=true
+# Description: Use JNI-Fuse library for better performance. If disabled, JNR-Fuse will be used.
+
+alluxio.jvm.monitor.warn.threshold=10sec
+# Description: When the JVM pauses for anything longer than this, log a WARN message.
+
+alluxio.worker.storage.checker.enabled=true
+# Description: Whether periodic storage health checker is enabled on Alluxio workers.
+
+alluxio.network.host.resolution.timeout=10sec
+# Description: During startup of the Master and Worker processes Alluxio needs to ensure that they are listening on externally resolvable and reachable host names. To do this, Alluxio will automatically attempt to select an appropriate host name if one was not explicitly specified. This represents the maximum amount of time spent waiting to determine if a candidate host name is resolvable over the network.
+
+alluxio.user.network.writer.chunk.size.bytes=
+# Description: When a client writes to a remote worker, the maximum chunk size.
+
+alluxio.user.conf.cluster.default.enabled=true
+# Description: When this property is true, an Alluxio client will load the default values of cluster-wide configuration and path-specific configuration set by Alluxio master.
+
+alluxio.network.connection.server.shutdown.timeout=1sec
+# Description: Maximum time to wait for gRPC server to stop on shutdown
+
+alluxio.master.tieredstore.global.levels=1
+# Description: The total number of storage tiers in the system.
+

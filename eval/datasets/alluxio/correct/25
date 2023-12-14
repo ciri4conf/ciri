@@ -1,0 +1,24 @@
+alluxio.worker.tieredstore.level0.dirs.quota=${alluxio.worker.ramdisk.size}
+# Description: A comma-separated list of capacities (e.g., "500MB,500MB,5GB") for each storage directory on the top storage tier specified by alluxio.worker.tieredstore.level0.dirs.path. For any "MEM"-type media (i.e, the ramdisks), this value should be set equivalent to the value specified by alluxio.worker.ramdisk.size.
+
+alluxio.master.rpc.addresses=
+# Description: A list of comma-separated host:port RPC addresses where the client should look for masters when using multiple masters without Zookeeper. This property is not used when Zookeeper is enabled, since Zookeeper already stores the master addresses.
+
+alluxio.master.journal.temporary.file.gc.threshold=1min
+# Description: Minimum age for garbage collecting temporary checkpoint files.
+
+alluxio.user.rpc.retry.max.sleep=6sec
+# Description: Alluxio client RPCs automatically retry for transient errors with an exponential backoff. This property determines the maximum wait time in the backoff.
+
+alluxio.master.embedded.journal.transport.request.timeout.ms=10sec
+# Description: The duration after which embedded journal masters will timeout messages sent between each other. Lower values might cause leadership instability when the network is slow.
+
+alluxio.worker.rpc.port=3001
+# Description: The port for Alluxio worker's RPC service.
+
+alluxio.master.jvm.monitor.enabled=true
+# Description: Whether to enable start JVM monitor thread on the master. This will start a thread to detect JVM-wide pauses induced by GC or other reasons.
+
+alluxio.worker.management.tier.align.reserved.bytes=1GB
+# Description: The amount of space that is reserved from each storage directory for internal management tasks.
+

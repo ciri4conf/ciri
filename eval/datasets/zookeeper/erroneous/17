@@ -1,0 +1,16 @@
+maxClientCnxns=-100
+
+autopurge.purgeInterval=0
+
+minSessionTimeout=-1
+
+quorum.auth.serverRequireSasl=true
+
+clientPortAddress=0.0.0.0:3000
+
+dataLogDir=
+
+tickTime=1500
+
+localSessionsUpgradingEnabled=false
+

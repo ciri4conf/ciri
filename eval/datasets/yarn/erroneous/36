@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.scheduler.maximum-allocation-mb</name>
+  <value>4096</value>
+    <description>The maximum allocation for every container request at the RM
+    in MBs. Memory requests higher than this will throw an
+    InvalidResourceRequestException.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.resource.memory-mb</name>
+  <value>1024</value>
+    <description>Amount of physical memory, in MB, that can be allocated 
+    for containers. If set to -1 and
+    yarn.nodemanager.resource.detect-hardware-capabilities is true, it is
+    automatically calculated(in case of Windows and Linux).
+    In other cases, the default is 8192MB.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.docker.host-pid-namespace.allowed</name>
+  <value>false</value>
+    <description>This configuration setting determines whether the host's PID
+      namespace is allowed for docker containers on this cluster.
+      Use with care.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.runc.image-tag-to-manifest-plugin.num-manifests-to-cache</name>
+  <value>10</value>
+    <description>The number of manifests to cache in the image tag
+      to hash cache.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.aux-services.manifest.reload-ms</name>
+  <value>-1</value>
+    <description>Length of time in ms to wait between reloading aux services
+      manifest. If 0 or less, manifest will not be reloaded.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.writer.flush-interval-seconds</name>
+  <value>120</value>
+    <description>The setting that controls how often the timeline collector
+    flushes the timeline writer.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.node-attributes.provider.fetch-interval-ms</name>
+  <value>1200000</value>
+    <description>
+      Time interval that determines how long NM fetches node attributes
+      from a given provider. If -1 is configured then node labels are
+      retrieved from provider only during initialization. Defaults to 10 mins.
+    </description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.webapp.rest-csrf.enabled</name>
+  <value>true</value>
+  <description>
+      Enable the CSRF filter for the timeline service web app
+    </description>
+</property>
+
+</configuration>

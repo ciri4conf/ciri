@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.webapp.spnego-principal</name>
+  <value></value>
+    <description>
+    The Kerberos principal to be used for spnego filter for the RM web
+    interface.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.health-checker.scripts</name>
+  <value>script</value>
+    <description>The nodemanager health check scripts to run.</description>
+</property>
+
+<property>
+  <name>yarn.client.nodemanager-connect.max-wait-ms</name>
+  <value>180000</value>
+    <description>Max time to wait to establish a connection to NM</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.container-monitor.process-tree.class</name>
+  <value></value>
+    <description>
+    Class used to calculate current container resource utilization.
+    </description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.client.fd-flush-interval-secs</name>
+  <value>1</value>
+    <description>
+      Flush interval for ATS v1.5 writer. This value controls how frequent
+      the writer will flush the HDFS FSStream for the entity/domain.
+    </description>
+</property>
+
+<property>
+  <name>yarn.sharedcache.nested-level</name>
+  <value>3</value>
+    <description>The level of nested directories before getting to the checksum
+    directories. It must be non-negative.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.webapp.rest-csrf.enabled</name>
+  <value>false</value>
+    <description>
+      Enable the CSRF filter for the RM web app
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.application-timeouts.monitor.interval-ms</name>
+  <value>6000</value>
+    <description>
+    The RMAppLifetimeMonitor Service uses this value as monitor interval
+    </description>
+</property>
+
+</configuration>

@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.max-log-aggregation-diagnostics-in-memory</name>
+  <value>1</value>
+    <description>Number of diagnostics/failure messages can be saved in RM for
+    log aggregation. It also defines the number of diagnostics/failure
+    messages can be shown in log aggregation web ui.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.docker.image-name</name>
+  <value></value>
+    <description>Default docker image to be used when the docker runtime is
+    selected.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.container-monitor.process-tree.class</name>
+  <value></value>
+    <description>
+    Class used to calculate current container resource utilization.
+    </description>
+</property>
+
+<property>
+  <name>yarn.web-proxy.address</name>
+  <value></value>
+    <description>The address for the web proxy as HOST:PORT, if this is not
+     given then the proxy will run as part of the RM</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.store-class</name>
+  <value>org.apache.hadoop.yarn.server.timeline.LeveldbTimelineStore</value>
+    <description>Store class name for timeline store.</description>
+</property>
+
+<property>
+  <name>yarn.sharedcache.admin.thread-count</name>
+  <value>1</value>
+    <description>The number of threads used to handle SCM admin interface (1 by default)</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.node-labels.provider</name>
+  <value></value>
+    <description>
+    When node labels "yarn.node-labels.configuration-type" is
+    of type "delegated-centralized", administrators should configure
+    the class for fetching node labels by ResourceManager. Configured
+    class needs to extend
+    org.apache.hadoop.yarn.server.resourcemanager.nodelabels.
+    RMNodeLabelsMappingProvider.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.nm-container-queuing.max-queue-length</name>
+  <value>15</value>
+    <description>
+    Max length of container queue at NodeManager.
+    </description>
+</property>
+
+</configuration>

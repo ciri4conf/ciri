@@ -1,0 +1,24 @@
+alluxio.job.master.job.capacity=-1
+# Description: The total possible number of available job statuses in the job master. This value includes running and finished jobs which are have completed within alluxio.job.master.finished.job.retention.time.
+
+fs.oss.accessKeySecret=
+# Description: The secret key of OSS bucket.
+
+alluxio.master.journal.gc.threshold=1min
+# Description: Minimum age for garbage collecting checkpoints.
+
+alluxio.user.file.reserved.bytes=${alluxio.user.block.size.bytes.default}
+# Description: The size to reserve on workers for file system writes.Using smaller value will improve concurrency for writes smaller than block size.
+
+alluxio.job.master.web.hostname=${alluxio.job.master.hostname}
+# Description: The hostname of the job master web server.
+
+alluxio.security.authentication.type=SIMPLE
+# Description: The authentication mode. Currently three modes are supported: NOSASL, SIMPLE, CUSTOM. The default value SIMPLE indicates that a simple authentication is enabled. Server trusts whoever the client claims to be.
+
+alluxio.master.persistence.initial.interval=1s
+# Description: How often the master persistence checker checks persistence status for files written using ASYNC_THROUGH
+
+alluxio.user.streaming.zerocopy.enabled=true
+# Description: Whether zero copy is enabled on client when processing data streams.
+

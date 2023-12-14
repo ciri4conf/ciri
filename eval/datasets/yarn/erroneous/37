@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.zk-state-store.root-node.acl</name>
+  <value></value>
+    <description>
+      ACLs to be used for the root znode when using ZKRMStateStore in an HA
+      scenario for fencing.
+
+      ZKRMStateStore supports implicit fencing to allow a single
+      ResourceManager write-access to the store. For fencing, the
+      ResourceManagers in the cluster share read-write-admin privileges on the
+      root node, but the Active ResourceManager claims exclusive create-delete
+      permissions.
+
+      By default, when this property is not set, we use the ACLs from
+      yarn.resourcemanager.zk-acl for shared admin access and
+      rm-address:random-number for username-based exclusive create-delete
+      access.
+
+      This property allows users to set ACLs of their choice instead of using
+      the default mechanism. For fencing to work, the ACLs should be
+      carefully set differently on each ResourceManager such that all the
+      ResourceManagers have shared admin access and the Active ResourceManager
+      takes over (exclusively) the create-delete access.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.delete.debug-delay-sec</name>
+  <value>1</value>
+    <description>
+      Number of seconds after an application finishes before the nodemanager's 
+      DeletionService will delete the application's localized file directory
+      and log directory.
+      
+      To diagnose YARN application problems, set this property's value large
+      enough (for example, to 600 = 10 minutes) to permit examination of these
+      directories. After changing the property's value, you must restart the 
+      nodemanager in order for it to have an effect.
+
+      The roots of YARN applications' work directories is configurable with
+      the yarn.nodemanager.local-dirs property (see below), and the roots
+      of the YARN applications' log directories is configurable with the
+      yarn.nodemanager.log-dirs property (see also below).
+    </description>
+</property>
+
+<property>
+  <name>yarn.log-aggregation.debug.filesize</name>
+  <value>104857600</value>
+    <description>The log files created under NM Local Directories
+    will be logged if it exceeds the configured bytes. This
+    only takes effect if log4j level is at least Debug.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.health-checker.script.timeout-ms</name>
+  <value>1200000</value>
+    <description>Script time out period.</description>
+</property>
+
+<property>
+  <name>yarn.web-proxy.address</name>
+  <value></value>
+    <description>The address for the web proxy as HOST:PORT, if this is not
+     given then the proxy will run as part of the RM</description>
+</property>
+
+<property>
+  <name>yarn.registry.class</name>
+  <value>org.apache.hadoop.registry.client.impl.FSRegistryOperationsService</value>
+    <description>The registry implementation to use.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.resource-plugins.fpga.available-devices</name>
+  <value></value>
+    <description>
+      List of FPGA available devices in the given node.
+      The value must follow the format: "deviceA/N:M,deviceB/X:Y".
+      Example: "acl0/243:0,acl1/243:1". The numbers after
+      the "/" character are the device major and minor numbers.
+
+      When this property is used, both auto-discovery and external script are ignored.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.containers-launcher.class</name>
+  <value>org.apache.hadoop.yarn.server.nodemanager.containermanager.launcher.ContainersLauncher</value>
+    <description>
+      Containers launcher implementation for determining how containers
+      are launched within NodeManagers.
+    </description>
+</property>
+
+</configuration>

@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.nodemanager.runtime.linux.docker.stop.grace-period</name>
+  <value>20</value>
+    <description>A configurable value to pass to the Docker Stop command. This value
+      defines the number of seconds between the docker stop command sending
+      a SIGTERM and a SIGKILL.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.container-metrics.enable</name>
+  <value>true</value>
+    <description>
+    Flag to enable container metrics
+    </description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.enabled</name>
+  <value>false</value>
+    <description>
+    In the server side it indicates whether timeline service is enabled or not.
+    And in the client side, users can enable it to indicate whether client wants
+    to use timeline service. If its enabled in the client side along with
+    security, then yarn client tries to fetch the delegation tokens for the
+    timeline server.
+    </description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.hostname</name>
+  <value>0.0.0.0</value>
+    <description>The hostname of the timeline service web application.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.keytab</name>
+  <value>/valid/file2</value>
+    <description>The Kerberos keytab for the timeline server.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.client.max-retries</name>
+  <value>60</value>
+    <description>
+    Default maximum number of retries for timeline service client
+    and value -1 means no limit.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.numa-awareness.enabled</name>
+  <value>true</value>
+    <description>
+    Whether to enable the NUMA awareness for containers in Node Manager.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.application.max-tags</name>
+  <value>10</value>
+    <description>Max number of application tags set by user in ApplicationSubmissionContext
+      while submitting application</description>
+</property>
+
+</configuration>

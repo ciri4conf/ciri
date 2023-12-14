@@ -1,0 +1,24 @@
+alluxio.master.metastore.inode.cache.max.size=20
+# Description: The number of inodes to cache on-heap. The default value is chosen based on half the amount of maximum available memory of master JVM at runtime, and the estimation that each inode takes up approximately 2 KB of memory. This only applies to off-heap metastores, e.g. ROCKS. Set this to 0 to disable the on-heap inode cache
+
+alluxio.user.file.sequential.pread.threshold=1MB
+# Description: An upper bound on the client buffer size for positioned read to hint at the sequential nature of reads. For reads with a buffer size greater than this threshold, the read op is treated to be sequential and the worker may handle the read differently. For instance, cold reads from the HDFS ufs may use a different HDFS client API.
+
+alluxio.user.client.cache.async.write.enabled=false
+# Description: If this is enabled, cache data asynchronously.
+
+alluxio.user.file.master.client.pool.size.max=250
+# Description: The maximum number of fs master clients cached in the fs master client pool.
+
+fs.cos.socket.timeout=50sec
+# Description: The timeout of COS socket.
+
+alluxio.job.worker.threadpool.size=20
+# Description: Number of threads in the thread pool for job worker. This may be adjusted to a lower value to alleviate resource saturation on the job worker nodes (CPU + IO).
+
+alluxio.security.authorization.permission.enabled=true
+# Description: Whether to enable access control based on file permission.
+
+alluxio.user.conf.sync.interval=1min
+# Description: The time period of client master heartbeat to update the configuration if necessary from meta master.
+

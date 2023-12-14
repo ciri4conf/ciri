@@ -1,0 +1,16 @@
+quorum.auth.enableSasl=false
+
+quorum.auth.learner.saslLoginContext=QuorumLearner
+
+electionAlg=6
+
+quorum.cnxn.threads.size=1
+
+localSessionsUpgradingEnabled=false
+
+secureClientPortAddress=0.0.0.0:3001
+
+dataLogDir=/valid/dir2
+
+quorumListenOnAllIPs=false
+

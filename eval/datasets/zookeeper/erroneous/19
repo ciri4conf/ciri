@@ -1,0 +1,16 @@
+minSessionTimeout=4000000000
+
+maxSessionTimeout=0
+
+localSessionsUpgradingEnabled=false
+
+sslQuorumReloadCertFiles=false
+
+quorum.auth.enableSasl=true
+
+quorum.auth.serverRequireSasl=true
+
+clientPortAddress=0.0.0.0:3000
+
+clientPort=3000
+

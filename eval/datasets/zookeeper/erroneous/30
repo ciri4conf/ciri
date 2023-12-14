@@ -1,0 +1,16 @@
+secureClientPort=65536
+
+syncLimit=10
+
+initLimit=10
+
+quorum.auth.serverRequireSasl=true
+
+quorum.auth.learner.saslLoginContext=QuorumLearner
+
+dataLogDir=/valid/dir1
+
+peerType=participant
+
+quorumListenOnAllIPs=true
+

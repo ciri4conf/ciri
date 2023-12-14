@@ -1,0 +1,24 @@
+alluxio.job.master.client.threads=-100
+# Description: The number of threads the Alluxio master uses to make requests to the job master.
+
+alluxio.network.connection.shutdown.timeout=30sec
+# Description: Maximum time to wait for connections (gRPC channels) to stop after graceful shutdown attempt.
+
+alluxio.underfs.hdfs.prefixes=hdfs://,glusterfs:///
+# Description: Optionally, specify which prefixes should run through the HDFS implementation of UnderFileSystem. The delimiter is any whitespace and/or ','.
+
+alluxio.master.tieredstore.global.level0.alias=MEM
+# Description: The name of the highest storage tier in the entire system.
+
+alluxio.table.catalog.path=/valid/file2
+# Description: The Alluxio file path for the table catalog metadata.
+
+alluxio.user.app.id=
+# Description: The custom id to use for labeling this client's info, such as metrics. If unset, a random long will be used. This value is displayed in the client logs on initialization. Note that using the same app id will cause client info to be aggregated, so different applications must set their own ids or leave this value unset to use a randomly generated id.
+
+alluxio.worker.network.netty.watermark.high=32KB
+# Description: Determines how many bytes can be in the write queue before switching to non-writable.
+
+alluxio.user.file.buffer.bytes=8MB
+# Description: The size of the file buffer to use for file system reads/writes.
+

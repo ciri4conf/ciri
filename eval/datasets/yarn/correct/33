@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.webapp.ui-actions.enabled</name>
+  <value>true</value>
+    <description>
+    Add button to kill application in the RM Application view.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.container-monitor.interval-ms</name>
+  <value></value>
+    <description>How often to monitor containers. If not set, the value for
+    yarn.nodemanager.resource-monitor.interval-ms will be used.
+    If 0 or negative, container monitoring is disabled.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.linux-container-executor.cgroups.strict-resource-usage</name>
+  <value>false</value>
+    <description>This flag determines whether apps should run with strict resource limits
+    or be allowed to consume spare resources if they need them. For example, turning the
+    flag on will restrict apps to use only their share of CPU, even if the node has spare
+    CPU cycles. The default value is false i.e. use available resources. Please note that
+    turning this flag on may reduce job throughput on the cluster. This setting does
+    not apply to other subsystems like memory.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.linux-container-executor.cgroups.delete-timeout-ms</name>
+  <value>1000</value>
+    <description>
+    Interval of time the linux container executor should try cleaning up
+    cgroups entry when cleaning up a container.
+    </description>
+</property>
+
+<property>
+  <name>yarn.minicluster.use-rpc</name>
+  <value>true</value>
+    <description>
+    Set to false in order to allow the NodeManager in MiniYARNCluster to
+    use RPC to talk to the RM.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.node-labels.provider.configured-node-partition</name>
+  <value></value>
+    <description>
+    When "yarn.nodemanager.node-labels.provider" is configured with "config"
+    then ConfigurationNodeLabelsProvider fetches the partition label from this
+    parameter.
+    </description>
+</property>
+
+<property>
+  <name>yarn.registry.class</name>
+  <value>org.apache.hadoop.registry.client.impl.FSRegistryOperationsService</value>
+    <description>The registry implementation to use.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.application-https.policy</name>
+  <value>NONE</value>
+    <description>
+      Specifies what the RM does regarding HTTPS enforcement for communication
+      with AM Web Servers, as well as generating and providing certificates.
+      Possible values are:
+      - NONE - the RM will do nothing special.
+      - LENIENT - the RM will generate and provide a keystore and truststore
+      to the AM, which it is free to use for HTTPS in its tracking URL web
+      server.  The RM proxy will still allow HTTP connections to AMs that opt
+      not to use HTTPS.
+      - STRICT - this is the same as LENIENT, except that the RM proxy will
+      only allow HTTPS connections to AMs; HTTP connections will be blocked
+      and result in a warning page to the user.
+    </description>
+</property>
+
+</configuration>

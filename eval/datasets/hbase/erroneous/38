@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>zookeeper.znode.acl.parent</name>
+  <value>acl</value>
+    <description>Root ZNode for access control lists.</description>
+</property>
+
+<property>
+  <name>hbase.client.keyvalue.maxsize</name>
+  <value>10485760</value>
+    <description>Specifies the combined maximum allowed size of a KeyValue
+    instance. This is to set an upper boundary for a single entry saved in a
+    storage file. Since they cannot be split it helps avoiding that a region
+    cannot be split any further because the data is too large. It seems wise
+    to set this to a fraction of the maximum region size. Setting it to zero
+    or less disables the check.</description>
+</property>
+
+<property>
+  <name>hbase.hstore.time.to.purge.deletes</name>
+  <value>-1</value>
+    <description>The amount of time to delay purging of delete markers with future timestamps. If
+      unset, or set to 0, all delete markers, including those with future timestamps, are purged
+      during the next major compaction. Otherwise, a delete marker is kept until the major compaction
+      which occurs after the marker's timestamp plus the value of this setting, in milliseconds.
+    </description>
+</property>
+
+<property>
+  <name>hbase.thrift.minWorkerThreads</name>
+  <value>16</value>
+    <description>The "core size" of the thread pool. New threads are created on every
+    connection until this many threads are created.</description>
+</property>
+
+<property>
+  <name>hbase.data.umask</name>
+  <value>888</value>
+    <description>File permissions that should be used to write data
+      files when hbase.data.umask.enable is true</description>
+</property>
+
+<property>
+  <name>hbase.snapshot.restore.take.failsafe.snapshot</name>
+  <value>false</value>
+    <description>Set to true to take a snapshot before the restore operation.
+      The snapshot taken will be used in case of failure, to restore the previous state.
+      At the end of the restore operation this snapshot will be deleted</description>
+</property>
+
+<property>
+  <name>hbase.regionserver.checksum.verify</name>
+  <value>true</value>
+    <description>
+        If set to true (the default), HBase verifies the checksums for hfile
+        blocks. HBase writes checksums inline with the data when it writes out
+        hfiles. HDFS (as of this writing) writes checksums to a separate file
+        than the data file necessitating extra seeks.  Setting this flag saves
+        some on i/o.  Checksum verification by HDFS will be internally disabled
+        on hfile streams when this flag is set.  If the hbase-checksum verification
+        fails, we will switch back to using HDFS checksums (so do not disable HDFS
+        checksums!  And besides this feature applies to hfiles only, not to WALs).
+        If this parameter is set to false, then hbase will not verify any checksums,
+        instead it will depend on checksum verification being done in the HDFS client.
+    </description>
+</property>
+
+<property>
+  <name>hbase.http.staticuser.user</name>
+  <value>dr.stack</value>
+    <description>
+      The user name to filter as, on static web filters
+      while rendering content. An example use is the HDFS
+      web UI (user to be used for browsing files).
+    </description>
+</property>
+
+</configuration>

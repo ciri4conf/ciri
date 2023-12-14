@@ -1,0 +1,24 @@
+alluxio.job.worker.web.bind.host=1.1.1.1.1.1
+# Description: The host the job worker web server binds to.
+
+alluxio.worker.management.task.thread.count=8
+# Description: The number of threads for management task executor
+
+alluxio.worker.tieredstore.level0.dirs.path=/valid/file2
+# Description: A comma-separated list of paths (eg., /mnt/ramdisk1,/mnt/ramdisk2,/mnt/ssd/alluxio/cache1) of storage directories for the top storage tier. Note that for MacOS, the root directory should be `/Volumes/` and not `/mnt/`.
+
+alluxio.user.network.rpc.keepalive.time=60sec
+# Description: The amount of time for a rpc client to wait for a response before pinging the server to see if it is still alive.
+
+alluxio.worker.rpc.port=29999
+# Description: The port for Alluxio worker's RPC service.
+
+alluxio.master.daily.backup.state.lock.try.duration=4m
+# Description: The duration that controls how long the state-lock is tried within a single grace-cycle.
+
+alluxio.user.file.ufs.tier.enabled=false
+# Description: When workers run out of available memory, whether the client can skip writing data to Alluxio but fallback to write to UFS without stopping the application. This property only works when the write type is ASYNC_THROUGH.
+
+alluxio.master.journal.tailer.sleep.time=10sec
+# Description: Time for the standby master to sleep for when it cannot find anything new in leader master's journal.
+

@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.nodemanager.runtime.linux.docker.privileged-containers.allowed</name>
+  <value>false</value>
+    <description>This configuration setting determines if privileged docker
+      containers are allowed on this cluster. Privileged containers are granted
+      the complete set of capabilities and are not subject to the limitations
+      imposed by the device cgroup controller. In other words, privileged
+      containers can do almost everything that the host can do. Use with
+      extreme care.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.runc.layer-mounts-interval-secs</name>
+  <value>300</value>
+    <description>The interval in seconds between executions of
+      reaping layer mounts.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.hostname</name>
+  <value>0.0.256.0</value>
+    <description>The hostname of the timeline service web application.</description>
+</property>
+
+<property>
+  <name>yarn.sharedcache.nested-level</name>
+  <value>1</value>
+    <description>The level of nested directories before getting to the checksum
+    directories. It must be non-negative.</description>
+</property>
+
+<property>
+  <name>yarn.sharedcache.uploader.server.thread-count</name>
+  <value>50</value>
+    <description>The number of threads used to handle shared cache manager
+    requests from the node manager (50 by default)</description>
+</property>
+
+<property>
+  <name>yarn.log.server.web-service.url</name>
+  <value></value>
+    <description>
+    URL for log aggregation server web service
+    </description>
+</property>
+
+<property>
+  <name>yarn.router.interceptor.user.threadpool-size</name>
+  <value>5</value>
+    <description>
+      The thread pool executor size of per user in Router ClientRM Service FederationClientInterceptor.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.submission-preprocessor.file-refresh-interval-ms</name>
+  <value>60000</value>
+    <description>Submission processor refresh interval</description>
+</property>
+
+</configuration>

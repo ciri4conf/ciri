@@ -1,0 +1,24 @@
+alluxio.job.worker.hostname=${alluxio.worker.hostname}
+# Description: The hostname of the Alluxio job worker.
+
+alluxio.proxy.s3.deletetype=ALLUXIO_AND_UFS
+# Description: Delete type when deleting buckets and objects through S3 API. Valid options are `ALLUXIO_AND_UFS` (delete both in Alluxio and UFS), `ALLUXIO_ONLY` (delete only the buckets or objects in Alluxio namespace).
+
+alluxio.worker.ramdisk.size=1GB
+# Description: The allocated memory for each worker node's ramdisk(s). It is recommended to set this value explicitly.
+
+alluxio.underfs.oss.socket.timeout=100sec
+# Description: The timeout of OSS socket.
+
+alluxio.master.backup.connect.interval.min=1sec
+# Description: Minimum delay between each connection attempt to backup-leader.
+
+alluxio.user.streaming.writer.flush.timeout=1min
+# Description: The timeout to wait for flush to finish in a data writer.
+
+alluxio.user.block.master.client.pool.gc.interval=1sec
+# Description: The interval at which block master client GC checks occur.
+
+alluxio.user.block.read.retry.max.duration=10min
+# Description: This duration controls for how long Alluxio clients should tryreading a single block. If a particular block can't be read within this duration, then the I/O will timeout.
+

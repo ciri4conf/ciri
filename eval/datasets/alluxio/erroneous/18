@@ -1,0 +1,24 @@
+alluxio.job.master.rpc.port=1.1
+# Description: The port for Alluxio job master's RPC service.
+
+alluxio.zookeeper.auth.enabled=false
+# Description: If true, enable client-side Zookeeper authentication.
+
+alluxio.underfs.object.store.breadcrumbs.enabled=false
+# Description: Set this to false to prevent Alluxio from creating zero byte objects during read or list operations on object store UFS. Leaving this on enables more efficient listing of prefixes.
+
+alluxio.master.web.bind.host=127.0.0.1
+# Description: The hostname Alluxio master web UI binds to.
+
+alluxio.master.ufs.active.sync.max.age=10
+# Description: The maximum number of intervals we will wait to find a quiet period before we have to sync the directories
+
+alluxio.worker.tieredstore.level0.dirs.path=/valid/file2
+# Description: A comma-separated list of paths (eg., /mnt/ramdisk1,/mnt/ramdisk2,/mnt/ssd/alluxio/cache1) of storage directories for the top storage tier. Note that for MacOS, the root directory should be `/Volumes/` and not `/mnt/`.
+
+alluxio.secondary.master.metastore.dir=/valid/file1
+# Description: The secondary master metastore work directory. Only some metastores need disk.
+
+alluxio.master.file.access.time.update.precision=1d
+# Description: The file last access time is precise up to this value. Setting it toa non-positive value will update last access time on every file access operation.Longer precision will help reduce the performance impact of tracking access time by reduce the amount of metadata writes occur while reading the same group of files repetitively.
+

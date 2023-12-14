@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.ipc.rpc.class</name>
+  <value>NONE_CLASS</value>
+    <description>RPC class implementation</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.am-rm-tokens.master-key-rolling-interval-secs</name>
+  <value>86400</value>
+    <description>Interval for the roll over for the master key used to generate
+        application tokens
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.delegation-token-renewer.thread-retry-max-attempts</name>
+  <value>1</value>
+    <description>
+    Default maximum number of retries for each RM DelegationTokenRenewer thread
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.sandbox-mode.policy</name>
+  <value></value>
+    <description>Location for non-default java policy file.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.handler-thread-count</name>
+  <value>10</value>
+    <description>Handler thread count to serve the client RPC requests.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.ui-names</name>
+  <value></value>
+    <description>Comma separated list of UIs that will be hosted</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.client.fd-clean-interval-secs</name>
+  <value>60</value>
+    <description>
+      Scan interval for ATS v1.5 writer. This value controls how frequent
+      the writer will scan the HDFS FSStream for the entity/domain.
+      If the FSStream is stale for a long time, this FSStream will be close.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.resource-plugins.fpga.available-devices</name>
+  <value></value>
+    <description>
+      List of FPGA available devices in the given node.
+      The value must follow the format: "deviceA/N:M,deviceB/X:Y".
+      Example: "acl0/243:0,acl1/243:1". The numbers after
+      the "/" character are the device major and minor numbers.
+
+      When this property is used, both auto-discovery and external script are ignored.
+    </description>
+</property>
+
+</configuration>

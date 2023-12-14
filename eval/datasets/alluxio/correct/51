@@ -1,0 +1,24 @@
+alluxio.network.connection.auth.timeout=1sec
+# Description: Maximum time to wait for a connection (gRPC channel) to attempt to receive an authentication response.
+
+alluxio.master.ufs.active.sync.thread.pool.size=1
+# Description: Max number of threads used to perform active sync
+
+alluxio.worker.management.task.thread.count=4
+# Description: The number of threads for management task executor
+
+alluxio.user.client.cache.evictor.class=alluxio.client.file.cache.evictor.LRUCacheEvictor
+# Description: The strategy that client uses to evict local cached pages when running out of space. Currently valid options include `alluxio.client.file.cache.evictor.LRUCacheEvictor`,`alluxio.client.file.cache.evictor.LFUCacheEvictor`.
+
+alluxio.master.metadata.sync.executor.pool.size=10
+# Description: The number of threads used to execute all metadata syncoperations
+
+alluxio.user.client.cache.timeout.threads=64
+# Description: The number of threads to handle cache I/O operation timeout, when alluxio.user.client.cache.timeout.duration is positive.
+
+alluxio.job.master.worker.timeout=120sec
+# Description: The time period after which the job master will mark a worker as lost without a subsequent heartbeat.
+
+alluxio.jvm.monitor.warn.threshold=1sec
+# Description: When the JVM pauses for anything longer than this, log a WARN message.
+

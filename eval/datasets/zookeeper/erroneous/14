@@ -1,0 +1,16 @@
+secureClientPort=-100.22
+
+quorum.cnxn.threads.size=1
+
+reconfigEnabled=true
+
+sslQuorum=false
+
+clientPort=
+
+maxSessionTimeout=0
+
+secureClientPortAddress=0.0.0.0:3001
+
+electionAlg=1
+

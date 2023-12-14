@@ -1,0 +1,24 @@
+alluxio.underfs.s3.proxy.port=3001
+# Description: Optionally, specify a proxy port for communicating with S3.
+
+alluxio.master.embedded.journal.snapshot.replication.chunk.size=4MB
+# Description: The stream chunk size used by masters to replicate snapshots.
+
+alluxio.user.network.reader.chunk.size.bytes=
+# Description: When a client reads from a remote worker, the maximum chunk size.
+
+alluxio.worker.network.netty.watermark.low=8KB
+# Description: Once the high watermark limit is reached, the queue must be flushed down to the low watermark before switching back to writable.
+
+alluxio.zookeeper.leader.connection.error.policy=SESSION
+# Description: Connection error policy defines how errors on zookeeper connections to be treated in leader election. STANDARD policy treats every connection event as failure.SESSION policy relies on zookeeper sessions for judging failures, helping leader to retain its status, as long as its session is protected.
+
+alluxio.worker.management.tier.promote.range=200
+# Description: Maximum number of blocks to consider from one tier for a single promote task.
+
+alluxio.network.ip.address.used=true
+# Description: If true, when alluxio.<service_name>.hostname and alluxio.<service_name>.bind.host of a service not specified, use IP as the connect host of the service.
+
+alluxio.master.persistence.blacklist=
+# Description: Patterns to blacklist persist, comma separated, string match, no regex. This affects any async persist call (including ASYNC_THROUGH writes and CLI persist) but does not affect CACHE_THROUGH writes. Users may want to specify temporary files in the blacklist to avoid unnecessary I/O and errors. Some examples are `.staging` and `.tmp`.
+

@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.scheduler.class</name>
+  <value>org.apache.hadoop.yarn.server.resourcemanager.scheduler.capacity.CapacityScheduler</value>
+    <description>The class to use as the resource scheduler.</description>
+</property>
+
+<property>
+  <name>yarn.client.failover-no-ha-proxy-provider</name>
+  <value>org.apache.hadoop.yarn.client.DefaultNoHARMFailoverProxyProvider</value>
+    <description>When HA is not enabled, the class to be used by Clients, AMs and
+      NMs to retry connecting to the Active RM. It should extend
+      org.apache.hadoop.yarn.client.RMFailoverProxyProvider</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.localizer.fetch.thread-count</name>
+  <value>4</value>
+    <description>Number of threads to use for localization fetching.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.address</name>
+  <value>${yarn.timeline-service.hostname}:10200</value>
+    <description>This is default address for the timeline server to start the
+    RPC server.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.leveldb-timeline-store.read-cache-size</name>
+  <value>104857600</value>
+    <description>Size of read cache for uncompressed blocks for leveldb timeline store in bytes.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.entity-group-fs-store.active-dir</name>
+  <value>/valid/file2</value>
+    <description>HDFS path to store active application’s timeline data</description>
+</property>
+
+<property>
+  <name>yarn.federation.enabled</name>
+  <value>false</value>
+    <description>
+      Flag to indicate whether the RM is participating in Federation or not.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.container.stderr.tail.bytes</name>
+  <value>4096</value>
+    <description>
+    Size of the container error file which needs to be tailed, in bytes.
+    </description>
+</property>
+
+</configuration>

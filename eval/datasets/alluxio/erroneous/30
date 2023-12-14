@@ -1,0 +1,24 @@
+alluxio.fuse.shared.caching.reader.enabled=1.5
+# Description: (Experimental) Use share grpc data reader for better performance on multi-process file reading through Alluxio JNI Fuse. Blocks data will be cached on the client side so more memory is required for the Fuse process.
+
+alluxio.master.persistence.initial.interval=2s
+# Description: How often the master persistence checker checks persistence status for files written using ASYNC_THROUGH
+
+alluxio.underfs.s3.list.objects.v1=true
+# Description: Whether to use version 1 of GET Bucket (List Objects) API.
+
+alluxio.underfs.web.titles=Index of,Directory listing for
+# Description: The title of the content for a http url.
+
+alluxio.master.network.max.inbound.message.size=1MB
+# Description: The maximum size of a message that can be sent to the Alluxio master
+
+alluxio.worker.network.netty.boss.threads=1
+# Description: How many threads to use for accepting new requests.
+
+alluxio.user.hostname=127.0.0.1
+# Description: The hostname to use for an Alluxio client.
+
+alluxio.master.backup.abandon.timeout=10min
+# Description: Duration after which leader will abandon the backup if it has not received heartbeat from backup-worker.
+

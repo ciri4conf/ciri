@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hadoop.security.groups.negative-cache.secs</name>
+  <value>15</value>
+  <description>
+    Expiration time for entries in the the negative user-to-group mapping
+    caching, in seconds. This is useful when invalid users are retrying
+    frequently. It is suggested to set a small value for this expiration, since
+    a transient error in group lookup could temporarily lock out a legitimate
+    user.
+
+    Set this to zero or negative value to disable negative user-to-group caching.
+  </description>
+</property>
+
+<property>
+  <name>fs.AbstractFileSystem.viewfs.impl</name>
+  <value>org.apache.hadoop.fs.viewfs.ViewFs</value>
+  <description>The AbstractFileSystem for view file system for viewfs: uris
+  (ie client side mount table:).</description>
+</property>
+
+<property>
+  <name>fs.du.interval</name>
+  <value>300000</value>
+  <description>File space usage statistics refresh interval in msec.</description>
+</property>
+
+<property>
+  <name>fs.s3a.select.errors.include.sql</name>
+  <value>false</value>
+  <description>
+    Include the SQL statement in errors: this is useful for development but
+    may leak security and Personally Identifying Information in production,
+    so must be disabled there.
+  </description>
+</property>
+
+<property>
+  <name>ipc.[port_number].decay-scheduler.metrics.top.user.count</name>
+  <value>10</value>
+  <description>The number of top (i.e., heaviest) users to emit metric
+    information about. This property applies to DecayRpcScheduler.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.security.java.secure.random.algorithm</name>
+  <value>SHA1PRNG</value>
+  <description>
+    The java secure random algorithm.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.registry.secure</name>
+  <value>false</value>
+    <description>
+      Key to set if the registry is secure. Turning it on
+      changes the permissions policy from "open access"
+      to restrictions on kerberos with the option of
+      a user adding one or more auth key pairs down their
+      own tree.
+    </description>
+</property>
+
+<property>
+  <name>adl.ssl.channel.mode</name>
+  <value></value>
+    <description>
+      Valid inputs are OpenSSL, Default_JSE and Default (case insensitive).
+      If config is missing or is invalid, SSL Channel mode will be set to Default.
+
+      When OpenSSL, SSL socket connections are created in OpenSSL mode.
+      When Default_JSE, SSL socket connections are created in the default JSE mode.
+      When Default, SSL socket connections are attempted with OpenSSL
+      and will fallback to Default_JSE mode if OpenSSL is not available at runtime.
+    </description>
+</property>
+
+</configuration>

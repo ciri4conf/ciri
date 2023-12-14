@@ -1,0 +1,16 @@
+secureClientPortAddress=0.0.0
+
+reconfigEnabled=false
+
+sslQuorum=true
+
+syncEnabled=true
+
+quorum.auth.server.saslLoginContext=QuorumServer
+
+sslQuorumReloadCertFiles=true
+
+peerType=participant
+
+autopurge.purgeInterval=-1
+

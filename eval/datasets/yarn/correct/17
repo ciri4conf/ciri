@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.webapp.spnego-keytab-file</name>
+  <value></value>
+    <description>
+    The Kerberos keytab file to be used for spnego filter for the RM web
+    interface.
+    </description>
+</property>
+
+<property>
+  <name>yarn.acl.enable</name>
+  <value>true</value>
+    <description>Are acls enabled.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.nodes.exclude-path</name>
+  <value></value>
+    <description>Path to file with nodes to exclude.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.delayed.delegation-token.removal-interval-ms</name>
+  <value>15000</value>
+    <description>Interval at which the delayed token removal thread runs</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.local-dirs</name>
+  <value>/valid/file1</value>
+    <description>List of directories to store localized files in. An 
+      application's localized file directory will be found in:
+      ${yarn.nodemanager.local-dirs}/usercache/${user}/appcache/application_${appid}.
+      Individual containers' work directories, called container_${contid}, will
+      be subdirectories of this.
+   </description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.leveldb-timeline-store.path</name>
+  <value>/valid/file2</value>
+    <description>Store file name for leveldb timeline store.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.http-authentication.simple.anonymous.allowed</name>
+  <value>false</value>
+    <description>
+      Indicates if anonymous requests are allowed by the timeline server when using
+      'simple' authentication.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.elastic-memory-control.timeout-sec</name>
+  <value>10</value>
+    <description>
+      Maximum time to wait for an OOM situation to get resolved before
+      bringing down the node.
+    </description>
+</property>
+
+</configuration>

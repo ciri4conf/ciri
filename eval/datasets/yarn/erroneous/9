@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.client.failover-retries</name>
+  <value>1</value>
+    <description>When HA is enabled, the number of retries per
+      attempt to connect to a ResourceManager. In other words,
+      it is the ipc.client.connect.max.retries to be used during
+      failover attempts</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.delegation.token.max-lifetime</name>
+  <value>1209600000</value>
+    <description>
+    RM delegation token maximum lifetime in ms
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.delegation-token-renewer.thread-retry-max-attempts</name>
+  <value>1</value>
+    <description>
+    Default maximum number of retries for each RM DelegationTokenRenewer thread
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.rm.container-allocation.expiry-interval-ms</name>
+  <value>1200000</value>
+    <description>
+    The expiry interval for a container
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.hostname</name>
+  <value>0.0.0</value>
+    <description>The hostname of the NM.</description>
+</property>
+
+<property>
+  <name>yarn.minicluster.use-rpc</name>
+  <value>false</value>
+    <description>
+    Set to false in order to allow the NodeManager in MiniYARNCluster to
+    use RPC to talk to the RM.
+    </description>
+</property>
+
+<property>
+  <name>yarn.client.load.resource-types.from-server</name>
+  <value>true</value>
+    <description>
+      Provides an option for client to load supported resource types from RM
+      instead of depending on local resource-types.xml file.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.resource-plugins.gpu.docker-plugin</name>
+  <value>nvidia-docker-v1</value>
+    <description>
+      Specify docker command plugin for GPU. By default uses Nvidia docker V1.
+    </description>
+</property>
+
+</configuration>

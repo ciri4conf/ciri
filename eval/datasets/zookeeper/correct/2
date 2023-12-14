@@ -1,0 +1,16 @@
+autopurge.snapRetainCount=1
+
+tickTime=3000
+
+autopurge.purgeInterval=0
+
+dataLogDir=/valid/dir2
+
+initLimit=
+
+secureClientPort=
+
+quorumListenOnAllIPs=true
+
+clientPortAddress=0.0.0.0:3001
+

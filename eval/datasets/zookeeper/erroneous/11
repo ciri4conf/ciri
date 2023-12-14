@@ -1,0 +1,16 @@
+secureClientPortAddress=2.2.2.2.2.2
+
+quorum.cnxn.threads.size=10
+
+clientPort=3000
+
+standaloneEnabled=false
+
+initLimit=10
+
+quorumListenOnAllIPs=false
+
+localSessionsEnabled=true
+
+minSessionTimeout=-2
+

@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hbase.master.info.port</name>
+  <value>3000</value>
+    <description>The port for the HBase Master web UI.
+    Set to -1 if you do not want a UI instance run.</description>
+</property>
+
+<property>
+  <name>hbase.server.versionfile.writeattempts</name>
+  <value>1</value>
+    <description>
+    How many times to retry attempting to write a version file
+    before just aborting. Each attempt is separated by the
+    hbase.server.thread.wakefrequency milliseconds.</description>
+</property>
+
+<property>
+  <name>hbase.hregion.majorcompaction</name>
+  <value>1209600000</value>
+    <description>Time between major compactions, expressed in milliseconds. Set to 0 to disable
+      time-based automatic major compactions. User-requested and size-based major compactions will
+      still run. This value is multiplied by hbase.hregion.majorcompaction.jitter to cause
+      compaction to start at a somewhat-random time during a given window of time. The default value
+      is 7 days, expressed in milliseconds. If major compactions are causing disruption in your
+      environment, you can configure them to run at off-peak times for your deployment, or disable
+      time-based major compactions by setting this parameter to 0, and run major compactions in a
+      cron job or by another external mechanism.</description>
+</property>
+
+<property>
+  <name>hbase.coprocessor.enabled</name>
+  <value>false</value>
+    <description>Enables or disables coprocessor loading. If 'false'
+    (disabled), any other coprocessor related configuration will be ignored.
+    </description>
+</property>
+
+<property>
+  <name>hbase.regionserver.thrift.framed.max_frame_size_in_mb</name>
+  <value>1</value>
+    <description>Default frame size when using framed transport, in MB</description>
+</property>
+
+<property>
+  <name>hbase.regionserver.checksum.verify</name>
+  <value>true</value>
+    <description>
+        If set to true (the default), HBase verifies the checksums for hfile
+        blocks. HBase writes checksums inline with the data when it writes out
+        hfiles. HDFS (as of this writing) writes checksums to a separate file
+        than the data file necessitating extra seeks.  Setting this flag saves
+        some on i/o.  Checksum verification by HDFS will be internally disabled
+        on hfile streams when this flag is set.  If the hbase-checksum verification
+        fails, we will switch back to using HDFS checksums (so do not disable HDFS
+        checksums!  And besides this feature applies to hfiles only, not to WALs).
+        If this parameter is set to false, then hbase will not verify any checksums,
+        instead it will depend on checksum verification being done in the HDFS client.
+    </description>
+</property>
+
+  <property>
+    <name>hbase.master.regions.recovery.check.interval</name>
+    <value>1200000</value>
+    <description>
+      Regions Recovery Chore interval in milliseconds.
+      This chore keeps running at this interval to
+      find all regions with configurable max store file ref count
+      and reopens them.
+    </description>
+</property>
+
+<property>
+  <name>hbase.procedure.master.classes</name>
+  <value></value>
+    <description>A comma-separated list of
+    org.apache.hadoop.hbase.procedure.MasterProcedureManager procedure managers that are
+    loaded by default on the active HMaster process. A procedure is identified by its signature and
+    users can use the signature and an instant name to trigger an execution of a globally barriered
+    procedure. After implementing your own MasterProcedureManager, just put it in HBase's classpath
+    and add the fully qualified class name here.</description>
+</property>
+
+</configuration>

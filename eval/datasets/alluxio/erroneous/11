@@ -1,0 +1,24 @@
+alluxio.master.metastore.dir=tmp////staging
+# Description: The metastore work directory. Only some metastores need disk.
+
+alluxio.master.embedded.journal.addresses=127.0.0.1
+# Description: A comma-separated list of journal addresses for all masters in the cluster. The format is 'hostname1:port1,hostname2:port2,...'. When left unset, Alluxio uses ${alluxio.master.hostname}:${alluxio.master.embedded.journal.port} by default
+
+alluxio.master.file.access.time.journal.flush.interval=1h
+# Description: The minimum interval between files access time update journal entries get flushed asynchronously. Setting it to a non-positive value will make the the journal update synchronous. Asynchronous update reduces the performance impact of tracking access time but can lose some access time update when master stops unexpectedly.
+
+alluxio.underfs.hdfs.configuration=/valid/file1
+# Description: Location of the HDFS configuration file to overwrite the default HDFS client configuration. Note that, these files must be availableon every node.
+
+alluxio.user.network.writer.chunk.size.bytes=
+# Description: When a client writes to a remote worker, the maximum chunk size.
+
+alluxio.master.embedded.journal.transport.request.timeout.ms=10sec
+# Description: The duration after which embedded journal masters will timeout messages sent between each other. Lower values might cause leadership instability when the network is slow.
+
+alluxio.job.master.bind.host=127.0.0.1
+# Description: The host that the Alluxio job master will bind to.
+
+alluxio.worker.ufs.instream.cache.enabled=true
+# Description: Enable caching for seekable under storage input stream, so that subsequent seek operations on the same file will reuse the cached input stream. This will improve position read performance as the open operations of some under file system would be expensive. The cached input stream would be stale, when the UFS file is modified without notifying alluxio.
+

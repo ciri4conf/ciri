@@ -1,0 +1,24 @@
+alluxio.master.web.hostname=
+# Description: The hostname of Alluxio Master web UI.
+
+alluxio.user.ufs.block.read.concurrency.max=1073741823
+# Description: The maximum concurrent readers for one UFS block on one Block Worker.
+
+alluxio.underfs.listing.length=1000
+# Description: The maximum number of directory entries to list in a single query to under file system. If the total number of entries is greater than the specified length, multiple queries will be issued.
+
+fs.cos.connection.timeout=50sec
+# Description: The timeout of connecting to COS.
+
+alluxio.master.backup.connect.interval.min=10sec
+# Description: Minimum delay between each connection attempt to backup-leader.
+
+alluxio.worker.management.tier.align.enabled=false
+# Description: Whether to align tiers based on access pattern.
+
+alluxio.master.journal.type=EMBEDDED
+# Description: The type of journal to use. Valid options are UFS (store journal in UFS), EMBEDDED (use a journal embedded in the masters), and NOOP (do not use a journal)
+
+alluxio.master.file.access.time.updater.shutdown.timeout=1sec
+# Description: Maximum time to wait for access updater to stop on shutdown.
+

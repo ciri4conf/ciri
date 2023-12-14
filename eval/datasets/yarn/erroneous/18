@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.ha.id</name>
+  <value></value>
+    <description>The id (string) of the current RM. When HA is enabled, this
+      is an optional config. The id of current RM can be set by explicitly
+      specifying yarn.resourcemanager.ha.id or figured out by matching
+      yarn.resourcemanager.address.{id} with local address
+      See description of yarn.resourcemanager.ha.enabled
+      for full details on how this is used.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.resource-profiles.enabled</name>
+  <value>hadoop</value>
+    <description>
+    Flag to enable/disable resource profiles
+    </description>
+</property>
+
+<property>
+  <name>yarn.log-aggregation.retain-seconds</name>
+  <value>-2</value>
+    <description>How long to keep aggregation logs before deleting them.  -1 disables. 
+    Be careful set this too small and you will spam the name node.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.linux-container-executor.cgroups.delete-timeout-ms</name>
+  <value>2000</value>
+    <description>
+    Interval of time the linux container executor should try cleaning up
+    cgroups entry when cleaning up a container.
+    </description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.enabled</name>
+  <value>true</value>
+    <description>
+    In the server side it indicates whether timeline service is enabled or not.
+    And in the client side, users can enable it to indicate whether client wants
+    to use timeline service. If its enabled in the client side along with
+    security, then yarn client tries to fetch the delegation tokens for the
+    timeline server.
+    </description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.leveldb-timeline-store.path</name>
+  <value>/valid/file2</value>
+    <description>Store file name for leveldb timeline store.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.resource-plugins</name>
+  <value></value>
+    <description>
+      Enable additional discovery/isolation of resources on the NodeManager,
+      split by comma. By default, this is empty.
+      Acceptable values: { "yarn.io/gpu", "yarn.io/fpga"}.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.application.max-tag.length</name>
+  <value>50</value>
+    <description>Max length of each application tag set by user in ApplicationSubmissionContext
+      while submitting application.</description>
+</property>
+
+</configuration>

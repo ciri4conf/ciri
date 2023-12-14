@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hbase.hstore.compaction.ratio</name>
+  <value>0.6</value>
+    <description>For minor compaction, this ratio is used to determine whether a given StoreFile
+      which is larger than hbase.hstore.compaction.min.size is eligible for compaction. Its
+      effect is to limit compaction of large StoreFiles. The value of hbase.hstore.compaction.ratio
+      is expressed as a floating-point decimal. A large ratio, such as 10, will produce a single
+      giant StoreFile. Conversely, a low value, such as .25, will produce behavior similar to the
+      BigTable compaction algorithm, producing four StoreFiles. A moderate value of between 1.0 and
+      1.4 is recommended. When tuning this value, you are balancing write costs with read costs.
+      Raising the value (to something like 1.4) will have more write costs, because you will
+      compact larger StoreFiles. However, during reads, HBase will need to seek through fewer
+      StoreFiles to accomplish the read. Consider this approach if you cannot take advantage of
+      Bloom filters. Otherwise, you can lower this value to something like 1.0 to reduce the
+      background cost of writes, and use Bloom filters to control the number of StoreFiles touched
+      during reads. For most cases, the default value is appropriate.</description>
+</property>
+
+<property>
+  <name>hbase.hstore.compaction.ratio.offpeak</name>
+  <value>4.0F</value>
+    <description>Allows you to set a different (by default, more aggressive) ratio for determining
+      whether larger StoreFiles are included in compactions during off-peak hours. Works in the
+      same way as hbase.hstore.compaction.ratio. Only applies if hbase.offpeak.start.hour and
+      hbase.offpeak.end.hour are also enabled.</description>
+</property>
+
+<property>
+  <name>hbase.offpeak.end.hour</name>
+  <value>-1</value>
+    <description>The end of off-peak hours, expressed as an integer between 0 and 23, inclusive. Set
+      to -1 to disable off-peak.</description>
+</property>
+
+<property>
+  <name>hbase.superuser</name>
+  <value>xdsuper</value>
+    <description>List of users or groups (comma-separated), who are allowed
+    full privileges, regardless of stored ACLs, across the cluster.
+    Only used when HBase security is enabled.</description>
+</property>
+
+<property>
+  <name>hbase.display.keys</name>
+  <value>true</value>
+    <description>When this is set to true the webUI and such will display all start/end keys
+                 as part of the table details, region names, etc. When this is set to false,
+                 the keys are hidden.</description>
+</property>
+
+<property>
+  <name>hbase.rest.threads.min</name>
+  <value>4</value>
+    <description>The minimum number of threads of the REST server thread pool.
+        The thread pool always has at least these number of threads so
+        the REST server is ready to serve incoming requests.</description>
+</property>
+
+<property>
+  <name>hbase.wal.dir.perms</name>
+  <value>700</value>
+    <description>FS Permissions for the root WAL directory in a secure(kerberos) setup.
+      When master starts, it creates the WAL dir with this permissions or sets the permissions
+      if it does not match.</description>
+</property>
+
+<property>
+  <name>hbase.column.max.version</name>
+  <value>1</value>
+    <description>New column family descriptors will use this value as the default number of versions
+      to keep.</description>
+</property>
+
+</configuration>

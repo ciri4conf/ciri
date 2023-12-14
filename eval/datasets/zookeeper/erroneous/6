@@ -1,0 +1,16 @@
+dataLogDir=/\hadoop/s3a
+
+initLimit=1
+
+quorum.cnxn.threads.size=10
+
+syncEnabled=true
+
+peerType=participant
+
+quorum.auth.enableSasl=false
+
+sslQuorum=true
+
+clientPortAddress=0.0.0.0:3001
+

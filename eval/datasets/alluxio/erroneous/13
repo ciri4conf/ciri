@@ -1,0 +1,24 @@
+alluxio.underfs.hdfs.prefixes=file:/
+# Description: Optionally, specify which prefixes should run through the HDFS implementation of UnderFileSystem. The delimiter is any whitespace and/or ','.
+
+alluxio.underfs.s3.admin.threads.max=20
+# Description: The maximum number of threads to use for metadata operations when communicating with S3. These operations may be fairly concurrent and frequent but should not take much time to process.
+
+alluxio.worker.tieredstore.free.ahead.bytes=1
+# Description: Amount to free ahead when worker storage is full. Higher values will help decrease CPU utilization under peak storage. Lower values will increase storage utilization.
+
+alluxio.worker.management.tier.align.reserved.bytes=1GB
+# Description: The amount of space that is reserved from each storage directory for internal management tasks.
+
+alluxio.user.block.master.client.pool.gc.threshold=120sec
+# Description: A block master client is closed if it has been idle for more than this threshold.
+
+alluxio.worker.management.task.thread.count=1
+# Description: The number of threads for management task executor
+
+alluxio.user.rpc.retry.max.sleep=1sec
+# Description: Alluxio client RPCs automatically retry for transient errors with an exponential backoff. This property determines the maximum wait time in the backoff.
+
+alluxio.worker.ufs.block.open.timeout=10min
+# Description: Timeout to open a block from UFS.
+

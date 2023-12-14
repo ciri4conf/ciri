@@ -1,0 +1,24 @@
+alluxio.underfs.s3.admin.threads.max=true
+# Description: The maximum number of threads to use for metadata operations when communicating with S3. These operations may be fairly concurrent and frequent but should not take much time to process.
+
+alluxio.work.dir=${alluxio.home}
+# Description: The directory to use for Alluxio's working directory. By default, the journal, logs, and under file storage data (if using local filesystem) are written here.
+
+alluxio.user.network.netty.channel=NIO
+# Description: Type of netty channels. If EPOLL is not available, this will automatically fall back to NIO.
+
+alluxio.user.network.writer.flush.timeout=
+# Description: The timeout to wait for flush to finish in a data writer.
+
+alluxio.worker.data.folder.tmp=.tmp_blocks
+# Description: A relative path in alluxio.worker.data.folder used to store the temporary data for uncommitted files.
+
+alluxio.zookeeper.leader.inquiry.retry=20
+# Description: The number of retries to inquire leader from ZooKeeper.
+
+alluxio.master.daily.backup.files.retained=6
+# Description: The maximum number of backup files to keep in the backup directory.
+
+alluxio.secondary.master.metastore.dir=${alluxio.work.dir}/secondary-metastore
+# Description: The secondary master metastore work directory. Only some metastores need disk.
+

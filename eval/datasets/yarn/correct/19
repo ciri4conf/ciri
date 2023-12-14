@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.leveldb-state-store.compaction-interval-secs</name>
+  <value>1800</value>
+    <description>The time in seconds between full compactions of the leveldb
+    database. Setting the interval to zero disables the full compaction
+    cycles.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.address</name>
+  <value>127.0.0.1</value>
+    <description>The address of the container manager in the NM.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.localizer.client.thread-count</name>
+  <value>10</value>
+    <description>Number of threads to handle localization requests.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.vmem-check-enabled</name>
+  <value>false</value>
+    <description>Whether virtual memory limits will be enforced for
+    containers.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.allowed-runtimes</name>
+  <value>default</value>
+    <description>Comma separated list of runtimes that are allowed when using
+    LinuxContainerExecutor. The allowed values are default, docker, runc, and
+    javasandbox.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.docker.stop.grace-period</name>
+  <value>20</value>
+    <description>A configurable value to pass to the Docker Stop command. This value
+      defines the number of seconds between the docker stop command sending
+      a SIGTERM and a SIGKILL.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.http-authentication.type</name>
+  <value>simple</value>
+    <description>
+      Defines authentication used for the timeline server HTTP endpoint.
+      Supported values are: simple | kerberos | #AUTHENTICATION_HANDLER_CLASSNAME#
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.nm-container-queuing.queue-limit-stdev</name>
+  <value>1.0f</value>
+    <description>
+    Value of standard deviation used for calculation of queue limit thresholds.
+    </description>
+</property>
+
+</configuration>

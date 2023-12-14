@@ -1,0 +1,24 @@
+alluxio.master.journal.type=CIRI
+# Description: The type of journal to use. Valid options are UFS (store journal in UFS), EMBEDDED (use a journal embedded in the masters), and NOOP (do not use a journal)
+
+alluxio.user.file.replication.min=1
+# Description: The target min replication level of a file in Alluxio space.
+
+alluxio.user.client.cache.async.write.enabled=false
+# Description: If this is enabled, cache data asynchronously.
+
+alluxio.job.worker.hostname=${alluxio.worker.hostname}
+# Description: The hostname of the Alluxio job worker.
+
+alluxio.underfs.s3.signer.algorithm=
+# Description: The signature algorithm which should be used to sign requests to the s3 service. This is optional, and if not set, the client will automatically determine it. For interacting with an S3 endpoint which only supports v2 signatures, set this to "S3SignerType".
+
+alluxio.worker.network.reader.max.chunk.size.bytes=4MB
+# Description: When a client read from a remote worker, the maximum chunk size.
+
+alluxio.worker.network.async.cache.manager.threads.max=8
+# Description: The maximum number of threads used to cache blocks asynchronously in the data server.
+
+alluxio.worker.principal=
+# Description: Kerberos principal for Alluxio worker.
+

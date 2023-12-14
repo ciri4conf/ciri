@@ -1,0 +1,24 @@
+alluxio.proxy.web.bind.host=0.0.256.0
+# Description: The hostname that the Alluxio proxy's web server runs on.
+
+alluxio.worker.remote.io.slow.threshold=1s
+# Description: The time threshold for when a worker remote IO (read or write) of a single buffer is considered slow. When slow IO occurs, it is logged by a sampling logger.
+
+alluxio.debug=true
+# Description: Set to true to enable debug mode which has additional logging and info in the Web UI.
+
+alluxio.master.journal.log.size.bytes.max=10MB
+# Description: If a log file is bigger than this value, it will rotate to next file.
+
+alluxio.security.login.username=
+# Description: When alluxio.security.authentication.type is set to SIMPLE or CUSTOM, user application uses this property to indicate the user requesting Alluxio service. If it is not set explicitly, the OS login user will be used.
+
+alluxio.worker.master.periodical.rpc.timeout=1min
+# Description: Timeout for periodical RPC between workers and the leading master. This property is added to prevent workers from hanging in periodical RPCs with previous leading master during flaky network situations. If the timeout is too short, periodical RPCs may not have enough time to get response from the leading master during heavy cluster load and high network latency.
+
+alluxio.user.network.streaming.flowcontrol.window=4MB
+# Description: The HTTP2 flow control window used by user streaming connections. Larger value will allow more data to be buffered but will use more memory.
+
+alluxio.underfs.gcs.default.mode=1400
+# Description: Mode (in octal notation) for GCS objects if mode cannot be discovered.
+

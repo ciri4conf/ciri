@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.datanode.directoryscan.threads</name>
+  <value>2</value>
+  <description>How many threads should the threadpool used to compile reports
+  for volumes in parallel have.
+  </description>
+</property>
+
+<property>
+  <name>dfs.encrypt.data.transfer.cipher.suites</name>
+  <value></value>
+  <description>
+    This value may be either undefined or AES/CTR/NoPadding.  If defined, then
+    dfs.encrypt.data.transfer uses the specified cipher suite for data
+    encryption.  If not defined, then only the algorithm specified in
+    dfs.encrypt.data.transfer.algorithm is used.  By default, the property is
+    not defined.
+  </description>
+</property>
+
+<property>
+  <name>dfs.ha.tail-edits.in-progress</name>
+  <value>false</value>
+  <description>
+    Whether enable standby namenode to tail in-progress edit logs.
+    Clients might want to turn it on when they want Standby NN to have
+    more up-to-date data. When using the QuorumJournalManager, this enables
+    tailing of edit logs via the RPC-based mechanism, rather than streaming,
+    which allows for much fresher data.
+  </description>
+</property>
+
+<property>
+  <name>dfs.datanode.ec.reconstruction.stripedread.buffer.size</name>
+  <value>65536</value>
+  <description>Datanode striped read buffer size.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.inode.attributes.provider.class</name>
+  <value></value>
+  <description>
+    Name of class to use for delegating HDFS authorization.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.replication.max-streams</name>
+  <value>1</value>
+  <description>
+    Hard limit for the number of highest-priority replication streams.
+  </description>
+</property>
+
+<property>
+  <name>dfs.pipeline.ecn</name>
+  <value>false</value>
+  <description>
+    If true, allows ECN (explicit congestion notification) from the
+    Datanode.
+  </description>
+</property>
+
+<property>
+  <name>dfs.datanode.disk.check.timeout</name>
+  <value>20m</value>
+    <description>
+      Maximum allowed time for a disk check to complete. If the check does not
+      complete within this time interval then the disk is declared as failed.
+      This setting supports multiple time unit suffixes as described in
+      dfs.heartbeat.interval. If no suffix is specified then milliseconds is assumed.
+    </description>
+</property>
+
+</configuration>

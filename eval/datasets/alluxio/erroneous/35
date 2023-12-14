@@ -1,0 +1,24 @@
+alluxio.master.shell.backup.state.lock.grace.mode=FORCE
+# Description: Grace mode helps taking the state-lock exclusively for backup with minimum disruption to existing RPCs. This low-impact locking phase is called grace-cycle. Two modes are supported: TIMEOUT/FORCED.TIMEOUT: Means exclusive locking will timeout if it cannot acquire the lockwith grace-cycle. FORCED: Means the state-lock will be taken forcefully if grace-cycle fails to acquire it. Forced phase might trigger interrupting of existing RPCs if it is enabled.
+
+alluxio.worker.rpc.port=3000
+# Description: The port for Alluxio worker's RPC service.
+
+alluxio.underfs.s3.signer.algorithm=
+# Description: The signature algorithm which should be used to sign requests to the s3 service. This is optional, and if not set, the client will automatically determine it. For interacting with an S3 endpoint which only supports v2 signatures, set this to "S3SignerType".
+
+alluxio.worker.web.bind.host=127.0.0.1
+# Description: The hostname Alluxio worker's web server binds to.
+
+alluxio.job.master.finished.job.purge.count=-2
+# Description: The maximum amount of jobs to purge at any single time when the job master reaches its maximum capacity. It is recommended to set this value when setting the capacity of the job master to a large ( > 10M) value. Default is -1 denoting an unlimited value
+
+alluxio.security.login.impersonation.username=_HDFS_USER_
+# Description: When alluxio.security.authentication.type is set to SIMPLE or CUSTOM, user application uses this property to indicate the IMPERSONATED user requesting Alluxio service. If it is not set explicitly, or set to _NONE_, impersonation will not be used. A special value of '_HDFS_USER_' can be specified to impersonate the hadoop client user.
+
+alluxio.underfs.gcs.owner.id.to.username.mapping=
+# Description: Optionally, specify a preset gcs owner id to Alluxio username static mapping in the format "id1=user1;id2=user2". The Google Cloud Storage IDs can be found at the console address https://console.cloud.google.com/storage/settings . Please use the "Owners" one. This property key is only valid when alluxio.underfs.gcs.version=1
+
+alluxio.master.log.config.report.heartbeat.interval=10h
+# Description: The interval for periodically logging the configuration check report.
+

@@ -1,0 +1,16 @@
+secureClientPort=1.1
+
+syncLimit=
+
+quorumListenOnAllIPs=false
+
+electionAlg=3
+
+tickTime=3000
+
+secureClientPortAddress=0.0.0.0:3001
+
+standaloneEnabled=false
+
+quorum.auth.serverRequireSasl=true
+

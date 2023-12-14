@@ -1,0 +1,16 @@
+sslQuorumReloadCertFiles=true
+
+tickTime=1500
+
+maxSessionTimeout=0
+
+syncLimit=10
+
+initLimit=10
+
+peerType=participant
+
+quorumListenOnAllIPs=true
+
+maxClientCnxns=120
+

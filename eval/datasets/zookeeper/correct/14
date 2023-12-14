@@ -1,0 +1,16 @@
+quorum.cnxn.threads.size=10
+
+autopurge.snapRetainCount=6
+
+dataLogDir=
+
+portUnification=true
+
+quorum.auth.serverRequireSasl=true
+
+syncLimit=1
+
+secureClientPortAddress=0.0.0.0:3000
+
+sslQuorumReloadCertFiles=false
+

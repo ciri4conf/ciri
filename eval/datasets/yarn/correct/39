@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.placement-constraints.algorithm.iterator</name>
+  <value>SERIAL</value>
+    <description>Placement Algorithm Requests Iterator to be used.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.placement-constraints.scheduler.pool-size</name>
+  <value>1</value>
+    <description>Threadpool size for the Scheduler invocation phase of placement constraint processing.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.application-master-service.processors</name>
+  <value></value>
+    <description>
+      Comma separated class names of ApplicationMasterServiceProcessor
+      implementations. The processors will be applied in the order
+      they are specified.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.ha.automatic-failover.zk-base-path</name>
+  <value>/yarn-leader-election</value>
+    <description>The base znode path to use for storing leader information,
+      when using ZooKeeper based leader election.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.node-labels.provider.fetch-timeout-ms</name>
+  <value>1200000</value>
+    <description>
+    When "yarn.nodemanager.node-labels.provider" is configured with "Script"
+    then this configuration provides the timeout period after which it will
+    interrupt the script which queries the Node labels. Defaults to 20 mins.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.webapp.rest-csrf.custom-header</name>
+  <value>X-XSRF-Header</value>
+    <description>
+      Optional parameter that indicates the custom header name to use for CSRF
+      protection.
+    </description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.reader.webapp.https.address</name>
+  <value>127.0.0.1</value>
+    <description>The https address of the timeline reader web application.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.submission-preprocessor.file-refresh-interval-ms</name>
+  <value>30000</value>
+    <description>Submission processor refresh interval</description>
+</property>
+
+</configuration>

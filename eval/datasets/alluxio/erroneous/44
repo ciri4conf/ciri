@@ -1,0 +1,24 @@
+alluxio.underfs.gcs.default.mode=888
+# Description: Mode (in octal notation) for GCS objects if mode cannot be discovered.
+
+alluxio.underfs.s3.max.error.retry=
+# Description: The maximum number of retry attempts for failed retryable requests.Setting this property will override the AWS SDK default.
+
+alluxio.user.client.cache.timeout.threads=64
+# Description: The number of threads to handle cache I/O operation timeout, when alluxio.user.client.cache.timeout.duration is positive.
+
+alluxio.underfs.s3.disable.dns.buckets=true
+# Description: Optionally, specify to make all S3 requests path style.
+
+alluxio.worker.remote.io.slow.threshold=20s
+# Description: The time threshold for when a worker remote IO (read or write) of a single buffer is considered slow. When slow IO occurs, it is logged by a sampling logger.
+
+alluxio.master.journal.flush.timeout=5min
+# Description: The amount of time to keep retrying journal writes before giving up and shutting down the master.
+
+alluxio.worker.ramdisk.size=0.1
+# Description: The allocated memory for each worker node's ramdisk(s). It is recommended to set this value explicitly.
+
+alluxio.worker.tieredstore.level1.watermark.low.ratio=1.4
+# Description: The low watermark of the space in the second storage tier (a value between 0 and 1).
+

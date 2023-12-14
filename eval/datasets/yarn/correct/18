@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.amlauncher.thread-count</name>
+  <value>100</value>
+    <description>Number of threads used to launch/cleanup AM.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.placement-constraints.algorithm.class</name>
+  <value>org.apache.hadoop.yarn.server.resourcemanager.scheduler.constraint.algorithm.DefaultPlacementAlgorithm</value>
+    <description>Constraint Placement Algorithm to be used.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.keytab</name>
+  <value>/valid/file1</value>
+    <description>The keytab for the resource manager.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.localizer.fetch.thread-count</name>
+  <value>8</value>
+    <description>Number of threads to use for localization fetching.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.resource.memory.cgroups.soft-limit-percentage</name>
+  <value>90.0</value>
+    <description>If memory limit is enforced, this the percentage of soft limit
+      compared to the memory assigned to the container. If there is memory
+      pressure container memory usage will be pushed back to its soft limit
+      by swapping out memory.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.runc.image-tag-to-manifest-plugin.cache-refresh-interval-secs</name>
+  <value>120</value>
+    <description>The interval in seconds between refreshing the hdfs image tag
+      to hash cache.</description>
+</property>
+
+<property>
+  <name>yarn.webapp.filter-entity-list-by-user</name>
+  <value>true</value>
+      <description>
+        Flag to enable display of applications per user as an admin
+        configuration.
+      </description>
+</property>
+
+<property>
+  <name>yarn.webapp.enable-rest-app-submissions</name>
+  <value>true</value>
+    <description>Whether or not to allow application submissions via REST. Default is true.</description>
+</property>
+
+</configuration>

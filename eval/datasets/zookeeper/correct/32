@@ -1,0 +1,16 @@
+maxSessionTimeout=-2
+
+minSessionTimeout=-2
+
+clientPortAddress=
+
+syncLimit=10
+
+autopurge.purgeInterval=-1
+
+quorum.auth.kerberos.servicePrincipal=zkquorum/localhost
+
+initLimit=
+
+quorum.cnxn.threads.size=
+

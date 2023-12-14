@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.delayed.delegation-token.removal-interval-ms</name>
+  <value>30000</value>
+    <description>Interval at which the delayed token removal thread runs</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.version</name>
+  <value>2.0</value>
+    <description>Indicate what is the current version of the running
+    timeline service. For example, if "yarn.timeline-service.version" is 1.5,
+    and "yarn.timeline-service.enabled" is true, it means the cluster will and
+    should bring up the timeline service v.1.5 (and nothing else).
+    On the client side, if the client uses the same version of timeline service,
+    it should succeed. If the client chooses to use a smaller version in spite of this,
+    then depending on how robust the compatibility story is between versions,
+    the results may vary.
+    </description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.address</name>
+  <value>127.0.0.1</value>
+    <description>This is default address for the timeline server to start the
+    RPC server.</description>
+</property>
+
+<property>
+  <name>yarn.minicluster.yarn.nodemanager.resource.memory-mb</name>
+  <value>4096</value>
+    <description>
+    As yarn.nodemanager.resource.memory-mb property but for the NodeManager
+    in a MiniYARNCluster.
+    </description>
+</property>
+
+<property>
+  <name>yarn.node-labels.fs-store.root-dir</name>
+  <value></value>
+    <description>
+    URI for NodeLabelManager.  The default value is
+    /tmp/hadoop-yarn-${user}/node-labels/ in the local filesystem.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.resource-plugins</name>
+  <value></value>
+    <description>
+      Enable additional discovery/isolation of resources on the NodeManager,
+      split by comma. By default, this is empty.
+      Acceptable values: { "yarn.io/gpu", "yarn.io/fpga"}.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.elastic-memory-control.timeout-sec</name>
+  <value>1</value>
+    <description>
+      Maximum time to wait for an OOM situation to get resolved before
+      bringing down the node.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.activities-manager.scheduler-activities.ttl-ms</name>
+  <value>600000</value>
+    <description>Time to live for scheduler activities in milliseconds.</description>
+</property>
+
+</configuration>

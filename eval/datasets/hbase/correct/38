@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hbase.regionserver.hlog.reader.impl</name>
+  <value>org.apache.hadoop.hbase.regionserver.wal.ProtobufLogReader</value>
+    <description>The WAL file reader implementation.</description>
+</property>
+
+<property>
+  <name>hbase.hstore.compaction.ratio</name>
+  <value>0.6</value>
+    <description>For minor compaction, this ratio is used to determine whether a given StoreFile
+      which is larger than hbase.hstore.compaction.min.size is eligible for compaction. Its
+      effect is to limit compaction of large StoreFiles. The value of hbase.hstore.compaction.ratio
+      is expressed as a floating-point decimal. A large ratio, such as 10, will produce a single
+      giant StoreFile. Conversely, a low value, such as .25, will produce behavior similar to the
+      BigTable compaction algorithm, producing four StoreFiles. A moderate value of between 1.0 and
+      1.4 is recommended. When tuning this value, you are balancing write costs with read costs.
+      Raising the value (to something like 1.4) will have more write costs, because you will
+      compact larger StoreFiles. However, during reads, HBase will need to seek through fewer
+      StoreFiles to accomplish the read. Consider this approach if you cannot take advantage of
+      Bloom filters. Otherwise, you can lower this value to something like 1.0 to reduce the
+      background cost of writes, and use Bloom filters to control the number of StoreFiles touched
+      during reads. For most cases, the default value is appropriate.</description>
+</property>
+
+<property>
+  <name>hbase.client.operation.timeout</name>
+  <value>1200000</value>
+    <description>Operation timeout is a top-level restriction (millisecond) that makes sure a
+      blocking operation in Table will not be blocked more than this. In each operation, if rpc
+      request fails because of timeout or other reason, it will retry until success or throw
+      RetriesExhaustedException. But if the total time being blocking reach the operation timeout
+      before retries exhausted, it will break early and throw SocketTimeoutException.</description>
+</property>
+
+<property>
+  <name>hbase.master.keytab.file</name>
+  <value>/valid/file1</value>
+    <description>Full path to the kerberos keytab file to use for logging in
+    the configured HMaster server principal.</description>
+</property>
+
+<property>
+  <name>hbase.lease.recovery.dfs.timeout</name>
+  <value>32000</value>
+    <description>How long between dfs recover lease invocations. Should be larger than the sum of
+        the time it takes for the namenode to issue a block recovery command as part of
+        datanode; dfs.heartbeat.interval and the time it takes for the primary
+        datanode, performing block recovery to timeout on a dead datanode; usually
+        dfs.client.socket-timeout. See the end of HBASE-8389 for more.</description>
+</property>
+
+<property>
+  <name>hbase.client.scanner.max.result.size</name>
+  <value>2097152</value>
+    <description>Maximum number of bytes returned when calling a scanner's next method.
+    Note that when a single row is larger than this limit the row is still returned completely.
+    The default value is 2MB, which is good for 1ge networks.
+    With faster and/or high latency networks this value should be increased.
+    </description>
+</property>
+
+<property>
+  <name>hbase.rest.filter.classes</name>
+  <value>org.apache.hadoop.hbase.rest.filter.GzipFilter</value>
+    <description>
+      Servlet filters for REST service.
+    </description>
+</property>
+
+<property>
+  <name>hbase.region.replica.replication.enabled</name>
+  <value>false</value>
+    <description>
+      Whether asynchronous WAL replication to the secondary region replicas is enabled or not.
+      If this is enabled, a replication peer named "region_replica_replication" will be created
+      which will tail the logs and replicate the mutations to region replicas for tables that
+      have region replication > 1. If this is enabled once, disabling this replication also
+      requires disabling the replication peer using shell or Admin java class.
+      Replication to secondary region replicas works over standard inter-cluster replication.
+    </description>
+</property>
+
+</configuration>

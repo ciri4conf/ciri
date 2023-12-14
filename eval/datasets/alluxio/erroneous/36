@@ -1,0 +1,24 @@
+alluxio.job.worker.bind.host=-1.0.0.0
+# Description: The host that the Alluxio job worker will bind to.
+
+alluxio.underfs.s3.secure.http.enabled=true
+# Description: Whether or not to use HTTPS protocol when communicating with S3.
+
+alluxio.user.client.cache.quota.enabled=true
+# Description: Whether to support cache quota.
+
+alluxio.master.ufs.active.sync.retry.timeout=20sec
+# Description: The max total duration to retry failed active sync operations.A large duration is useful to handle transient failures such as an unresponsive under storage but can lock the inode tree being synced longer.
+
+alluxio.worker.principal=
+# Description: Kerberos principal for Alluxio worker.
+
+alluxio.worker.data.server.class=alluxio.worker.netty.NettyDataServer
+# Description: Selects the networking stack to run the worker with. Valid options are: `alluxio.worker.netty.NettyDataServer`.
+
+alluxio.home=/valid/file1
+# Description: Alluxio installation directory.
+
+alluxio.master.backup.suspend.timeout=6min
+# Description: Timeout for when suspend request is not followed by a backup request.
+

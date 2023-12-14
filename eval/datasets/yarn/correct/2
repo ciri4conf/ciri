@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.leveldb-state-store.path</name>
+  <value>/valid/file1</value>
+    <description>Local path where the RM state will be stored when using
+    org.apache.hadoop.yarn.server.resourcemanager.recovery.LeveldbRMStateStore
+    as the value for yarn.resourcemanager.store.class</description>
+</property>
+
+<property>
+  <name>yarn.web-proxy.principal</name>
+  <value></value>
+    <description>The kerberos principal for the proxy, if the proxy is not
+    running as part of the RM.</description>
+</property>
+
+<property>
+  <name>yarn.node-labels.configuration-type</name>
+  <value>centralized</value>
+    <description>
+    Set configuration type for node labels. Administrators can specify
+    "centralized", "delegated-centralized" or "distributed".
+    </description>
+</property>
+
+<property>
+  <name>yarn.authorization-provider</name>
+  <value></value>
+    <description>
+    Class to be used for YarnAuthorizationProvider
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.log-aggregation.roll-monitoring-interval-seconds.min</name>
+  <value>3600</value>
+    <description>Defines the positive minimum hard limit for
+    "yarn.nodemanager.log-aggregation.roll-monitoring-interval-seconds".
+    If this configuration has been set less than its default value (3600)
+    the NodeManager may raise a warning.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.opportunistic-container-allocation.nodes-used</name>
+  <value>10</value>
+    <description>
+    Number of nodes to be used by the Opportunistic Container Allocator for
+    dispatching containers during container allocation.
+    </description>
+</property>
+
+<property>
+  <name>yarn.client.load.resource-types.from-server</name>
+  <value>true</value>
+    <description>
+      Provides an option for client to load supported resource types from RM
+      instead of depending on local resource-types.xml file.
+    </description>
+</property>
+
+<property>
+  <name>yarn.node-attribute.fs-store.impl.class</name>
+  <value>org.apache.hadoop.yarn.server.resourcemanager.nodelabels.FileSystemNodeAttributeStore</value>
+    <description>
+      Choose different implementation of node attribute's storage
+    </description>
+</property>
+
+</configuration>

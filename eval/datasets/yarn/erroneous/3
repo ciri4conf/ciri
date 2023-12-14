@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.connect.retry-interval.ms</name>
+  <value>true</value>
+    <description>How often to try connecting to the
+    ResourceManager.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.state-store.max-completed-applications</name>
+  <value>${yarn.resourcemanager.max-completed-applications}</value>
+    <description>The maximum number of completed applications RM state
+    store keeps, less than or equals to ${yarn.resourcemanager.max-completed-applications}.
+    By default, it equals to ${yarn.resourcemanager.max-completed-applications}.
+    This ensures that the applications kept in the state store are consistent with
+    the applications remembered in RM memory.
+    Any values larger than ${yarn.resourcemanager.max-completed-applications} will
+    be reset to ${yarn.resourcemanager.max-completed-applications}.
+    Note that this value impacts the RM recovery performance. Typically,
+    a smaller value indicates better performance on RM recovery.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.reservation-system.enable</name>
+  <value>true</value>
+    <description>
+    Flag to enable the ResourceManager reservation system.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.health-checker.interval-ms</name>
+  <value>300000</value>
+    <description>Frequency of running node health scripts.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.runc.default-ro-mounts</name>
+  <value></value>
+    <description>The default list of read-only mounts to be bind-mounted
+      into all runC containers that use RuncContainerRuntime.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.aux-services.manifest</name>
+  <value></value>
+    <description>A file containing auxiliary service specifications.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.ttl-enable</name>
+  <value>true</value>
+    <description>Enable age off of timeline store data.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.application.max-tag.length</name>
+  <value>100</value>
+    <description>Max length of each application tag set by user in ApplicationSubmissionContext
+      while submitting application.</description>
+</property>
+
+</configuration>

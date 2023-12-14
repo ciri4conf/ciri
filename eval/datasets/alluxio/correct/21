@@ -1,0 +1,24 @@
+alluxio.master.metastore.dir=${alluxio.work.dir}/metastore
+# Description: The metastore work directory. Only some metastores need disk.
+
+alluxio.worker.tieredstore.level0.alias=MEM
+# Description: The alias of the top storage tier on this worker. It must match one of the global storage tiers from the master configuration. We disable placing an alias lower in the global hierarchy before an alias with a higher position on the worker hierarchy. So by default, SSD cannot come before MEM on any worker.
+
+alluxio.underfs.s3.list.objects.v1=true
+# Description: Whether to use version 1 of GET Bucket (List Objects) API.
+
+alluxio.master.principal=
+# Description: Kerberos principal for Alluxio master.
+
+alluxio.master.journal.checkpoint.period.entries=2000000
+# Description: The number of journal entries to write before creating a new journal checkpoint.
+
+alluxio.user.network.rpc.keepalive.timeout=30sec
+# Description: The maximum time for a rpc client to wait for a keepalive response before closing the connection.
+
+alluxio.worker.reviewer.probabilistic.softlimit.bytes=512MB
+# Description: This is used by the `alluxio.worker.block.reviewer.ProbabilisticBufferReviewer`. We attempt to leave a buffer in each storage directory. When the free space in a certain storage directory on the worker falls below this soft limit, the chance that the Reviewer accepts new blocks into this directory goes down. This chance keeps falling linearly until it reaches 0, when the available space reaches the hard limit.
+
+alluxio.worker.storage.checker.enabled=true
+# Description: Whether periodic storage health checker is enabled on Alluxio workers.
+

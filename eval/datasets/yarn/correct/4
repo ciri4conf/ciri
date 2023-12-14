@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.nodemanager.resource.memory.enforced</name>
+  <value>false</value>
+    <description>Whether YARN CGroups strict memory enforcement is enabled.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.webapp.https.address</name>
+  <value>0.0.0.0:3001</value>
+    <description>
+    The https adddress of the NM web application.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.resource-calculator.class</name>
+  <value></value>
+    <description>Class that calculates current resource utilization.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.docker.image-update</name>
+  <value>true</value>
+    <description>Default option to decide whether to pull the latest image
+      or not.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.hostname</name>
+  <value>0.0.0.0</value>
+    <description>The hostname of the timeline service web application.</description>
+</property>
+
+<property>
+  <name>yarn.sharedcache.nested-level</name>
+  <value>6</value>
+    <description>The level of nested directories before getting to the checksum
+    directories. It must be non-negative.</description>
+</property>
+
+<property>
+  <name>yarn.sharedcache.admin.address</name>
+  <value>0.0.0.0:3001</value>
+    <description>The address of the admin interface in the SCM (shared cache manager)</description>
+</property>
+
+<property>
+  <name>yarn.federation.registry.base-dir</name>
+  <value>yarnfederation/</value>
+    <description>The registry base directory for federation.</description>
+</property>
+
+</configuration>

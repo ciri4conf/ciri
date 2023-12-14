@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.keytab</name>
+  <value>/valid/file2</value>
+    <description>The keytab for the resource manager.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.logaggregation.threadpool-size-max</name>
+  <value>-1</value>
+    <description>
+    Thread pool size for LogAggregationService in Node Manager.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.disk-health-checker.min-healthy-disks</name>
+  <value>0.25</value>
+    <description>The minimum fraction of number of disks to be healthy for the
+    nodemanager to launch new containers. This correspond to both
+    yarn.nodemanager.local-dirs and yarn.nodemanager.log-dirs. i.e. If there
+    are less number of healthy local-dirs (or log-dirs) available, then
+    new containers will not be launched on this node.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.aux-services.manifest</name>
+  <value></value>
+    <description>A file containing auxiliary service specifications.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.writer.flush-interval-seconds</name>
+  <value>30</value>
+    <description>The setting that controls how often the timeline collector
+    flushes the timeline writer.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.node-attributes.provider.fetch-timeout-ms</name>
+  <value>1200000</value>
+    <description>
+      Timeout period after which NM will interrupt the node attribute
+      provider script which queries node attributes. Defaults to 20 mins.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.node-attributes.provider.configured-node-attributes</name>
+  <value></value>
+    <description>
+      When "yarn.nodemanager.node-attributes.provider" is configured with
+      "config" then ConfigurationNodeAttributesProvider fetches node attributes
+      from this parameter.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.application.max-tag.length</name>
+  <value>100</value>
+    <description>Max length of each application tag set by user in ApplicationSubmissionContext
+      while submitting application.</description>
+</property>
+
+</configuration>

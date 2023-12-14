@@ -1,0 +1,16 @@
+minSessionTimeout=true
+
+maxSessionTimeout=-2
+
+localSessionsEnabled=true
+
+quorumListenOnAllIPs=false
+
+quorum.auth.serverRequireSasl=false
+
+maxClientCnxns=30
+
+localSessionsUpgradingEnabled=true
+
+quorum.auth.learner.saslLoginContext=QuorumLearner
+

@@ -1,0 +1,16 @@
+secureClientPort=
+
+quorumListenOnAllIPs=false
+
+initLimit=
+
+autopurge.purgeInterval=1
+
+portUnification=false
+
+syncLimit=
+
+quorum.auth.learner.saslLoginContext=QuorumLearner
+
+dataDir=
+

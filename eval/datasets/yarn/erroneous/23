@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.placement-constraints.handler</name>
+  <value>NOEXIST</value>
+    <description>
+      Specify which handler will be used to process PlacementConstraints.
+      Acceptable values are: `placement-processor`, `scheduler` and `disabled`.
+      For a detailed explanation of these values, please refer to documentation.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.webapp.spnego-principal</name>
+  <value></value>
+    <description>
+    The Kerberos principal to be used for spnego filter for the RM web
+    interface.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.metrics.runtime.buckets</name>
+  <value>[120, 600, 2880]</value>
+    <description>
+    Comma-separated list of values (in minutes) for schedule queue related
+    metrics.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.remote-app-log-dir.groupname</name>
+  <value></value>
+    <description>If the NodeManager creates the remote-app-log-dir folder,
+    it will be created with this groupname.
+    </description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.webapp.https.address</name>
+  <value>${yarn.timeline-service.hostname}:8190</value>
+    <description>The https address of the timeline service web application.</description>
+</property>
+
+<property>
+  <name>yarn.intermediate-data-encryption.enable</name>
+  <value>true</value>
+    <description>
+    Enable/disable intermediate-data encryption at YARN level. For now,
+    this only is used by the FileSystemRMStateStore to setup right
+    file-system security attributes.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.opportunistic.max.container-allocation.per.am.heartbeat</name>
+  <value>0</value>
+    <description>
+      Maximum number of opportunistic containers to be allocated per
+      Application Master heartbeat.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.nm-container-queuing.queue-limit-stdev</name>
+  <value>2.0</value>
+    <description>
+    Value of standard deviation used for calculation of queue limit thresholds.
+    </description>
+</property>
+
+</configuration>

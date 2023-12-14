@@ -1,0 +1,24 @@
+alluxio.job.master.job.capacity=-5.5
+# Description: The total possible number of available job statuses in the job master. This value includes running and finished jobs which are have completed within alluxio.job.master.finished.job.retention.time.
+
+alluxio.underfs.hdfs.prefixes=hdfs://,glusterfs:///
+# Description: Optionally, specify which prefixes should run through the HDFS implementation of UnderFileSystem. The delimiter is any whitespace and/or ','.
+
+alluxio.user.block.read.retry.max.duration=10min
+# Description: This duration controls for how long Alluxio clients should tryreading a single block. If a particular block can't be read within this duration, then the I/O will timeout.
+
+alluxio.master.rpc.executor.core.pool.size=1000
+# Description: The number of threads to keep in thread pool of master RPC ExecutorService.
+
+alluxio.security.login.username=
+# Description: When alluxio.security.authentication.type is set to SIMPLE or CUSTOM, user application uses this property to indicate the user requesting Alluxio service. If it is not set explicitly, the OS login user will be used.
+
+alluxio.master.standby.heartbeat.interval=2min
+# Description: The heartbeat interval between Alluxio primary master and standby masters.
+
+alluxio.user.file.sequential.pread.threshold=2MB
+# Description: An upper bound on the client buffer size for positioned read to hint at the sequential nature of reads. For reads with a buffer size greater than this threshold, the read op is treated to be sequential and the worker may handle the read differently. For instance, cold reads from the HDFS ufs may use a different HDFS client API.
+
+alluxio.fuse.shared.caching.reader.enabled=true
+# Description: (Experimental) Use share grpc data reader for better performance on multi-process file reading through Alluxio JNI Fuse. Blocks data will be cached on the client side so more memory is required for the Fuse process.
+
