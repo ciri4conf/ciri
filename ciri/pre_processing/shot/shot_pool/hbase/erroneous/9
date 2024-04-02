@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hbase.regionserver.handler.count</name>
+  <value>30</value>
+    <description>Count of RPC Listener instances spun up on RegionServers.
+      Same property is used by the Master for count of master handlers.
+      Too many handlers can be counter-productive. Make it a multiple of
+      CPU count. If mostly read-only, handlers count close to cpu count
+      does well. Start with twice the CPU count and tune from there.</description>
+</property>
+
+<property>
+  <name>hbase.regionserver.logroll.period</name>
+  <value>3600000</value>
+    <description>Period at which we will roll the commit log regardless
+    of how many edits it has.</description>
+</property>
+
+<property>
+  <name>hbase.regionserver.hlog.writer.impl</name>
+  <value>org.apache.hadoop.hbase.regionserver.wal.ProtobufLogWriter</value>
+    <description>The WAL file writer implementation.</description>
+</property>
+
+<property>
+  <name>hbase.zookeeper.peerport</name>
+  <value>-1</value>
+    <description>Port used by ZooKeeper peers to talk to each other.
+    See https://zookeeper.apache.org/doc/r3.3.3/zookeeperStarted.html#sc_RunningReplicatedZooKeeper
+    for more information.</description>
+</property>
+
+<property>
+  <name>hbase.hregion.memstore.block.multiplier</name>
+  <value>8</value>
+    <description>
+    Block updates if memstore has hbase.hregion.memstore.block.multiplier
+    times hbase.hregion.memstore.flush.size bytes.  Useful preventing
+    runaway memstore during spikes in update traffic.  Without an
+    upper-bound, memstore fills such that when it flushes the
+    resultant flush files take a long time to compact or split, or
+    worse, we OOME.</description>
+</property>
+
+<property>
+  <name>hbase.offpeak.end.hour</name>
+  <value>0</value>
+    <description>The end of off-peak hours, expressed as an integer between 0 and 23, inclusive. Set
+      to -1 to disable off-peak.</description>
+</property>
+
+<property>
+  <name>hbase.rest.threads.max</name>
+  <value>100</value>
+    <description>The maximum number of threads of the REST server thread pool.
+        Threads in the pool are reused to process REST requests. This
+        controls the maximum number of requests processed concurrently.
+        It may help to control the memory used by the REST server to
+        avoid OOM issues. If the thread pool is full, incoming requests
+        will be queued up and wait for some free threads.</description>
+</property>
+
+<property>
+  <name>hbase.status.publisher.class</name>
+  <value>org.apache.hadoop.hbase.master.ClusterStatusPublisher$MulticastPublisher</value>
+    <description>
+      Implementation of the status publication with a multicast message.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HBase version 2.2.7? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["hbase.zookeeper.peerport"],
+    "reason": ["The property 'hbase.zookeeper.peerport' has the value '-1' which is out of the valid range of a port number."]
+}
+```

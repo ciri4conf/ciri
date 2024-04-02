@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hbase.master.info.bindAddress</name>
+  <value>256.0.0.0</value>
+    <description>The bind address for the HBase Master web UI
+    </description>
+</property>
+
+<property>
+  <name>zookeeper.znode.parent</name>
+  <value>/hbase</value>
+    <description>Root ZNode for HBase in ZooKeeper. All of HBase's ZooKeeper
+      files that are configured with a relative path will go under this node.
+      By default, all of HBase's ZooKeeper file paths are configured with a
+      relative path, so they will all go under this directory unless changed.
+    </description>
+</property>
+
+<property>
+  <name>hbase.zookeeper.leaderport</name>
+  <value>1944</value>
+    <description>Port used by ZooKeeper for leader election.
+    See https://zookeeper.apache.org/doc/r3.3.3/zookeeperStarted.html#sc_RunningReplicatedZooKeeper
+    for more information.</description>
+</property>
+
+<property>
+  <name>hbase.zookeeper.property.initLimit</name>
+  <value>20</value>
+    <description>Property from ZooKeeper's config zoo.cfg.
+    The number of ticks that the initial synchronization phase can take.</description>
+</property>
+
+<property>
+  <name>hbase.bulkload.retries.number</name>
+  <value>20</value>
+    <description>Maximum retries.  This is maximum number of iterations
+    to atomic bulk loads are attempted in the face of splitting operations
+    0 means never give up.</description>
+</property>
+
+<property>
+  <name>hbase.hregion.max.filesize</name>
+  <value>21474836480</value>
+    <description>
+    Maximum HFile size. If the sum of the sizes of a region's HFiles has grown to exceed this
+    value, the region is split in two.</description>
+</property>
+
+<property>
+  <name>hbase.hstore.flusher.count</name>
+  <value>2</value>
+    <description> The number of flush threads. With fewer threads, the MemStore flushes will be
+      queued. With more threads, the flushes will be executed in parallel, increasing the load on
+      HDFS, and potentially causing more compactions. </description>
+</property>
+
+<property>
+  <name>hbase.regionserver.handler.abort.on.error.percent</name>
+  <value>1.0</value>
+    <description>The percent of region server RPC threads failed to abort RS.
+    -1 Disable aborting; 0 Abort if even a single handler has died;
+    0.x Abort only when this percent of handlers have died;
+    1 Abort only all of the handers have died.</description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HBase version 2.2.7? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["hbase.master.info.bindAddress"],
+    "reason": ["The property 'hbase.master.info.bindAddress' has the value '256.0.0.0' which is out of the valid range of an IP address."]
+}
+```

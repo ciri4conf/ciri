@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.admin.acl</name>
+  <value>*</value>
+    <description>ACL of who can be admin of the YARN cluster.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.state-store.max-completed-applications</name>
+  <value>${yarn.resourcemanager.max-completed-applications}</value>
+    <description>The maximum number of completed applications RM state
+    store keeps, less than or equals to ${yarn.resourcemanager.max-completed-applications}.
+    By default, it equals to ${yarn.resourcemanager.max-completed-applications}.
+    This ensures that the applications kept in the state store are consistent with
+    the applications remembered in RM memory.
+    Any values larger than ${yarn.resourcemanager.max-completed-applications} will
+    be reset to ${yarn.resourcemanager.max-completed-applications}.
+    Note that this value impacts the RM recovery performance. Typically,
+    a smaller value indicates better performance on RM recovery.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.ha.automatic-failover.zk-base-path</name>
+  <value>/valid/file2</value>
+    <description>The base znode path to use for storing leader information,
+      when using ZooKeeper based leader election.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.localizer.cache.target-size-mb</name>
+  <value>20480</value>
+    <description>Target size of localizer cache in MB, per nodemanager. It is
+      a target retention size that only includes resources with PUBLIC and 
+      PRIVATE visibility and excludes resources with APPLICATION visibility
+    </description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.handler-thread-count</name>
+  <value>10</value>
+    <description>Handler thread count to serve the client RPC requests.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.reader.class</name>
+  <value>org.apache.hadoop.yarn.server.timelineservice.storage.HBaseTimelineReaderImpl</value>
+    <description>
+      Storage implementation ATS v2 will use for the TimelineReader service.
+    </description>
+</property>
+
+<property>
+  <name>yarn.sharedcache.uploader.server.address</name>
+  <value>0.0.0.0:3000</value>
+    <description>The address of the node manager interface in the SCM
+    (shared cache manager)</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.entity-group-fs-store.with-user-dir</name>
+  <value>false</value>
+    <description>
+       It is TimelineClient 1.5 configuration whether to store active
+       application’s timeline data with in user directory i.e
+       ${yarn.timeline-service.entity-group-fs-store.active-dir}/${user.name}
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for YARN version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

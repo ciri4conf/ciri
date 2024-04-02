@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hbase.zookeeper.property.clientPort</name>
+  <value>4362</value>
+    <description>Property from ZooKeeper's config zoo.cfg.
+    The port at which the clients will connect.</description>
+</property>
+
+<property>
+  <name>hbase.client.retries.number</name>
+  <value>7</value>
+    <description>Maximum retries.  Used as maximum for all retryable
+    operations such as the getting of a cell's value, starting a row update,
+    etc.  Retry interval is a rough function based on hbase.client.pause.  At
+    first we retry at this interval but then with backoff, we pretty quickly reach
+    retrying every ten seconds.  See HConstants#RETRY_BACKOFF for how the backup
+    ramps up.  Change this setting and hbase.client.pause to suit your workload.</description>
+</property>
+
+<property>
+  <name>hbase.client.max.perserver.tasks</name>
+  <value>2</value>
+    <description>The maximum number of concurrent mutation tasks a single HTable instance will
+    send to a single region server.</description>
+</property>
+
+<property>
+  <name>hbase.client.perserver.requests.threshold</name>
+  <value>2147483647</value>
+    <description>The max number of concurrent pending requests for one server in all client threads
+    (process level). Exceeding requests will be thrown ServerTooBusyException immediately to prevent
+    user's threads being occupied and blocked by only one slow region server. If you use a fix
+    number of threads to access HBase in a synchronous way, set this to a suitable value which is
+    related to the number of threads will help you. See
+    https://issues.apache.org/jira/browse/HBASE-16388 for details.</description>
+</property>
+
+<property>
+  <name>hbase.storescanner.parallel.seek.threads</name>
+  <value>20</value>
+    <description>
+      The default thread pool size if parallel-seeking feature enabled.</description>
+</property>
+
+<property>
+  <name>hbase.regionserver.thrift.compact</name>
+  <value>false</value>
+    <description>Use Thrift TCompactProtocol binary serialization protocol.</description>
+</property>
+
+<property>
+  <name>hbase.mob.cache.evict.remain.ratio</name>
+  <value>1.0</value>
+    <description>
+      The ratio (between 0.0 and 1.0) of files that remains cached after an eviction
+      is triggered when the number of cached mob files exceeds the hbase.mob.file.cache.size.
+      The default value is 0.5f.
+    </description>
+</property>
+
+<property>
+  <name>hbase.snapshot.region.timeout</name>
+  <value>150000</value>
+    <description>
+       Timeout for regionservers to keep threads in snapshot request pool waiting.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HBase version 2.2.7? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

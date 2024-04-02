@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>fs.AbstractFileSystem.ftp.impl</name>
+  <value>org.apache.hadoop.fs.ftp.FtpFs</value>
+  <description>The FileSystem for Ftp: uris.</description>
+</property>
+
+<property>
+  <name>fs.s3a.retry.throttle.interval</name>
+  <value>100nounit</value>
+  <description>
+    Initial between retry attempts on throttled requests, +/- 50%. chosen at random.
+    i.e. for an intial value of 3000ms, the initial delay would be in the range 1500ms to 4500ms.
+    Backoffs are exponential; again randomness is used to avoid the thundering heard problem.
+    500ms is the default value used by the AWS S3 Retry policy.
+  </description>
+</property>
+
+<property>
+  <name>ipc.[port_number].decay-scheduler.thresholds</name>
+  <value>[26, 50, 100]</value>
+  <description>The client load threshold, as an integer percentage, for each
+    priority queue. Clients producing less load, as a percent of total
+    operations, than specified at position i will be given priority i. This
+    should be a comma-separated list of length equal to the number of priority
+    levels minus 1 (the last is implicitly 100).
+    Thresholds ascend by a factor of 2 (e.g., for 4 levels: 13,25,50).
+    This property applies to DecayRpcScheduler.
+  </description>
+</property>
+
+<property>
+  <name>ipc.[port_number].decay-scheduler.backoff.responsetime.enable</name>
+  <value>true</value>
+  <description>Whether or not to enable the backoff by response time feature.
+    This property applies to DecayRpcScheduler.
+  </description>
+</property>
+
+<property>
+  <name>net.topology.table.file.name</name>
+  <value>/valid/file1</value>
+  <description> The file name for a topology file, which is used when the
+    net.topology.node.switch.mapping.impl property is set to
+    org.apache.hadoop.net.TableMapping. The file format is a two column text
+    file, with columns separated by whitespace. The first column is a DNS or
+    IP address and the second column specifies the rack where the address maps.
+    If no entry corresponding to a host in the cluster is found, then
+    /default-rack is assumed.
+  </description>
+</property>
+
+<property>
+  <name>file.blocksize</name>
+  <value>33554432</value>
+  <description>Block size</description>
+</property>
+
+<property>
+  <name>ha.zookeeper.session-timeout.ms</name>
+  <value>20000</value>
+  <description>
+    The session timeout to use when the ZKFC connects to ZooKeeper.
+    Setting this value to a lower value implies that server crashes
+    will be detected more quickly, but risks triggering failover too
+    aggressively in the case of a transient error or network blip.
+  </description>
+</property>
+
+<property>
+  <name>fs.getspaceused.jitterMillis</name>
+  <value>120000</value>
+    <description>
+      fs space usage statistics refresh jitter in msec.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HCommon version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["fs.s3a.retry.throttle.interval"],
+    "reason": ["The property 'fs.s3a.retry.throttle.interval' has the value '100nounit' which uses an incorrect unit."]
+}
+```

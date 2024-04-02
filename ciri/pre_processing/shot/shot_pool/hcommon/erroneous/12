@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>fs.ftp.host.port</name>
+  <value>-1</value>
+  <description>
+    FTP filesystem connects to fs.ftp.host on this port
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.threads.max</name>
+  <value>128</value>
+  <description>The total number of threads available in the filesystem for data
+    uploads *or any other queued filesystem operation*.</description>
+</property>
+
+<property>
+  <name>fs.s3a.select.input.csv.record.delimiter</name>
+  <value>\n</value>
+  <description>In S3 Select queries over CSV files: the record delimiter.
+    \t is remapped to the TAB character, \r to CR \n to newline. \\ to \
+    and \" to "
+  </description>
+</property>
+
+<property>
+  <name>ipc.[port_number].scheduler.impl</name>
+  <value>org.apache.hadoop.ipc.DefaultRpcScheduler</value>
+  <description>The fully qualified name of a class to use as the
+    implementation of the scheduler. The default implementation is
+    org.apache.hadoop.ipc.DefaultRpcScheduler (no-op scheduler) when not using
+    FairCallQueue. If using FairCallQueue, defaults to
+    org.apache.hadoop.ipc.DecayRpcScheduler. Use
+    org.apache.hadoop.ipc.DecayRpcScheduler in conjunction with the Fair Call
+    Queue.
+  </description>
+</property>
+
+<property>
+  <name>ipc.[port_number].faircallqueue.multiplexer.weights</name>
+  <value>[4, 2, 1, 0]</value>
+  <description>How much weight to give to each priority queue. This should be
+    a comma-separated list of length equal to the number of priority levels.
+    Weights descend by a factor of 2 (e.g., for 4 levels: 8,4,2,1).
+    This property applies to WeightedRoundRobinMultiplexer.
+  </description>
+</property>
+
+<property>
+  <name>ipc.[port_number].decay-scheduler.period-ms</name>
+  <value>2500</value>
+  <description>How frequently the decay factor should be applied to the
+    operation counts of users. Higher values have less overhead, but respond
+    less quickly to changes in client behavior.
+    This property applies to DecayRpcScheduler.
+  </description>
+</property>
+
+<property>
+  <name>ipc.client.fallback-to-simple-auth-allowed</name>
+  <value>false</value>
+  <description>
+    When a client is configured to attempt a secure connection, but attempts to
+    connect to an insecure server, that server may instruct the client to
+    switch to SASL SIMPLE (unsecure) authentication. This setting controls
+    whether or not the client will accept this instruction from the server.
+    When false (the default), the client will not allow the fallback to SIMPLE
+    authentication, and will abort the connection.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.registry.zk.root</name>
+  <value>/registry</value>
+    <description>
+      The root zookeeper node for the registry
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HCommon version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["fs.ftp.host.port"],
+    "reason": ["The property 'fs.ftp.host.port' has the value '-1' which is out of the valid range of a port number."]
+}
+```

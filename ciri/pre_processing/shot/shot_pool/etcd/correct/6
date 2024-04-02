@@ -1,0 +1,32 @@
+proxy-refresh-interval: 30000
+
+log-level: debug
+
+proxy: 'off'
+
+auto-compaction-retention: "1"
+
+force-new-cluster: true
+
+auto-compaction-mode: periodic
+
+auto-tls: false
+
+max-wals: 10
+
+
+Question: Are there any mistakes in the above configuration file for etcd version 3.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

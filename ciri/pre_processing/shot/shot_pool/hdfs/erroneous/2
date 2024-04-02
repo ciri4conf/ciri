@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>nfs.allow.insecure.ports</name>
+  <value>true</value>
+  <description>
+    When set to false, client connections originating from unprivileged ports
+    (those above 1023) will be rejected. This is to ensure that clients
+    connecting to this NFS Gateway must have had root privilege on the machine
+    where they're connecting from.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.context</name>
+  <value>default</value>
+  <description>
+    The name of the DFSClient context that we should use.  Clients that share
+    a context share a socket cache and short-circuit cache, among other things.
+    You should only change this if you don't want to share with another set of
+    threads.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.top.enabled</name>
+  <value>true</value>
+  <description>Enable nntop: reporting top users on namenode
+  </description>
+</property>
+
+<property>
+  <name>dfs.balancer.max-iteration-time</name>
+  <value>600000</value>
+  <description>
+    Maximum amount of time while an iteration can be run by the Balancer. After
+    this time the Balancer will stop the iteration, and reevaluate the work
+    needs to be done to Balance the cluster. The default value is 20 minutes.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.write.byte-array-manager.enabled</name>
+  <value>false</value>
+  <description>
+    If true, enables byte array manager used by DFSOutputStream.
+  </description>
+</property>
+
+<property>
+  <name>dfs.qjournal.parallel-read.num-threads</name>
+  <value>10</value>
+  <description>
+    Number of threads per JN to be used for tailing edits.
+  </description>
+</property>
+
+<property>
+  <name>dfs.provided.aliasmap.class</name>
+  <value>org.apache.hadoop.hdfs.server.common.blockaliasmap.impl.TextFileRegionAliasMap</value>
+    <description>
+      The class that is used to specify the input format of the blocks on
+      provided storages. The default is
+      org.apache.hadoop.hdfs.server.common.blockaliasmap.impl.TextFileRegionAliasMap which uses
+      file regions to describe blocks. The file regions are specified as a
+      delimited text file. Each file region is a 6-tuple containing the
+      block id, remote file path, offset into file, length of block, the
+      block pool id containing the block, and the generation stamp of the
+      block.
+    </description>
+</property>
+
+<property>
+  <name>dfs.namenode.gc.time.monitor.sleep.interval.ms</name>
+  <value>100nounit</value>
+    <description>
+      Determines the sleep interval in the window. The GcTimeMonitor wakes up in
+      the sleep interval periodically to compute the gc time proportion. The
+      shorter the interval the preciser the GcTimePercentage. The sleep interval
+      must be shorter than the window size.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HDFS version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["dfs.namenode.gc.time.monitor.sleep.interval.ms"],
+    "reason": ["The property 'dfs.namenode.gc.time.monitor.sleep.interval.ms' has the value '100nounit' which uses an incorrect unit."]
+}
+```

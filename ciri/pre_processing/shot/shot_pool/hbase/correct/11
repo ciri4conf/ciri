@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hbase.master.infoserver.redirect</name>
+  <value>true</value>
+    <description>Whether or not the Master listens to the Master web
+      UI port (hbase.master.info.port) and redirects requests to the web
+      UI server shared by the Master and RegionServer. Config. makes
+      sense when Master is serving Regions (not the default).</description>
+</property>
+
+<property>
+  <name>hbase.regionserver.port</name>
+  <value>16020</value>
+    <description>The port the HBase RegionServer binds to.</description>
+</property>
+
+<property>
+  <name>hbase.regionserver.dns.interface</name>
+  <value>eth2</value>
+    <description>The name of the Network Interface from which a region server
+      should report its IP address.</description>
+</property>
+
+<property>
+  <name>zookeeper.znode.parent</name>
+  <value>/valid/file2</value>
+    <description>Root ZNode for HBase in ZooKeeper. All of HBase's ZooKeeper
+      files that are configured with a relative path will go under this node.
+      By default, all of HBase's ZooKeeper file paths are configured with a
+      relative path, so they will all go under this directory unless changed.
+    </description>
+</property>
+
+<property>
+  <name>hbase.regions.slop</name>
+  <value>0.0005</value>
+    <description>Rebalance if any regionserver has average + (average * slop) regions.
+      The default value of this parameter is 0.001 in StochasticLoadBalancer (the default load balancer),
+      while the default is 0.2 in other load balancers (i.e., SimpleLoadBalancer).</description>
+</property>
+
+<property>
+  <name>hbase.hstore.blockingWaitTime</name>
+  <value>180000</value>
+    <description> The time for which a region will block updates after reaching the StoreFile limit
+    defined by hbase.hstore.blockingStoreFiles. After this time has elapsed, the region will stop
+    blocking updates even if a compaction has not been completed.</description>
+</property>
+
+<property>
+  <name>hbase.coprocessor.abortonerror</name>
+  <value>false</value>
+      <description>Set to true to cause the hosting server (master or regionserver)
+      to abort if a coprocessor fails to load, fails to initialize, or throws an
+      unexpected Throwable object. Setting this to false will allow the server to
+      continue execution but the system wide state of the coprocessor in question
+      will become inconsistent as it will be properly executing in only a subset
+      of servers, so this is most useful for debugging only.</description>
+</property>
+
+<property>
+  <name>hbase.rest.filter.classes</name>
+  <value>org.apache.hadoop.hbase.rest.filter.GzipFilter</value>
+    <description>
+      Servlet filters for REST service.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HBase version 2.2.7? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

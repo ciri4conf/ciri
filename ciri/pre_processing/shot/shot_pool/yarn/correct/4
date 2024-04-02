@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.nodemanager.container-executor.class</name>
+  <value>org.apache.hadoop.yarn.server.nodemanager.DefaultContainerExecutor</value>
+    <description>who will execute(launch) the containers.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.resource.memory-mb</name>
+  <value>0</value>
+    <description>Amount of physical memory, in MB, that can be allocated 
+    for containers. If set to -1 and
+    yarn.nodemanager.resource.detect-hardware-capabilities is true, it is
+    automatically calculated(in case of Windows and Linux).
+    In other cases, the default is 8192MB.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.resource.pcores-vcores-multiplier</name>
+  <value>1.0</value>
+    <description>Multiplier to determine how to convert phyiscal cores to
+    vcores. This value is used if yarn.nodemanager.resource.cpu-vcores
+    is set to -1(which implies auto-calculate vcores) and
+    yarn.nodemanager.resource.detect-hardware-capabilities is set to true. The
+    number of vcores will be calculated as
+    number of CPUs * multiplier.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.docker.enable-userremapping.allowed</name>
+  <value>true</value>
+    <description>Property to enable docker user remapping</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.runc.host-pid-namespace.allowed</name>
+  <value>true</value>
+    <description>Allow host pid namespace for runC containers.
+      Use with care.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.sleep-delay-before-sigkill.ms</name>
+  <value>250</value>
+    <description>No. of ms to wait between sending a SIGTERM and SIGKILL to a container</description>
+</property>
+
+<property>
+  <name>yarn.sharedcache.cleaner.period-mins</name>
+  <value>1440</value>
+    <description>The frequency at which a cleaner task runs.
+    Specified in minutes.</description>
+</property>
+
+<property>
+  <name>yarn.minicluster.yarn.nodemanager.resource.memory-mb</name>
+  <value>8192</value>
+    <description>
+    As yarn.nodemanager.resource.memory-mb property but for the NodeManager
+    in a MiniYARNCluster.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for YARN version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

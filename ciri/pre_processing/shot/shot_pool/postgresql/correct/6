@@ -1,0 +1,32 @@
+wal_retrieve_retry_interval=5s
+
+client_min_messages=notice
+
+tcp_keepalives_count=0
+
+bytea_output='hex'
+
+lc_monetary='C'
+
+tcp_keepalives_idle=1
+
+checkpoint_warning=60s
+
+krb_server_keyfile='FILE:${sysconfdir}/krb5.keytab'
+
+
+Question: Are there any mistakes in the above configuration file for PostgreSQL version 13.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

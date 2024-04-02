@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.image.parallel.load</name>
+  <value>true</value>
+  <description>
+        If true, write sub-section entries to the fsimage index so it can
+        be loaded in parallel. Also controls whether parallel loading
+        will be used for an image previously created with sub-sections.
+        If the image contains sub-sections and this is set to false,
+        parallel loading will not be used.
+        Parallel loading is not compatible with image compression,
+        so if dfs.image.compress is set to true this setting will be
+        ignored and no parallel loading will occur.
+        Enabling this feature may impact rolling upgrades and downgrades if
+        the previous version does not support this feature. If the feature was
+        enabled and a downgrade is required, first set this parameter to
+        false and then save the namespace to create a fsimage with no
+        sub-sections and then perform the downgrade.
+  </description>
+</property>
+
+<property>
+  <name>dfs.datanode.available-space-volume-choosing-policy.balanced-space-threshold</name>
+  <value>21474836480</value>
+  <description>
+    Only used when the dfs.datanode.fsdataset.volume.choosing.policy is set to
+    org.apache.hadoop.hdfs.server.datanode.fsdataset.AvailableSpaceVolumeChoosingPolicy.
+    This setting controls how much DN volumes are allowed to differ in terms of
+    bytes of free disk space before they are considered imbalanced. If the free
+    space of all the volumes are within this range of each other, the volumes
+    will be considered balanced and block assignments will be done on a pure
+    round robin basis. Support multiple size unit suffix(case insensitive), as
+    described in dfs.blocksize.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.mmap.enabled</name>
+  <value>false</value>
+  <description>
+    If this is set to false, the client won't attempt to perform memory-mapped reads.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.mmap.cache.timeout.ms</name>
+  <value>1800000</value>
+  <description>
+    The minimum length of time that we will keep an mmap entry in the cache
+    between uses.  If an entry is in the cache longer than this, and nobody
+    uses it, it will be removed by a background thread.
+  </description>
+</property>
+
+<property>
+  <name>dfs.datanode.lock.fair</name>
+  <value>false</value>
+  <description>If this is true, the Datanode FsDataset lock will be used in Fair
+    mode, which will help to prevent writer threads from being starved, but can
+    lower lock throughput. See java.util.concurrent.locks.ReentrantReadWriteLock
+    for more information on fair/non-fair locks.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.upgrade.domain.factor</name>
+  <value>${dfs.replication}</value>
+  <description>
+    This is valid only when block placement policy is set to
+    BlockPlacementPolicyWithUpgradeDomain. It defines the number of
+    unique upgrade domains any block's replicas should have.
+    When the number of replicas is less or equal to this value, the policy
+    ensures each replica has an unique upgrade domain. When the number of
+    replicas is greater than this value, the policy ensures the number of
+    unique domains is at least this value.
+  </description>
+</property>
+
+<property>
+  <name>dfs.balancer.keytab.enabled</name>
+  <value>true</value>
+  <description>
+    Set to true to enable login using a keytab for Kerberized Hadoop.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.failover.random.order</name>
+  <value>false</value>
+  <description>
+    Determines if the failover proxies are picked in random order instead of the
+    configured order. Random order may be enabled for better load balancing
+    or to avoid always hitting failed ones first if the failed ones appear in the
+    beginning of the configured or resolved list.
+    For example, In the case of multiple RBF routers or ObserverNameNodes,
+    it is recommended to be turned on for load balancing.
+    The config name can be extended with an optional nameservice ID
+    (of form dfs.client.failover.random.order[.nameservice]) in case multiple
+    nameservices exist and random order should be enabled for specific
+    nameservices.
+  </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HDFS version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.client.cached.conn.retry</name>
+  <value>6</value>
+  <description>The number of times the HDFS client will pull a socket from the
+   cache.  Once this number is exceeded, the client will try to create a new
+   socket.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.block.write.replace-datanode-on-failure.policy</name>
+  <value>DEFAULT</value>
+  <description>
+    This property is used only if the value of
+    dfs.client.block.write.replace-datanode-on-failure.enable is true.
+
+    ALWAYS: always add a new datanode when an existing datanode is removed.
+    
+    NEVER: never add a new datanode.
+
+    DEFAULT: 
+      Let r be the replication number.
+      Let n be the number of existing datanodes.
+      Add a new datanode only if r is greater than or equal to 3 and either
+      (1) floor(r/2) is greater than or equal to n; or
+      (2) r is greater than n and the block is hflushed/appended.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.delegation.key.update-interval</name>
+  <value>86400000</value>
+  <description>The update interval for master key for delegation tokens 
+       in the namenode in milliseconds.
+  </description>
+</property>
+
+<property>
+  <name>dfs.datanode.failed.volumes.tolerated</name>
+  <value>-1</value>
+  <description>The number of volumes that are allowed to
+  fail before a datanode stops offering service. By default
+  any volume failure will cause a datanode to shutdown.
+  The value should be greater than or equal to -1 , -1 represents minimum
+  1 valid volume.
+  </description>
+</property>
+
+<property>
+  <name>dfs.journalnode.rpc-bind-host</name>
+  <value>xxx.0.0.0</value>
+  <description>
+    The actual address the RPC server will bind to. If this optional address is
+    set, it overrides only the hostname portion of dfs.journalnode.rpc-address.
+    This is useful for making the JournalNode listen on all interfaces by
+    setting it to 0.0.0.0.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.block.write.locateFollowingBlock.initial.delay.ms</name>
+  <value>400</value>
+  <description>The initial delay (unit is ms) for locateFollowingBlock,
+    the delay time will increase exponentially(double) for each retry
+    until dfs.client.block.write.locateFollowingBlock.max.delay.ms is reached,
+    after that the delay for each retry will be
+    dfs.client.block.write.locateFollowingBlock.max.delay.ms.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.failover.resolver.useFQDN</name>
+  <value>true</value>
+  <description>
+    Determines whether the resolved result is fully qualified domain name instead
+    of pure IP address(es). The config name can be extended with an optional
+    nameservice ID (of form dfs.client.failover.resolver.impl[.nameservice]) to
+    configure specific nameservices when multiple nameservices exist.
+    In secure environment, this has to be enabled since Kerberos is using fqdn
+    in machine's principal therefore accessing servers by IP won't be recognized
+    by the KDC.
+  </description>
+</property>
+
+<property>
+  <name>dfs.storage.policy.satisfier.address</name>
+  <value>0.0.0.0:0</value>
+  <description>
+    The hostname used for a keytab based Kerberos login. Keytab based login
+    is required when dfs.storage.policy.satisfier.mode is external.
+  </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HDFS version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["dfs.journalnode.rpc-bind-host"],
+    "reason": ["The property 'dfs.journalnode.rpc-bind-host' has the value 'xxx.0.0.0' which does not follow the correct IP address format."]
+}
+```

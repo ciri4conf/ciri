@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hadoop.http.filter.initializers</name>
+  <value>org.apache.hadoop.http.lib.StaticUserWebFilter</value>
+  <description>A comma separated list of class names. Each class in the list
+  must extend org.apache.hadoop.http.FilterInitializer. The corresponding
+  Filter will be initialized. Then, the Filter will be applied to all user
+  facing jsp and servlet web pages.  The ordering of the list defines the
+  ordering of the filters.</description>
+</property>
+
+<property>
+  <name>hadoop.security.dns.log-slow-lookups.enabled</name>
+  <value>true</value>
+  <description>
+    Time name lookups (via SecurityUtil) and log them if they exceed the
+    configured threshold.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.committer.threads</name>
+  <value>16</value>
+  <description>
+    Number of threads in committers for parallel operations on files
+    (upload, commit, abort, delete...)
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.select.input.csv.record.delimiter</name>
+  <value>\n</value>
+  <description>In S3 Select queries over CSV files: the record delimiter.
+    \t is remapped to the TAB character, \r to CR \n to newline. \\ to \
+    and \" to "
+  </description>
+</property>
+
+<property>
+  <name>file.bytes-per-checksum</name>
+  <value>256</value>
+  <description>The number of bytes per checksum.  Must not be larger than
+  file.stream-buffer-size</description>
+</property>
+
+<property>
+  <name>hadoop.http.cross-origin.enabled</name>
+  <value>false</value>
+  <description>Enable/disable the cross-origin (CORS) filter.</description>
+</property>
+
+<property>
+  <name>hadoop.ssl.enabled.protocols</name>
+  <value>TLSv1.2</value>
+  <description>
+    The supported SSL protocols. The parameter will only be used from
+    DatanodeHttpServer.
+    Starting from Hadoop 3.3.0, TLSv1.3 is supported with Java 11 Runtime.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.registry.zk.retry.ceiling.ms</name>
+  <value>30000</value>
+    <description>
+      Zookeeper retry limit in milliseconds, during
+      exponential backoff.
+
+      This places a limit even
+      if the retry times and interval limit, combined
+      with the backoff policy, result in a long retry
+      period
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HCommon version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

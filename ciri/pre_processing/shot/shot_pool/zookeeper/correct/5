@@ -1,0 +1,32 @@
+clientPort=3001
+
+electionAlg=6
+
+minSessionTimeout=-1
+
+initLimit=10
+
+syncEnabled=false
+
+dataDir=/valid/dir2
+
+reconfigEnabled=true
+
+sslQuorum=true
+
+
+Question: Are there any mistakes in the above configuration file for ZooKeeper version 3.7.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

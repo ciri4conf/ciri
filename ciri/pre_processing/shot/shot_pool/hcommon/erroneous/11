@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>fs.ftp.host</name>
+  <value>256.0.0.0</value>
+  <description>FTP filesystem connects to this server</description>
+</property>
+
+<property>
+  <name>fs.s3a.buffer.dir</name>
+  <value>/valid/file1</value>
+  <description>Comma separated list of directories that will be used to buffer file
+    uploads to.</description>
+</property>
+
+<property>
+  <name>fs.s3a.change.detection.mode</name>
+  <value>server</value>
+  <description>
+    Determines how change detection is applied to alert to inconsistent S3
+    objects read during or after an overwrite. Value 'server' indicates to apply
+    the attribute constraint directly on GetObject requests to S3. Value 'client'
+    means to do a client-side comparison of the attribute value returned in the
+    response.  Value 'server' would not work with third-party S3 implementations
+    that do not support these constraints on GetObject. Values 'server' and
+    'client' generate RemoteObjectChangedException when a mismatch is detected.
+    Value 'warn' works like 'client' but generates only a warning.  Value 'none'
+    will ignore change detection completely.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.ssl.channel.mode</name>
+  <value>default_jsse</value>
+  <description>
+    If secure connections to S3 are enabled, configures the SSL
+    implementation used to encrypt connections to S3. Supported values are:
+    "default_jsse", "default_jsse_with_gcm", "default", and "openssl".
+    "default_jsse" uses the Java Secure Socket Extension package (JSSE).
+    However, when running on Java 8, the GCM cipher is removed from the list
+    of enabled ciphers. This is due to performance issues with GCM in Java 8.
+    "default_jsse_with_gcm" uses the JSSE with the default list of cipher
+    suites. "default_jsse_with_gcm" is equivalent to the behavior prior to
+    this feature being introduced. "default" attempts to use OpenSSL rather
+    than the JSSE for SSL encryption, if OpenSSL libraries cannot be loaded,
+    it falls back to the "default_jsse" behavior. "openssl" attempts to use
+    OpenSSL as well, but fails if OpenSSL libraries cannot be loaded.
+  </description>
+</property>
+
+<property>
+  <name>fs.azure.saskey.usecontainersaskeyforallaccess</name>
+  <value>true</value>
+  <description>
+    Use container saskey for access to all blobs within the container.
+    Blob-specific saskeys are not used when this setting is enabled.
+    This setting provides better performance compared to blob-specific saskeys.
+  </description>
+</property>
+
+<property>
+  <name>ipc.client.connect.timeout</name>
+  <value>40000</value>
+  <description>Indicates the number of milliseconds a client will wait for the
+               socket to establish a server connection.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.http.cross-origin.allowed-methods</name>
+  <value>POST</value>
+  <description>Comma separated list of methods that are allowed for web
+    services needing cross-origin (CORS) support.</description>
+</property>
+
+<property>
+  <name>hadoop.security.kms.client.failover.sleep.max.millis</name>
+  <value>2000</value>
+  <description>
+    Expert only. The time to wait, in milliseconds, between failover
+    attempts increases exponentially as a function of the number of
+    attempts made so far, with a random factor of +/- 50%. This option
+    specifies the maximum value to wait between failovers.
+    Specifically, the time between two failover attempts will not
+    exceed +/- 50% of hadoop.security.client.failover.sleep.max.millis
+    milliseconds.
+  </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HCommon version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["fs.ftp.host"],
+    "reason": ["The property 'fs.ftp.host' has the value '256.0.0.0' which is out of the valid range of an IP address."]
+}
+```

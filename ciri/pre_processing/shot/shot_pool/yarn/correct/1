@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.placement-constraints.algorithm.pool-size</name>
+  <value>0</value>
+    <description>Threadpool size for the Algorithm used for placement constraint processing.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.reservation-system.enable</name>
+  <value>true</value>
+    <description>
+    Flag to enable the ResourceManager reservation system.
+    </description>
+</property>
+
+<property>
+  <name>yarn.log-aggregation.file-formats</name>
+  <value>TFile</value>
+    <description>Specify which log file controllers we will support. The first
+    file controller we add will be used to write the aggregated logs.
+    This comma separated configuration will work with the configuration:
+    yarn.log-aggregation.file-controller.%s.class which defines the supported
+    file controller's class. By default, the TFile controller would be used.
+    The user could override this configuration by adding more file controllers.
+    To support back-ward compatibility, make sure that we always
+    add TFile file controller.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.log-container-debug-info.enabled</name>
+  <value>true</value>
+    <description>Generate additional logs about container launches.
+    Currently, this creates a copy of the launch script and lists the
+    directory contents of the container work dir. When listing directory
+    contents, we follow symlinks to a max-depth of 5(including symlinks
+    which point to outside the container work dir) which may lead to a
+    slowness in launching containers.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.disk-health-checker.min-healthy-disks</name>
+  <value>0.5</value>
+    <description>The minimum fraction of number of disks to be healthy for the
+    nodemanager to launch new containers. This correspond to both
+    yarn.nodemanager.local-dirs and yarn.nodemanager.log-dirs. i.e. If there
+    are less number of healthy local-dirs (or log-dirs) available, then
+    new containers will not be launched on this node.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.runc.image-tag-to-manifest-plugin.cache-refresh-interval-secs</name>
+  <value>30</value>
+    <description>The interval in seconds between refreshing the hdfs image tag
+      to hash cache.</description>
+</property>
+
+<property>
+  <name>yarn.sharedcache.store.in-memory.initial-delay-mins</name>
+  <value>1</value>
+    <description>Initial delay before the in-memory store runs its first check
+    to remove dead initial applications. Specified in minutes.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.webapp.rest-csrf.methods-to-ignore</name>
+  <value>OPTIONS</value>
+    <description>
+      Optional parameter that indicates the list of HTTP methods that do not
+      require CSRF protection
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for YARN version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

@@ -1,0 +1,32 @@
+listen-client-urls: http://localhost:2379
+
+proxy-dial-timeout: 1000
+
+advertise-client-urls: http://localhost:2379
+
+enable-pprof: false
+
+log-outputs: [stderr]
+
+proxy-refresh-interval: 15000
+
+proxy-read-timeout: 2
+
+proxy-write-timeout: 5000
+
+
+Question: Are there any mistakes in the above configuration file for etcd version 3.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

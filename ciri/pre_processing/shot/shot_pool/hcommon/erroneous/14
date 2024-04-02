@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hadoop.security.group.mapping.ldap.ssl</name>
+  <value>false</value>
+  <description>
+    Whether or not to use SSL when connecting to the LDAP server.
+  </description>
+</property>
+
+<property>
+  <name>fs.du.interval</name>
+  <value>1200000</value>
+  <description>File space usage statistics refresh interval in msec.</description>
+</property>
+
+<property>
+  <name>fs.s3a.s3guard.ddb.max.retries</name>
+  <value>9</value>
+    <description>
+      Max retries on throttled/incompleted DynamoDB operations
+      before giving up and throwing an IOException.
+      Each retry is delayed with an exponential
+      backoff timer which starts at 100 milliseconds and approximately
+      doubles each time.  The minimum wait before throwing an exception is
+      sum(100, 200, 400, 800, .. 100*2^N-1 ) == 100 * ((2^N)-1)
+    </description>
+</property>
+
+<property>
+  <name>hadoop.util.hash.type</name>
+  <value>murmur</value>
+  <description>The default implementation of Hash. Currently this can take one of the
+  two values: 'murmur' to select MurmurHash and 'jenkins' to select JenkinsHash.
+  </description>
+</property>
+
+<property>
+  <name>nfs.exports.allowed.hosts</name>
+  <value>* rw</value>
+  <description>
+    By default, the export can be mounted by any client. The value string
+    contains machine name and access privilege, separated by whitespace
+    characters. The machine name format can be a single host, a Java regular
+    expression, or an IPv4 address. The access privilege uses rw or ro to
+    specify read/write or read-only access of the machines to exports. If the
+    access privilege is not provided, the default is read-only. Entries are separated by ";".
+    For example: "192.168.0.0/22 rw ; host.*\.example\.com ; host1.test.org ro;".
+    Only the NFS gateway needs to restart after this property is updated.
+  </description>
+</property>
+
+<property>
+  <name>rpc.metrics.quantile.enable</name>
+  <value>false</value>
+  <description>
+    Setting this property to true and rpc.metrics.percentiles.intervals
+    to a comma-separated list of the granularity in seconds, the
+    50/75/90/95/99th percentile latency for rpc queue/processing time in
+    milliseconds are added to rpc metrics.
+  </description>
+</property>
+
+<property>
+  <name>rpc.metrics.percentiles.intervals</name>
+  <value>60,300,900,3600,86400</value>
+  <description>
+    A comma-separated list of the granularity in seconds for the metrics which
+    describe the 50/75/90/95/99th percentile latency for rpc queue/processing
+    time. The metrics are outputted if rpc.metrics.quantile.enable is set to
+    true.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.security.kms.client.timeout</name>
+  <value>120</value>
+  <description>
+    Sets value for KMS client connection timeout, and the read timeout
+    to KMS servers.
+  </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HCommon version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["rpc.metrics.quantile.enable"],
+    "reason": ["The value of the property 'rpc.metrics.quantile.enable' should be 'true' to enable the property 'rpc.metrics.percentiles.intervals'."]
+}
+```

@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hadoop.security.authentication</name>
+  <value>uiuc</value>
+  <description>Possible values are simple (no authentication), and kerberos
+  </description>
+</property>
+
+<property>
+  <name>hadoop.service.shutdown.timeout</name>
+  <value>1s</value>
+    <description>
+      Timeout to wait for each shutdown operation to complete.
+      If a hook takes longer than this time to complete, it will be interrupted,
+      so the service will shutdown. This allows the service shutdown
+      to recover from a blocked operation.
+      Some shutdown hooks may need more time than this, for example when
+      a large amount of data needs to be uploaded to an object store.
+      In this situation: increase the timeout.
+
+      The minimum duration of the timeout is 1 second, "1s".
+    </description>
+</property>
+
+<property>
+  <name>fs.AbstractFileSystem.file.impl</name>
+  <value>org.apache.hadoop.fs.local.LocalFs</value>
+  <description>The AbstractFileSystem for file: uris.</description>
+</property>
+
+<property>
+  <name>fs.s3a.s3guard.ddb.table.capacity.read</name>
+  <value>-1</value>
+  <description>
+    Provisioned throughput requirements for read operations in terms of capacity
+    units for the DynamoDB table. This config value will only be used when
+    creating a new DynamoDB table.
+    If set to 0 (the default), new tables are created with "per-request" capacity.
+    If a positive integer is provided for this and the write capacity, then
+    a table with "provisioned capacity" will be created.
+    You can change the capacity of an existing provisioned-capacity table
+    through the "s3guard set-capacity" command.
+  </description>
+</property>
+
+<property>
+  <name>fs.azure.local.sas.key.mode</name>
+  <value>true</value>
+  <description>
+    Works in conjuction with fs.azure.secure.mode. Setting this config to true
+    results in fs.azure.NativeAzureFileSystem using the local SAS key generation
+    where the SAS keys are generating in the same process as fs.azure.NativeAzureFileSystem.
+    If fs.azure.secure.mode flag is set to false, this flag has no effect.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.http.authentication.type</name>
+  <value>simple</value>
+  <description>
+    Defines authentication used for Oozie HTTP endpoint.
+    Supported values are: simple | kerberos | #AUTHENTICATION_HANDLER_CLASSNAME#
+  </description>
+</property>
+
+<property>
+  <name>hadoop.registry.zk.retry.ceiling.ms</name>
+  <value>120000</value>
+    <description>
+      Zookeeper retry limit in milliseconds, during
+      exponential backoff.
+
+      This places a limit even
+      if the retry times and interval limit, combined
+      with the backoff policy, result in a long retry
+      period
+    </description>
+</property>
+
+<property>
+  <name>hadoop.http.sni.host.check.enabled</name>
+  <value>false</value>
+    <description>
+      Enable Server Name Indication (SNI) host check for HTTPS enabled server.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HCommon version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["hadoop.security.authentication"],
+    "reason": ["The property 'hadoop.security.authentication' has the value 'uiuc' which is not within the accepted value {simple,kerberos}."]
+}
+```

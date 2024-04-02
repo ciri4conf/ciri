@@ -1,0 +1,32 @@
+auto-compaction-retention: 3
+
+listen-peer-urls: http://localhost:2380
+
+proxy-dial-timeout: 500
+
+heartbeat-interval: 100
+
+log-level: debug
+
+initial-cluster-state: 'new'
+
+client-cert-auth: true
+
+proxy: 'off'
+
+
+Question: Are there any mistakes in the above configuration file for etcd version 3.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

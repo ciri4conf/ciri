@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.scheduler.class</name>
+  <value>org.apache.hadoop.yarn.server.resourcemanager.scheduler.capacity.CapacityScheduler</value>
+    <description>The class to use as the resource scheduler.</description>
+</property>
+
+<property>
+  <name>yarn.client.failover-retries</name>
+  <value>1</value>
+    <description>When HA is enabled, the number of retries per
+      attempt to connect to a ResourceManager. In other words,
+      it is the ipc.client.connect.max.retries to be used during
+      failover attempts</description>
+</property>
+
+<property>
+  <name>yarn.log-aggregation.retain-check-interval-seconds</name>
+  <value>-2</value>
+    <description>How long to wait between aggregated log retention checks.
+    If set to 0 or a negative value then the value is computed as one-tenth
+    of the aggregated log retention time. Be careful set this too small and
+    you will spam the name node.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.log.retain-seconds</name>
+  <value>10800</value>
+    <description>Time in seconds to retain user logs. Only applicable if
+    log aggregation is disabled
+    </description>
+</property>
+
+<property>
+  <name>yarn.web-proxy.keytab</name>
+  <value>/valid/file1</value>
+    <description>Keytab for WebAppProxy, if the proxy is not running as part of 
+    the RM.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.entity-group-fs-store.scan-interval-seconds</name>
+  <value>120</value>
+    <description>
+      Scan interval for ATS v1.5 entity group file system storage reader.This
+      value controls how frequent the reader will scan the HDFS active directory
+      for application status.
+    </description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.client.fd-flush-interval-secs</name>
+  <value>20</value>
+    <description>
+      Flush interval for ATS v1.5 writer. This value controls how frequent
+      the writer will flush the HDFS FSStream for the entity/domain.
+    </description>
+</property>
+
+<property>
+  <name>yarn.sharedcache.root-dir</name>
+  <value>/tmp//hadoop-ciri</value>
+    <description>The root directory for the shared cache</description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for YARN version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["yarn.sharedcache.root-dir"],
+    "reason": ["The property 'yarn.sharedcache.root-dir' has the value '/tmp//hadoop-ciri' which does not follow the correct path format."]
+}
+```

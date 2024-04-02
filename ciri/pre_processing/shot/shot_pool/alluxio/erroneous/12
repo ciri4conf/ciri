@@ -1,0 +1,32 @@
+alluxio.worker.tieredstore.level0.watermark.low.ratio=0.8
+
+alluxio.worker.tieredstore.level0.watermark.high.ratio=0.7
+
+alluxio.master.ufs.active.sync.poll.batch.size=512
+
+alluxio.master.format.file.prefix=_format_
+
+alluxio.user.file.writetype.default=CACHE_THROUGH
+
+alluxio.worker.management.task.thread.count=1
+
+alluxio.user.client.cache.async.restore.enabled=true
+
+alluxio.user.block.avoid.eviction.policy.reserved.size.bytes=0MB
+
+
+Question: Are there any mistakes in the above configuration file for Alluxio version 2.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["alluxio.worker.tieredstore.level0.watermark.low.ratio"],
+    "reason": ["The value of the property 'alluxio.worker.tieredstore.level0.watermark.low.ratio' should be smaller or equal to the value of the property 'alluxio.worker.tieredstore.level0.watermark.high.ratio'."]
+}
+```

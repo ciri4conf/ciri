@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hbase.regionserver.dns.interface</name>
+  <value>default</value>
+    <description>The name of the Network Interface from which a region server
+      should report its IP address.</description>
+</property>
+
+<property>
+  <name>hbase.client.retries.number</name>
+  <value>15</value>
+    <description>Maximum retries.  Used as maximum for all retryable
+    operations such as the getting of a cell's value, starting a row update,
+    etc.  Retry interval is a rough function based on hbase.client.pause.  At
+    first we retry at this interval but then with backoff, we pretty quickly reach
+    retrying every ten seconds.  See HConstants#RETRY_BACKOFF for how the backup
+    ramps up.  Change this setting and hbase.client.pause to suit your workload.</description>
+</property>
+
+<property>
+  <name>hbase.regionserver.thread.compaction.throttle</name>
+  <value>1342177280</value>
+    <description>There are two different thread pools for compactions, one for large compactions and
+      the other for small compactions. This helps to keep compaction of lean tables (such as
+      hbase:meta) fast. If a compaction is larger than this threshold, it
+      goes into the large compaction pool. In most cases, the default value is appropriate. Default:
+      2 x hbase.hstore.compaction.max x hbase.hregion.memstore.flush.size (which defaults to 128MB).
+      The value field assumes that the value of hbase.hregion.memstore.flush.size is unchanged from
+      the default.</description>
+</property>
+
+<property>
+  <name>hbase.hstore.compaction.kv.max</name>
+  <value>10</value>
+    <description>The maximum number of KeyValues to read and then write in a batch when flushing or
+      compacting. Set this lower if you have big KeyValues and problems with Out Of Memory
+      Exceptions Set this higher if you have wide, small rows. </description>
+</property>
+
+<property>
+  <name>hfile.block.cache.size</name>
+  <value>0.8</value>
+    <description>Percentage of maximum heap (-Xmx setting) to allocate to block cache
+        used by a StoreFile. Default of 0.4 means allocate 40%.
+        Set to 0 to disable but it's not recommended; you need at least
+        enough cache to hold the storefile indices.</description>
+</property>
+
+<property>
+  <name>hbase.coprocessor.enabled</name>
+  <value>false</value>
+    <description>Enables or disables coprocessor loading. If 'false'
+    (disabled), any other coprocessor related configuration will be ignored.
+    </description>
+</property>
+
+<property>
+  <name>hbase.table.max.rowsize</name>
+  <value>2147483648</value>
+    <description>
+      Maximum size of single row in bytes (default is 1 Gb) for Get'ting
+      or Scan'ning without in-row scan flag set. If row size exceeds this limit
+      RowTooBigException is thrown to client.
+    </description>
+</property>
+
+<property>
+  <name>hbase.master.mob.ttl.cleaner.period</name>
+  <value>43200</value>
+    <description>
+      The period that ExpiredMobFileCleanerChore runs. The unit is second.
+      The default value is one day. The MOB file name uses only the date part of
+      the file creation time in it. We use this time for deciding TTL expiry of
+      the files. So the removal of TTL expired files might be delayed. The max
+      delay might be 24 hrs.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HBase version 2.2.7? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

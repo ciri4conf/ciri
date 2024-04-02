@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hbase.hregion.percolumnfamilyflush.size.lower.bound.min</name>
+  <value>16777216</value>
+    <description>
+    If FlushLargeStoresPolicy is used and there are multiple column families,
+    then every time that we hit the total memstore limit, we find out all the
+    column families whose memstores exceed a "lower bound" and only flush them
+    while retaining the others in memory. The "lower bound" will be
+    "hbase.hregion.memstore.flush.size / column_family_number" by default
+    unless value of this property is larger than that. If none of the families
+    have their memstore size more than lower bound, all the memstores will be
+    flushed (just as usual).
+    </description>
+</property>
+
+<property>
+  <name>hbase.hstore.compaction.min</name>
+  <value>12</value>
+    <description>The minimum number of StoreFiles which must be eligible for compaction before
+      compaction can run. The goal of tuning hbase.hstore.compaction.min is to avoid ending up with
+      too many tiny StoreFiles to compact. Setting this value to 2 would cause a minor compaction
+      each time you have two StoreFiles in a Store, and this is probably not appropriate. If you
+      set this value too high, all the other values will need to be adjusted accordingly. For most
+      cases, the default value is appropriate  (empty value here, results in 3 by code logic). In 
+      previous versions of HBase, the parameter hbase.hstore.compaction.min was named 
+      hbase.hstore.compactionThreshold.</description>
+</property>
+
+<property>
+  <name>hbase.hstore.compaction.max</name>
+  <value>10</value>
+    <description>The maximum number of StoreFiles which will be selected for a single minor
+      compaction, regardless of the number of eligible StoreFiles. Effectively, the value of
+      hbase.hstore.compaction.max controls the length of time it takes a single compaction to
+      complete. Setting it larger means that more StoreFiles are included in a compaction. For most
+      cases, the default value is appropriate.</description>
+</property>
+
+<property>
+  <name>hbase.offpeak.start.hour</name>
+  <value>-2</value>
+    <description>The start of off-peak hours, expressed as an integer between 0 and 23, inclusive.
+      Set to -1 to disable off-peak.</description>
+</property>
+
+<property>
+  <name>hbase.rs.cacheblocksonwrite</name>
+  <value>false</value>
+      <description>Whether an HFile block should be added to the block cache when the
+        block is finished.</description>
+</property>
+
+<property>
+  <name>dfs.domain.socket.path</name>
+  <value>/valid/file1</value>
+    <description>
+      This is a path to a UNIX domain socket that will be used for
+      communication between the DataNode and local HDFS clients, if
+      dfs.client.read.shortcircuit is set to true. If the string "_PORT" is
+      present in this path, it will be replaced by the TCP port of the DataNode.
+      Be careful about permissions for the directory that hosts the shared
+      domain socket; dfsclient will complain if open to other users than the HBase user.
+    </description>
+</property>
+
+<property>
+  <name>hbase.rest.csrf.enabled</name>
+  <value>true</value>
+  <description>
+    Set to true to enable protection against cross-site request forgery (CSRF)
+	</description>
+</property>
+
+<property>
+  <name>hbase.regionserver.storefile.refresh.period</name>
+  <value>-1</value>
+    <description>
+      The period (in milliseconds) for refreshing the store files for the secondary regions. 0
+      means this feature is disabled. Secondary regions sees new files (from flushes and
+      compactions) from primary once the secondary region refreshes the list of files in the
+      region (there is no notification mechanism). But too frequent refreshes might cause
+      extra Namenode pressure. If the files cannot be refreshed for longer than HFile TTL
+      (hbase.master.hfilecleaner.ttl) the requests are rejected. Configuring HFile TTL to a larger
+      value is also recommended with this setting.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HBase version 2.2.7? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["hbase.hstore.compaction.max"],
+    "reason": ["The value of the property 'hbase.hstore.compaction.min' should be smaller or equal to the value of the property 'hbase.hstore.compaction.max'."]
+}
+```

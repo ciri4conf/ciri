@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.namenode.edits.dir</name>
+  <value>/valid/dir1</value>
+  <description>Determines where on the local filesystem the DFS name node
+      should store the transaction (edits) file. If this is a comma-delimited list
+      of directories then the transaction file is replicated in all of the 
+      directories, for redundancy. Default value is same as dfs.namenode.name.dir
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.decommission.max.concurrent.tracked.nodes</name>
+  <value>100</value>
+  <description>
+    The maximum number of decommission-in-progress or
+    entering-maintenance datanodes nodes that will be tracked at one time by
+    the namenode. Tracking these datanode consumes additional NN memory
+    proportional to the number of blocks on the datnode. Having a conservative
+    limit reduces the potential impact of decommissioning or maintenance of
+    a large number of nodes at once.
+      
+    A value of 0 means no limit will be enforced.
+  </description>
+</property>
+
+<property>
+  <name>dfs.datanode.metrics.logger.period.seconds</name>
+  <value>300</value>
+  <description>
+    This setting controls how frequently the DataNode logs its metrics. The
+    logging configuration must also define one or more appenders for
+    DataNodeMetricsLog for the metrics to be logged.
+    DataNode metrics logging is disabled if this value is set to zero or
+    less than zero.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.enable.retrycache</name>
+  <value>false</value>
+  <description>
+    This enables the retry cache on the namenode. Namenode tracks for
+    non-idempotent requests the corresponding response. If a client retries the
+    request, the response from the retry cache is sent. Such operations
+    are tagged with annotation @AtMostOnce in namenode protocols. It is
+    recommended that this flag be set to true. Setting it to false, will result
+    in clients getting failure responses to retried request. This flag must 
+    be enabled in HA setup for transparent fail-overs.
+
+    The entries in the cache have expiration time configurable
+    using dfs.namenode.retrycache.expirytime.millis.
+  </description>
+</property>
+
+<property>
+  <name>dfs.datanode.max.locked.memory</name>
+  <value>-1</value>
+  <description>
+    The amount of memory in bytes to use for caching of block replicas in
+    memory on the datanode. The datanode's maximum locked memory soft ulimit
+    (RLIMIT_MEMLOCK) must be set to at least this value, else the datanode
+    will abort on startup. Support multiple size unit suffix(case insensitive),
+    as described in dfs.blocksize.
+
+    By default, this parameter is set to 0, which disables in-memory caching.
+
+    If the native libraries are not available to the DataNode, this
+    configuration has no effect.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.context</name>
+  <value>default</value>
+  <description>
+    The name of the DFSClient context that we should use.  Clients that share
+    a context share a socket cache and short-circuit cache, among other things.
+    You should only change this if you don't want to share with another set of
+    threads.
+  </description>
+</property>
+
+<property>
+  <name>dfs.webhdfs.rest-csrf.browser-useragents-regex</name>
+  <value>^Mozilla.*</value>
+  <description>
+    A comma-separated list of regular expressions used to match against an HTTP
+    request's User-Agent header when protection against cross-site request
+    forgery (CSRF) is enabled for WebHDFS by setting
+    dfs.webhdfs.reset-csrf.enabled to true.  If the incoming User-Agent matches
+    any of these regular expressions, then the request is considered to be sent
+    by a browser, and therefore CSRF prevention is enforced.  If the request's
+    User-Agent does not match any of these regular expressions, then the request
+    is considered to be sent by something other than a browser, such as scripted
+    automation.  In this case, CSRF is not a potential attack vector, so
+    the prevention is not enforced.  This helps achieve backwards-compatibility
+    with existing automation that has not been updated to send the CSRF
+    prevention header.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.write.byte-array-manager.count-threshold</name>
+  <value>128</value>
+  <description>
+    The count threshold for each array length so that a manager is created only after the
+    allocation count exceeds the threshold. In other words, the particular array length
+    is not managed until the allocation count exceeds the threshold.
+  </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HDFS version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

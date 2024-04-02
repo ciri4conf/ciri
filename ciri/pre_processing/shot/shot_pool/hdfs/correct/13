@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.datanode.http.internal-proxy.port</name>
+  <value>0</value>
+  <description>
+    The datanode's internal web proxy port.
+    By default it selects a random port available in runtime.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.safemode.min.datanodes</name>
+  <value>-1</value>
+  <description>
+    Specifies the number of datanodes that must be considered alive
+    before the name node exits safemode.
+    Values less than or equal to 0 mean not to take the number of live
+    datanodes into account when deciding whether to remain in safe mode
+    during startup.
+    Values greater than the number of datanodes in the cluster
+    will make safe mode permanent.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.resource.checked.volumes.minimum</name>
+  <value>2</value>
+  <description>
+    The minimum number of redundant NameNode storage volumes required.
+  </description>
+</property>
+
+<property>
+  <name>dfs.datanode.shared.file.descriptor.paths</name>
+  <value>/dev/shm,/tmp</value>
+  <description>
+    A comma-separated list of paths to use when creating file descriptors that
+    will be shared between the DataNode and the DFSClient.  Typically we use
+    /dev/shm, so that the file descriptors will not be written to disk.
+    It tries paths in order until creation of shared memory segment succeeds.
+  </description>
+</property>
+
+<property>
+  <name>dfs.balancer.movedWinWidth</name>
+  <value>5400000</value>
+  <description>
+    Window of time in ms for the HDFS balancer tracking blocks and its
+    locations.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.file.close.num-committed-allowed</name>
+  <value>0</value>
+  <description>
+    Normally a file can only be closed with all its blocks are committed.
+    When this value is set to a positive integer N, a file can be closed
+    when N blocks are committed and the rest complete.
+  </description>
+</property>
+
+<property>
+  <name>dfs.storage.policy.satisfier.retry.max.attempts</name>
+  <value>6</value>
+  <description>
+    Max retry to satisfy the block storage policy. After this retry block will be removed
+    from the movement needed queue.
+  </description>
+</property>
+
+<property>
+  <name>dfs.webhdfs.use.ipc.callq</name>
+  <value>false</value>
+    <description>Enables routing of webhdfs calls through rpc
+      call queue</description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HDFS version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

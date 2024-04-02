@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hadoop.security.groups.cache.background.reload.threads</name>
+  <value>1</value>
+  <description>
+    Only relevant if hadoop.security.groups.cache.background.reload is true.
+    Controls the number of concurrent background user->group cache entry
+    refreshes. Pending refresh requests beyond this value are queued and
+    processed when a thread is free.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.security.group.mapping.ldap.directory.search.timeout</name>
+  <value>3000000000</value>
+  <description>
+    The attribute applied to the LDAP SearchControl properties to set a
+    maximum time limit when searching and awaiting a result.
+    Set to 0 if infinite wait period is desired.
+    Default is 10 seconds. Units in milliseconds.
+  </description>
+</property>
+
+<property>
+  <name>fs.trash.checkpoint.interval</name>
+  <value>1</value>
+  <description>Number of minutes between trash checkpoints.
+  Should be smaller or equal to fs.trash.interval. If zero,
+  the value is set to the value of fs.trash.interval.
+  Every time the checkpointer runs it creates a new checkpoint
+  out of current and removes checkpoints created more than
+  fs.trash.interval minutes ago.
+  </description>
+</property>
+
+<property>
+  <name>fs.AbstractFileSystem.webhdfs.impl</name>
+  <value>org.apache.hadoop.fs.WebHdfs</value>
+  <description>The FileSystem for webhdfs: uris.</description>
+</property>
+
+<property>
+  <name>fs.s3a.block.size</name>
+  <value>32M</value>
+  <description>Block size to use when reading files using s3a: file system.
+    A suffix from the set {K,M,G,T,P} may be used to scale the numeric value.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.committer.magic.enabled</name>
+  <value>false</value>
+  <description>
+    Enable support in the filesystem for the S3 "Magic" committer.
+    When working with AWS S3, S3Guard must be enabled for the destination
+    bucket, as consistent metadata listings are required.
+  </description>
+</property>
+
+<property>
+  <name>net.topology.impl</name>
+  <value>org.apache.hadoop.net.NetworkTopology</value>
+  <description> The default implementation of NetworkTopology which is classic three layer one.
+  </description>
+</property>
+
+<property>
+  <name>net.topology.script.number.args</name>
+  <value>50</value>
+  <description> The max number of args that the script configured with
+    net.topology.script.file.name should be run with. Each arg is an
+    IP address.
+  </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HCommon version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["hadoop.security.group.mapping.ldap.directory.search.timeout"],
+    "reason": ["The property 'hadoop.security.group.mapping.ldap.directory.search.timeout' has the value '3000000000' which exceeds the range of an Integer."]
+}
+```

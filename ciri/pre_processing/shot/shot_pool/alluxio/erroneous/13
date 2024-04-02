@@ -1,0 +1,32 @@
+alluxio.master.tieredstore.global.level1.alias=SSD
+
+alluxio.worker.file.buffer.size=2MB
+
+alluxio.master.metastore.iterator.readahead.size=128MB
+
+alluxio.worker.network.writer.buffer.size.messages=8
+
+alluxio.master.ufs.active.sync.poll.timeout=20sec
+
+alluxio.user.file.metadata.load.type=ONCE
+
+alluxio.zookeeper.job.election.path=/alluxio/job_election
+
+alluxio.network.netty.heartbeat.timeout=30sec
+
+
+Question: Are there any mistakes in the above configuration file for Alluxio version 2.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["alluxio.network.netty.heartbeat.timeout"],
+    "reason": ["The property 'alluxio.network.netty.heartbeat.timeout' was removed in the previous version and is not used in the current version."]
+}
+```

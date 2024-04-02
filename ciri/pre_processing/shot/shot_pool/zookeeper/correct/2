@@ -1,0 +1,32 @@
+autopurge.snapRetainCount=6
+
+clientPort=3001
+
+localSessionsUpgradingEnabled=true
+
+tickTime=1500
+
+standaloneEnabled=false
+
+quorum.auth.kerberos.servicePrincipal=zkquorum/localhost
+
+quorum.cnxn.threads.size=1
+
+quorum.auth.enableSasl=true
+
+
+Question: Are there any mistakes in the above configuration file for ZooKeeper version 3.7.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

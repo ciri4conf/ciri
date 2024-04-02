@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>fs.ftp.host</name>
+  <value>xxx.0.0.0</value>
+  <description>FTP filesystem connects to this server</description>
+</property>
+
+<property>
+  <name>fs.df.interval</name>
+  <value>120000</value>
+  <description>Disk usage statistics refresh interval in msec.</description>
+</property>
+
+<property>
+  <name>ipc.[port_number].backoff.enable</name>
+  <value>true</value>
+  <description>Whether or not to enable client backoff when a queue is full.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.http.authentication.token.validity</name>
+  <value>36000</value>
+  <description>
+    Indicates how long (in seconds) an authentication token is valid before it has
+    to be renewed.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.ssl.hostname.verifier</name>
+  <value>DEFAULT</value>
+  <description>
+    The hostname verifier to provide for HttpsURLConnections.
+    Valid values are: DEFAULT, STRICT, STRICT_IE6, DEFAULT_AND_LOCALHOST and
+    ALLOW_ALL
+  </description>
+</property>
+
+<property>
+  <name>ha.health-monitor.connect-retry-interval.ms</name>
+  <value>1000</value>
+  <description>
+    How often to retry connecting to the service.
+  </description>
+</property>
+
+<property>
+  <name>nfs.exports.allowed.hosts</name>
+  <value>* rw</value>
+  <description>
+    By default, the export can be mounted by any client. The value string
+    contains machine name and access privilege, separated by whitespace
+    characters. The machine name format can be a single host, a Java regular
+    expression, or an IPv4 address. The access privilege uses rw or ro to
+    specify read/write or read-only access of the machines to exports. If the
+    access privilege is not provided, the default is read-only. Entries are separated by ";".
+    For example: "192.168.0.0/22 rw ; host.*\.example\.com ; host1.test.org ro;".
+    Only the NFS gateway needs to restart after this property is updated.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.registry.secure</name>
+  <value>false</value>
+    <description>
+      Key to set if the registry is secure. Turning it on
+      changes the permissions policy from "open access"
+      to restrictions on kerberos with the option of
+      a user adding one or more auth key pairs down their
+      own tree.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HCommon version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["fs.ftp.host"],
+    "reason": ["The property 'fs.ftp.host' has the value 'xxx.0.0.0' which does not follow the correct IP address format."]
+}
+```

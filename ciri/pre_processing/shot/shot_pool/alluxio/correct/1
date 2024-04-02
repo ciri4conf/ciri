@@ -1,0 +1,32 @@
+alluxio.master.ufs.block.location.cache.capacity=500000
+
+alluxio.worker.block.heartbeat.timeout=${alluxio.worker.master.connect.retry.timeout}
+
+alluxio.worker.network.keepalive.timeout=30sec
+
+alluxio.user.client.cache.eviction.retries=10
+
+alluxio.worker.master.periodical.rpc.timeout=5min
+
+alluxio.user.client.cache.async.restore.enabled=false
+
+alluxio.worker.ufs.instream.cache.enabled=false
+
+alluxio.worker.block.annotator.class=alluxio.worker.block.annotator.LRUAnnotator
+
+
+Question: Are there any mistakes in the above configuration file for Alluxio version 2.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

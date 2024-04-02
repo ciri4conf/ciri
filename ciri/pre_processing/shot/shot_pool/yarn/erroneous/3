@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.hostname</name>
+  <value>xxx.0.0.0</value>
+    <description>The hostname of the RM.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.ha.automatic-failover.zk-base-path</name>
+  <value>/valid/file2</value>
+    <description>The base znode path to use for storing leader information,
+      when using ZooKeeper based leader election.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.hostname</name>
+  <value>127.0.0.1</value>
+    <description>The hostname of the NM.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.localizer.address</name>
+  <value>127.0.0.1</value>
+    <description>Address where the localizer IPC is.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.recovery.dir</name>
+  <value>${hadoop.tmp.dir}/yarn-nm-recovery</value>
+    <description>The local filesystem directory in which the node manager will
+    store state when recovery is enabled.</description>
+</property>
+
+<property>
+  <name>yarn.sharedcache.admin.thread-count</name>
+  <value>1</value>
+    <description>The number of threads used to handle SCM admin interface (1 by default)</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.node-attributes.provider.fetch-interval-ms</name>
+  <value>1200000</value>
+    <description>
+      Time interval that determines how long NM fetches node attributes
+      from a given provider. If -1 is configured then node labels are
+      retrieved from provider only during initialization. Defaults to 10 mins.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.numa-awareness.numactl.cmd</name>
+  <value>/usr/bin/numactl</value>
+    <description>
+    The numactl command path which controls NUMA policy for processes or
+    shared memory.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for YARN version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["yarn.resourcemanager.hostname"],
+    "reason": ["The property 'yarn.resourcemanager.hostname' has the value 'xxx.0.0.0' which does not follow the correct IP address format."]
+}
+```

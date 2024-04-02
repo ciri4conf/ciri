@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>fs.AbstractFileSystem.har.impl</name>
+  <value>org.apache.hadoop.fs.HarFs</value>
+  <description>The AbstractFileSystem for har: uris.</description>
+</property>
+
+<property>
+  <name>fs.ftp.host.port</name>
+  <value>hadoop</value>
+  <description>
+    FTP filesystem connects to fs.ftp.host on this port
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.connection.timeout</name>
+  <value>100000</value>
+  <description>Socket connection timeout in milliseconds.</description>
+</property>
+
+<property>
+  <name>ipc.[port_number].weighted-cost.lockshared</name>
+  <value>10</value>
+  <description>The weight multiplier to apply to the time spent in the
+    processing phase which holds a shared (read) lock.
+    This property applies to WeightedTimeCostProvider.
+  </description>
+</property>
+
+<property>
+  <name>ha.health-monitor.check-interval.ms</name>
+  <value>2000</value>
+  <description>
+    How often to check the service.
+  </description>
+</property>
+
+<property>
+  <name>ha.health-monitor.sleep-after-disconnect.ms</name>
+  <value>2000</value>
+  <description>
+    How long to sleep after an unexpected RPC error.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.registry.zk.retry.interval.ms</name>
+  <value>500</value>
+    <description>
+    </description>
+</property>
+
+<property>
+  <name>hadoop.zk.acl</name>
+  <value>world:anyone:rwcda</value>
+    <description>ACL's to be used for ZooKeeper znodes.</description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HCommon version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["fs.ftp.host.port"],
+    "reason": ["The property 'fs.ftp.host.port' has the value 'hadoop' which does not follow the correct port format."]
+}
+```

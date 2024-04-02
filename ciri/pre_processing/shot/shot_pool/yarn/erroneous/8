@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.scheduler.class</name>
+  <value>org.apache.hadoop.yarn.server.resourcemanager.scheduler.capacity.CapacityScheduler</value>
+    <description>The class to use as the resource scheduler.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.fail-fast</name>
+  <value>${yarn.fail-fast}</value>
+    <description>Should RM fail fast if it encounters any errors. By defalt, it
+      points to ${yarn.fail-fast}. Errors include:
+      1) exceptions when state-store write/read operations fails.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.container-executor.exit-code-file.timeout-ms</name>
+  <value>1000</value>
+    <description>
+      How long the container executor should wait for the exit code file to
+      appear after a reacquired container has exited.
+    </description>
+</property>
+
+<property>
+  <name>yarn.log-aggregation-enable</name>
+  <value>false</value>
+    <description>Whether to enable log aggregation. Log aggregation collects
+      each container's logs and moves these logs onto a file-system, for e.g.
+      HDFS, after the application completes. Users can configure the
+      "yarn.nodemanager.remote-app-log-dir" and
+      "yarn.nodemanager.remote-app-log-dir-suffix" properties to determine
+      where these logs are moved to. Users can access the logs via the
+      Application Timeline Server.
+    </description>
+</property>
+
+<property>
+  <name>yarn.log-aggregation.retain-seconds</name>
+  <value>10</value>
+    <description>How long to keep aggregation logs before deleting them.  -1 disables. 
+    Be careful set this too small and you will spam the name node.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.linux-container-executor.cgroups.mount</name>
+  <value>true</value>
+    <description>Whether the LCE should attempt to mount cgroups if not found.
+    This property only applies when the LCE resources handler is set to
+    CgroupsLCEResourcesHandler.
+    </description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.writer.async.queue.capacity</name>
+  <value>50</value>
+    <description>The setting that decides the capacity of the queue to hold
+    asynchronous timeline entities.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.elastic-memory-control.timeout-sec</name>
+  <value>5</value>
+    <description>
+      Maximum time to wait for an OOM situation to get resolved before
+      bringing down the node.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for YARN version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["yarn.log-aggregation-enable"],
+    "reason": ["The value of the property 'yarn.log-aggregation-enable' should be 'true' to enable the property 'yarn.log-aggregation.retain-seconds'."]
+}
+```

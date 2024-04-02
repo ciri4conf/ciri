@@ -1,0 +1,32 @@
+clientPort=-1
+
+secureClientPortAddress=0.0.0.0:3000
+
+quorum.cnxn.threads.size=1
+
+autopurge.purgeInterval=1
+
+syncLimit=10
+
+reconfigEnabled=false
+
+tickTime=3000
+
+localSessionsEnabled=false
+
+
+Question: Are there any mistakes in the above configuration file for ZooKeeper version 3.7.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["clientPort"],
+    "reason": ["The property 'clientPort' has the value '-1' which is out of the valid range of a port number."]
+}
+```

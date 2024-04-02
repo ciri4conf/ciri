@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.namenode.backup.http-address</name>
+  <value>0.0.0.0:50105</value>
+  <description>
+    The backup node http server address and port.
+    If the port is 0 then the server will start on a free port.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.checkpoint.edits.dir</name>
+  <value>/valid/dir2</value>
+  <description>Determines where on the local filesystem the DFS secondary
+      name node should store the temporary edits to merge.
+      If this is a comma-delimited list of directories then the edits is
+      replicated in all of the directories for redundancy.
+      Default value is same as dfs.namenode.checkpoint.dir
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.path.based.cache.retry.interval.ms</name>
+  <value>60000</value>
+  <description>
+    When the NameNode needs to uncache something that is cached, or cache
+    something that is not cached, it must direct the DataNodes to do so by
+    sending a DNA_CACHE or DNA_UNCACHE command in response to a DataNode
+    heartbeat.  This parameter controls how frequently the NameNode will
+    resend these commands.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.read.shortcircuit.skip.checksum</name>
+  <value>true</value>
+  <description>
+    If this configuration parameter is set,
+    short-circuit local reads will skip checksums.
+    This is normally not recommended,
+    but it may be useful for special setups.
+    You might consider using this
+    if you are doing your own checksumming outside of HDFS.
+  </description>
+</property>
+
+<property>
+  <name>dfs.datanode.cache.revocation.polling.ms</name>
+  <value>1000</value>
+  <description>How often the DataNode should poll to see if the clients have
+    stopped using a replica that the DataNode wants to uncache.
+  </description>
+</property>
+
+<property>
+  <name>dfs.datanode.block-pinning.enabled</name>
+  <value>true</value>
+  <description>Whether pin blocks on favored DataNode.</description>
+</property>
+
+<property>
+  <name>dfs.mover.movedWinWidth</name>
+  <value>10800000</value>
+  <description>
+    The minimum time interval, in milliseconds, that a block can be
+    moved to another location again.
+  </description>
+</property>
+
+<property>
+  <name>dfs.provided.aliasmap.inmemory.enabled</name>
+  <value>true</value>
+    <description>
+      Don't use the aliasmap by default. Some tests will fail
+      because they try to start the namenode twice with the
+      same parameters if you turn it on.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HDFS version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

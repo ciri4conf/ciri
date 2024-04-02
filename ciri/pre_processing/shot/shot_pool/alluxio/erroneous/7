@@ -1,0 +1,32 @@
+alluxio.debug=-1
+
+alluxio.master.persistence.initial.interval=2s
+
+alluxio.user.hostname=127.0.0.1
+
+alluxio.job.worker.web.bind.host=0.0.0.0
+
+alluxio.master.worker.timeout=10min
+
+alluxio.user.file.create.ttl=-2
+
+alluxio.master.mount.table.root.shared=true
+
+alluxio.job.master.client.threads=1024
+
+
+Question: Are there any mistakes in the above configuration file for Alluxio version 2.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["alluxio.debug"],
+    "reason": ["The property 'alluxio.debug' has the value '-1' which is not within the accepted value {true,false}."]
+}
+```

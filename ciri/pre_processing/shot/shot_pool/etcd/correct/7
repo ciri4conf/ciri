@@ -1,0 +1,32 @@
+initial-cluster-state: 'new'
+
+initial-cluster-token: 'etcd-cluster'
+
+logger: zap
+
+enable-pprof: false
+
+log-outputs: [stderr]
+
+auto-compaction-mode: periodic
+
+proxy-failure-wait: 10000
+
+name: 'default'
+
+
+Question: Are there any mistakes in the above configuration file for etcd version 3.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

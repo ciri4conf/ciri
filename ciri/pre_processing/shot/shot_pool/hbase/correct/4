@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hbase.regionserver.hlog.reader.impl</name>
+  <value>org.apache.hadoop.hbase.regionserver.wal.ProtobufLogReader</value>
+    <description>The WAL file reader implementation.</description>
+</property>
+
+<property>
+  <name>hbase.client.keyvalue.maxsize</name>
+  <value>10485760</value>
+    <description>Specifies the combined maximum allowed size of a KeyValue
+    instance. This is to set an upper boundary for a single entry saved in a
+    storage file. Since they cannot be split it helps avoiding that a region
+    cannot be split any further because the data is too large. It seems wise
+    to set this to a fraction of the maximum region size. Setting it to zero
+    or less disables the check.</description>
+</property>
+
+<property>
+  <name>hbase.hregion.percolumnfamilyflush.size.lower.bound.min</name>
+  <value>33554432</value>
+    <description>
+    If FlushLargeStoresPolicy is used and there are multiple column families,
+    then every time that we hit the total memstore limit, we find out all the
+    column families whose memstores exceed a "lower bound" and only flush them
+    while retaining the others in memory. The "lower bound" will be
+    "hbase.hregion.memstore.flush.size / column_family_number" by default
+    unless value of this property is larger than that. If none of the families
+    have their memstore size more than lower bound, all the memstores will be
+    flushed (just as usual).
+    </description>
+</property>
+
+<property>
+  <name>hbase.regionserver.minorcompaction.pagecache.drop</name>
+  <value>false</value>
+    <description>Specifies whether to drop pages read/written into the system page cache by
+      minor compactions. Setting it to true helps prevent minor compactions from
+      polluting the page cache, which is most beneficial on clusters with low
+      memory to storage ratio or very write heavy clusters. You may want to set it to
+      false under moderate to low write workload when bulk of the reads are
+      on the most recently written data.</description>
+</property>
+
+<property>
+  <name>hfile.block.index.cacheonwrite</name>
+  <value>true</value>
+      <description>This allows to put non-root multi-level index blocks into the block
+          cache at the time the index is being written.</description>
+</property>
+
+<property>
+  <name>hbase.column.max.version</name>
+  <value>2</value>
+    <description>New column family descriptors will use this value as the default number of versions
+      to keep.</description>
+</property>
+
+<property>
+  <name>hbase.hstore.bytes.per.checksum</name>
+  <value>16384</value>
+    <description>
+        Number of bytes in a newly created checksum chunk for HBase-level
+        checksums in hfile blocks.
+    </description>
+</property>
+
+<property>
+  <name>hbase.snapshot.region.timeout</name>
+  <value>600000</value>
+    <description>
+       Timeout for regionservers to keep threads in snapshot request pool waiting.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HBase version 2.2.7? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

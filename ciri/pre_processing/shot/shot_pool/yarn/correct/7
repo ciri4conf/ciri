@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.nodemanager.resource.pcores-vcores-multiplier</name>
+  <value>2.0</value>
+    <description>Multiplier to determine how to convert phyiscal cores to
+    vcores. This value is used if yarn.nodemanager.resource.cpu-vcores
+    is set to -1(which implies auto-calculate vcores) and
+    yarn.nodemanager.resource.detect-hardware-capabilities is set to true. The
+    number of vcores will be calculated as
+    number of CPUs * multiplier.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.runc.allowed-container-runtimes</name>
+  <value>runc</value>
+    <description>The set of runtimes allowed when launching containers
+      using the RuncContainerRuntime.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.runc.host-pid-namespace.allowed</name>
+  <value>true</value>
+    <description>Allow host pid namespace for runC containers.
+      Use with care.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.container-retry-minimum-interval-ms</name>
+  <value>500</value>
+    <description>Minimum container restart interval in milliseconds.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.ttl-ms</name>
+  <value>1209600000</value>
+    <description>Time to live for timeline store data in milliseconds.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.reader.class</name>
+  <value>org.apache.hadoop.yarn.server.timelineservice.storage.HBaseTimelineReaderImpl</value>
+    <description>
+      Storage implementation ATS v2 will use for the TimelineReader service.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.container.stderr.tail.bytes</name>
+  <value>8192</value>
+    <description>
+    Size of the container error file which needs to be tailed, in bytes.
+    </description>
+</property>
+
+<property>
+  <name>yarn.scheduler.queue-placement-rules</name>
+  <value>user-group</value>
+    <description>
+      Comma-separated list of PlacementRules to determine how applications
+      submitted by certain users get mapped to certain queues. Default is
+      user-group, which corresponds to UserGroupMappingPlacementRule.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for YARN version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

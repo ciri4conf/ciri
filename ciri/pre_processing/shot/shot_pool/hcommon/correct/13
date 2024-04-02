@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>fs.s3a.retry.throttle.limit</name>
+  <value>10</value>
+  <description>
+    Number of times to retry any throttled request.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.select.output.csv.field.delimiter</name>
+  <value>,</value>
+  <description>
+    In S3 Select queries: the field delimiter for generated CSV Files.
+  </description>
+</property>
+
+<property>
+  <name>fs.abfs.impl</name>
+  <value>org.apache.hadoop.fs.azurebfs.AzureBlobFileSystem</value>
+  <description>The implementation class of the Azure Blob Filesystem</description>
+</property>
+
+<property>
+  <name>ipc.client.connection.maxidletime</name>
+  <value>5000</value>
+  <description>The maximum time in msec after which a client will bring down the
+               connection to the server.
+  </description>
+</property>
+
+<property>
+  <name>ipc.[port_number].weighted-cost.response</name>
+  <value>0</value>
+  <description>The weight multiplier to apply to the time spent in the
+    RESPONSE phase which do not involve holding a lock.
+    See org.apache.hadoop.ipc.ProcessingDetails.Timing for more details on
+    this phase. This property applies to WeightedTimeCostProvider.
+  </description>
+</property>
+
+<property>
+  <name>net.topology.table.file.name</name>
+  <value>/valid/file1</value>
+  <description> The file name for a topology file, which is used when the
+    net.topology.node.switch.mapping.impl property is set to
+    org.apache.hadoop.net.TableMapping. The file format is a two column text
+    file, with columns separated by whitespace. The first column is a DNS or
+    IP address and the second column specifies the rack where the address maps.
+    If no entry corresponding to a host in the cluster is found, then
+    /default-rack is assumed.
+  </description>
+</property>
+
+<property>
+  <name>ha.failover-controller.graceful-fence.connection.retries</name>
+  <value>2</value>
+  <description>
+    FC connection retries for graceful fencing
+  </description>
+</property>
+
+<property>
+  <name>hadoop.prometheus.endpoint.enabled</name>
+  <value>true</value>
+    <description>
+      If set to true, prometheus compatible metric page on the HTTP servers
+      is enabled via '/prom' endpoint.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HCommon version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

@@ -1,0 +1,32 @@
+clientPortAddress=256.0.0.0
+
+portUnification=false
+
+localSessionsEnabled=false
+
+electionAlg=3
+
+dataDir=/valid/dir2
+
+autopurge.purgeInterval=1
+
+sslQuorumReloadCertFiles=true
+
+quorum.auth.kerberos.servicePrincipal=zkquorum/localhost
+
+
+Question: Are there any mistakes in the above configuration file for ZooKeeper version 3.7.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["clientPortAddress"],
+    "reason": ["The property 'clientPortAddress' has the value '256.0.0.0' which is out of the valid range of an IP address."]
+}
+```

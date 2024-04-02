@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.namenode.maintenance.replication.min</name>
+  <value>0</value>
+  <description>Minimal live block replication in existence of maintenance mode.
+  </description>
+</property>
+
+<property>
+  <name>dfs.ha.log-roll.period</name>
+  <value>120s</value>
+  <description>
+    How often, in seconds, the StandbyNode should ask the active to
+    roll edit logs. Since the StandbyNode only reads from finalized
+    log segments, the StandbyNode will only be as up-to-date as how
+    often the logs are rolled. Note that failover triggers a log roll
+    so the StandbyNode will be up to date before it becomes active.
+    Support multiple time unit suffix(case insensitive), as described
+    in dfs.heartbeat.interval.If no time unit is specified then seconds
+    is assumed.
+  </description>
+</property>
+
+<property>
+  <name>dfs.datanode.slow.io.warning.threshold.ms</name>
+  <value>600</value>
+  <description>The threshold in milliseconds at which we will log a slow
+    io warning in a datanode. By default, this parameter is set to 300
+    milliseconds.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.deadnode.detection.enabled</name>
+  <value>false</value>
+    <description>
+      Set to true to enable dead node detection in client side. Then all the DFSInputStreams of the same client can
+      share the dead node information.
+    </description>
+</property>
+
+<property>
+  <name>dfs.ha.zkfc.port</name>
+  <value>hadoop</value>
+  <description>
+    The port number that the zookeeper failover controller RPC
+    server binds to.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.max-num-blocks-to-log</name>
+  <value>1000</value>
+  <description>
+    Puts a limit on the number of blocks printed to the log by the Namenode
+    after a block report.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.storageinfo.defragment.interval.ms</name>
+  <value>300000</value>
+  <description>
+    The thread for checking the StorageInfo for defragmentation will
+    run periodically.  The time between runs is determined by this
+    property.
+  </description>
+</property>
+
+<property>
+  <name>dfs.qjournal.parallel-read.num-threads</name>
+  <value>1</value>
+  <description>
+    Number of threads per JN to be used for tailing edits.
+  </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HDFS version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["dfs.ha.zkfc.port"],
+    "reason": ["The property 'dfs.ha.zkfc.port' has the value 'hadoop' which does not follow the correct port format."]
+}
+```

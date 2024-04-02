@@ -1,0 +1,32 @@
+alluxio.fuse.cached.paths.max=ciri
+
+alluxio.master.lost.worker.file.detection.interval=1min
+
+alluxio.user.network.rpc.netty.worker.threads=1
+
+alluxio.user.file.buffer.bytes=8MB
+
+alluxio.master.backup.connect.interval.max=30sec
+
+alluxio.underfs.s3.server.side.encryption.enabled=false
+
+alluxio.worker.tieredstore.level2.dirs.path=/valid/file2
+
+alluxio.user.file.persist.on.rename=false
+
+
+Question: Are there any mistakes in the above configuration file for Alluxio version 2.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["alluxio.fuse.cached.paths.max"],
+    "reason": ["The property 'alluxio.fuse.cached.paths.max' has the value 'ciri' which is not of the correct type Integer."]
+}
+```

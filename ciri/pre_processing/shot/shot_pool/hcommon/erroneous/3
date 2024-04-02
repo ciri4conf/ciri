@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hadoop.tmp.dir</name>
+  <value>/tmp//hadoop-ciri</value>
+  <description>A base for other temporary directories.</description>
+</property>
+
+<property>
+  <name>io.file.buffer.size</name>
+  <value>4096</value>
+  <description>The size of buffer for use in sequence files.
+  The size of this buffer should probably be a multiple of hardware
+  page size (4096 on Intel x86), and it determines how much data is
+  buffered during read and write operations.</description>
+</property>
+
+<property>
+  <name>fs.s3a.security.credential.provider.path</name>
+  <value>/valid/file2</value>
+  <description>
+    Optional comma separated list of credential providers, a list
+    which is prepended to that set in hadoop.security.credential.provider.path
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.executor.capacity</name>
+  <value>16</value>
+  <description>The maximum number of submitted tasks which is a single
+    operation (e.g. rename(), delete()) may submit simultaneously for
+    execution -excluding the IO-heavy block uploads, whose capacity
+    is set in "fs.s3a.fast.upload.active.blocks"
+
+    All tasks are submitted to the shared thread pool whose size is
+    set in "fs.s3a.threads.max"; the value of capacity should be less than that
+    of the thread pool itself, as the goal is to stop a single operation
+    from overloading that thread pool.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.retry.throttle.limit</name>
+  <value>10</value>
+  <description>
+    Number of times to retry any throttled request.
+  </description>
+</property>
+
+<property>
+  <name>fs.wasbs.impl</name>
+  <value>org.apache.hadoop.fs.azure.NativeAzureFileSystem$Secure</value>
+  <description>The implementation class of the Secure Native Azure Filesystem</description>
+</property>
+
+<property>
+  <name>ftp.stream-buffer-size</name>
+  <value>4096</value>
+  <description>The size of buffer to stream files.
+  The size of this buffer should probably be a multiple of hardware
+  page size (4096 on Intel x86), and it determines how much data is
+  buffered during read and write operations.</description>
+</property>
+
+<property>
+  <name>hadoop.security.kms.client.timeout</name>
+  <value>30</value>
+  <description>
+    Sets value for KMS client connection timeout, and the read timeout
+    to KMS servers.
+  </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HCommon version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["hadoop.tmp.dir"],
+    "reason": ["The property 'hadoop.tmp.dir' has the value '/tmp//hadoop-ciri' which does not follow the correct path format."]
+}
+```

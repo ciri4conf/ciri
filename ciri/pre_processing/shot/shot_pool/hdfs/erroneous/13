@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.namenode.lifeline.handler.ratio</name>
+  <value>0.2</value>
+  <description>
+    A ratio applied to the value of dfs.namenode.handler.count, which then
+    provides the number of RPC server threads the NameNode runs for handling the
+    lifeline RPC server.  For example, if dfs.namenode.handler.count is 100, and
+    dfs.namenode.lifeline.handler.factor is 0.10, then the NameNode starts
+    100 * 0.10 = 10 threads for handling the lifeline RPC server.  It is common
+    to tune the value of dfs.namenode.handler.count as a function of the number
+    of DataNodes in a cluster.  Using this property allows for the lifeline RPC
+    server handler threads to be tuned automatically without needing to touch a
+    separate property.  Lifeline message processing is lightweight, so it is
+    expected to require many fewer threads than the main NameNode RPC server.
+    This property is not used if dfs.namenode.lifeline.handler.count is defined,
+    which sets an absolute thread count.  This property has no effect if
+    dfs.namenode.lifeline.rpc-address is not defined.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.short.circuit.replica.stale.threshold.ms</name>
+  <value>900000</value>
+  <description>
+    The maximum amount of time that we will consider a short-circuit replica to
+    be valid, if there is no communication from the DataNode.  After this time
+    has elapsed, we will re-fetch the short-circuit replica even if it is in
+    the cache.
+  </description>
+</property>
+
+<property>
+  <name>dfs.datanode.lock-reporting-threshold-ms</name>
+  <value>150</value>
+  <description>When thread waits to obtain a lock, or a thread holds a lock for
+    more than the threshold, a log message will be written. Note that
+    dfs.lock.suppress.warning.interval ensures a single log message is
+    emitted per interval for waiting threads and a single message for holding
+    threads to avoid excessive logging.
+  </description>
+</property>
+
+<property>
+  <name>dfs.balancer.dispatcherThreads</name>
+  <value>100</value>
+  <description>
+    Size of the thread pool for the HDFS balancer block mover.
+    dispatchExecutor
+  </description>
+</property>
+
+<property>
+  <name>dfs.data.transfer.client.tcpnodelay</name>
+  <value>true</value>
+  <description>
+    If true, set TCP_NODELAY to sockets for transferring data from DFS client.
+  </description>
+</property>
+
+<property>
+  <name>dfs.journalnode.enable.sync</name>
+  <value>true</value>
+  <description>
+    If true, the journal nodes wil sync with each other. The journal nodes
+    will periodically gossip with other journal nodes to compare edit log
+    manifests and if they detect any missing log segment, they will download
+    it from the other journal nodes.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.audit.log.async</name>
+  <value>true</value>
+  <description>
+    If true, enables asynchronous audit log.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.storage.dir.perm</name>
+  <value>888</value>
+    <description>
+      Permissions for the directories on on the local filesystem where
+      the DFS namenode stores the fsImage. The permissions can either be
+      octal or symbolic.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HDFS version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["dfs.namenode.storage.dir.perm"],
+    "reason": ["The property 'dfs.namenode.storage.dir.perm' has the value '888' which is out of the valid range of a permission number."]
+}
+```

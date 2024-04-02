@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>fs.ftp.transfer.mode</name>
+  <value>BLOCK_TRANSFER_MODE</value>
+  <description>
+    Set FTP's transfer mode based on configuration. Valid values are
+    STREAM_TRANSFER_MODE, BLOCK_TRANSFER_MODE and COMPRESSED_TRANSFER_MODE.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.s3guard.ddb.background.sleep</name>
+  <value>50ms</value>
+  <description>
+    Length (in milliseconds) of pause between each batch of deletes when
+    pruning metadata.  Prevents prune operations (which can typically be low
+    priority background operations) from overly interfering with other I/O
+    operations.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.select.input.csv.field.delimiter</name>
+  <value>,</value>
+  <description>In S3 Select queries over CSV files: the field delimiter.
+    \t is remapped to the TAB character, \r to CR \n to newline. \\ to \
+    and \" to "
+  </description>
+</property>
+
+<property>
+  <name>ipc.client.connect.timeout</name>
+  <value>10000</value>
+  <description>Indicates the number of milliseconds a client will wait for the
+               socket to establish a server connection.
+  </description>
+</property>
+
+<property>
+  <name>ipc.[port_number].backoff.enable</name>
+  <value>true</value>
+  <description>Whether or not to enable client backoff when a queue is full.
+  </description>
+</property>
+
+<property>
+  <name>ipc.[port_number].decay-scheduler.period-ms</name>
+  <value>10000</value>
+  <description>How frequently the decay factor should be applied to the
+    operation counts of users. Higher values have less overhead, but respond
+    less quickly to changes in client behavior.
+    This property applies to DecayRpcScheduler.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.http.staticuser.user</name>
+  <value>dr.who</value>
+  <description>
+    The user name to filter as, on static web filters
+    while rendering content. An example use is the HDFS
+    web UI (user to be used for browsing files).
+  </description>
+</property>
+
+<property>
+  <name>ha.health-monitor.rpc.connect.max.retries</name>
+  <value>2</value>
+  <description>
+    The number of retries on connect error when establishing RPC proxy
+    connection to NameNode, used for monitorHealth() calls.
+  </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HCommon version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

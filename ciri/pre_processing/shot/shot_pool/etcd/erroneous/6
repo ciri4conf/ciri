@@ -1,0 +1,32 @@
+initial-cluster-state: uiuc
+
+advertise-client-urls: http://localhost:2379
+
+log-outputs: [stderr]
+
+client-cert-auth: false
+
+log-level: debug
+
+strict-reconfig-check: true
+
+proxy-failure-wait: 2500
+
+proxy-refresh-interval: 60000
+
+
+Question: Are there any mistakes in the above configuration file for etcd version 3.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["initial-cluster-state"],
+    "reason": ["The property 'initial-cluster-state' has the value 'uiuc' which is not within the accepted value {new,existing}."]
+}
+```

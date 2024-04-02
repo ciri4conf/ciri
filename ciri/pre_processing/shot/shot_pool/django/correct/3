@@ -1,0 +1,32 @@
+DEBUG=False
+
+DEFAULT_EXCEPTION_REPORTER_FILTER='django.views.debug.SafeExceptionReporterFilter'
+
+LANGUAGE_COOKIE_NAME='django_language'
+
+SESSION_COOKIE_AGE=60 * 60 * 24 * 7 * 2
+
+LOGGING_CONFIG='logging.config.dictConfig'
+
+CSRF_HEADER_NAME='HTTP_X_CSRFTOKEN'
+
+LANGUAGE_COOKIE_PATH='/'
+
+SECURE_HSTS_INCLUDE_SUBDOMAINS=False
+
+
+Question: Are there any mistakes in the above configuration file for Django version 4.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

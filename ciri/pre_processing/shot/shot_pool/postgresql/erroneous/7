@@ -1,0 +1,32 @@
+min_wal_size=2GB
+
+max_wal_size=1GB
+
+enable_memoize=on
+
+lc_monetary='C'
+
+enable_partitionwise_join=off
+
+xmlbinary='base64'
+
+log_rotation_size=10MB
+
+recovery_init_sync_method=fsync
+
+
+Question: Are there any mistakes in the above configuration file for PostgreSQL version 13.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["min_wal_size"],
+    "reason": ["The value of the property 'min_wal_size' should be smaller or equal to the value of the property 'max_wal_size'."]
+}
+```

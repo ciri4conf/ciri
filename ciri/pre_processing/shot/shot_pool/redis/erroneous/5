@@ -1,0 +1,32 @@
+port=hadoop
+
+repl-diskless-sync-delay=1
+
+unixsocket=/run/redis.sock
+
+tls-ca-cert-dir=/folder1/certs
+
+hz=1
+
+slowlog-max-len=256
+
+proto-max-bulk-len=512mb
+
+lazyfree-lazy-user-del=no
+
+
+Question: Are there any mistakes in the above configuration file for Redis version 7.0.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["port"],
+    "reason": ["The property 'port' has the value 'hadoop' which does not follow the correct port format."]
+}
+```

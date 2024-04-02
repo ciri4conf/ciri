@@ -1,0 +1,32 @@
+alluxio.job.master.embedded.journal.port=hadoop
+
+alluxio.underfs.gcs.version=2
+
+alluxio.web.refresh.interval=30s
+
+alluxio.master.filesystem.liststatus.result.message.length=5000
+
+alluxio.master.ttl.checker.interval=10hour
+
+alluxio.job.master.embedded.journal.addresses=127.0.0.1
+
+alluxio.master.heartbeat.timeout=20min
+
+alluxio.worker.reviewer.probabilistic.softlimit.bytes=512MB
+
+
+Question: Are there any mistakes in the above configuration file for Alluxio version 2.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["alluxio.job.master.embedded.journal.port"],
+    "reason": ["The property 'alluxio.job.master.embedded.journal.port' has the value 'hadoop' which does not follow the correct port format."]
+}
+```

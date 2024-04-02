@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hadoop.service.shutdown.timeout</name>
+  <value>30s</value>
+    <description>
+      Timeout to wait for each shutdown operation to complete.
+      If a hook takes longer than this time to complete, it will be interrupted,
+      so the service will shutdown. This allows the service shutdown
+      to recover from a blocked operation.
+      Some shutdown hooks may need more time than this, for example when
+      a large amount of data needs to be uploaded to an object store.
+      In this situation: increase the timeout.
+
+      The minimum duration of the timeout is 1 second, "1s".
+    </description>
+</property>
+
+<property>
+  <name>fs.s3a.committer.staging.tmp.path</name>
+  <value>/valid/file1</value>
+  <description>
+    Path in the cluster filesystem for temporary data.
+    This is for HDFS, not the local filesystem.
+    It is only for the summary data of each file, not the actual
+    data being committed.
+    Using an unqualified path guarantees that the full path will be
+    generated relative to the home directory of the user creating the job,
+    hence private (assuming home directory permissions are secure).
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.change.detection.mode</name>
+  <value>server</value>
+  <description>
+    Determines how change detection is applied to alert to inconsistent S3
+    objects read during or after an overwrite. Value 'server' indicates to apply
+    the attribute constraint directly on GetObject requests to S3. Value 'client'
+    means to do a client-side comparison of the attribute value returned in the
+    response.  Value 'server' would not work with third-party S3 implementations
+    that do not support these constraints on GetObject. Values 'server' and
+    'client' generate RemoteObjectChangedException when a mismatch is detected.
+    Value 'warn' works like 'client' but generates only a warning.  Value 'none'
+    will ignore change detection completely.
+  </description>
+</property>
+
+<property>
+  <name>ipc.[port_number].weighted-cost.lockshared</name>
+  <value>1</value>
+  <description>The weight multiplier to apply to the time spent in the
+    processing phase which holds a shared (read) lock.
+    This property applies to WeightedTimeCostProvider.
+  </description>
+</property>
+
+<property>
+  <name>file.blocksize</name>
+  <value>67108864</value>
+  <description>Block size</description>
+</property>
+
+<property>
+  <name>fs.permissions.umask-mode</name>
+  <value>888</value>
+  <description>
+    The umask used when creating files and directories.
+    Can be in octal or in symbolic. Examples are:
+    "022" (octal for u=rwx,g=r-x,o=r-x in symbolic),
+    or "u=rwx,g=rwx,o=" (symbolic for 007 in octal).
+  </description>
+</property>
+
+<property>
+  <name>hadoop.security.kms.client.encrypted.key.cache.low-watermark</name>
+  <value>0.15</value>
+  <description>
+    If size of the EncryptedKeyVersion cache Queue falls below the
+    low watermark, this cache queue will be scheduled for a refill
+  </description>
+</property>
+
+<property>
+  <name>seq.io.sort.factor</name>
+  <value>50</value>
+    <description>
+      The number of streams to merge at once while sorting
+      files using SequenceFile.Sorter.
+      This determines the number of open file handles.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HCommon version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["fs.permissions.umask-mode"],
+    "reason": ["The property 'fs.permissions.umask-mode' has the value '888' which is out of the valid range of a permission number."]
+}
+```

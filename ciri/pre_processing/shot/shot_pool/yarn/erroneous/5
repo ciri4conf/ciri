@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.hostname</name>
+  <value>0.0.0.0</value>
+    <description>The hostname of the RM.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.placement-constraints.handler</name>
+  <value>disabled</value>
+    <description>
+      Specify which handler will be used to process PlacementConstraints.
+      Acceptable values are: `placement-processor`, `scheduler` and `disabled`.
+      For a detailed explanation of these values, please refer to documentation.
+    </description>
+</property>
+
+<property>
+  <name>yarn.webapp.ui2.enable</name>
+  <value>-1</value>
+    <description>To enable RM web ui2 application.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.enabled</name>
+  <value>false</value>
+    <description>
+    In the server side it indicates whether timeline service is enabled or not.
+    And in the client side, users can enable it to indicate whether client wants
+    to use timeline service. If its enabled in the client side along with
+    security, then yarn client tries to fetch the delegation tokens for the
+    timeline server.
+    </description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.entity-group-fs-store.retain-seconds</name>
+  <value>1209600</value>
+    <description>
+      How long the ATS v1.5 entity group file system storage will keep an
+      application's data in the done directory.
+    </description>
+</property>
+
+<property>
+  <name>yarn.sharedcache.nested-level</name>
+  <value>1</value>
+    <description>The level of nested directories before getting to the checksum
+    directories. It must be non-negative.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.amrmproxy.interceptor-class.pipeline</name>
+  <value>org.apache.hadoop.yarn.server.nodemanager.amrmproxy.DefaultRequestInterceptor</value>
+    <description>
+    The comma separated list of class names that implement the
+    RequestInterceptor interface. This is used by the AMRMProxyService to create
+    the request processing pipeline for applications.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.nm-container-queuing.max-queue-length</name>
+  <value>15</value>
+    <description>
+    Max length of container queue at NodeManager.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for YARN version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["yarn.webapp.ui2.enable"],
+    "reason": ["The property 'yarn.webapp.ui2.enable' has the value '-1' which is not within the accepted value {true,false}."]
+}
+```

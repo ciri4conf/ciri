@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.namenode.redundancy.considerLoad</name>
+  <value>-1</value>
+  <description>
+    Decide if chooseTarget considers the target's load or not when write.
+    Turn on by default.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.decommission.monitor.class</name>
+  <value>org.apache.hadoop.hdfs.server.blockmanagement.DatanodeAdminDefaultMonitor</value>
+  <description>
+    Determines the implementation used for the decommission manager. The only
+    valid options are:
+
+    org.apache.hadoop.hdfs.server.blockmanagement.DatanodeAdminDefaultMonitor
+    org.apache.hadoop.hdfs.server.blockmanagement.DatanodeAdminBackoffMonitor
+
+  </description>
+</property>
+
+<property>
+  <name>dfs.journalnode.http-address</name>
+  <value>0.0.0.0:3001</value>
+  <description>
+    The address and port the JournalNode HTTP server listens on.
+    If the port is 0 then the server will start on a free port.
+  </description>
+</property>
+
+<property>
+  <name>dfs.datanode.processcommands.threshold</name>
+  <value>2s</value>
+    <description>The threshold in milliseconds at which we will log a slow
+      command processing in BPServiceActor. By default, this parameter is set
+      to 2 seconds.
+    </description>
+</property>
+
+<property>
+  <name>dfs.namenode.top.window.num.buckets</name>
+  <value>20</value>
+  <description>Number of buckets in the rolling window implementation of nntop
+  </description>
+</property>
+
+<property>
+  <name>dfs.journalnode.keytab.file</name>
+  <value>/valid/file1</value>
+  <description>
+    Kerberos keytab file for the journal node.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.storageinfo.defragment.ratio</name>
+  <value>1.5</value>
+  <description>
+    The defragmentation threshold for the StorageInfo.
+  </description>
+</property>
+
+<property>
+  <name>dfs.lock.suppress.warning.interval</name>
+  <value>10s</value>
+    <description>Instrumentation reporting long critical sections will suppress
+      consecutive warnings within this interval.</description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HDFS version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["dfs.namenode.redundancy.considerLoad"],
+    "reason": ["The property 'dfs.namenode.redundancy.considerLoad' has the value '-1' which is not within the accepted value {true,false}."]
+}
+```

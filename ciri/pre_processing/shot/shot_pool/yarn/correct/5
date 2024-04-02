@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.nodemanager.local-dirs</name>
+  <value>/valid/file2</value>
+    <description>List of directories to store localized files in. An 
+      application's localized file directory will be found in:
+      ${yarn.nodemanager.local-dirs}/usercache/${user}/appcache/application_${appid}.
+      Individual containers' work directories, called container_${contid}, will
+      be subdirectories of this.
+   </description>
+</property>
+
+<property>
+  <name>yarn.log-aggregation.retain-seconds</name>
+  <value>-1</value>
+    <description>How long to keep aggregation logs before deleting them.  -1 disables. 
+    Be careful set this too small and you will spam the name node.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.disk-health-checker.interval-ms</name>
+  <value>240000</value>
+    <description>Frequency of running disk health checker code.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.disk-health-checker.min-healthy-disks</name>
+  <value>0.5</value>
+    <description>The minimum fraction of number of disks to be healthy for the
+    nodemanager to launch new containers. This correspond to both
+    yarn.nodemanager.local-dirs and yarn.nodemanager.log-dirs. i.e. If there
+    are less number of healthy local-dirs (or log-dirs) available, then
+    new containers will not be launched on this node.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.runc.layer-mounts-interval-secs</name>
+  <value>300</value>
+    <description>The interval in seconds between executions of
+      reaping layer mounts.</description>
+</property>
+
+<property>
+  <name>yarn.sharedcache.store.in-memory.check-period-mins</name>
+  <value>1440</value>
+    <description>The frequency at which the in-memory store checks to remove
+    dead initial applications. Specified in minutes.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.amrmproxy.interceptor-class.pipeline</name>
+  <value>org.apache.hadoop.yarn.server.nodemanager.amrmproxy.DefaultRequestInterceptor</value>
+    <description>
+    The comma separated list of class names that implement the
+    RequestInterceptor interface. This is used by the AMRMProxyService to create
+    the request processing pipeline for applications.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.elastic-memory-control.oom-handler</name>
+  <value>org.apache.hadoop.yarn.server.nodemanager.containermanager.linux.resources.DefaultOOMHandler</value>
+    <description>
+      The name of a JVM class. The class must implement the Runnable
+      interface. It is called,
+      if yarn.nodemanager.elastic-memory-control.enabled
+      is set and the system reaches its memory limit.
+      When called the handler must preempt a container,
+      since all containers are frozen by cgroups.
+      Once preempted some memory is released, so that the
+      kernel can resume all containers. Because of this the
+      handler has to act quickly.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for YARN version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

@@ -1,0 +1,32 @@
+client-cert-auth: false
+
+trusted-ca-file: /tmp/ca_file
+
+logger: zap
+
+proxy-failure-wait: 5000
+
+listen-client-urls: http://localhost:2379
+
+max-wals: 10
+
+listen-peer-urls: http://localhost:2380
+
+log-level: debug
+
+
+Question: Are there any mistakes in the above configuration file for etcd version 3.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["client-cert-auth"],
+    "reason": ["The value of the property 'client-cert-auth' should be 'true' to enable the property 'trusted-ca-file'."]
+}
+```

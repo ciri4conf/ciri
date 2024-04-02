@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.client.failover.connection.retries</name>
+  <value>-1</value>
+  <description>
+    Expert only. Indicates the number of retries a failover IPC client
+    will make to establish a server connection.
+  </description>
+</property>
+
+<property>
+  <name>nfs.allow.insecure.ports</name>
+  <value>true</value>
+  <description>
+    When set to false, client connections originating from unprivileged ports
+    (those above 1023) will be rejected. This is to ensure that clients
+    connecting to this NFS Gateway must have had root privilege on the machine
+    where they're connecting from.
+  </description>
+</property>
+
+<property>
+  <name>dfs.journalnode.rpc-bind-host</name>
+  <value>256.0.0.0</value>
+  <description>
+    The actual address the RPC server will bind to. If this optional address is
+    set, it overrides only the hostname portion of dfs.journalnode.rpc-address.
+    This is useful for making the JournalNode listen on all interfaces by
+    setting it to 0.0.0.0.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.path.based.cache.refresh.interval.ms</name>
+  <value>15000</value>
+  <description>
+    The amount of milliseconds between subsequent path cache rescans.  Path
+    cache rescans are when we calculate which blocks should be cached, and on
+    what datanodes.
+
+    By default, this parameter is set to 30 seconds.
+  </description>
+</property>
+
+<property>
+  <name>dfs.webhdfs.rest-csrf.enabled</name>
+  <value>false</value>
+  <description>
+    If true, then enables WebHDFS protection against cross-site request forgery
+    (CSRF).  The WebHDFS client also uses this property to determine whether or
+    not it needs to send the custom CSRF prevention header in its HTTP requests.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.max.block.acquire.failures</name>
+  <value>1</value>
+  <description>
+    Maximum failures allowed when trying to get block information from a specific datanode.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.retry.policy.enabled</name>
+  <value>true</value>
+  <description>
+    If true, turns on DFSClient retry policy.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.hedged.read.threadpool.size</name>
+  <value>1</value>
+  <description>
+    Support 'hedged' reads in DFSClient. To enable this feature, set the parameter
+    to a positive number. The threadpool size is how many threads to dedicate
+    to the running of these 'hedged', concurrent reads in your client.
+  </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HDFS version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["dfs.journalnode.rpc-bind-host"],
+    "reason": ["The property 'dfs.journalnode.rpc-bind-host' has the value '256.0.0.0' which is out of the valid range of an IP address."]
+}
+```

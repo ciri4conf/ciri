@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hadoop.security.group.mapping.ldap.conversion.rule</name>
+  <value>none</value>
+  <description>
+    The rule is applied on the group names received from LDAP when
+    RuleBasedLdapGroupsMapping is configured.
+    Supported rules are "to_upper", "to_lower" and "none".
+    to_upper: This will convert all the group names to uppercase.
+    to_lower: This will convert all the group names to lowercase.
+    none: This will retain the source formatting, this is default value.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.security.credential.clear-text-fallback</name>
+  <value>false</value>
+  <description>
+    true or false to indicate whether or not to fall back to storing credential
+    password as clear text. The default value is true. This property only works
+    when the password can't not be found from credential providers.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.threads.max</name>
+  <value>64</value>
+  <description>The total number of threads available in the filesystem for data
+    uploads *or any other queued filesystem operation*.</description>
+</property>
+
+<property>
+  <name>fs.s3a.max.total.tasks</name>
+  <value>64</value>
+  <description>The number of operations which can be queued for execution.
+  This is in addition to the number of active threads in fs.s3a.threads.max.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.retry.limit</name>
+  <value>7</value>
+  <description>
+    Number of times to retry any repeatable S3 client request on failure,
+    excluding throttling requests and S3Guard inconsistency resolution.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.select.input.csv.header</name>
+  <value>none</value>
+  <description>In S3 Select queries over CSV files: what is the role of the header? One of "none", "ignore" and "use"</description>
+</property>
+
+<property>
+  <name>fs.s3a.select.output.csv.field.delimiter</name>
+  <value>,</value>
+  <description>
+    In S3 Select queries: the field delimiter for generated CSV Files.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.ssl.keystores.factory.class</name>
+  <value>org.apache.hadoop.security.ssl.FileBasedKeyStoresFactory</value>
+  <description>
+    The keystores factory to use for retrieving certificates.
+  </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HCommon version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

@@ -1,0 +1,32 @@
+max_pred_locks_per_relation=-1
+
+wal_compression=off
+
+log_destination='stderr'
+
+wal_receiver_timeout=60s
+
+session_replication_role='origin'
+
+ssl_min_protocol_version='TLSv1.2'
+
+full_page_writes=on
+
+autovacuum_multixact_freeze_max_age=200000000
+
+
+Question: Are there any mistakes in the above configuration file for PostgreSQL version 13.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

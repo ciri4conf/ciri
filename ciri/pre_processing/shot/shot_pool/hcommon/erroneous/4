@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hadoop.security.groups.shell.command.timeout</name>
+  <value>0s</value>
+  <description>
+    Used by the ShellBasedUnixGroupsMapping class, this property controls how
+    long to wait for the underlying shell command that is run to fetch groups.
+    Expressed in seconds (e.g. 10s, 1m, etc.), if the running command takes
+    longer than the value configured, the command is aborted and the groups
+    resolver would return a result of no groups found. A value of 0s (default)
+    would mean an infinite wait (i.e. wait until the command exits on its own).
+  </description>
+</property>
+
+<property>
+  <name>hadoop.service.shutdown.timeout</name>
+  <value>30s</value>
+    <description>
+      Timeout to wait for each shutdown operation to complete.
+      If a hook takes longer than this time to complete, it will be interrupted,
+      so the service will shutdown. This allows the service shutdown
+      to recover from a blocked operation.
+      Some shutdown hooks may need more time than this, for example when
+      a large amount of data needs to be uploaded to an object store.
+      In this situation: increase the timeout.
+
+      The minimum duration of the timeout is 1 second, "1s".
+    </description>
+</property>
+
+<property>
+  <name>fs.defaultFS</name>
+  <value>file:/</value>
+  <description>The name of the default file system.  A URI whose
+  scheme and authority determine the FileSystem implementation.  The
+  uri's scheme determines the config property (fs.SCHEME.impl) naming
+  the FileSystem implementation class.  The uri's authority is used to
+  determine the host, port, etc. for a filesystem.</description>
+</property>
+
+<property>
+  <name>fs.default.name</name>
+  <value>file:///</value>
+  <description>Deprecated. Use (fs.defaultFS) property
+  instead</description>
+</property>
+
+<property>
+  <name>fs.s3a.metadatastore.metadata.ttl</name>
+  <value>1m</value>
+    <description>
+        This value sets how long an entry in a MetadataStore is valid.
+    </description>
+</property>
+
+<property>
+  <name>fs.s3a.s3guard.ddb.table.sse.enabled</name>
+  <value>true</value>
+  <description>
+    Whether server-side encryption (SSE) is enabled or disabled on the table.
+    By default it's disabled, meaning SSE is set to AWS owned CMK.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.util.hash.type</name>
+  <value>murmur</value>
+  <description>The default implementation of Hash. Currently this can take one of the
+  two values: 'murmur' to select MurmurHash and 'jenkins' to select JenkinsHash.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.metrics.jvm.use-thread-mxbean</name>
+  <value>false</value>
+    <description>
+      Whether or not ThreadMXBean is used for getting thread info in JvmMetrics,
+      ThreadGroup approach is preferred for better performance.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HCommon version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["fs.defaultFS"],
+    "reason": ["The property 'fs.defaultFS' has the value 'file:/' which does not follow the correct URL format."]
+}
+```

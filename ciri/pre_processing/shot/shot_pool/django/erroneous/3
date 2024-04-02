@@ -1,0 +1,32 @@
+MEDIA_URL=file:/
+
+USE_X_FORWARDED_PORT=True
+
+USE_THOUSAND_SEPARATOR=True
+
+TEST_RUNNER='django.test.runner.DiscoverRunner'
+
+EMAIL_USE_SSL=True
+
+USE_X_FORWARDED_HOST=True
+
+CSRF_COOKIE_AGE=60 * 60 * 24 * 7 * 52
+
+IGNORABLE_404_URLS=[]
+
+
+Question: Are there any mistakes in the above configuration file for Django version 4.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["MEDIA_URL"],
+    "reason": ["The property 'MEDIA_URL' has the value 'file:/' which does not follow the correct URL format."]
+}
+```

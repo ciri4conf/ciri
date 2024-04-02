@@ -1,0 +1,32 @@
+MESSAGE_STORAGE='django.contrib.messages.storage.fallback.FallbackStorage'
+
+SECURE_HSTS_PRELOAD=True
+
+CACHE_MIDDLEWARE_SECONDS=1200
+
+SECURE_SSL_REDIRECT=True
+
+CSRF_COOKIE_SAMESITE='Lax'
+
+LANGUAGE_COOKIE_AGE=None
+
+PASSWORD_RESET_TIMEOUT=60 * 60 * 24 * 3
+
+SECURE_REDIRECT_EXEMPT=[]
+
+
+Question: Are there any mistakes in the above configuration file for Django version 4.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

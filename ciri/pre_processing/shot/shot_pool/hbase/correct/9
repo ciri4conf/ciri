@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hbase.zookeeper.dns.nameserver</name>
+  <value>default</value>
+    <description>The host name or IP address of the name server (DNS)
+      which a ZooKeeper server should use to determine the host name used by the
+      master for communication and display purposes.</description>
+</property>
+
+<property>
+  <name>hbase.zookeeper.property.maxClientCnxns</name>
+  <value>300</value>
+    <description>Property from ZooKeeper's config zoo.cfg.
+    Limit on number of concurrent connections (at the socket level) that a
+    single client, identified by IP address, may make to a single member of
+    the ZooKeeper ensemble. Set high to avoid zk connection issues running
+    standalone and pseudo-distributed.</description>
+</property>
+
+<property>
+  <name>hbase.hstore.compactionThreshold</name>
+  <value>6</value>
+    <description> If more than this number of StoreFiles exist in any one Store
+      (one StoreFile is written per flush of MemStore), a compaction is run to rewrite all
+      StoreFiles into a single StoreFile. Larger values delay compaction, but when compaction does
+      occur, it takes longer to complete.</description>
+</property>
+
+<property>
+  <name>hbase.hstore.blockingStoreFiles</name>
+  <value>16</value>
+    <description> If more than this number of StoreFiles exist in any one Store (one StoreFile
+     is written per flush of MemStore), updates are blocked for this region until a compaction is
+      completed, or until hbase.hstore.blockingWaitTime has been exceeded.</description>
+</property>
+
+<property>
+  <name>hbase.status.multicast.address.port</name>
+  <value>16100</value>
+    <description>
+      Multicast port to use for the status publication by multicast.
+    </description>
+</property>
+
+<property>
+  <name>hbase.security.exec.permission.checks</name>
+  <value>true</value>
+    <description>
+      If this setting is enabled and ACL based access control is active (the
+      AccessController coprocessor is installed either as a system coprocessor
+      or on a table as a table coprocessor) then you must grant all relevant
+      users EXEC privilege if they require the ability to execute coprocessor
+      endpoint calls. EXEC privilege, like any other permission, can be
+      granted globally to a user, or to a user on a per table or per namespace
+      basis. For more information on coprocessor endpoints, see the coprocessor
+      section of the HBase online manual. For more information on granting or
+      revoking permissions using the AccessController, see the security
+      section of the HBase online manual.
+    </description>
+</property>
+
+<property>
+  <name>hbase.coordinated.state.manager.class</name>
+  <value>org.apache.hadoop.hbase.coordination.ZkCoordinatedStateManager</value>
+    <description>Fully qualified name of class implementing coordinated state manager.</description>
+</property>
+
+<property>
+  <name>hbase.replication.source.maxthreads</name>
+  <value>1</value>
+    <description>
+        The maximum number of threads any replication source will use for
+        shipping edits to the sinks in parallel. This also limits the number of
+        chunks each replication batch is broken into. Larger values can improve
+        the replication throughput between the master and slave clusters. The
+        default of 10 will rarely need to be changed.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HBase version 2.2.7? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

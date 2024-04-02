@@ -1,0 +1,32 @@
+DEFAULT_EXCEPTION_REPORTER='django.views.debug.ExceptionReporter'
+
+USE_I18N=False
+
+FILE_CHARSET=utf-8
+
+LANGUAGE_COOKIE_HTTPONLY=True
+
+MONTH_DAY_FORMAT='F j'
+
+SECURE_REDIRECT_EXEMPT=[]
+
+THOUSAND_SEPARATOR=','
+
+SECURE_HSTS_PRELOAD=False
+
+
+Question: Are there any mistakes in the above configuration file for Django version 4.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["FILE_CHARSET"],
+    "reason": ["The property 'FILE_CHARSET' was removed in the previous version and is not used in the current version."]
+}
+```

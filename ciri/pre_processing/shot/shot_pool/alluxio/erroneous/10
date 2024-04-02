@@ -1,0 +1,32 @@
+alluxio.job.master.embedded.journal.port=-1
+
+alluxio.master.embedded.journal.addresses=127.0.0.1
+
+alluxio.master.daily.backup.state.lock.try.duration=4m
+
+alluxio.master.backup.state.lock.interrupt.cycle.enabled=false
+
+alluxio.user.network.rpc.netty.worker.threads=1
+
+alluxio.worker.management.tier.promote.range=100
+
+alluxio.underfs.listing.length=2000
+
+alluxio.security.stale.channel.purge.interval=1day
+
+
+Question: Are there any mistakes in the above configuration file for Alluxio version 2.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["alluxio.job.master.embedded.journal.port"],
+    "reason": ["The property 'alluxio.job.master.embedded.journal.port' has the value '-1' which is out of the valid range of a port number."]
+}
+```

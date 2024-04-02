@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>fs.AbstractFileSystem.viewfs.impl</name>
+  <value>org.apache.hadoop.fs.viewfs.ViewFs</value>
+  <description>The AbstractFileSystem for view file system for viewfs: uris
+  (ie client side mount table:).</description>
+</property>
+
+<property>
+  <name>fs.s3a.threads.max</name>
+  <value>128</value>
+  <description>The total number of threads available in the filesystem for data
+    uploads *or any other queued filesystem operation*.</description>
+</property>
+
+<property>
+  <name>ipc.[port_number].cost-provider.impl</name>
+  <value>org.apache.hadoop.ipc.DefaultCostProvider</value>
+  <description>The cost provider mapping user requests to their cost. To
+    enable determination of cost based on processing time, use
+    org.apache.hadoop.ipc.WeightedTimeCostProvider.
+    This property applies to DecayRpcScheduler.
+  </description>
+</property>
+
+<property>
+  <name>fs.permissions.umask-mode</name>
+  <value>ciri</value>
+  <description>
+    The umask used when creating files and directories.
+    Can be in octal or in symbolic. Examples are:
+    "022" (octal for u=rwx,g=r-x,o=r-x in symbolic),
+    or "u=rwx,g=rwx,o=" (symbolic for 007 in octal).
+  </description>
+</property>
+
+<property>
+  <name>fs.har.impl.disable.cache</name>
+  <value>false</value>
+  <description>Don't cache 'har' filesystem instances.</description>
+</property>
+
+<property>
+  <name>hadoop.security.kms.client.encrypted.key.cache.expiry</name>
+  <value>43200000</value>
+  <description>
+    Cache expiry time for a Key, after which the cache Queue for this
+    key will be dropped. Default = 12hrs
+  </description>
+</property>
+
+<property>
+  <name>fs.adl.impl</name>
+  <value>org.apache.hadoop.fs.adl.AdlFileSystem</value>
+</property>
+
+<property>
+  <name>seq.io.sort.factor</name>
+  <value>100</value>
+    <description>
+      The number of streams to merge at once while sorting
+      files using SequenceFile.Sorter.
+      This determines the number of open file handles.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HCommon version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["fs.permissions.umask-mode"],
+    "reason": ["The property 'fs.permissions.umask-mode' has the value 'ciri' which does not follow the correct permission format."]
+}
+```

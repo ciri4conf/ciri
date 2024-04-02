@@ -1,0 +1,32 @@
+FIRST_DAY_OF_WEEK=3000000000
+
+SECURE_CONTENT_TYPE_NOSNIFF=True
+
+FILE_UPLOAD_MAX_MEMORY_SIZE=2621440
+
+DEBUG_PROPAGATE_EXCEPTIONS=True
+
+INTERNAL_IPS=[]
+
+MESSAGE_STORAGE='django.contrib.messages.storage.fallback.FallbackStorage'
+
+TEST_NON_SERIALIZED_APPS=[]
+
+SERVER_EMAIL='root@localhost'
+
+
+Question: Are there any mistakes in the above configuration file for Django version 4.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["FIRST_DAY_OF_WEEK"],
+    "reason": ["The property 'FIRST_DAY_OF_WEEK' has the value '3000000000' which exceeds the range of an Integer."]
+}
+```

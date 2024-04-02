@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hadoop.security.authorization</name>
+  <value>-1</value>
+  <description>Is service-level authorization enabled?</description>
+</property>
+
+<property>
+  <name>fs.AbstractFileSystem.har.impl</name>
+  <value>org.apache.hadoop.fs.HarFs</value>
+  <description>The AbstractFileSystem for har: uris.</description>
+</property>
+
+<property>
+  <name>fs.ftp.host</name>
+  <value>127.0.0.1</value>
+  <description>FTP filesystem connects to this server</description>
+</property>
+
+<property>
+  <name>fs.AbstractFileSystem.s3a.impl</name>
+  <value>org.apache.hadoop.fs.s3a.S3A</value>
+  <description>The implementation class of the S3A AbstractFileSystem.</description>
+</property>
+
+<property>
+  <name>ipc.client.connect.retry.interval</name>
+  <value>1000</value>
+  <description>Indicates the number of milliseconds a client will wait for
+    before retrying to establish a server connection.
+  </description>
+</property>
+
+<property>
+  <name>ipc.[port_number].weighted-cost.lockexclusive</name>
+  <value>50</value>
+  <description>The weight multiplier to apply to the time spent in the
+    processing phase which holds an exclusive (write) lock.
+    This property applies to WeightedTimeCostProvider.
+  </description>
+</property>
+
+<property>
+  <name>ipc.server.max.connections</name>
+  <value>-1</value>
+  <description>The maximum number of concurrent connections a server is allowed
+    to accept. If this limit is exceeded, incoming connections will first fill
+    the listen queue and then may go to an OS-specific listen overflow queue.
+    The client may fail or timeout, but the server can avoid running out of file
+    descriptors using this feature. 0 means no limit.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.registry.zk.connection.timeout.ms</name>
+  <value>30000</value>
+    <description>
+      Zookeeper connection timeout in milliseconds
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HCommon version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["hadoop.security.authorization"],
+    "reason": ["The property 'hadoop.security.authorization' has the value '-1' which is not within the accepted value {true,false}."]
+}
+```

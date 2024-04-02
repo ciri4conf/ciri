@@ -1,0 +1,32 @@
+alluxio.fuse.logging.threshold=10nounit
+
+alluxio.master.journal.temporary.file.gc.threshold=1min
+
+alluxio.user.file.master.client.pool.gc.threshold=1sec
+
+alluxio.user.network.streaming.netty.worker.threads=1
+
+alluxio.worker.network.keepalive.timeout=30sec
+
+alluxio.user.file.create.ttl=-2
+
+alluxio.web.ui.enabled=false
+
+alluxio.worker.management.tier.swap.restore.enabled=false
+
+
+Question: Are there any mistakes in the above configuration file for Alluxio version 2.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["alluxio.fuse.logging.threshold"],
+    "reason": ["The property 'alluxio.fuse.logging.threshold' has the value '10nounit' which uses an incorrect unit."]
+}
+```

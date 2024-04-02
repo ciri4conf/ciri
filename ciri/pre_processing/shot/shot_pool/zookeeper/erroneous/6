@@ -1,0 +1,32 @@
+localSessionsEnabled=-1
+
+syncLimit=1
+
+syncEnabled=true
+
+initLimit=10
+
+quorum.auth.learnerRequireSasl=true
+
+secureClientPort=3001
+
+clientPortAddress=0.0.0.0:3000
+
+quorumListenOnAllIPs=false
+
+
+Question: Are there any mistakes in the above configuration file for ZooKeeper version 3.7.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["localSessionsEnabled"],
+    "reason": ["The property 'localSessionsEnabled' has the value '-1' which is not within the accepted value {true,false}."]
+}
+```

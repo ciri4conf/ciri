@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.datanode.address</name>
+  <value>0.0.0.0:9866</value>
+  <description>
+    The datanode server address and port for data transfer.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.https.keystore.resource</name>
+  <value>ssl-client.xml</value>
+  <description>Resource file from which ssl client keystore
+  information will be extracted
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.name.dir</name>
+  <value>file:/</value>
+  <description>Determines where on the local filesystem the DFS name node
+      should store the name table(fsimage).  If this is a comma-delimited list
+      of directories then the name table is replicated in all of the
+      directories, for redundancy. </description>
+</property>
+
+<property>
+  <name>dfs.ha.tail-edits.rolledits.timeout</name>
+  <value>30</value>
+  <description>The timeout in seconds of calling rollEdits RPC on Active NN.
+  </description>
+</property>
+
+<property>
+  <name>dfs.cachereport.intervalMsec</name>
+  <value>5000</value>
+  <description>
+    Determines cache reporting interval in milliseconds.  After this amount of
+    time, the DataNode sends a full report of its cache state to the NameNode.
+    The NameNode uses the cache report to update its map of cached blocks to
+    DataNode locations.
+
+    This configuration has no effect if in-memory caching has been disabled by
+    setting dfs.datanode.max.locked.memory to 0 (which is the default).
+
+    If the native libraries are not available to the DataNode, this
+    configuration has no effect.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.edit.log.autoroll.multiplier.threshold</name>
+  <value>0.25</value>
+  <description>
+    Determines when an active namenode will roll its own edit log.
+    The actual threshold (in number of edits) is determined by multiplying
+    this value by dfs.namenode.checkpoint.txns.
+
+    This prevents extremely large edit files from accumulating on the active
+    namenode, which can cause timeouts during namenode startup and pose an
+    administrative hassle. This behavior is intended as a failsafe for when
+    the standby or secondary namenode fail to roll the edit log by the normal
+    checkpoint threshold.
+  </description>
+</property>
+
+<property>
+  <name>dfs.webhdfs.rest-csrf.custom-header</name>
+  <value>X-XSRF-HEADER</value>
+  <description>
+    The name of a custom header that HTTP requests must send when protection
+    against cross-site request forgery (CSRF) is enabled for WebHDFS by setting
+    dfs.webhdfs.rest-csrf.enabled to true.  The WebHDFS client also uses this
+    property to determine whether or not it needs to send the custom CSRF
+    prevention header in its HTTP requests.
+  </description>
+</property>
+
+<property>
+  <name>dfs.batched.ls.limit</name>
+  <value>200</value>
+  <description>
+    Limit the number of paths that can be listed in a single batched
+    listing call. printed by ls. If less or equal to
+    zero, at most DFS_LIST_LIMIT_DEFAULT (= 1000) will be printed.
+  </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HDFS version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["dfs.namenode.name.dir"],
+    "reason": ["The property 'dfs.namenode.name.dir' has the value 'file:/' which does not follow the correct URL format."]
+}
+```

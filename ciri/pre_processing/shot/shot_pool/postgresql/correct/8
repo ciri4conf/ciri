@@ -1,0 +1,32 @@
+min_dynamic_shared_memory=2MB
+
+default_transaction_deferrable=off
+
+log_startup_progress_interval=20s
+
+ssl_key_file='server.key'
+
+geqo=on
+
+default_transaction_isolation='read committed'
+
+autovacuum_vacuum_insert_scale_factor=0.2
+
+max_pred_locks_per_page=2
+
+
+Question: Are there any mistakes in the above configuration file for PostgreSQL version 13.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.system-metrics-publisher.enabled</name>
+  <value>true</value>
+    <description>The setting that controls whether yarn system metrics is
+    published on the Timeline service or not by RM And NM.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.emit-container-events</name>
+  <value>true</value>
+    <description>The setting that controls whether yarn container events are
+      published to the timeline service or not by NM. This configuration setting
+      is for ATS V2.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.runc.image-tag-to-manifest-plugin.hdfs-hash-file</name>
+  <value>/runc-root/image-tag-to-hash</value>
+    <description>The HDFS location where the runC image tag to hash
+      file exists.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.address</name>
+  <value>127.0.0.1</value>
+    <description>This is default address for the timeline server to start the
+    RPC server.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.entity-group-fs-store.summary-store</name>
+  <value>org.apache.hadoop.yarn.server.timeline.LeveldbTimelineStore</value>
+     <description>Summary storage for ATS v1.5</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.node-labels.provider.fetch-timeout-ms</name>
+  <value>600000</value>
+    <description>
+    When "yarn.nodemanager.node-labels.provider" is configured with "Script"
+    then this configuration provides the timeout period after which it will
+    interrupt the script which queries the Node labels. Defaults to 20 mins.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.opportunistic.max.container-allocation.per.am.heartbeat</name>
+  <value>-2</value>
+    <description>
+      Maximum number of opportunistic containers to be allocated per
+      Application Master heartbeat.
+    </description>
+</property>
+
+<property>
+  <name>yarn.scheduler.configuration.leveldb-store.path</name>
+  <value>/valid/file2</value>
+    <description>
+      The storage path for LevelDB implementation of configuration store,
+      when yarn.scheduler.configuration.store.class is configured to be
+      "leveldb".
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for YARN version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

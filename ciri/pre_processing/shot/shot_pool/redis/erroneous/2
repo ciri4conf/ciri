@@ -1,0 +1,32 @@
+auto-aof-rewrite-min-size=64nounit
+
+aof-use-rdb-preamble=yes
+
+list-compress-depth=1
+
+proc-title-template="{title} {listen-addr} {server-mode}"
+
+stream-node-max-bytes=2048
+
+appendfsync=everysec
+
+aof-load-truncated=yes
+
+aclfile=/etc/redis/users.acl
+
+
+Question: Are there any mistakes in the above configuration file for Redis version 7.0.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["auto-aof-rewrite-min-size"],
+    "reason": ["The property 'auto-aof-rewrite-min-size' has the value '64nounit' which uses an incorrect unit."]
+}
+```

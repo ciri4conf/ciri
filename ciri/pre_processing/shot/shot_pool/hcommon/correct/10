@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hadoop.security.dns.interface</name>
+  <value>eth2</value>
+  <description>
+    The name of the Network Interface from which the service should determine
+    its host name for Kerberos login. e.g. eth2. In a multi-homed environment,
+    the setting can be used to affect the _HOST substitution in the service
+    Kerberos principal. If this configuration value is not set, the service
+    will use its default hostname as returned by
+    InetAddress.getLocalHost().getCanonicalHostName().
+
+    Most clusters will not require this setting.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.security.group.mapping.ldap.num.attempts.before.failover</name>
+  <value>6</value>
+  <description>
+    This property is the number of attempts to be made for LDAP operations
+    using a single LDAP instance. If multiple LDAP servers are configured
+    and this number of failed operations is reached, we will switch to the
+    next LDAP server. The configuration for the overall number of attempts
+    will still be respected, failover will thus be performed only if this
+    property is less than hadoop.security.group.mapping.ldap.num.attempts.
+  </description>
+</property>
+
+<property>
+  <name>fs.default.name</name>
+  <value>file:///</value>
+  <description>Deprecated. Use (fs.defaultFS) property
+  instead</description>
+</property>
+
+<property>
+  <name>fs.ftp.host</name>
+  <value>0.0.0.0</value>
+  <description>FTP filesystem connects to this server</description>
+</property>
+
+<property>
+  <name>fs.s3a.s3guard.ddb.table.sse.enabled</name>
+  <value>true</value>
+  <description>
+    Whether server-side encryption (SSE) is enabled or disabled on the table.
+    By default it's disabled, meaning SSE is set to AWS owned CMK.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.etag.checksum.enabled</name>
+  <value>true</value>
+  <description>
+    Should calls to getFileChecksum() return the etag value of the remote
+    object.
+    WARNING: if enabled, distcp operations between HDFS and S3 will fail unless
+    -skipcrccheck is set.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.registry.zk.root</name>
+  <value>/valid/file2</value>
+    <description>
+      The root zookeeper node for the registry
+    </description>
+</property>
+
+<property>
+  <name>hadoop.caller.context.signature.max.size</name>
+  <value>80</value>
+    <description>
+      The caller's signature (optional) is for offline validation. If the
+      signature exceeds the maximum allowed bytes in server, the caller context
+      will be abandoned, in which case the caller context will not be recorded
+      in audit logs.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HCommon version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.http.policy</name>
+  <value>uiuc</value>
+  <description>Decide if HTTPS(SSL) is supported on HDFS
+    This configures the HTTP endpoint for HDFS daemons:
+      The following values are supported:
+      - HTTP_ONLY : Service is provided only on http
+      - HTTPS_ONLY : Service is provided only on https
+      - HTTP_AND_HTTPS : Service is provided both on http and https
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.https.keystore.resource</name>
+  <value>ssl-client.xml</value>
+  <description>Resource file from which ssl client keystore
+  information will be extracted
+  </description>
+</property>
+
+<property>
+  <name>dfs.heartbeat.interval</name>
+  <value>1s</value>
+  <description>
+    Determines datanode heartbeat interval in seconds.
+    Can use the following suffix (case insensitive):
+    ms(millis), s(sec), m(min), h(hour), d(day)
+    to specify the time (such as 2s, 2m, 1h, etc.).
+    Or provide complete number in seconds (such as 30 for 30 seconds).
+    If no time unit is specified then seconds is assumed.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.decommission.interval</name>
+  <value>60s</value>
+  <description>Namenode periodicity in seconds to check if
+    decommission or maintenance is complete. Support multiple time unit
+    suffix(case insensitive), as described in dfs.heartbeat.interval.
+    If no time unit is specified then seconds is assumed.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.list.cache.directives.num.responses</name>
+  <value>100</value>
+  <description>
+    This value controls the number of cache directives that the NameNode will
+    send over the wire in response to a listDirectives RPC.
+  </description>
+</property>
+
+<property>
+  <name>dfs.balancer.keytab.enabled</name>
+  <value>false</value>
+  <description>
+    Set to true to enable login using a keytab for Kerberized Hadoop.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.read.prefetch.size</name>
+  <value>0.1</value>
+  <description>
+    The number of bytes for the DFSClient will fetch from the Namenode
+    during a read operation.  Defaults to 10 * ${dfs.blocksize}.
+  </description>
+</property>
+
+<property>
+  <name>dfs.ha.zkfc.port</name>
+  <value>3000</value>
+  <description>
+    The port number that the zookeeper failover controller RPC
+    server binds to.
+  </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HDFS version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["dfs.http.policy"],
+    "reason": ["The property 'dfs.http.policy' has the value 'uiuc' which is not within the accepted value {HTTP_ONLY,HTTPS_ONLY,HTTP_AND_HTTPS}."]
+}
+```

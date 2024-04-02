@@ -1,0 +1,32 @@
+protected-mode=-1
+
+set-max-intset-entries=512
+
+supervised=auto
+
+always-show-logo=no
+
+tls-session-cache-size=2500
+
+tls-session-caching=no
+
+replica-serve-stale-data=yes
+
+replica-announce-ip=5.5.5.5
+
+
+Question: Are there any mistakes in the above configuration file for Redis version 7.0.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["protected-mode"],
+    "reason": ["The property 'protected-mode' has the value '-1' which is not within the accepted value {true,false}."]
+}
+```

@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hbase.client.max.total.tasks</name>
+  <value>50</value>
+    <description>The maximum number of concurrent mutation tasks a single HTable instance will
+    send to the cluster.</description>
+</property>
+
+<property>
+  <name>hbase.client.max.perserver.tasks</name>
+  <value>4</value>
+    <description>The maximum number of concurrent mutation tasks a single HTable instance will
+    send to a single region server.</description>
+</property>
+
+<property>
+  <name>hbase.hregion.memstore.mslab.enabled</name>
+  <value>-1</value>
+    <description>
+      Enables the MemStore-Local Allocation Buffer,
+      a feature which works to prevent heap fragmentation under
+      heavy write loads. This can reduce the frequency of stop-the-world
+      GC pauses on large heaps.</description>
+</property>
+
+<property>
+  <name>hfile.block.bloom.cacheonwrite</name>
+  <value>false</value>
+      <description>Enables cache-on-write for inline blocks of a compound Bloom filter.</description>
+</property>
+
+<property>
+  <name>hbase.cells.scanned.per.heartbeat.check</name>
+  <value>10000</value>
+    <description>The number of cells scanned in between heartbeat checks. Heartbeat
+        checks occur during the processing of scans to determine whether or not the
+        server should stop scanning in order to send back a heartbeat message to the
+        client. Heartbeat messages are used to keep the client-server connection alive
+        during long running scans. Small values mean that the heartbeat checks will
+        occur more often and thus will provide a tighter bound on the execution time of
+        the scan. Larger values mean that the heartbeat checks occur less frequently
+        </description>
+</property>
+
+<property>
+  <name>hbase.data.umask</name>
+  <value>007</value>
+    <description>File permissions that should be used to write data
+      files when hbase.data.umask.enable is true</description>
+</property>
+
+<property>
+  <name>hbase.master.normalizer.class</name>
+  <value>org.apache.hadoop.hbase.master.normalizer.SimpleRegionNormalizer</value>
+    <description>
+      Class used to execute the region normalization when the period occurs.
+      See the class comment for more on how it works
+      http://hbase.apache.org/devapidocs/org/apache/hadoop/hbase/master/normalizer/SimpleRegionNormalizer.html
+    </description>
+</property>
+
+<property>
+  <name>hbase.mob.file.cache.size</name>
+  <value>2000</value>
+    <description>
+      Number of opened file handlers to cache.
+      A larger value will benefit reads by providing more file handlers per mob
+      file cache and would reduce frequent file opening and closing.
+      However, if this is set too high, this could lead to a "too many opened file handlers"
+      The default value is 1000.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HBase version 2.2.7? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["hbase.hregion.memstore.mslab.enabled"],
+    "reason": ["The property 'hbase.hregion.memstore.mslab.enabled' has the value '-1' which is not within the accepted value {true,false}."]
+}
+```

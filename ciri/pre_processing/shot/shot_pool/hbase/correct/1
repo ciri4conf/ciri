@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>zookeeper.recovery.retry.maxsleeptime</name>
+  <value>60000</value>
+    <description>Max sleep time before retry zookeeper operations in milliseconds,
+    a max time is needed here so that sleep time won't grow unboundedly
+    </description>
+</property>
+
+<property>
+  <name>hbase.master.port</name>
+  <value>3001</value>
+    <description>The port the HBase Master should bind to.</description>
+</property>
+
+<property>
+  <name>hbase.regionserver.dns.nameserver</name>
+  <value>default</value>
+    <description>The host name or IP address of the name server (DNS)
+      which a region server should use to determine the host name used by the
+      master for communication and display purposes.</description>
+</property>
+
+<property>
+  <name>hbase.client.write.buffer</name>
+  <value>1048576</value>
+    <description>Default size of the BufferedMutator write buffer in bytes.
+    A bigger buffer takes more memory -- on both the client and server
+    side since server instantiates the passed write buffer to process
+    it -- but a larger buffer size reduces the number of RPCs made.
+    For an estimate of server-side memory-used, evaluate
+    hbase.client.write.buffer * hbase.regionserver.handler.count</description>
+</property>
+
+<property>
+  <name>hbase.storescanner.parallel.seek.threads</name>
+  <value>10</value>
+    <description>
+      The default thread pool size if parallel-seeking feature enabled.</description>
+</property>
+
+<property>
+  <name>hbase.bucketcache.size</name>
+  <value>0.1</value>
+    <description>A float that EITHER represents a percentage of total heap memory
+    size to give to the cache (if &lt; 1.0) OR, it is the total capacity in
+    megabytes of BucketCache. Default: 0.0</description>
+</property>
+
+<property>
+  <name>hbase.rpc.timeout</name>
+  <value>120000</value>
+    <description>This is for the RPC layer to define how long (millisecond) HBase client applications
+        take for a remote call to time out. It uses pings to check connections
+        but will eventually throw a TimeoutException.</description>
+</property>
+
+<property>
+  <name>hbase.master.keytab.file</name>
+  <value>/valid/file1</value>
+    <description>Full path to the kerberos keytab file to use for logging in
+    the configured HMaster server principal.</description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HBase version 2.2.7? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

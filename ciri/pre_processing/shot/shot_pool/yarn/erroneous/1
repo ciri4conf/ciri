@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.amlauncher.thread-count</name>
+  <value>ciri</value>
+    <description>Number of threads used to launch/cleanup AM.</description>
+</property>
+
+<property>
+  <name>yarn.webapp.ui2.enable</name>
+  <value>false</value>
+    <description>To enable RM web ui2 application.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.connect.retry-interval.ms</name>
+  <value>30000</value>
+    <description>How often to try connecting to the
+    ResourceManager.</description>
+</property>
+
+<property>
+  <name>yarn.log-aggregation.file-controller.TFile.class</name>
+  <value>org.apache.hadoop.yarn.logaggregation.filecontroller.tfile.LogAggregationTFileController</value>
+    <description>Class that supports TFile read and write operations.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.hbase.coprocessor.app-final-value-retention-milliseconds</name>
+  <value>129600000</value>
+    <description>
+    The setting that controls how long the final value
+    of a metric of a completed app is retained before merging into
+    the flow sum. Up to this time after an application is completed
+    out-of-order values that arrive can be recognized and discarded at the
+    cost of increased storage.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.nm-container-queuing.queue-limit-stdev</name>
+  <value>1.0f</value>
+    <description>
+    Value of standard deviation used for calculation of queue limit thresholds.
+    </description>
+</property>
+
+<property>
+  <name>yarn.node-labels.fs-store.impl.class</name>
+  <value>org.apache.hadoop.yarn.nodelabels.FileSystemNodeLabelsStore</value>
+    <description>
+    Choose different implementation of node label's storage
+    </description>
+</property>
+
+<property>
+  <name>yarn.webapp.filter-entity-list-by-user</name>
+  <value>false</value>
+      <description>
+        Flag to enable display of applications per user as an admin
+        configuration.
+      </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for YARN version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["yarn.resourcemanager.amlauncher.thread-count"],
+    "reason": ["The property 'yarn.resourcemanager.amlauncher.thread-count' has the value 'ciri' which is not of the correct type Integer."]
+}
+```

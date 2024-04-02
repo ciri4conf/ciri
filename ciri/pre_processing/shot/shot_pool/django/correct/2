@@ -1,0 +1,32 @@
+INTERNAL_IPS=[]
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE=True
+
+CSRF_FAILURE_VIEW='django.views.csrf.csrf_failure'
+
+CSRF_COOKIE_SAMESITE='Lax'
+
+STATICFILES_STORAGE='django.contrib.staticfiles.storage.StaticFilesStorage'
+
+LOGIN_URL='/accounts/login/'
+
+CSRF_COOKIE_DOMAIN=None
+
+SECURE_REDIRECT_EXEMPT=[]
+
+
+Question: Are there any mistakes in the above configuration file for Django version 4.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

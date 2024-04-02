@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hbase.ipc.server.callqueue.scan.ratio</name>
+  <value>0</value>
+    <description>Given the number of read call queues, calculated from the total number
+      of call queues multiplied by the callqueue.read.ratio, the scan.ratio property
+      will split the read call queues into small-read and long-read queues.
+      A value lower than 0.5 means that there will be less long-read queues than short-read queues.
+      A value of 0.5 means that there will be the same number of short-read and long-read queues.
+      A value greater than 0.5 means that there will be more long-read queues than short-read queues
+      A value of 0 or 1 indicate to use the same set of queues for gets and scans.
+
+      Example: Given the total number of read call queues being 8
+      a scan.ratio of 0 or 1 means that: 8 queues will contain both long and short read requests.
+      a scan.ratio of 0.3 means that: 2 queues will contain only long-read requests
+      and 6 queues will contain only short-read requests.
+      a scan.ratio of 0.5 means that: 4 queues will contain only long-read requests
+      and 4 queues will contain only short-read requests.
+      a scan.ratio of 0.8 means that: 6 queues will contain only long-read requests
+      and 2 queues will contain only short-read requests.
+    </description>
+</property>
+
+<property>
+  <name>hbase.regionserver.logroll.errors.tolerated</name>
+  <value>2</value>
+    <description>The number of consecutive WAL close errors we will allow
+    before triggering a server abort.  A setting of 0 will cause the
+    region server to abort if closing the current WAL writer fails during
+    log rolling.  Even a small value (2 or 3) will allow a region server
+    to ride over transient HDFS errors.</description>
+</property>
+
+<property>
+    <name>hbase.hregion.percolumnfamilyflush.size.lower.bound</name>
+    <value>16777216</value>
+    <description>
+    If FlushLargeStoresPolicy is used, then every time that we hit the
+    total memstore limit, we find out all the column families whose memstores
+    exceed this value, and only flush them, while retaining the others whose
+    memstores are lower than this limit. If none of the families have their
+    memstore size more than this, all the memstores will be flushed
+    (just as usual). This value should be less than half of the total memstore
+    threshold (hbase.hregion.memstore.flush.size).
+    </description>
+</property>
+
+<property>
+  <name>hbase.zookeeper.dns.interface</name>
+  <value>eth2</value>
+    <description>The name of the Network Interface from which a ZooKeeper server
+      should report its IP address.</description>
+</property>
+
+<property>
+  <name>hbase.client.max.perserver.tasks</name>
+  <value>2</value>
+    <description>The maximum number of concurrent mutation tasks a single HTable instance will
+    send to a single region server.</description>
+</property>
+
+<property>
+  <name>hbase.client.keyvalue.maxsize</name>
+  <value>20971520</value>
+    <description>Specifies the combined maximum allowed size of a KeyValue
+    instance. This is to set an upper boundary for a single entry saved in a
+    storage file. Since they cannot be split it helps avoiding that a region
+    cannot be split any further because the data is too large. It seems wise
+    to set this to a fraction of the maximum region size. Setting it to zero
+    or less disables the check.</description>
+</property>
+
+<property>
+  <name>hbase.regionserver.hostname</name>
+  <value>127.0.0.1</value>
+    <description>This config is for experts: don't set its value unless you really know what you are doing.
+    When set to a non-empty value, this represents the (external facing) hostname for the underlying server.
+    See https://issues.apache.org/jira/browse/HBASE-12954 for details.</description>
+</property>
+
+<property>
+  <name>hbase.mob.compaction.batch.size</name>
+  <value>50</value>
+    <description>
+      The max number of the mob files that is allowed in a batch of the mob compaction.
+      The mob compaction merges the small mob files to bigger ones. If the number of the
+      small files is very large, it could lead to a "too many opened file handlers" in the merge.
+      And the merge has to be split into batches. This value limits the number of mob files
+      that are selected in a batch of the mob compaction. The default value is 100.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HBase version 2.2.7? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["hbase.hregion.percolumnfamilyflush.size.lower.bound"],
+    "reason": ["The property 'hbase.hregion.percolumnfamilyflush.size.lower.bound' was removed in the previous version and is not used in the current version."]
+}
+```

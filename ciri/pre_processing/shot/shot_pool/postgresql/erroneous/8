@@ -1,0 +1,32 @@
+enable_tidscan=on
+
+log_planner_stats=off
+
+syslog_sequence_numbers=on
+
+enable_indexscan=on
+
+unix_socket_permissions=388
+
+huge_page_size=1
+
+client_min_messages=notice
+
+db_user_namespace=off
+
+
+Question: Are there any mistakes in the above configuration file for PostgreSQL version 13.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["db_user_namespace"],
+    "reason": ["The property 'db_user_namespace' was removed in the previous version and is not used in the current version."]
+}
+```

@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.namenode.backup.http-address</name>
+  <value>0.0.0.0:50105</value>
+  <description>
+    The backup node http server address and port.
+    If the port is 0 then the server will start on a free port.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.block.write.replace-datanode-on-failure.min-replication</name>
+  <value>0</value>
+    <description>
+      The minimum number of replications that are needed to not to fail
+      the write pipeline if new datanodes can not be found to replace
+      failed datanodes (could be due to network failure) in the write pipeline.
+      If the number of the remaining datanodes in the write pipeline is greater
+      than or equal to this property value, continue writing to the remaining nodes.
+      Otherwise throw exception.
+
+      If this is set to 0, an exception will be thrown, when a replacement
+      can not be found.
+      See also dfs.client.block.write.replace-datanode-on-failure.policy
+    </description>
+</property>
+
+<property>
+  <name>dfs.client.local.interfaces</name>
+  <value>eth1</value>
+  <description>A comma separated list of network interface names to use
+    for data transfer between the client and datanodes. When creating
+    a connection to read from or write to a datanode, the client
+    chooses one of the specified interfaces at random and binds its
+    socket to the IP of that interface. Individual names may be
+    specified as either an interface name (eg "eth0"), a subinterface
+    name (eg "eth0:0"), or an IP address (which may be specified using
+    CIDR notation to match a range of IPs).
+  </description>
+</property>
+
+<property>
+  <name>dfs.domain.socket.path</name>
+  <value>/valid/file1</value>
+  <description>
+    Optional.  This is a path to a UNIX domain socket that will be used for
+    communication between the DataNode and local HDFS clients.
+    If the string "_PORT" is present in this path, it will be replaced by the
+    TCP port of the DataNode.
+  </description>
+</property>
+
+<property>
+  <name>dfs.data.transfer.server.tcpnodelay</name>
+  <value>false</value>
+  <description>
+    If true, set TCP_NODELAY to sockets for transferring data between Datanodes.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.edits.dir.minimum</name>
+  <value>2</value>
+  <description>
+    dfs.namenode.edits.dir includes both required directories
+    (specified by dfs.namenode.edits.dir.required) and optional directories.
+
+    The number of usable optional directories must be greater than or equal
+    to this property.  If the number of usable optional directories falls
+    below dfs.namenode.edits.dir.minimum, HDFS will issue an error.
+
+    This property defaults to 1.
+  </description>
+</property>
+
+<property>
+  <name>dfs.disk.balancer.plan.threshold.percent</name>
+  <value>10</value>
+    <description>
+      The percentage threshold value for volume Data Density in a plan.
+      If the absolute value of volume Data Density which is out of
+      threshold value in a node, it means that the volumes corresponding to
+      the disks should do the balancing in the plan. The default value is 10.
+    </description>
+</property>
+
+<property>
+  <name>dfs.provided.aliasmap.inmemory.leveldb.dir</name>
+  <value>/tmp//hadoop-ciri</value>
+    <description>
+      The directory where the leveldb files will be kept
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HDFS version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["dfs.provided.aliasmap.inmemory.leveldb.dir"],
+    "reason": ["The property 'dfs.provided.aliasmap.inmemory.leveldb.dir' has the value '/tmp//hadoop-ciri' which does not follow the correct path format."]
+}
+```

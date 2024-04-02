@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.hostname</name>
+  <value>256.0.0.0</value>
+    <description>The hostname of the RM.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.amlauncher.thread-count</name>
+  <value>100</value>
+    <description>Number of threads used to launch/cleanup AM.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.placement-constraints.retry-attempts</name>
+  <value>3</value>
+    <description>Number of times to retry placing of rejected SchedulingRequests</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.delegation-token-renewer.thread-count</name>
+  <value>100</value>
+    <description>
+    RM DelegationTokenRenewer thread count
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.linux-container-executor.resources-handler.class</name>
+  <value>org.apache.hadoop.yarn.server.nodemanager.util.DefaultLCEResourcesHandler</value>
+    <description>The class which should help the LCE handle resources.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.http-authentication.simple.anonymous.allowed</name>
+  <value>true</value>
+    <description>
+      Indicates if anonymous requests are allowed by the timeline server when using
+      'simple' authentication.
+    </description>
+</property>
+
+<property>
+  <name>yarn.scheduler.configuration.store.max-logs</name>
+  <value>1000</value>
+    <description>
+      The max number of configuration change log entries kept in config
+      store, when yarn.scheduler.configuration.store.class is configured to be
+      "leveldb" or "zk". Default is 1000 for either.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.activities-manager.app-activities.ttl-ms</name>
+  <value>300000</value>
+    <description>Time to live for app activities in milliseconds.</description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for YARN version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["yarn.resourcemanager.hostname"],
+    "reason": ["The property 'yarn.resourcemanager.hostname' has the value '256.0.0.0' which is out of the valid range of an IP address."]
+}
+```

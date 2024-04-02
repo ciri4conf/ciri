@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hadoop.security.group.mapping</name>
+  <value>org.apache.hadoop.security.JniBasedUnixGroupsMappingWithFallback</value>
+  <description>
+    Class for user to group mapping (get groups for a given user) for ACL.
+    The default implementation,
+    org.apache.hadoop.security.JniBasedUnixGroupsMappingWithFallback,
+    will determine if the Java Native Interface (JNI) is available. If JNI is
+    available the implementation will use the API within hadoop to resolve a
+    list of groups for a user. If JNI is not available then the shell
+    implementation, ShellBasedUnixGroupsMapping, is used.  This implementation
+    shells out to the Linux/Unix environment with the
+    <code>bash -c groups</code> command to resolve a list of groups for a user.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.security.group.mapping.ldap.read.timeout.ms</name>
+  <value>ciri</value>
+  <description>
+    This property is the read timeout (in milliseconds) for LDAP
+    operations. If the LDAP provider doesn't get a LDAP response within the
+    specified period, it will abort the read attempt. Non-positive value
+    means no read timeout is specified in which case it waits for the response
+    infinitely.
+  </description>
+</property>
+
+<property>
+  <name>fs.AbstractFileSystem.ftp.impl</name>
+  <value>org.apache.hadoop.fs.ftp.FtpFs</value>
+  <description>The FileSystem for Ftp: uris.</description>
+</property>
+
+<property>
+  <name>fs.ftp.timeout</name>
+  <value>0</value>
+  <description>
+    FTP filesystem's timeout in seconds.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.threads.keepalivetime</name>
+  <value>60</value>
+  <description>Number of seconds a thread can be idle before being
+    terminated.</description>
+</property>
+
+<property>
+  <name>fs.s3a.s3guard.ddb.max.retries</name>
+  <value>9</value>
+    <description>
+      Max retries on throttled/incompleted DynamoDB operations
+      before giving up and throwing an IOException.
+      Each retry is delayed with an exponential
+      backoff timer which starts at 100 milliseconds and approximately
+      doubles each time.  The minimum wait before throwing an exception is
+      sum(100, 200, 400, 800, .. 100*2^N-1 ) == 100 * ((2^N)-1)
+    </description>
+</property>
+
+<property>
+  <name>fs.s3a.retry.throttle.limit</name>
+  <value>20</value>
+  <description>
+    Number of times to retry any throttled request.
+  </description>
+</property>
+
+<property>
+  <name>fs.azure.saskey.usecontainersaskeyforallaccess</name>
+  <value>true</value>
+  <description>
+    Use container saskey for access to all blobs within the container.
+    Blob-specific saskeys are not used when this setting is enabled.
+    This setting provides better performance compared to blob-specific saskeys.
+  </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HCommon version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["hadoop.security.group.mapping.ldap.read.timeout.ms"],
+    "reason": ["The property 'hadoop.security.group.mapping.ldap.read.timeout.ms' has the value 'ciri' which is not of the correct type Integer."]
+}
+```

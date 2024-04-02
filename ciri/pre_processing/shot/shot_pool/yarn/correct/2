@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.scheduler.maximum-allocation-mb</name>
+  <value>4096</value>
+    <description>The maximum allocation for every container request at the RM
+    in MBs. Memory requests higher than this will throw an
+    InvalidResourceRequestException.</description>
+</property>
+
+<property>
+  <name>yarn.client.failover-retries</name>
+  <value>1</value>
+    <description>When HA is enabled, the number of retries per
+      attempt to connect to a ResourceManager. In other words,
+      it is the ipc.client.connect.max.retries to be used during
+      failover attempts</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.container-tokens.master-key-rolling-interval-secs</name>
+  <value>43200</value>
+    <description>Interval for the roll over for the master key used to generate
+        container tokens. It is expected to be much greater than
+        yarn.nm.liveness-monitor.expiry-interval-ms and
+        yarn.resourcemanager.rm.container-allocation.expiry-interval-ms. Otherwise the
+        behavior is undefined.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.rm.container-allocation.expiry-interval-ms</name>
+  <value>600000</value>
+    <description>
+    The expiry interval for a container
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.hostname</name>
+  <value>0.0.0.0</value>
+    <description>The hostname of the NM.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.container-executor.class</name>
+  <value>org.apache.hadoop.yarn.server.nodemanager.DefaultContainerExecutor</value>
+    <description>who will execute(launch) the containers.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.localizer.cache.cleanup.interval-ms</name>
+  <value>300000</value>
+    <description>Interval in between cache cleanups.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.container-retry-minimum-interval-ms</name>
+  <value>500</value>
+    <description>Minimum container restart interval in milliseconds.</description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for YARN version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

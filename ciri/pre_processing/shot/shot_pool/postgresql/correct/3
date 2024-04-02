@@ -1,0 +1,32 @@
+max_pred_locks_per_transaction=32
+
+synchronize_seqscans=on
+
+lc_monetary='C'
+
+dynamic_shared_memory_type=posix
+
+jit=on
+
+autovacuum_analyze_threshold=100
+
+bgwriter_flush_after=2
+
+autovacuum_freeze_max_age=100000000
+
+
+Question: Are there any mistakes in the above configuration file for PostgreSQL version 13.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

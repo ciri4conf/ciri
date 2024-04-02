@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hadoop.security.group.mapping.ldap.connection.timeout.ms</name>
+  <value>30000</value>
+  <description>
+    This property is the connection timeout (in milliseconds) for LDAP
+    operations. If the LDAP provider doesn't establish a connection within the
+    specified period, it will abort the connect attempt. Non-positive value
+    means no LDAP connection timeout is specified in which case it waits for the
+    connection to establish until the underlying network times out.
+  </description>
+</property>
+
+<property>
+  <name>fs.azure.user.agent.prefix</name>
+  <value>unknown</value>
+    <description>
+      WASB passes User-Agent header to the Azure back-end. The default value
+      contains WASB version, Java Runtime version, Azure Client library version,
+      and the value of the configuration option fs.azure.user.agent.prefix.
+    </description>
+</property>
+
+<property>
+  <name>fs.AbstractFileSystem.hdfs.impl</name>
+  <value>org.apache.hadoop.fs.Hdfs</value>
+  <description>The FileSystem for hdfs: uris.</description>
+</property>
+
+<property>
+  <name>fs.s3a.multipart.purge</name>
+  <value>false</value>
+  <description>True if you want to purge existing multipart uploads that may not have been
+    completed/aborted correctly. The corresponding purge age is defined in
+    fs.s3a.multipart.purge.age.
+    If set, when the filesystem is instantiated then all outstanding uploads
+    older than the purge age will be terminated -across the entire bucket.
+    This will impact multipart uploads by other applications and users. so should
+    be used sparingly, with an age value chosen to stop failed uploads, without
+    breaking ongoing operations.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.s3guard.cli.prune.age</name>
+  <value>86400000</value>
+    <description>
+        Default age (in milliseconds) after which to prune metadata from the
+        metadatastore when the prune command is run.  Can be overridden on the
+        command-line.
+    </description>
+</property>
+
+<property>
+  <name>io.seqfile.compress.blocksize</name>
+  <value>2000000</value>
+  <description>The minimum block size for compression in block compressed
+          SequenceFiles.
+  </description>
+</property>
+
+<property>
+  <name>ipc.client.rpc-timeout.ms</name>
+  <value>0</value>
+  <description>Timeout on waiting response from server, in milliseconds.
+  If ipc.client.ping is set to true and this rpc-timeout is greater than
+  the value of ipc.ping.interval, the effective value of the rpc-timeout is
+  rounded up to multiple of ipc.ping.interval.
+  </description>
+</property>
+
+<property>
+  <name>ipc.[port_number].weighted-cost.handler</name>
+  <value>1</value>
+  <description>The weight multiplier to apply to the time spent in the
+    HANDLER phase which do not involve holding a lock.
+    See org.apache.hadoop.ipc.ProcessingDetails.Timing for more details on
+    this phase. This property applies to WeightedTimeCostProvider.
+  </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HCommon version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

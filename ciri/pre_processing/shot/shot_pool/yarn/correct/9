@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.nodemanager.localizer.cache.target-size-mb</name>
+  <value>20480</value>
+    <description>Target size of localizer cache in MB, per nodemanager. It is
+      a target retention size that only includes resources with PUBLIC and 
+      PRIVATE visibility and excludes resources with APPLICATION visibility
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.disk-health-checker.interval-ms</name>
+  <value>60000</value>
+    <description>Frequency of running disk health checker code.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.disk-health-checker.min-healthy-disks</name>
+  <value>0.125</value>
+    <description>The minimum fraction of number of disks to be healthy for the
+    nodemanager to launch new containers. This correspond to both
+    yarn.nodemanager.local-dirs and yarn.nodemanager.log-dirs. i.e. If there
+    are less number of healthy local-dirs (or log-dirs) available, then
+    new containers will not be launched on this node.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.docker.capabilities</name>
+  <value>CHOWN,DAC_OVERRIDE,FSETID,FOWNER,MKNOD,NET_RAW,SETGID,SETUID,SETFCAP,SETPCAP,NET_BIND_SERVICE,SYS_CHROOT,KILL,AUDIT_WRITE</value>
+    <description>This configuration setting determines the capabilities
+      assigned to docker containers when they are launched. While these may not
+      be case-sensitive from a docker perspective, it is best to keep these
+      uppercase. To run without any capabilities, set this value to
+      "none" or "NONE"</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.disk-health-checker.enable</name>
+  <value>false</value>
+    <description>
+    Flag to enable NodeManager disk health checker
+    </description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.client.drain-entities.timeout.ms</name>
+  <value>4000</value>
+    <description>
+    The time period for which timeline v2 client will wait for draining
+    leftover entities after stop.
+    </description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.client.fd-clean-interval-secs</name>
+  <value>30</value>
+    <description>
+      Scan interval for ATS v1.5 writer. This value controls how frequent
+      the writer will scan the HDFS FSStream for the entity/domain.
+      If the FSStream is stale for a long time, this FSStream will be close.
+    </description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.webapp.rest-csrf.enabled</name>
+  <value>false</value>
+  <description>
+      Enable the CSRF filter for the timeline service web app
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for YARN version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

@@ -1,0 +1,32 @@
+alluxio.master.backup.directory=/tmp//hadoop-ciri
+
+alluxio.user.client.cache.async.write.enabled=true
+
+alluxio.master.file.access.time.updater.shutdown.timeout=10sec
+
+alluxio.master.update.check.enabled=false
+
+alluxio.underfs.web.header.last.modified=EEE
+
+alluxio.job.master.embedded.journal.addresses=127.0.0.1
+
+alluxio.user.client.cache.store.type=LOCAL
+
+alluxio.user.client.cache.timeout.threads=16
+
+
+Question: Are there any mistakes in the above configuration file for Alluxio version 2.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["alluxio.master.backup.directory"],
+    "reason": ["The property 'alluxio.master.backup.directory' has the value '/tmp//hadoop-ciri' which does not follow the correct path format."]
+}
+```

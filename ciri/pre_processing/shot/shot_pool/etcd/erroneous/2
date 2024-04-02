@@ -1,0 +1,32 @@
+data-dir: /tmp//etcd_data
+
+initial-advertise-peer-urls: http://localhost:2380
+
+proxy-refresh-interval: 60000
+
+auto-compaction-mode: periodic
+
+proxy: 'off'
+
+strict-reconfig-check: false
+
+proxy-dial-timeout: 2000
+
+max-wals: 5
+
+
+Question: Are there any mistakes in the above configuration file for etcd version 3.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["data-dir"],
+    "reason": ["The property 'data-dir' has the value '/tmp//etcd_data' which does not follow the correct path format."]
+}
+```

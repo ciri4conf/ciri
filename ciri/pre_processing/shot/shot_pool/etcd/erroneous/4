@@ -1,0 +1,32 @@
+proxy-failure-wait: 3000000000
+
+log-outputs: [stderr]
+
+auto-compaction-retention: 2
+
+proxy-read-timeout: 2
+
+enable-v2: false
+
+discovery-fallback: 'proxy'
+
+max-snapshots: 10
+
+name: 'default'
+
+
+Question: Are there any mistakes in the above configuration file for etcd version 3.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["proxy-failure-wait"],
+    "reason": ["The property 'proxy-failure-wait' has the value '3000000000' which exceeds the range of an Integer."]
+}
+```

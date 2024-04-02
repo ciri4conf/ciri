@@ -1,0 +1,32 @@
+external_pid_file=/tmp//ConfigDir
+
+wal_retrieve_retry_interval=5s
+
+bytea_output='hex'
+
+tcp_keepalives_count=1
+
+jit_inline_above_cost=500000
+
+fsync=on
+
+max_pred_locks_per_transaction=128
+
+event_triggers=on
+
+
+Question: Are there any mistakes in the above configuration file for PostgreSQL version 13.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["external_pid_file"],
+    "reason": ["The property 'external_pid_file' has the value '/tmp//ConfigDir' which does not follow the correct path format."]
+}
+```

@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hadoop.hdfs.configuration.version</name>
+  <value>2</value>
+  <description>version of this configuration file</description>
+</property>
+
+<property>
+  <name>dfs.namenode.fs-limits.max-blocks-per-file</name>
+  <value>10000</value>
+    <description>Maximum number of blocks per file, enforced by the Namenode on
+        write. This prevents the creation of extremely large files which can
+        degrade performance.</description>
+</property>
+
+<property>
+  <name>dfs.short.circuit.shared.memory.watcher.interrupt.check.ms</name>
+  <value>120000</value>
+  <description>
+    The length of time in milliseconds that the short-circuit shared memory
+    watcher will go between checking for java interruptions sent from other
+    threads.  This is provided mainly for unit tests.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.deadnode.detection.suspectnode.queue.max</name>
+  <value>1000</value>
+    <description>
+      The max queue size of probing suspect node.
+    </description>
+</property>
+
+<property>
+  <name>dfs.balancer.movedWinWidth</name>
+  <value>5400000</value>
+  <description>
+    Window of time in ms for the HDFS balancer tracking blocks and its
+    locations.
+  </description>
+</property>
+
+<property>
+  <name>dfs.balancer.moverThreads</name>
+  <value>500</value>
+  <description>
+    Thread pool size for executing block moves.
+    moverThreadAllocator
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.replication.max-streams-hard-limit</name>
+  <value>8</value>
+  <description>
+    Hard limit for all replication streams.
+  </description>
+</property>
+
+<property>
+  <name>dfs.qjournal.finalize-segment.timeout.ms</name>
+  <value>60000</value>
+  <description>
+    Quorum timeout in milliseconds during finalizing for a specific
+    segment.
+  </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HDFS version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

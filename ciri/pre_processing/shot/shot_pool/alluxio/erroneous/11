@@ -1,0 +1,32 @@
+alluxio.security.authentication.type=NOSASL
+
+alluxio.security.login.impersonation.username=_HDFS_USER_
+
+alluxio.master.worker.info.cache.refresh.time=20sec
+
+alluxio.master.metastore.inode.inherit.owner.and.group=true
+
+alluxio.job.master.worker.heartbeat.interval=2sec
+
+alluxio.master.file.access.time.updater.shutdown.timeout=1sec
+
+alluxio.worker.network.block.reader.threads.max=1024
+
+alluxio.master.filesystem.liststatus.result.message.length=10000
+
+
+Question: Are there any mistakes in the above configuration file for Alluxio version 2.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["alluxio.security.authentication.type"],
+    "reason": ["The value of the property 'alluxio.security.authentication.type' should be 'SIMPLE' or 'CUSTOM' to enable the property 'alluxio.security.login.impersonation.username'."]
+}
+```

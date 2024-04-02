@@ -1,0 +1,32 @@
+fs.cos.connection.max=3000000000
+
+alluxio.security.group.mapping.cache.timeout=1min
+
+alluxio.user.block.write.location.policy.class=alluxio.client.block.policy.LocalFirstPolicy
+
+alluxio.worker.tieredstore.levels=0
+
+alluxio.worker.management.tier.promote.enabled=false
+
+alluxio.worker.management.load.detection.cool.down.time=10sec
+
+alluxio.table.catalog.path=/valid/file2
+
+alluxio.master.backup.entry.buffer.count=10000
+
+
+Question: Are there any mistakes in the above configuration file for Alluxio version 2.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["fs.cos.connection.max"],
+    "reason": ["The property 'fs.cos.connection.max' has the value '3000000000' which exceeds the range of an Integer."]
+}
+```

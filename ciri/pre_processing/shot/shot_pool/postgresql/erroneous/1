@@ -1,0 +1,32 @@
+max_connections=ciri
+
+enable_parallel_append=on
+
+log_parameter_max_length=-1
+
+huge_pages=try
+
+idle_session_timeout=1
+
+parallel_leader_participation=on
+
+statement_timeout=1
+
+exit_on_error=off
+
+
+Question: Are there any mistakes in the above configuration file for PostgreSQL version 13.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["max_connections"],
+    "reason": ["The property 'max_connections' has the value 'ciri' which is not of the correct type Integer."]
+}
+```

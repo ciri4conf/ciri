@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hbase.regionserver.region.split.policy</name>
+  <value>org.apache.hadoop.hbase.regionserver.SteppingSplitPolicy</value>
+    <description>
+      A split policy determines when a region should be split. The various
+      other split policies that are available currently are BusyRegionSplitPolicy,
+      ConstantSizeRegionSplitPolicy, DisabledRegionSplitPolicy,
+      DelimitedKeyPrefixRegionSplitPolicy, KeyPrefixRegionSplitPolicy, and
+      SteppingSplitPolicy. DisabledRegionSplitPolicy blocks manual region splitting.
+    </description>
+</property>
+
+<property>
+  <name>hbase.regionserver.minorcompaction.pagecache.drop</name>
+  <value>false</value>
+    <description>Specifies whether to drop pages read/written into the system page cache by
+      minor compactions. Setting it to true helps prevent minor compactions from
+      polluting the page cache, which is most beneficial on clusters with low
+      memory to storage ratio or very write heavy clusters. You may want to set it to
+      false under moderate to low write workload when bulk of the reads are
+      on the most recently written data.</description>
+</property>
+
+<property>
+  <name>hfile.block.index.cacheonwrite</name>
+  <value>true</value>
+      <description>This allows to put non-root multi-level index blocks into the block
+          cache at the time the index is being written.</description>
+</property>
+
+<property>
+  <name>hadoop.policy.file</name>
+  <value>hbase-policy.xml</value>
+    <description>The policy configuration file used by RPC servers to make
+      authorization decisions on client requests.  Only used when HBase
+      security is enabled.</description>
+</property>
+
+<property>
+  <name>hbase.hstore.checksum.algorithm</name>
+  <value>CRC32C</value>
+    <description>
+      Name of an algorithm that is used to compute checksums. Possible values
+      are NULL, CRC32, CRC32C.
+    </description>
+</property>
+
+<property>
+  <name>hbase.client.scanner.max.result.size</name>
+  <value>4194304</value>
+    <description>Maximum number of bytes returned when calling a scanner's next method.
+    Note that when a single row is larger than this limit the row is still returned completely.
+    The default value is 2MB, which is good for 1ge networks.
+    With faster and/or high latency networks this value should be increased.
+    </description>
+</property>
+
+<property>
+  <name>hbase.dynamic.jars.dir</name>
+  <value>/valid/file1</value>
+    <description>
+      The directory from which the custom filter JARs can be loaded
+      dynamically by the region server without the need to restart. However,
+      an already loaded filter/co-processor class would not be un-loaded. See
+      HBASE-1936 for more details.
+
+      Does not apply to coprocessors.
+    </description>
+</property>
+
+<property>
+  <name>hbase.security.authentication</name>
+  <value>simple</value>
+    <description>
+      Controls whether or not secure authentication is enabled for HBase.
+      Possible values are 'simple' (no authentication), and 'kerberos'.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HBase version 2.2.7? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["hbase.security.authentication"],
+    "reason": ["The value of the property 'hbase.security.authentication' should be 'kerberos' to enable the property 'rpc.metrics.percentiles.intervals'."]
+}
+```

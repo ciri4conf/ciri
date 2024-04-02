@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.node-ip-cache.expiry-interval-secs</name>
+  <value>-2</value>
+    <description>The expiry interval for node IP caching. -1 disables the caching</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.scheduler.monitor.enable</name>
+  <value>true</value>
+    <description>Enable a set of periodic monitors (specified in
+        yarn.resourcemanager.scheduler.monitor.policies) that affect the
+        scheduler.</description>
+</property>
+
+<property>
+  <name>yarn.system-metrics-publisher.enabled</name>
+  <value>true</value>
+    <description>The setting that controls whether yarn system metrics is
+    published on the Timeline service or not by RM And NM.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.runc.hdfs-manifest-to-resources-plugin.stat-cache-timeout-interval-secs</name>
+  <value>360</value>
+    <description>The timeout value in seconds for the values in
+      the stat cache.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.sandbox-mode.whitelist-group</name>
+  <value>xdgroup</value>
+    <description>The group which will run by default without the java security
+      manager.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.disk-validator</name>
+  <value>basic</value>
+    <description>
+      The name of disk validator.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.node-removal-untracked.timeout-ms</name>
+  <value>60000</value>
+    <description>
+    The least amount of time(msec.) an inactive (decommissioned or shutdown) node can
+    stay in the nodes list of the resourcemanager after being declared untracked.
+    A node is marked untracked if and only if it is absent from both include and
+    exclude nodemanager lists on the RM. All inactive nodes are checked twice per
+    timeout interval or every 10 minutes, whichever is lesser, and marked appropriately.
+    The same is done when refreshNodes command (graceful or otherwise) is invoked.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.activities-manager.app-activities.max-queue-length</name>
+  <value>100</value>
+    <description>Max queue length for app activities.</description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for YARN version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

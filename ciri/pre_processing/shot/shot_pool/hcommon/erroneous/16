@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hadoop.security.auth_to_local.mechanism</name>
+  <value>hadoop</value>
+  <description>The mechanism by which auth_to_local rules are evaluated.
+    If set to 'hadoop' it will not allow resulting local user names to have
+    either '@' or '/'. If set to 'MIT' it will follow MIT evaluation rules
+    and the restrictions of 'hadoop' do not apply.</description>
+</property>
+
+<property>
+  <name>fs.s3a.buffer.dir</name>
+  <value>/valid/file2</value>
+  <description>Comma separated list of directories that will be used to buffer file
+    uploads to.</description>
+</property>
+
+<property>
+  <name>fs.s3a.s3guard.ddb.table.create</name>
+  <value>true</value>
+  <description>
+    If true, the S3A client will create the table if it does not already exist.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.list.version</name>
+  <value>1</value>
+  <description>
+    Select which version of the S3 SDK's List Objects API to use.  Currently
+    support 2 (default) and 1 (older API).
+  </description>
+</property>
+
+<property>
+  <name>s3.client-write-packet-size</name>
+  <value>65536</value>
+  <description>Packet size for clients to write</description>
+</property>
+
+<property>
+  <name>ipc.[port_number].weighted-cost.lockexclusive</name>
+  <value>200</value>
+  <description>The weight multiplier to apply to the time spent in the
+    processing phase which holds an exclusive (write) lock.
+    This property applies to WeightedTimeCostProvider.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.registry.secure</name>
+  <value>true</value>
+    <description>
+      Key to set if the registry is secure. Turning it on
+      changes the permissions policy from "open access"
+      to restrictions on kerberos with the option of
+      a user adding one or more auth key pairs down their
+      own tree.
+    </description>
+</property>
+
+<property>
+  <name>hadoop.caller.context.signature.max.size</name>
+  <value>80</value>
+    <description>
+      The caller's signature (optional) is for offline validation. If the
+      signature exceeds the maximum allowed bytes in server, the caller context
+      will be abandoned, in which case the caller context will not be recorded
+      in audit logs.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HCommon version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["s3.client-write-packet-size"],
+    "reason": ["The property 's3.client-write-packet-size' was removed in the previous version and is not used in the current version."]
+}
+```

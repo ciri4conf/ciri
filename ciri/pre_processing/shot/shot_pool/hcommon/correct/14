@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>fs.du.interval</name>
+  <value>600000</value>
+  <description>File space usage statistics refresh interval in msec.</description>
+</property>
+
+<property>
+  <name>fs.AbstractFileSystem.abfs.impl</name>
+  <value>org.apache.hadoop.fs.azurebfs.Abfs</value>
+  <description>AbstractFileSystem implementation class of abfs://</description>
+</property>
+
+<property>
+  <name>ipc.client.connect.max.retries</name>
+  <value>10</value>
+  <description>Indicates the number of retries a client will make to establish
+               a server connection.
+  </description>
+</property>
+
+<property>
+  <name>ipc.[port_number].weighted-cost.lockfree</name>
+  <value>2</value>
+  <description>The weight multiplier to apply to the time spent in the
+    LOCKFREE phase which do not involve holding a lock.
+    See org.apache.hadoop.ipc.ProcessingDetails.Timing for more details on
+    this phase. This property applies to WeightedTimeCostProvider.
+  </description>
+</property>
+
+<property>
+  <name>file.blocksize</name>
+  <value>67108864</value>
+  <description>Block size</description>
+</property>
+
+<property>
+  <name>ftp.client-write-packet-size</name>
+  <value>65536</value>
+  <description>Packet size for clients to write</description>
+</property>
+
+<property>
+  <name>tfile.fs.output.buffer.size</name>
+  <value>524288</value>
+  <description>
+    Buffer size used for FSDataOutputStream in bytes.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.http.authentication.type</name>
+  <value>simple</value>
+  <description>
+    Defines authentication used for Oozie HTTP endpoint.
+    Supported values are: simple | kerberos | #AUTHENTICATION_HANDLER_CLASSNAME#
+  </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HCommon version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.namenode.https-address</name>
+  <value>0.0.0.0:3001</value>
+  <description>The namenode secure http server address and port.</description>
+</property>
+
+<property>
+  <name>dfs.namenode.redundancy.considerLoad</name>
+  <value>true</value>
+  <description>
+    Decide if chooseTarget considers the target's load or not when write.
+    Turn on by default.
+  </description>
+</property>
+
+<property>
+  <name>dfs.edit.log.transfer.timeout</name>
+  <value>30000</value>
+  <description>
+    Socket timeout for edit log transfer in milliseconds. This timeout
+    should be configured such that normal edit log transfer for journal
+    node syncing can complete successfully.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.fs-limits.max-xattr-size</name>
+  <value>32768</value>
+  <description>
+    The maximum combined size of the name and value of an extended attribute
+    in bytes. It should be larger than 0, and less than or equal to maximum
+    size hard limit which is 32768.
+    Support multiple size unit suffix(case insensitive), as described in
+    dfs.blocksize.
+  </description>
+</property>
+
+<property>
+  <name>dfs.datanode.lock-reporting-threshold-ms</name>
+  <value>300</value>
+  <description>When thread waits to obtain a lock, or a thread holds a lock for
+    more than the threshold, a log message will be written. Note that
+    dfs.lock.suppress.warning.interval ensures a single log message is
+    emitted per interval for waiting threads and a single message for holding
+    threads to avoid excessive logging.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.reencrypt.throttle.limit.updater.ratio</name>
+  <value>0.5</value>
+  <description>Throttling ratio for the re-encryption, indicating what fraction
+    of time should the re-encrypt updater thread work under NN write lock.
+    Larger than 1.0 values are interpreted as 1.0. Negative value or 0 are
+    invalid values and will fail NN startup.
+  </description>
+</property>
+
+<property>
+  <name>dfs.webhdfs.use.ipc.callq</name>
+  <value>false</value>
+    <description>Enables routing of webhdfs calls through rpc
+      call queue</description>
+</property>
+
+<property>
+  <name>dfs.datanode.disk.check.min.gap</name>
+  <value>30m</value>
+    <description>
+      The minimum gap between two successive checks of the same DataNode
+      volume. This setting supports multiple time unit suffixes as described
+      in dfs.heartbeat.interval. If no suffix is specified then milliseconds
+      is assumed.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HDFS version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

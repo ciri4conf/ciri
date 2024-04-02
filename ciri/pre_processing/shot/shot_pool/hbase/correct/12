@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>zookeeper.znode.acl.parent</name>
+  <value>acl</value>
+    <description>Root ZNode for access control lists.</description>
+</property>
+
+<property>
+  <name>hbase.zookeeper.peerport</name>
+  <value>2888</value>
+    <description>Port used by ZooKeeper peers to talk to each other.
+    See https://zookeeper.apache.org/doc/r3.3.3/zookeeperStarted.html#sc_RunningReplicatedZooKeeper
+    for more information.</description>
+</property>
+
+<property>
+  <name>hbase.hstore.flusher.count</name>
+  <value>1</value>
+    <description> The number of flush threads. With fewer threads, the MemStore flushes will be
+      queued. With more threads, the flushes will be executed in parallel, increasing the load on
+      HDFS, and potentially causing more compactions. </description>
+</property>
+
+<property>
+  <name>hbase.hstore.compaction.kv.max</name>
+  <value>20</value>
+    <description>The maximum number of KeyValues to read and then write in a batch when flushing or
+      compacting. Set this lower if you have big KeyValues and problems with Out Of Memory
+      Exceptions Set this higher if you have wide, small rows. </description>
+</property>
+
+<property>
+  <name>io.storefile.bloom.block.size</name>
+  <value>262144</value>
+      <description>The size in bytes of a single block ("chunk") of a compound Bloom
+          filter. This size is approximate, because Bloom blocks can only be
+          inserted at data block boundaries, and the number of keys per data
+          block varies.</description>
+</property>
+
+<property>
+  <name>hbase.regionserver.hostname</name>
+  <value>127.0.0.1</value>
+    <description>This config is for experts: don't set its value unless you really know what you are doing.
+    When set to a non-empty value, this represents the (external facing) hostname for the underlying server.
+    See https://issues.apache.org/jira/browse/HBASE-12954 for details.</description>
+</property>
+
+<property>
+  <name>hbase.regionserver.keytab.file</name>
+  <value>/valid/file2</value>
+    <description>Full path to the kerberos keytab file to use for logging in
+    the configured HRegionServer server principal.</description>
+</property>
+
+<property>
+  <name>hbase.mob.cache.evict.period</name>
+  <value>3600</value>
+    <description>
+      The amount of time in seconds before the mob cache evicts cached mob files.
+      The default value is 3600 seconds.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HBase version 2.2.7? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

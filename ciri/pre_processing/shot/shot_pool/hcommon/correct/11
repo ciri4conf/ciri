@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>fs.s3a.socket.recv.buffer</name>
+  <value>16384</value>
+  <description>Socket receive buffer hint to amazon connector. Represented in bytes.</description>
+</property>
+
+<property>
+  <name>fs.s3a.metadatastore.impl</name>
+  <value>org.apache.hadoop.fs.s3a.s3guard.NullMetadataStore</value>
+    <description>
+        Fully-qualified name of the class that implements the MetadataStore
+        to be used by s3a.  The default class, NullMetadataStore, has no
+        effect: s3a will continue to treat the backing S3 service as the one
+        and only source of truth for file and directory metadata.
+    </description>
+</property>
+
+<property>
+  <name>fs.s3a.change.detection.mode</name>
+  <value>server</value>
+  <description>
+    Determines how change detection is applied to alert to inconsistent S3
+    objects read during or after an overwrite. Value 'server' indicates to apply
+    the attribute constraint directly on GetObject requests to S3. Value 'client'
+    means to do a client-side comparison of the attribute value returned in the
+    response.  Value 'server' would not work with third-party S3 implementations
+    that do not support these constraints on GetObject. Values 'server' and
+    'client' generate RemoteObjectChangedException when a mismatch is detected.
+    Value 'warn' works like 'client' but generates only a warning.  Value 'none'
+    will ignore change detection completely.
+  </description>
+</property>
+
+<property>
+  <name>ipc.[port_number].decay-scheduler.period-ms</name>
+  <value>5000</value>
+  <description>How frequently the decay factor should be applied to the
+    operation counts of users. Higher values have less overhead, but respond
+    less quickly to changes in client behavior.
+    This property applies to DecayRpcScheduler.
+  </description>
+</property>
+
+<property>
+  <name>ipc.[port_number].decay-scheduler.decay-factor</name>
+  <value>1.0</value>
+  <description>When decaying the operation counts of users, the multiplicative
+    decay factor to apply. Higher values will weight older operations more
+    strongly, essentially giving the scheduler a longer memory, and penalizing
+    heavy clients for a longer period of time.
+    This property applies to DecayRpcScheduler.
+  </description>
+</property>
+
+<property>
+  <name>tfile.io.chunk.size</name>
+  <value>2097152</value>
+  <description>
+    Value chunk size in bytes. Default  to
+    1MB. Values of the length less than the chunk size is
+    guaranteed to have known value length in read time (See also
+    TFile.Reader.Scanner.Entry.isValueLengthKnown()).
+  </description>
+</property>
+
+<property>
+  <name>ha.health-monitor.sleep-after-disconnect.ms</name>
+  <value>500</value>
+  <description>
+    How long to sleep after an unexpected RPC error.
+  </description>
+</property>
+
+<property>
+  <name>ha.failover-controller.graceful-fence.connection.retries</name>
+  <value>2</value>
+  <description>
+    FC connection retries for graceful fencing
+  </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HCommon version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

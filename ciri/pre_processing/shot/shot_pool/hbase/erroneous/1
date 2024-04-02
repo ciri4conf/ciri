@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hbase.master.fileSplitTimeout</name>
+  <value>ciri</value>
+    <description>Splitting a region, how long to wait on the file-splitting
+      step before aborting the attempt. Default: 600000. This setting used
+      to be known as hbase.regionserver.fileSplitTimeout in hbase-1.x.
+      Split is now run master-side hence the rename (If a
+      'hbase.master.fileSplitTimeout' setting found, will use it to
+      prime the current 'hbase.master.fileSplitTimeout'
+      Configuration.</description>
+</property>
+
+<property>
+  <name>hfile.index.block.max.size</name>
+  <value>262144</value>
+      <description>When the size of a leaf-level, intermediate-level, or root-level
+          index block in a multi-level block index grows to this size, the
+          block is written out and a new block is started.</description>
+</property>
+
+<property>
+  <name>hbase.rs.cacheblocksonwrite</name>
+  <value>true</value>
+      <description>Whether an HFile block should be added to the block cache when the
+        block is finished.</description>
+</property>
+
+<property>
+  <name>hbase.regionserver.hostname</name>
+  <value>127.0.0.1</value>
+    <description>This config is for experts: don't set its value unless you really know what you are doing.
+    When set to a non-empty value, this represents the (external facing) hostname for the underlying server.
+    See https://issues.apache.org/jira/browse/HBASE-12954 for details.</description>
+</property>
+
+<property>
+  <name>hbase.regionserver.thrift.framed</name>
+  <value>false</value>
+    <description>Use Thrift TFramedTransport on the server side.
+      This is the recommended transport for thrift servers and requires a similar setting
+      on the client side. Changing this to false will select the default transport,
+      vulnerable to DoS when malformed requests are issued due to THRIFT-601.
+    </description>
+</property>
+
+<property>
+  <name>hbase.snapshot.working.dir</name>
+  <value>/valid/dir2</value>
+    <description>Location where the snapshotting process will occur. The location of the
+      completed snapshots will not change, but the temporary directory where the snapshot
+      process occurs will be set to this location. This can be a separate filesystem than
+      the root directory, for performance increase purposes. See HBASE-21098 for more
+      information</description>
+</property>
+
+<property>
+  <name>hbase.replication.source.maxthreads</name>
+  <value>1</value>
+    <description>
+        The maximum number of threads any replication source will use for
+        shipping edits to the sinks in parallel. This also limits the number of
+        chunks each replication batch is broken into. Larger values can improve
+        the replication throughput between the master and slave clusters. The
+        default of 10 will rarely need to be changed.
+    </description>
+</property>
+
+<property>
+  <name>hbase.rpc.rows.warning.threshold</name>
+  <value>5000</value>
+    <description>
+      Number of rows in a batch operation above which a warning will be logged.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HBase version 2.2.7? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["hbase.master.fileSplitTimeout"],
+    "reason": ["The property 'hbase.master.fileSplitTimeout' has the value 'ciri' which is not of the correct type Integer."]
+}
+```

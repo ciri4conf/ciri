@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hbase.master.info.bindAddress</name>
+  <value>xxx.0.0.0</value>
+    <description>The bind address for the HBase Master web UI
+    </description>
+</property>
+
+<property>
+  <name>hbase.master.infoserver.redirect</name>
+  <value>true</value>
+    <description>Whether or not the Master listens to the Master web
+      UI port (hbase.master.info.port) and redirects requests to the web
+      UI server shared by the Master and RegionServer. Config. makes
+      sense when Master is serving Regions (not the default).</description>
+</property>
+
+<property>
+  <name>hbase.regionserver.global.memstore.size.lower.limit</name>
+  <value>0.1</value>
+    <description>Maximum size of all memstores in a region server before flushes
+      are forced. Defaults to 95% of hbase.regionserver.global.memstore.size
+      (0.95). A 100% value for this value causes the minimum possible flushing
+      to occur when updates are blocked due to memstore limiting. The default
+      value in this configuration has been intentionally left empty in order to
+      honor the old hbase.regionserver.global.memstore.lowerLimit property if
+      present.
+    </description>
+</property>
+
+<property>
+  <name>hbase.hregion.memstore.block.multiplier</name>
+  <value>1</value>
+    <description>
+    Block updates if memstore has hbase.hregion.memstore.block.multiplier
+    times hbase.hregion.memstore.flush.size bytes.  Useful preventing
+    runaway memstore during spikes in update traffic.  Without an
+    upper-bound, memstore fills such that when it flushes the
+    resultant flush files take a long time to compact or split, or
+    worse, we OOME.</description>
+</property>
+
+<property>
+  <name>io.storefile.bloom.block.size</name>
+  <value>262144</value>
+      <description>The size in bytes of a single block ("chunk") of a compound Bloom
+          filter. This size is approximate, because Bloom blocks can only be
+          inserted at data block boundaries, and the number of keys per data
+          block varies.</description>
+</property>
+
+<property>
+  <name>hbase.snapshot.working.dir</name>
+  <value>/valid/dir1</value>
+    <description>Location where the snapshotting process will occur. The location of the
+      completed snapshots will not change, but the temporary directory where the snapshot
+      process occurs will be set to this location. This can be a separate filesystem than
+      the root directory, for performance increase purposes. See HBASE-21098 for more
+      information</description>
+</property>
+
+<property>
+  <name>hbase.snapshot.master.timeout.millis</name>
+  <value>300000</value>
+    <description>
+       Timeout for master for the snapshot procedure execution.
+    </description>
+</property>
+
+<property>
+  <name>hbase.snapshot.region.timeout</name>
+  <value>150000</value>
+    <description>
+       Timeout for regionservers to keep threads in snapshot request pool waiting.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HBase version 2.2.7? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["hbase.master.info.bindAddress"],
+    "reason": ["The property 'hbase.master.info.bindAddress' has the value 'xxx.0.0.0' which does not follow the correct IP address format."]
+}
+```

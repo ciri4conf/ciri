@@ -1,0 +1,32 @@
+DEBUG_PROPAGATE_EXCEPTIONS=-1
+
+SESSION_SAVE_EVERY_REQUEST=False
+
+EMAIL_SSL_KEYFILE=None
+
+WSGI_APPLICATION=None
+
+TEST_NON_SERIALIZED_APPS=[]
+
+FORCE_SCRIPT_NAME=None
+
+CSRF_COOKIE_DOMAIN=None
+
+CSRF_COOKIE_SAMESITE='Lax'
+
+
+Question: Are there any mistakes in the above configuration file for Django version 4.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["DEBUG_PROPAGATE_EXCEPTIONS"],
+    "reason": ["The property 'DEBUG_PROPAGATE_EXCEPTIONS' has the value '-1' which is not within the accepted value {true,false}."]
+}
+```

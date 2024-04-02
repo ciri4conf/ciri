@@ -1,0 +1,32 @@
+DATA_UPLOAD_MAX_NUMBER_FIELDS=ciri
+
+FIRST_DAY_OF_WEEK=1
+
+EMAIL_USE_TLS=True
+
+FILE_UPLOAD_PERMISSIONS=0o644
+
+LOGIN_REDIRECT_URL='/accounts/profile/'
+
+ALLOWED_HOSTS=[]
+
+FIXTURE_DIRS=[]
+
+DATETIME_FORMAT='N j, Y, P'
+
+
+Question: Are there any mistakes in the above configuration file for Django version 4.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["DATA_UPLOAD_MAX_NUMBER_FIELDS"],
+    "reason": ["The property 'DATA_UPLOAD_MAX_NUMBER_FIELDS' has the value 'ciri' which is not of the correct type Integer."]
+}
+```

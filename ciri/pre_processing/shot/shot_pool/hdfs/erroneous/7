@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.bytes-per-checksum</name>
+  <value>512</value>
+  <description>The number of bytes per checksum.  Must not be larger than
+  dfs.stream-buffer-size</description>
+</property>
+
+<property>
+  <name>dfs.image.parallel.target.sections</name>
+  <value>6</value>
+  <description>
+        Controls the number of sub-sections that will be written to
+        fsimage for each section. This should be larger than
+        dfs.image.parallel.threads, otherwise all threads will not be
+        used when loading. Ideally, have at least twice the number
+        of target sections as threads, so each thread must load more
+        than one section to avoid one long running section affecting
+        the load time.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.failover.max.attempts</name>
+  <value>7</value>
+  <description>
+    Expert only. The number of client failover attempts that should be
+    made before the failover is considered failed.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.deadnode.detection.probe.connection.timeout.ms</name>
+  <value>10000</value>
+    <description>
+      Connection timeout for probing dead node in milliseconds.
+    </description>
+</property>
+
+<property>
+  <name>dfs.balancer.moverThreads</name>
+  <value>2000</value>
+  <description>
+    Thread pool size for executing block moves.
+    moverThreadAllocator
+  </description>
+</property>
+
+<property>
+  <name>dfs.block.placement.ec.classname</name>
+  <value>org.apache.hadoop.hdfs.server.blockmanagement.BlockPlacementPolicyRackFaultTolerant</value>
+  <description>
+    Placement policy class for striped files.
+    Defaults to BlockPlacementPolicyRackFaultTolerant.class
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.edits.dir.minimum</name>
+  <value>2</value>
+  <description>
+    dfs.namenode.edits.dir includes both required directories
+    (specified by dfs.namenode.edits.dir.required) and optional directories.
+
+    The number of usable optional directories must be greater than or equal
+    to this property.  If the number of usable optional directories falls
+    below dfs.namenode.edits.dir.minimum, HDFS will issue an error.
+
+    This property defaults to 1.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.storage.dir.perm</name>
+  <value>ciri</value>
+    <description>
+      Permissions for the directories on on the local filesystem where
+      the DFS namenode stores the fsImage. The permissions can either be
+      octal or symbolic.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HDFS version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["dfs.namenode.storage.dir.perm"],
+    "reason": ["The property 'dfs.namenode.storage.dir.perm' has the value 'ciri' which does not follow the correct permission format."]
+}
+```

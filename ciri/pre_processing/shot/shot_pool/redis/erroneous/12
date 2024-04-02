@@ -1,0 +1,32 @@
+set-max-listpack-entries=128
+
+cluster-announce-port=2
+
+cluster-announce-ip=127.0.0.1
+
+tls-session-cache-size=5000
+
+client-output-buffer-limit=normal 0 0 0
+
+enable-debug-command=no
+
+unixsocketperm=350
+
+replica-announce-port=1234
+
+
+Question: Are there any mistakes in the above configuration file for Redis version 7.0.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["set-max-listpack-entries"],
+    "reason": ["The property 'set-max-listpack-entries' is not used in the current version."]
+}
+```

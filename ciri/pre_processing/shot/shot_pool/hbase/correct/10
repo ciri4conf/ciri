@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hbase.master.logcleaner.plugins</name>
+  <value>org.apache.hadoop.hbase.master.cleaner.TimeToLiveLogCleaner</value>
+    <description>A comma-separated list of BaseLogCleanerDelegate invoked by
+    the LogsCleaner service. These WAL cleaners are called in order,
+    so put the cleaner that prunes the most files in front. To
+    implement your own BaseLogCleanerDelegate, just put it in HBase's classpath
+    and add the fully qualified class name here. Always add the above
+    default log cleaners in the list.</description>
+</property>
+
+<property>
+  <name>hbase.regions.slop</name>
+  <value>0.001</value>
+    <description>Rebalance if any regionserver has average + (average * slop) regions.
+      The default value of this parameter is 0.001 in StochasticLoadBalancer (the default load balancer),
+      while the default is 0.2 in other load balancers (i.e., SimpleLoadBalancer).</description>
+</property>
+
+<property>
+  <name>hbase.hregion.memstore.block.multiplier</name>
+  <value>4</value>
+    <description>
+    Block updates if memstore has hbase.hregion.memstore.block.multiplier
+    times hbase.hregion.memstore.flush.size bytes.  Useful preventing
+    runaway memstore during spikes in update traffic.  Without an
+    upper-bound, memstore fills such that when it flushes the
+    resultant flush files take a long time to compact or split, or
+    worse, we OOME.</description>
+</property>
+
+<property>
+  <name>hbase.hstore.blockingStoreFiles</name>
+  <value>8</value>
+    <description> If more than this number of StoreFiles exist in any one Store (one StoreFile
+     is written per flush of MemStore), updates are blocked for this region until a compaction is
+      completed, or until hbase.hstore.blockingWaitTime has been exceeded.</description>
+</property>
+
+<property>
+  <name>hfile.index.block.max.size</name>
+  <value>65536</value>
+      <description>When the size of a leaf-level, intermediate-level, or root-level
+          index block in a multi-level block index grows to this size, the
+          block is written out and a new block is started.</description>
+</property>
+
+<property>
+  <name>hbase.regionserver.hostname.disable.master.reversedns</name>
+  <value>false</value>
+    <description>This config is for experts: don't set its value unless you really know what you are doing.
+    When set to true, regionserver will use the current node hostname for the servername and HMaster will
+    skip reverse DNS lookup and use the hostname sent by regionserver instead. Note that this config and
+    hbase.regionserver.hostname are mutually exclusive. See https://issues.apache.org/jira/browse/HBASE-18226
+    for more details.</description>
+</property>
+
+<property>
+  <name>hbase.master.loadbalance.bytable</name>
+  <value>false</value>
+    <description>Factor Table name when the balancer runs.
+      Default: false.
+    </description>
+</property>
+
+<property>
+  <name>hbase.mob.compaction.threads.max</name>
+  <value>2</value>
+    <description>
+      The max number of threads used in MobCompactor.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HBase version 2.2.7? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

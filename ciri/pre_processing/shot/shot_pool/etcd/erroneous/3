@@ -1,0 +1,32 @@
+listen-peer-urls: file:/
+
+enable-pprof: false
+
+enable-v2: true
+
+proxy-write-timeout: 10000
+
+strict-reconfig-check: true
+
+logger: zap
+
+initial-cluster-state: 'new'
+
+force-new-cluster: true
+
+
+Question: Are there any mistakes in the above configuration file for etcd version 3.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["listen-peer-urls"],
+    "reason": ["The property 'listen-peer-urls' has the value 'file:/' which does not follow the correct URL format."]
+}
+```

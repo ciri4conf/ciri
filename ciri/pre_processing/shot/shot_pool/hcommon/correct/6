@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>fs.AbstractFileSystem.viewfs.impl</name>
+  <value>org.apache.hadoop.fs.viewfs.ViewFs</value>
+  <description>The AbstractFileSystem for view file system for viewfs: uris
+  (ie client side mount table:).</description>
+</property>
+
+<property>
+  <name>fs.s3a.connection.ssl.enabled</name>
+  <value>true</value>
+  <description>Enables or disables SSL connections to AWS services.
+    Also sets the default port to use for the s3a proxy settings,
+    when not explicitly set in fs.s3a.proxy.port.</description>
+</property>
+
+<property>
+  <name>fs.s3a.block.size</name>
+  <value>16M</value>
+  <description>Block size to use when reading files using s3a: file system.
+    A suffix from the set {K,M,G,T,P} may be used to scale the numeric value.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.select.input.csv.quote.escape.character</name>
+  <value>\\</value>
+  <description>In S3 Select queries over CSV files: quote escape character.
+    \t is remapped to the TAB character, \r to CR \n to newline. \\ to \
+    and \" to "
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.select.output.csv.quote.escape.character</name>
+  <value>\\</value>
+  <description>
+    In S3 Select queries: the quote escape character for generated CSV Files.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.etag.checksum.enabled</name>
+  <value>true</value>
+  <description>
+    Should calls to getFileChecksum() return the etag value of the remote
+    object.
+    WARNING: if enabled, distcp operations between HDFS and S3 will fail unless
+    -skipcrccheck is set.
+  </description>
+</property>
+
+<property>
+  <name>ipc.server.max.connections</name>
+  <value>1</value>
+  <description>The maximum number of concurrent connections a server is allowed
+    to accept. If this limit is exceeded, incoming connections will first fill
+    the listen queue and then may go to an OS-specific listen overflow queue.
+    The client may fail or timeout, but the server can avoid running out of file
+    descriptors using this feature. 0 means no limit.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.domainname.resolver.impl</name>
+  <value>org.apache.hadoop.net.DNSDomainNameResolver</value>
+    <description>The implementation of DomainNameResolver used for service (NameNodes,
+      RBF Routers etc) discovery. The default implementation
+      org.apache.hadoop.net.DNSDomainNameResolver returns all IP addresses associated
+      with the input domain name of the services by querying the underlying DNS.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HCommon version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

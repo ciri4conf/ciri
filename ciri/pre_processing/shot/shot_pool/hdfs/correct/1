@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.datanode.http.internal-proxy.port</name>
+  <value>0</value>
+  <description>
+    The datanode's internal web proxy port.
+    By default it selects a random port available in runtime.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.decommission.monitor.class</name>
+  <value>org.apache.hadoop.hdfs.server.blockmanagement.DatanodeAdminDefaultMonitor</value>
+  <description>
+    Determines the implementation used for the decommission manager. The only
+    valid options are:
+
+    org.apache.hadoop.hdfs.server.blockmanagement.DatanodeAdminDefaultMonitor
+    org.apache.hadoop.hdfs.server.blockmanagement.DatanodeAdminBackoffMonitor
+
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.failover.max.attempts</name>
+  <value>7</value>
+  <description>
+    Expert only. The number of client failover attempts that should be
+    made before the failover is considered failed.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.failover.sleep.base.millis</name>
+  <value>250</value>
+  <description>
+    Expert only. The time to wait, in milliseconds, between failover
+    attempts increases exponentially as a function of the number of
+    attempts made so far, with a random factor of +/- 50%. This option
+    specifies the base value used in the failover calculation. The
+    first failover will retry immediately. The 2nd failover attempt
+    will delay at least dfs.client.failover.sleep.base.millis
+    milliseconds. And so on.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.keytab.file</name>
+  <value>/valid/file1</value>
+  <description>
+    The keytab file used by each NameNode daemon to login as its
+    service principal. The principal name is configured with
+    dfs.namenode.kerberos.principal.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.context</name>
+  <value>default</value>
+  <description>
+    The name of the DFSClient context that we should use.  Clients that share
+    a context share a socket cache and short-circuit cache, among other things.
+    You should only change this if you don't want to share with another set of
+    threads.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.snapshot.skiplist.interval</name>
+  <value>10</value>
+  <description>
+    The interval after which the skip levels will be formed in the skip list
+    for storing directory snapshot diffs. By default, value is set to 10.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.corrupt.block.delete.immediately.enabled</name>
+  <value>true</value>
+    <description>
+      Whether the corrupt replicas should be deleted immediately, irrespective
+      of other replicas on stale storages..
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HDFS version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

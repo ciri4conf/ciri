@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.namenode.safemode.extension</name>
+  <value>60000</value>
+  <description>
+    Determines extension of safe mode in milliseconds after the threshold level
+    is reached.  Support multiple time unit suffix (case insensitive), as
+    described in dfs.heartbeat.interval.
+  </description>
+</property>
+
+<property>
+  <name>dfs.datanode.outliers.report.interval</name>
+  <value>60m</value>
+  <description>
+    This setting controls how frequently DataNodes will report their peer
+    latencies to the NameNode via heartbeats.  This setting supports
+    multiple time unit suffixes as described in dfs.heartbeat.interval.
+    If no suffix is specified then milliseconds is assumed.
+
+    It is ignored if dfs.datanode.peer.stats.enabled is false.
+  </description>
+</property>
+
+<property>
+  <name>dfs.client.mmap.cache.size</name>
+  <value>512</value>
+  <description>
+    When zero-copy reads are used, the DFSClient keeps a cache of recently used
+    memory mapped regions.  This parameter controls the maximum number of
+    entries that we will keep in that cache.
+
+    The larger this number is, the more file descriptors we will potentially
+    use for memory-mapped files.  mmaped files also use virtual address space.
+    You may need to increase your ulimit virtual address space limits before
+    increasing the client mmap cache size.
+
+    Note that you can still do zero-copy reads when this size is set to 0.
+  </description>
+</property>
+
+<property>
+  <name>dfs.ha.zkfc.port</name>
+  <value>-1</value>
+  <description>
+    The port number that the zookeeper failover controller RPC
+    server binds to.
+  </description>
+</property>
+
+<property>
+  <name>dfs.storage.policy.satisfier.retry.max.attempts</name>
+  <value>1</value>
+  <description>
+    Max retry to satisfy the block storage policy. After this retry block will be removed
+    from the movement needed queue.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.provided.enabled</name>
+  <value>true</value>
+    <description>
+      Enables the Namenode to handle provided storages.
+    </description>
+</property>
+
+<property>
+  <name>dfs.provided.aliasmap.text.write.dir</name>
+  <value>/valid/dir2</value>
+    <description>
+        The path to which the provided block map should be written as a text
+        file, specified as a URI.
+    </description>
+</property>
+
+<property>
+  <name>dfs.provided.acls.import.enabled</name>
+  <value>true</value>
+    <description>
+      Set to true to inherit ACLs (Access Control Lists) from remote stores
+      during mount. Disabled by default, i.e., ACLs are not inherited from
+      remote stores. Note had HDFS ACLs have to be enabled
+      (dfs.namenode.acls.enabled must be set to true) for this to take effect.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HDFS version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["dfs.ha.zkfc.port"],
+    "reason": ["The property 'dfs.ha.zkfc.port' has the value '-1' which is out of the valid range of a port number."]
+}
+```

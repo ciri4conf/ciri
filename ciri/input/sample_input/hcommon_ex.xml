@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>io.compression.codec.bzip2.library</name>
+  <value>system-native</value>
+  <description>The native-code library to be used for compression and
+  decompression by the bzip2 codec.  This library could be specified
+  either by by name or the full pathname.  In the former case, the
+  library is located by the dynamic linker, usually searching the
+  directories specified in the environment variable LD_LIBRARY_PATH.
+
+  The value of "system-native" indicates that the default system
+  library should be used.  To indicate that the algorithm should
+  operate entirely in Java, specify "java-builtin".</description>
+</property>
+
+<property>
+  <name>fs.default.name</name>
+  <value>file//</value>
+  <description>Deprecated. Use (fs.defaultFS) property
+  instead</description>
+</property>
+
+<property>
+  <name>fs.s3a.threads.keepalivetime</name>
+  <value>30</value>
+  <description>Number of seconds a thread can be idle before being
+    terminated.</description>
+</property>
+
+<property>
+  <name>ipc.client.low-latency</name>
+  <value>true</value>
+  <description>Use low-latency QoS markers for IPC connections.
+  </description>
+</property>
+
+<property>
+  <name>file.blocksize</name>
+  <value>33554432</value>
+  <description>Block size</description>
+</property>
+
+<property>
+  <name>ha.health-monitor.check-interval.ms</name>
+  <value>1000</value>
+  <description>
+    How often to check the service.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.registry.zk.quorum</name>
+  <value>localhost:2181</value>
+    <description>
+      List of hostname:port pairs defining the
+      zookeeper quorum binding for the registry
+    </description>
+</property>
+
+<property>
+  <name>fs.AbstractFileSystem.adl.impl</name>
+  <value>org.apache.hadoop.fs.adl.Adl</value>
+</property>
+
+</configuration>

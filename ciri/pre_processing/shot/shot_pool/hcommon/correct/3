@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>fs.ftp.data.connection.mode</name>
+  <value>ACTIVE_LOCAL_DATA_CONNECTION_MODE</value>
+  <description>Set the FTPClient's data connection mode based on configuration.
+    Valid values are ACTIVE_LOCAL_DATA_CONNECTION_MODE,
+    PASSIVE_LOCAL_DATA_CONNECTION_MODE and PASSIVE_REMOTE_DATA_CONNECTION_MODE.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.s3guard.ddb.table.create</name>
+  <value>true</value>
+  <description>
+    If true, the S3A client will create the table if it does not already exist.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.retry.throttle.limit</name>
+  <value>10</value>
+  <description>
+    Number of times to retry any throttled request.
+  </description>
+</property>
+
+<property>
+  <name>fs.AbstractFileSystem.abfs.impl</name>
+  <value>org.apache.hadoop.fs.azurebfs.Abfs</value>
+  <description>AbstractFileSystem implementation class of abfs://</description>
+</property>
+
+<property>
+  <name>fs.azure.saskey.usecontainersaskeyforallaccess</name>
+  <value>false</value>
+  <description>
+    Use container saskey for access to all blobs within the container.
+    Blob-specific saskeys are not used when this setting is enabled.
+    This setting provides better performance compared to blob-specific saskeys.
+  </description>
+</property>
+
+<property>
+  <name>ipc.[port_number].weighted-cost.lockfree</name>
+  <value>2</value>
+  <description>The weight multiplier to apply to the time spent in the
+    LOCKFREE phase which do not involve holding a lock.
+    See org.apache.hadoop.ipc.ProcessingDetails.Timing for more details on
+    this phase. This property applies to WeightedTimeCostProvider.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.rpc.socket.factory.class.default</name>
+  <value>org.apache.hadoop.net.StandardSocketFactory</value>
+  <description> Default SocketFactory to use. This parameter is expected to be
+    formatted as "package.FactoryClassName".
+  </description>
+</property>
+
+<property>
+  <name>hadoop.tags.system</name>
+  <value>HDFS</value>
+    <description>
+      System tags to group related properties together.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HCommon version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

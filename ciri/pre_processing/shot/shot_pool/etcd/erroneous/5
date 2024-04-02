@@ -1,0 +1,32 @@
+strict-reconfig-check: -1
+
+auto-tls: true
+
+snapshot-count: 20000
+
+logger: zap
+
+discovery-fallback: 'proxy'
+
+client-cert-auth: true
+
+log-outputs: [stderr]
+
+enable-pprof: true
+
+
+Question: Are there any mistakes in the above configuration file for etcd version 3.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["strict-reconfig-check"],
+    "reason": ["The property 'strict-reconfig-check' has the value '-1' which is not within the accepted value {true,false}."]
+}
+```

@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hbase.ipc.server.callqueue.scan.ratio</name>
+  <value>-1</value>
+    <description>Given the number of read call queues, calculated from the total number
+      of call queues multiplied by the callqueue.read.ratio, the scan.ratio property
+      will split the read call queues into small-read and long-read queues.
+      A value lower than 0.5 means that there will be less long-read queues than short-read queues.
+      A value of 0.5 means that there will be the same number of short-read and long-read queues.
+      A value greater than 0.5 means that there will be more long-read queues than short-read queues
+      A value of 0 or 1 indicate to use the same set of queues for gets and scans.
+
+      Example: Given the total number of read call queues being 8
+      a scan.ratio of 0 or 1 means that: 8 queues will contain both long and short read requests.
+      a scan.ratio of 0.3 means that: 2 queues will contain only long-read requests
+      and 6 queues will contain only short-read requests.
+      a scan.ratio of 0.5 means that: 4 queues will contain only long-read requests
+      and 4 queues will contain only short-read requests.
+      a scan.ratio of 0.8 means that: 6 queues will contain only long-read requests
+      and 2 queues will contain only short-read requests.
+    </description>
+</property>
+
+<property>
+  <name>hbase.rs.cacheblocksonwrite</name>
+  <value>false</value>
+      <description>Whether an HFile block should be added to the block cache when the
+        block is finished.</description>
+</property>
+
+<property>
+  <name>hbase.client.operation.timeout</name>
+  <value>2400000</value>
+    <description>Operation timeout is a top-level restriction (millisecond) that makes sure a
+      blocking operation in Table will not be blocked more than this. In each operation, if rpc
+      request fails because of timeout or other reason, it will retry until success or throw
+      RetriesExhaustedException. But if the total time being blocking reach the operation timeout
+      before retries exhausted, it will break early and throw SocketTimeoutException.</description>
+</property>
+
+<property>
+  <name>hbase.superuser</name>
+  <value>xdsuper</value>
+    <description>List of users or groups (comma-separated), who are allowed
+    full privileges, regardless of stored ACLs, across the cluster.
+    Only used when HBase security is enabled.</description>
+</property>
+
+<property>
+  <name>hbase.ipc.server.fallback-to-simple-auth-allowed</name>
+  <value>false</value>
+    <description>When a server is configured to require secure connections, it will
+      reject connection attempts from clients using SASL SIMPLE (unsecure) authentication.
+      This setting allows secure servers to accept SASL SIMPLE connections from clients
+      when the client requests.  When false (the default), the server will not allow the fallback
+      to SIMPLE authentication, and will reject the connection.  WARNING: This setting should ONLY
+      be used as a temporary measure while converting clients over to secure authentication.  It
+      MUST BE DISABLED for secure operation.</description>
+</property>
+
+<property>
+  <name>hbase.rest.support.proxyuser</name>
+  <value>true</value>
+    <description>Enables running the REST server to support proxy-user mode.</description>
+</property>
+
+<property>
+  <name>hbase.hstore.checksum.algorithm</name>
+  <value>CRC32C</value>
+    <description>
+      Name of an algorithm that is used to compute checksums. Possible values
+      are NULL, CRC32, CRC32C.
+    </description>
+</property>
+
+<property>
+  <name>hbase.dynamic.jars.dir</name>
+  <value>/valid/file2</value>
+    <description>
+      The directory from which the custom filter JARs can be loaded
+      dynamically by the region server without the need to restart. However,
+      an already loaded filter/co-processor class would not be un-loaded. See
+      HBASE-1936 for more details.
+
+      Does not apply to coprocessors.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HBase version 2.2.7? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hadoop.security.groups.shell.command.timeout</name>
+  <value>2s</value>
+  <description>
+    Used by the ShellBasedUnixGroupsMapping class, this property controls how
+    long to wait for the underlying shell command that is run to fetch groups.
+    Expressed in seconds (e.g. 10s, 1m, etc.), if the running command takes
+    longer than the value configured, the command is aborted and the groups
+    resolver would return a result of no groups found. A value of 0s (default)
+    would mean an infinite wait (i.e. wait until the command exits on its own).
+  </description>
+</property>
+
+<property>
+  <name>hadoop.security.group.mapping.providers.combined</name>
+  <value>true</value>
+  <description>
+    true or false to indicate whether groups from the providers are combined or
+    not. The default value is true. If true, then all the providers will be
+    tried to get groups and all the groups are combined to return as the final
+    results. Otherwise, providers are tried one by one in the configured list
+    order, and if any groups are retrieved from any provider, then the groups
+    will be returned without trying the left ones.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.impl</name>
+  <value>org.apache.hadoop.fs.s3a.S3AFileSystem</value>
+  <description>The implementation class of the S3A Filesystem</description>
+</property>
+
+<property>
+  <name>fs.s3a.committer.name</name>
+  <value>file</value>
+  <description>
+    Committer to create for output to S3A, one of:
+    "file", "directory", "partitioned", "magic".
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.committer.staging.abort.pending.uploads</name>
+  <value>true</value>
+  <description>
+    Should the staging committers abort all pending uploads to the destination
+    directory?
+
+    Changing this if more than one partitioned committer is
+    writing to the same destination tree simultaneously; otherwise
+    the first job to complete will cancel all outstanding uploads from the
+    others. However, it may lead to leaked outstanding uploads from failed
+    tasks. If disabled, configure the bucket lifecycle to remove uploads
+    after a time period, and/or set up a workflow to explicitly delete
+    entries. Otherwise there is a risk that uncommitted uploads may run up
+    bills.
+  </description>
+</property>
+
+<property>
+  <name>ftp.client-write-packet-size</name>
+  <value>32768</value>
+  <description>Packet size for clients to write</description>
+</property>
+
+<property>
+  <name>tfile.io.chunk.size</name>
+  <value>1048576</value>
+  <description>
+    Value chunk size in bytes. Default  to
+    1MB. Values of the length less than the chunk size is
+    guaranteed to have known value length in read time (See also
+    TFile.Reader.Scanner.Entry.isValueLengthKnown()).
+  </description>
+</property>
+
+<property>
+  <name>fs.adl.oauth2.access.token.provider.type</name>
+  <value>ClientCredential</value>
+    <description>
+      Defines Azure Active Directory OAuth2 access token provider type.
+      Supported types are ClientCredential, RefreshToken, MSI, DeviceCode,
+      and Custom.
+      The ClientCredential type requires property fs.adl.oauth2.client.id,
+      fs.adl.oauth2.credential, and fs.adl.oauth2.refresh.url.
+      The RefreshToken type requires property fs.adl.oauth2.client.id and
+      fs.adl.oauth2.refresh.token.
+      The MSI type reads optional property fs.adl.oauth2.msi.port, if specified.
+      The DeviceCode type requires property
+      fs.adl.oauth2.devicecode.clientapp.id.
+      The Custom type requires property fs.adl.oauth2.access.token.provider.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HCommon version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

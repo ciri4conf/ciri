@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>dfs.namenode.lazypersist.file.scrub.interval.sec</name>
+  <value>150</value>
+  <description>
+    The NameNode periodically scans the namespace for LazyPersist files with
+    missing blocks and unlinks them from the namespace. This configuration key
+    controls the interval between successive scans. If this value is set to 0,
+    the file scrubber is disabled.
+  </description>
+</property>
+
+<property>
+  <name>dfs.datanode.directoryscan.threads</name>
+  <value>2</value>
+  <description>How many threads should the threadpool used to compile reports
+  for volumes in parallel have.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.resource.du.reserved</name>
+  <value>209715200</value>
+  <description>
+    The amount of space to reserve/require for a NameNode storage directory
+    in bytes. The default is 100MB. Support multiple size unit
+    suffix(case insensitive), as described in dfs.blocksize.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.checkpoint.edits.dir</name>
+  <value>${dfs.namenode.checkpoint.dir}</value>
+  <description>Determines where on the local filesystem the DFS secondary
+      name node should store the temporary edits to merge.
+      If this is a comma-delimited list of directories then the edits is
+      replicated in all of the directories for redundancy.
+      Default value is same as dfs.namenode.checkpoint.dir
+  </description>
+</property>
+
+<property>
+  <name>dfs.internal.nameservices</name>
+  <value>ns1</value>
+  <description>
+    Comma-separated list of nameservices that belong to this cluster.
+    Datanode will report to all the nameservices in this list. By default
+    this is set to the value of dfs.nameservices.
+  </description>
+</property>
+
+<property>
+  <name>dfs.datanode.lock-reporting-threshold-ms</name>
+  <value>150</value>
+  <description>When thread waits to obtain a lock, or a thread holds a lock for
+    more than the threshold, a log message will be written. Note that
+    dfs.lock.suppress.warning.interval ensures a single log message is
+    emitted per interval for waiting threads and a single message for holding
+    threads to avoid excessive logging.
+  </description>
+</property>
+
+<property>
+  <name>dfs.namenode.blocks.per.postponedblocks.rescan</name>
+  <value>5000</value>
+  <description>Number of blocks to rescan for each iteration of
+    postponedMisreplicatedBlocks.
+  </description>
+</property>
+
+<property>
+  <name>dfs.qjournal.parallel-read.num-threads</name>
+  <value>10</value>
+  <description>
+    Number of threads per JN to be used for tailing edits.
+  </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HDFS version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

@@ -1,0 +1,32 @@
+autopurge.snapRetainCount=ciri
+
+syncLimit=1
+
+quorum.auth.learner.saslLoginContext=QuorumLearner
+
+minSessionTimeout=-1
+
+clientPortAddress=0.0.0.0:3001
+
+quorum.auth.enableSasl=true
+
+autopurge.purgeInterval=1
+
+maxClientCnxns=60
+
+
+Question: Are there any mistakes in the above configuration file for ZooKeeper version 3.7.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["autopurge.snapRetainCount"],
+    "reason": ["The property 'autopurge.snapRetainCount' has the value 'ciri' which is not of the correct type Integer."]
+}
+```

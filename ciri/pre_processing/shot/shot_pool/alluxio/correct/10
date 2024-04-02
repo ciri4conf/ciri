@@ -1,0 +1,32 @@
+alluxio.user.ufs.block.read.location.policy=alluxio.client.block.policy.LocalFirstPolicy
+
+alluxio.worker.management.block.transfer.concurrency.limit=8
+
+alluxio.proxy.web.bind.host=0.0.0.0
+
+alluxio.master.lock.pool.high.watermark=500000
+
+alluxio.worker.network.reader.buffer.size=8MB
+
+alluxio.master.lost.worker.detection.interval=10sec
+
+alluxio.user.rpc.retry.max.sleep=6sec
+
+alluxio.master.metastore.inode.iteration.crawler.count=1
+
+
+Question: Are there any mistakes in the above configuration file for Alluxio version 2.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

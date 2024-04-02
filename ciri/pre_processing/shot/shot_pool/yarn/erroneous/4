@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.fs.state-store.retry-interval-ms</name>
+  <value>2000</value>
+    <description>Retry interval in milliseconds in FileSystemRMStateStore.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.resource.system-reserved-memory-mb</name>
+  <value>-2</value>
+    <description>Amount of physical memory, in MB, that is reserved
+    for non-YARN processes. This configuration is only used if
+    yarn.nodemanager.resource.detect-hardware-capabilities is set
+    to true and yarn.nodemanager.resource.memory-mb is -1. If set
+    to -1, this amount is calculated as
+    20% of (system memory - 2*HADOOP_HEAPSIZE)
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.health-checker.timeout-ms</name>
+  <value>2400000</value>
+    <description>Health check script time out period.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.health-checker.interval-ms</name>
+  <value>3000000000</value>
+    <description>Frequency of running node health scripts.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.sleep-delay-before-sigkill.ms</name>
+  <value>500</value>
+    <description>No. of ms to wait between sending a SIGTERM and SIGKILL to a container</description>
+</property>
+
+<property>
+  <name>yarn.sharedcache.nested-level</name>
+  <value>3</value>
+    <description>The level of nested directories before getting to the checksum
+    directories. It must be non-negative.</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.webapp.rest-csrf.methods-to-ignore</name>
+  <value>GET</value>
+    <description>
+      Optional parameter that indicates the list of HTTP methods that do not
+      require CSRF protection
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.activities-manager.scheduler-activities.ttl-ms</name>
+  <value>600000</value>
+    <description>Time to live for scheduler activities in milliseconds.</description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for YARN version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["yarn.nodemanager.health-checker.interval-ms"],
+    "reason": ["The property 'yarn.nodemanager.health-checker.interval-ms' has the value '3000000000' which exceeds the range of an Integer."]
+}
+```

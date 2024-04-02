@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.placement-constraints.algorithm.iterator</name>
+  <value>SERIAL</value>
+    <description>Placement Algorithm Requests Iterator to be used.</description>
+</property>
+
+<property>
+  <name>yarn.http.policy</name>
+  <value>uiuc</value>
+      <description>
+        This configures the HTTP endpoint for YARN Daemons.The following
+        values are supported:
+        - HTTP_ONLY : Service is provided only on http
+        - HTTPS_ONLY : Service is provided only on https
+      </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.runtime.linux.docker.enable-userremapping.allowed</name>
+  <value>false</value>
+    <description>Property to enable docker user remapping</description>
+</property>
+
+<property>
+  <name>yarn.client.nodemanager-connect.retry-interval-ms</name>
+  <value>10000</value>
+    <description>Time interval between each attempt to connect to NM</description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.entity-group-fs-store.retain-seconds</name>
+  <value>302400</value>
+    <description>
+      How long the ATS v1.5 entity group file system storage will keep an
+      application's data in the done directory.
+    </description>
+</property>
+
+<property>
+  <name>yarn.timeline-service.app-aggregation-interval-secs</name>
+  <value>30</value>
+    <description>
+      The setting that controls how often in-memory app level
+      aggregation is kicked off in timeline collector.
+    </description>
+</property>
+
+<property>
+  <name>yarn.sharedcache.root-dir</name>
+  <value>/valid/file1</value>
+    <description>The root directory for the shared cache</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.resource-plugins.gpu.allowed-gpu-devices</name>
+  <value>auto</value>
+    <description>
+      Specify GPU devices which can be managed by YARN NodeManager, split by comma
+      Number of GPU devices will be reported to RM to make scheduling decisions.
+      Set to auto (default) let YARN automatically discover GPU resource from
+      system.
+
+      Manually specify GPU devices if auto detect GPU device failed or admin
+      only want subset of GPU devices managed by YARN. GPU device is identified
+      by their minor device number and index. A common approach to get minor
+      device number of GPUs is using "nvidia-smi -q" and search "Minor Number"
+      output.
+
+      When manual specify minor numbers, admin needs to include indice of GPUs
+      as well, format is index:minor_number[,index:minor_number...]. An example
+      of manual specification is "0:0,1:1,2:2,3:4" to allow YARN NodeManager to
+      manage GPU devices with indice 0/1/2/3 and minor number 0/1/2/4.
+      numbers .
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for YARN version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["yarn.http.policy"],
+    "reason": ["The property 'yarn.http.policy' has the value 'uiuc' which is not within the accepted value {simple,kerberos}."]
+}
+```

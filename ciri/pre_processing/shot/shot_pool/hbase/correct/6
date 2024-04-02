@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hbase.master.info.bindAddress</name>
+  <value>127.0.0.1</value>
+    <description>The bind address for the HBase Master web UI
+    </description>
+</property>
+
+<property>
+  <name>hbase.hregion.percolumnfamilyflush.size.lower.bound.min</name>
+  <value>33554432</value>
+    <description>
+    If FlushLargeStoresPolicy is used and there are multiple column families,
+    then every time that we hit the total memstore limit, we find out all the
+    column families whose memstores exceed a "lower bound" and only flush them
+    while retaining the others in memory. The "lower bound" will be
+    "hbase.hregion.memstore.flush.size / column_family_number" by default
+    unless value of this property is larger than that. If none of the families
+    have their memstore size more than lower bound, all the memstores will be
+    flushed (just as usual).
+    </description>
+</property>
+
+<property>
+  <name>hbase.regionserver.thread.compaction.throttle</name>
+  <value>2684354560</value>
+    <description>There are two different thread pools for compactions, one for large compactions and
+      the other for small compactions. This helps to keep compaction of lean tables (such as
+      hbase:meta) fast. If a compaction is larger than this threshold, it
+      goes into the large compaction pool. In most cases, the default value is appropriate. Default:
+      2 x hbase.hstore.compaction.max x hbase.hregion.memstore.flush.size (which defaults to 128MB).
+      The value field assumes that the value of hbase.hregion.memstore.flush.size is unchanged from
+      the default.</description>
+</property>
+
+<property>
+  <name>hbase.hstore.compaction.throughput.higher.bound</name>
+  <value>52428800</value>
+    <description>The target upper bound on aggregate compaction throughput, in bytes/sec. Allows
+    you to control aggregate compaction throughput demand when the
+    PressureAwareCompactionThroughputController throughput controller is active. (It is active by
+    default.) The maximum throughput will be tuned between the lower and upper bounds when
+    compaction pressure is within the range [0.0, 1.0]. If compaction pressure is 1.0 or greater
+    the higher bound will be ignored until pressure returns to the normal range.</description>
+</property>
+
+<property>
+  <name>hbase.regionserver.hostname.disable.master.reversedns</name>
+  <value>false</value>
+    <description>This config is for experts: don't set its value unless you really know what you are doing.
+    When set to true, regionserver will use the current node hostname for the servername and HMaster will
+    skip reverse DNS lookup and use the hostname sent by regionserver instead. Note that this config and
+    hbase.regionserver.hostname are mutually exclusive. See https://issues.apache.org/jira/browse/HBASE-18226
+    for more details.</description>
+</property>
+
+<property>
+  <name>hbase.rest.threads.max</name>
+  <value>100</value>
+    <description>The maximum number of threads of the REST server thread pool.
+        Threads in the pool are reused to process REST requests. This
+        controls the maximum number of requests processed concurrently.
+        It may help to control the memory used by the REST server to
+        avoid OOM issues. If the thread pool is full, incoming requests
+        will be queued up and wait for some free threads.</description>
+</property>
+
+<property>
+  <name>hbase.regionserver.thrift.compact</name>
+  <value>false</value>
+    <description>Use Thrift TCompactProtocol binary serialization protocol.</description>
+</property>
+
+<property>
+  <name>hbase.master.wait.on.service.seconds</name>
+  <value>30</value>
+    <description>Default is 5 minutes. Make it 30 seconds for tests. See
+    HBASE-19794 for some context.</description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HBase version 2.2.7? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

@@ -1,0 +1,32 @@
+hot_standby=off
+
+max_standby_archive_delay=30s
+
+log_parameter_max_length_on_error=1
+
+max_stack_depth=4MB
+
+temp_file_limit=-2
+
+geqo_effort=5
+
+enable_partitionwise_join=off
+
+bytea_output='hex'
+
+
+Question: Are there any mistakes in the above configuration file for PostgreSQL version 13.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["hot_standby"],
+    "reason": ["The value of the property 'hot_standby' should be 'on' to enable the property 'max_standby_archive_delay'."]
+}
+```

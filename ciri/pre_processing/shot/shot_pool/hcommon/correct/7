@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hadoop.security.group.mapping.ldap.num.attempts.before.failover</name>
+  <value>6</value>
+  <description>
+    This property is the number of attempts to be made for LDAP operations
+    using a single LDAP instance. If multiple LDAP servers are configured
+    and this number of failed operations is reached, we will switch to the
+    next LDAP server. The configuration for the overall number of attempts
+    will still be respected, failover will thus be performed only if this
+    property is less than hadoop.security.group.mapping.ldap.num.attempts.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.retry.throttle.interval</name>
+  <value>100ms</value>
+  <description>
+    Initial between retry attempts on throttled requests, +/- 50%. chosen at random.
+    i.e. for an intial value of 3000ms, the initial delay would be in the range 1500ms to 4500ms.
+    Backoffs are exponential; again randomness is used to avoid the thundering heard problem.
+    500ms is the default value used by the AWS S3 Retry policy.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.committer.staging.conflict-mode</name>
+  <value>append</value>
+  <description>
+    Staging committer conflict resolution policy.
+    Supported: "fail", "append", "replace".
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.connection.request.timeout</name>
+  <value>2</value>
+  <description>
+    Time out on HTTP requests to the AWS service; 0 means no timeout.
+    Measured in seconds; the usual time suffixes are all supported
+
+    Important: this is the maximum duration of any AWS service call,
+    including upload and copy operations. If non-zero, it must be larger
+    than the time to upload multi-megabyte blocks to S3 from the client,
+    and to rename many-GB files. Use with care.
+
+    Values that are larger than Integer.MAX_VALUE milliseconds are
+    converged to Integer.MAX_VALUE milliseconds
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.change.detection.source</name>
+  <value>etag</value>
+  <description>
+    Select which S3 object attribute to use for change detection.
+    Currently support 'etag' for S3 object eTags and 'versionid' for
+    S3 object version IDs.  Use of version IDs requires object versioning to be
+    enabled for each S3 bucket utilized.  Object versioning is disabled on
+    buckets by default. When version ID is used, the buckets utilized should
+    have versioning enabled before any data is written.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.http.authentication.type</name>
+  <value>simple</value>
+  <description>
+    Defines authentication used for Oozie HTTP endpoint.
+    Supported values are: simple | kerberos | #AUTHENTICATION_HANDLER_CLASSNAME#
+  </description>
+</property>
+
+<property>
+  <name>hadoop.http.cross-origin.enabled</name>
+  <value>false</value>
+  <description>Enable/disable the cross-origin (CORS) filter.</description>
+</property>
+
+<property>
+  <name>hadoop.security.key.provider.path</name>
+  <value>/valid/file2</value>
+  <description>
+    The KeyProvider to use when managing zone keys, and interacting with
+    encryption keys when reading and writing to an encryption zone.
+    For hdfs clients, the provider path will be same as namenode's
+    provider path.
+  </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HCommon version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

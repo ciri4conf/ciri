@@ -1,0 +1,32 @@
+tcp_keepalives_interval=3000000000
+
+max_pred_locks_per_page=2
+
+password_encryption=scram-sha-256
+
+vacuum_buffer_usage_limit=512KB
+
+autovacuum_analyze_scale_factor=0.05
+
+enable_partition_pruning=on
+
+commit_delay=1
+
+port=10864
+
+
+Question: Are there any mistakes in the above configuration file for PostgreSQL version 13.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["tcp_keepalives_interval"],
+    "reason": ["The property 'tcp_keepalives_interval' has the value '3000000000' which exceeds the range of an Integer."]
+}
+```

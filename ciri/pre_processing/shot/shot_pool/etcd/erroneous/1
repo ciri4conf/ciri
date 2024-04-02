@@ -1,0 +1,32 @@
+snapshot-count: ciri
+
+advertise-client-urls: http://localhost:2379
+
+proxy: 'off'
+
+initial-advertise-peer-urls: http://localhost:2380
+
+max-wals: 5
+
+discovery-fallback: 'proxy'
+
+proxy-write-timeout: 2500
+
+max-snapshots: 5
+
+
+Question: Are there any mistakes in the above configuration file for etcd version 3.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["snapshot-count"],
+    "reason": ["The property 'snapshot-count' has the value 'ciri' which is not of the correct type Integer."]
+}
+```

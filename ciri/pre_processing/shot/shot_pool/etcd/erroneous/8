@@ -1,0 +1,32 @@
+discovery-fallback: 'proxy'
+
+proxy: 'off'
+
+listen-client-urls: http://localhost:2379
+
+name: 'default'
+
+proxy-failure-wait: 5000
+
+proxy-read-timeout: 1
+
+quota-backend-bytes: 0
+
+ca-file: /etcd/ca_file
+
+
+Question: Are there any mistakes in the above configuration file for etcd version 3.5.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["ca-file"],
+    "reason": ["The property 'ca-file' was removed in the previous version and is not used in the current version."]
+}
+```

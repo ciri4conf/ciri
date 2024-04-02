@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hadoop.security.group.mapping</name>
+  <value>org.apache.hadoop.security.JniBasedUnixGroupsMappingWithFallback</value>
+  <description>
+    Class for user to group mapping (get groups for a given user) for ACL.
+    The default implementation,
+    org.apache.hadoop.security.JniBasedUnixGroupsMappingWithFallback,
+    will determine if the Java Native Interface (JNI) is available. If JNI is
+    available the implementation will use the API within hadoop to resolve a
+    list of groups for a user. If JNI is not available then the shell
+    implementation, ShellBasedUnixGroupsMapping, is used.  This implementation
+    shells out to the Linux/Unix environment with the
+    <code>bash -c groups</code> command to resolve a list of groups for a user.
+  </description>
+</property>
+
+<property>
+  <name>io.erasurecode.codec.rs.rawcoders</name>
+  <value>rs_native,rs_java</value>
+  <description>
+    Comma separated raw coder implementations for the rs codec. The earlier
+    factory is prior to followings in case of failure of creating raw coders.
+  </description>
+</property>
+
+<property>
+  <name>fs.s3a.attempts.maximum</name>
+  <value>10</value>
+  <description>How many times we should retry commands on transient errors.</description>
+</property>
+
+<property>
+  <name>fs.AbstractFileSystem.wasb.impl</name>
+  <value>org.apache.hadoop.fs.azure.Wasb</value>
+  <description>AbstractFileSystem implementation class of wasb://</description>
+</property>
+
+<property>
+  <name>ipc.client.fallback-to-simple-auth-allowed</name>
+  <value>false</value>
+  <description>
+    When a client is configured to attempt a secure connection, but attempts to
+    connect to an insecure server, that server may instruct the client to
+    switch to SASL SIMPLE (unsecure) authentication. This setting controls
+    whether or not the client will accept this instruction from the server.
+    When false (the default), the client will not allow the fallback to SIMPLE
+    authentication, and will abort the connection.
+  </description>
+</property>
+
+<property>
+  <name>hadoop.security.kms.client.failover.sleep.base.millis</name>
+  <value>50</value>
+  <description>
+    Expert only. The time to wait, in milliseconds, between failover
+    attempts increases exponentially as a function of the number of
+    attempts made so far, with a random factor of +/- 50%. This option
+    specifies the base value used in the failover calculation. The
+    first failover will retry immediately. The 2nd failover attempt
+    will delay at least hadoop.security.client.failover.sleep.base.millis
+    milliseconds. And so on.
+  </description>
+</property>
+
+<property>
+  <name>fs.getspaceused.jitterMillis</name>
+  <value>30000</value>
+    <description>
+      fs space usage statistics refresh jitter in msec.
+    </description>
+</property>
+
+<property>
+  <name>hadoop.metrics.jvm.use-thread-mxbean</name>
+  <value>false</value>
+    <description>
+      Whether or not ThreadMXBean is used for getting thread info in JvmMetrics,
+      ThreadGroup approach is preferred for better performance.
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HCommon version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

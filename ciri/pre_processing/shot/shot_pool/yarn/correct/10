@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    
+<property>
+  <name>yarn.resourcemanager.scheduler.monitor.policies</name>
+  <value>org.apache.hadoop.yarn.server.resourcemanager.monitor.capacity.ProportionalCapacityPreemptionPolicy</value>
+    <description>The list of SchedulingEditPolicy classes that interact with
+        the scheduler. A particular module may be incompatible with the
+        scheduler, other policies, or a configuration of either.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.max-log-aggregation-diagnostics-in-memory</name>
+  <value>1</value>
+    <description>Number of diagnostics/failure messages can be saved in RM for
+    log aggregation. It also defines the number of diagnostics/failure
+    messages can be shown in log aggregation web ui.</description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.reservation-system.planfollower.time-step</name>
+  <value>2000</value>
+    <description>
+    Step size of the reservation system in ms
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.log-container-debug-info.enabled</name>
+  <value>false</value>
+    <description>Generate additional logs about container launches.
+    Currently, this creates a copy of the launch script and lists the
+    directory contents of the container work dir. When listing directory
+    contents, we follow symlinks to a max-depth of 5(including symlinks
+    which point to outside the container work dir) which may lead to a
+    slowness in launching containers.
+    </description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.linux-container-executor.nonsecure-mode.limit-users</name>
+  <value>false</value>
+    <description>This determines which of the two modes that LCE should use on
+      a non-secure cluster.  If this value is set to true, then all containers
+      will be launched as the user specified in
+      yarn.nodemanager.linux-container-executor.nonsecure-mode.local-user.  If
+      this value is set to false, then containers will run as the user who
+      submitted the application.</description>
+</property>
+
+<property>
+  <name>yarn.nodemanager.node-attributes.provider.fetch-timeout-ms</name>
+  <value>1200000</value>
+    <description>
+      Timeout period after which NM will interrupt the node attribute
+      provider script which queries node attributes. Defaults to 20 mins.
+    </description>
+</property>
+
+<property>
+  <name>yarn.resourcemanager.opportunistic-container-allocation.nodes-used</name>
+  <value>20</value>
+    <description>
+    Number of nodes to be used by the Opportunistic Container Allocator for
+    dispatching containers during container allocation.
+    </description>
+</property>
+
+<property>
+  <name>yarn.node-labels.fs-store.impl.class</name>
+  <value>org.apache.hadoop.yarn.nodelabels.FileSystemNodeLabelsStore</value>
+    <description>
+    Choose different implementation of node label's storage
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for YARN version 3.3.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```

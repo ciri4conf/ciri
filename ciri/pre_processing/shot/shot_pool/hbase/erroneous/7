@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+<property>
+  <name>hbase.cluster.distributed</name>
+  <value>false</value>
+    <description>The mode the cluster will be in. Possible values are
+      false for standalone mode and true for distributed mode.  If
+      false, startup will run all HBase and ZooKeeper daemons together
+      in the one JVM.</description>
+</property>
+
+<property>
+  <name>hbase.master.info.port</name>
+  <value>3001</value>
+    <description>The port for the HBase Master web UI.
+    Set to -1 if you do not want a UI instance run.</description>
+</property>
+
+<property>
+  <name>hbase.regionserver.global.memstore.size</name>
+  <value>0.1</value>
+    <description>Maximum size of all memstores in a region server before new
+      updates are blocked and flushes are forced. Defaults to 40% of heap (0.4).
+      Updates are blocked and flushes are forced until size of all memstores
+      in a region server hits hbase.regionserver.global.memstore.size.lower.limit.
+      The default value in this configuration has been intentionally left empty in order to
+      honor the old hbase.regionserver.global.memstore.upperLimit property if present.
+    </description>
+</property>
+
+<property>
+  <name>hbase.hregion.majorcompaction</name>
+  <value>302400000</value>
+    <description>Time between major compactions, expressed in milliseconds. Set to 0 to disable
+      time-based automatic major compactions. User-requested and size-based major compactions will
+      still run. This value is multiplied by hbase.hregion.majorcompaction.jitter to cause
+      compaction to start at a somewhat-random time during a given window of time. The default value
+      is 7 days, expressed in milliseconds. If major compactions are causing disruption in your
+      environment, you can configure them to run at off-peak times for your deployment, or disable
+      time-based major compactions by setting this parameter to 0, and run major compactions in a
+      cron job or by another external mechanism.</description>
+</property>
+
+<property>
+  <name>hbase.regionserver.minorcompaction.pagecache.drop</name>
+  <value>false</value>
+    <description>Specifies whether to drop pages read/written into the system page cache by
+      minor compactions. Setting it to true helps prevent minor compactions from
+      polluting the page cache, which is most beneficial on clusters with low
+      memory to storage ratio or very write heavy clusters. You may want to set it to
+      false under moderate to low write workload when bulk of the reads are
+      on the most recently written data.</description>
+</property>
+
+<property>
+  <name>hbase.table.lock.enable</name>
+  <value>false</value>
+    <description>Set to true to enable locking the table in zookeeper for schema change operations.
+    Table locking from master prevents concurrent schema modifications to corrupt table
+    state.</description>
+</property>
+
+<property>
+  <name>hbase.security.authentication</name>
+  <value>uiuc</value>
+    <description>
+      Controls whether or not secure authentication is enabled for HBase.
+      Possible values are 'simple' (no authentication), and 'kerberos'.
+    </description>
+</property>
+
+<property>
+  <name>hbase.security.visibility.mutations.checkauths</name>
+  <value>true</value>
+    <description>
+      This property if enabled, will check whether the labels in the visibility
+      expression are associated with the user issuing the mutation
+    </description>
+</property>
+
+</configuration>
+
+Question: Are there any mistakes in the above configuration file for HBase version 2.2.7? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["hbase.security.authentication"],
+    "reason": ["The property 'hbase.security.authentication' has the value 'uiuc' which is not within the accepted value {simple,kerberos}."]
+}
+```

@@ -1,0 +1,32 @@
+tickTime=3000000000
+
+maxSessionTimeout=-2
+
+secureClientPort=3001
+
+portUnification=true
+
+syncLimit=10
+
+localSessionsEnabled=false
+
+peerType=participant
+
+quorum.auth.server.saslLoginContext=QuorumServer
+
+
+Question: Are there any mistakes in the above configuration file for ZooKeeper version 3.7.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": true,
+    "errParameter": ["tickTime"],
+    "reason": ["The property 'tickTime' has the value '3000000000' which exceeds the range of an Integer."]
+}
+```

@@ -1,0 +1,32 @@
+wal_sender_timeout=60s
+
+checkpoint_completion_target=1.8
+
+log_min_error_statement=error
+
+lc_numeric='C'
+
+archive_timeout=2
+
+ssl_cert_file='server.crt'
+
+client_encoding=sql_ascii
+
+fsync=on
+
+
+Question: Are there any mistakes in the above configuration file for PostgreSQL version 13.0? Respond in a json format similar to the following:
+{
+    "hasError": boolean, // true if there are errors, false if there are none
+    "errParameter": [], // List containing properties with errors. If there are no errors, leave this as an empty array
+    "reason": [] // List containing explanations for each error. If there are no errors, leave this as an empty array
+}
+
+Answer:
+```json
+{
+    "hasError": false,
+    "errParameter": [],
+    "reason": []
+}
+```
